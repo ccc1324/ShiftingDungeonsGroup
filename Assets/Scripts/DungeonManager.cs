@@ -67,46 +67,26 @@ public class DungeonManager : MonoBehaviour
         CameraObject.GetComponent<CameraMovement>().CameraState = "Follow";
 
         //Instantiate Spawn for the first time
-        _room_spawn = Instantiate(
+        _room_spawn = MyInstantiate(
                     Spawn,
-                    new Vector3(
-                        Player.transform.position.x,
-                        Player.transform.position.y + _player_offset,
-                        0),
-                    new Quaternion(0, 0, 0, 0),
-                    Grid.transform);
-        _room_left = Instantiate(
+                    Player.transform.position.x,
+                    Player.transform.position.y + _player_offset);
+        _room_left = MyInstantiate(
                     Filler[_level],
-                    new Vector3(
-                        Player.transform.position.x - _spawn_size/2 - _dungeon_size/2,
-                        Player.transform.position.y + _player_offset,
-                        0),
-                    new Quaternion(0, 0, 0, 0),
-                    Grid.transform);
-        _room_current = Instantiate(
+                    Player.transform.position.x - _spawn_size/2 - _dungeon_size/2,
+                    Player.transform.position.y + _player_offset);
+        _room_current = MyInstantiate(
                     Dungeons[_level],
-                    new Vector3(
-                        Player.transform.position.x + _spawn_size / 2 + _dungeon_size / 2,
-                        Player.transform.position.y + _player_offset,
-                        0),
-                    new Quaternion(0, 0, 0, 0),
-                    Grid.transform);
-        _wall = Instantiate(
+                    Player.transform.position.x + _spawn_size / 2 + _dungeon_size / 2,
+                    Player.transform.position.y + _player_offset);
+        _wall = MyInstantiate(
                     Walls[_level].SpawnWallsRight,
-                    new Vector3(
-                        Player.transform.position.x,
-                        Player.transform.position.y + _player_offset,
-                        0),
-                    new Quaternion(0, 0, 0, 0),
-                    Grid.transform);
-        _wall_another = Instantiate(
+                    Player.transform.position.x,
+                    Player.transform.position.y + _player_offset);
+        _wall_another = MyInstantiate(
                     Walls[_level].StaticWallsLeft,
-                    new Vector3(
-                        _room_current.transform.position.x,
-                        Player.transform.position.y + _player_offset,
-                        0),
-                    new Quaternion(0, 0, 0, 0),
-                    Grid.transform);
+                    _room_current.transform.position.x,
+                    Player.transform.position.y + _player_offset);
 
         //Update Dungeon State
         DungeonState = "Spawn";
@@ -124,42 +104,26 @@ public class DungeonManager : MonoBehaviour
                     Destroy(_room_left);
 
                     //Instatiate new rooms
-                    _room_left = Instantiate(
+                    _room_left = MyInstantiate(
                         Dungeons[_level],
-                        new Vector3(
-                            _room_current.transform.position.x - _dungeon_size,
-                            _room_current.transform.position.y,
-                            0),
-                        new Quaternion(0, 0, 0, 0),
-                        Grid.transform);
-                    _room_right = Instantiate(
+                        _room_current.transform.position.x - _dungeon_size,
+                        _room_current.transform.position.y);
+                    _room_right = MyInstantiate(
                         Dungeons[_level],
-                        new Vector3(
-                            _room_current.transform.position.x + _dungeon_size,
-                            _room_current.transform.position.y,
-                            0),
-                        new Quaternion(0, 0, 0, 0),
-                        Grid.transform);
+                        _room_current.transform.position.x + _dungeon_size,
+                        _room_current.transform.position.y);
 
                     //Update Walls
                     Destroy(_wall);
                     Destroy(_wall_another);
-                    _wall = Instantiate(
+                    _wall = MyInstantiate(
                         Walls[_level].ShiftingWalls,
-                        new Vector3(
-                            _room_current.transform.position.x,
-                            _room_current.transform.position.y,
-                            0),
-                        new Quaternion(0, 0, 0, 0),
-                        Grid.transform);
-                    _wall_another = Instantiate(
+                        _room_current.transform.position.x,
+                        _room_current.transform.position.y);
+                    _wall_another = MyInstantiate(
                         Walls[_level].ShiftingWallsAnimated,
-                        new Vector3(
-                            _room_current.transform.position.x,
-                            _room_current.transform.position.y,
-                            0),
-                        new Quaternion(0, 0, 0, 0),
-                        Grid.transform);
+                        _room_current.transform.position.x,
+                        _room_current.transform.position.y);
 
                     DungeonState = "Shifting";
                 }
@@ -170,28 +134,20 @@ public class DungeonManager : MonoBehaviour
                     Destroy(_room_left);
                     _room_left = _room_current;
                     _room_current = _room_right;
-                    _room_right = Instantiate(
+                    _room_right = MyInstantiate(
                         Dungeons[_level],
-                        new Vector3(
-                            _room_current.transform.position.x + _dungeon_size,
-                            _room_current.transform.position.y,
-                            _room_current.transform.position.z),
-                        new Quaternion(0, 0, 0, 0),
-                        Grid.transform);
+                        _room_current.transform.position.x + _dungeon_size,
+                        _room_current.transform.position.y);
                 }
                 else if (Player.transform.position.x < _room_current.transform.position.x - 10)
                 {
                     Destroy(_room_right);
                     _room_right = _room_current;
                     _room_current = _room_left;
-                    _room_left = Instantiate(
+                    _room_left = MyInstantiate(
                         Dungeons[_level],
-                        new Vector3(
-                            _room_current.transform.position.x - _dungeon_size,
-                            _room_current.transform.position.y,
-                            _room_current.transform.position.z),
-                        new Quaternion(0, 0, 0, 0),
-                        Grid.transform);
+                        _room_current.transform.position.x - _dungeon_size,
+                        _room_current.transform.position.y);
                 }
 
                 //When conditions for boss fight are met, Wait for certain conditions then transition to boss fight state
@@ -207,33 +163,21 @@ public class DungeonManager : MonoBehaviour
                         Destroy(_room_left);
                         Destroy(_room_right);
 
-                        _room_boss = Instantiate(
+                        _room_boss = MyInstantiate(
                             BossRooms[_level],
-                            new Vector3(
-                                _room_current.transform.position.x + _dungeon_size,
-                                _room_current.transform.position.y,
-                                _room_current.transform.position.z),
-                            new Quaternion(0, 0, 0, 0),
-                            Grid.transform);
+                            _room_current.transform.position.x + _dungeon_size,
+                            _room_current.transform.position.y);
 
                         Destroy(_wall);
                         Destroy(_wall_another);
-                        _wall = Instantiate(
+                        _wall = MyInstantiate(
                             Walls[_level].StaticWallsRight,
-                            new Vector3(
-                                _room_current.transform.position.x,
-                                _room_current.transform.position.y,
-                                0),
-                            new Quaternion(0, 0, 0, 0),
-                            Grid.transform);
-                        _wall_another = Instantiate(
+                            _room_current.transform.position.x,
+                            _room_current.transform.position.y);
+                        _wall_another = MyInstantiate(
                             Walls[_level].StaticWallsLeft,
-                            new Vector3(
-                                _room_current.transform.position.x + _dungeon_size,
-                                _room_current.transform.position.y,
-                                0),
-                            new Quaternion(0, 0, 0, 0),
-                            Grid.transform);
+                            _room_current.transform.position.x + _dungeon_size,
+                            _room_current.transform.position.y);
 
                         DungeonState = "TransitionToBossA";
                         SpawnBoss = false;
@@ -265,14 +209,10 @@ public class DungeonManager : MonoBehaviour
                     Destroy(_wall);
                     Destroy(_wall_another);
 
-                    _wall = Instantiate(
+                    _wall = MyInstantiate(
                         Walls[_level].StaticWalls,
-                        new Vector3(
-                            _room_boss.transform.position.x,
-                            _room_boss.transform.position.y,
-                            0),
-                        new Quaternion(0, 0, 0, 0),
-                        Grid.transform);
+                        _room_boss.transform.position.x,
+                        _room_boss.transform.position.y);
 
                     DungeonState = "BossFight";
                 }
@@ -281,41 +221,25 @@ public class DungeonManager : MonoBehaviour
             case "BossFight":
                 if (BossDefeated)
                 {
-                    _room_spawn = Instantiate(
+                    _room_spawn = MyInstantiate(
                         Spawn,
-                        new Vector3(
-                            _room_boss.transform.position.x + _dungeon_size / 2 + _spawn_size / 2,
-                            _room_boss.transform.position.y,
-                            0),
-                        new Quaternion(0, 0, 0, 0),
-                        Grid.transform);
-                    _room_current = Instantiate(
+                        _room_boss.transform.position.x + _dungeon_size / 2 + _spawn_size / 2,
+                        _room_boss.transform.position.y);
+                    _room_current = MyInstantiate(
                         Dungeons[_level],
-                        new Vector3(
-                            _room_boss.transform.position.x + _dungeon_size + _spawn_size,
-                            _room_boss.transform.position.y,
-                            0),
-                        new Quaternion(0, 0, 0, 0),
-                        Grid.transform);
+                        _room_boss.transform.position.x + _dungeon_size + _spawn_size,
+                        _room_boss.transform.position.y);
 
                     Destroy(_wall);
 
-                    _wall = Instantiate(
+                    _wall = MyInstantiate(
                         Walls[_level].SpawnWallsLeft,
-                        new Vector3(
-                            _room_spawn.transform.position.x,
-                            _room_spawn.transform.position.y,
-                            0),
-                        new Quaternion(0, 0, 0, 0),
-                        Grid.transform);
-                    _wall_another = Instantiate(
+                        _room_spawn.transform.position.x,
+                        _room_spawn.transform.position.y);
+                    _wall_another = MyInstantiate(
                         Walls[_level].StaticWallsRight,
-                        new Vector3(
-                            _room_boss.transform.position.x,
-                            _room_boss.transform.position.y,
-                            0),
-                        new Quaternion(0, 0, 0, 0),
-                        Grid.transform);
+                        _room_boss.transform.position.x,
+                        _room_boss.transform.position.y);
 
                     DungeonState = "TransitionToSpawnA";
                     BossDefeated = false;
@@ -347,34 +271,22 @@ public class DungeonManager : MonoBehaviour
 
                     Destroy(_room_boss);
 
-                    _room_left = Instantiate(
+                    _room_left = MyInstantiate(
                         Filler[_level],
-                        new Vector3(
-                            _room_spawn.transform.position.x - _spawn_size / 2 - _dungeon_size / 2,
-                            _room_spawn.transform.position.y,
-                            0),
-                        new Quaternion(0, 0, 0, 0),
-                        Grid.transform);
+                        _room_spawn.transform.position.x - _spawn_size / 2 - _dungeon_size / 2,
+                        _room_spawn.transform.position.y);
 
                     Destroy(_wall);
                     Destroy(_wall_another);
 
-                    _wall = Instantiate(
-                       Walls[_level].SpawnWallsRight,
-                       new Vector3(
-                           _room_spawn.transform.position.x,
-                           _room_spawn.transform.position.y,
-                           0),
-                       new Quaternion(0, 0, 0, 0),
-                       Grid.transform);
-                    _wall_another = Instantiate(
-                        Walls[_level].StaticWallsLeft,
-                        new Vector3(
-                            _room_current.transform.position.x,
-                            _room_current.transform.position.y,
-                            0),
-                        new Quaternion(0, 0, 0, 0),
-                        Grid.transform);
+                    _wall = MyInstantiate(
+                        Walls[_level].SpawnWallsRight,
+                        _room_spawn.transform.position.x,
+                        _room_spawn.transform.position.y);
+                    _wall_another = MyInstantiate(
+                        Walls[_level].StaticWallsLeft, 
+                        _room_current.transform.position.x, 
+                        _room_current.transform.position.y);
 
                     DungeonState = "Spawn";
                 }
