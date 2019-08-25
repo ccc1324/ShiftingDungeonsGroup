@@ -15,8 +15,8 @@ GameObject:
   - component: {fileID: 6132699294431634459}
   - component: {fileID: 4908807238417738636}
   m_Layer: 0
-  m_Name: DirtBeta
-  m_TagString: Untagged
+  m_Name: FillerBeta
+  m_TagString: Room
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
