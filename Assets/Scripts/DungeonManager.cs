@@ -47,14 +47,18 @@ public class DungeonManager : MonoBehaviour
     private GameObject Player;
     private GameObject Grid;
     private GameObject CameraObject;
+    private MonsterSpawner MonsterSpawner;
 
     private void Start()
     {
         _player_offset = 3.5f;
-        _dungeon_size = 20;
+        _dungeon_size = 18;
         _spawn_size = 40;
         _level = 0;
 
+        MonsterSpawner = FindObjectOfType<MonsterSpawner>().GetComponent<MonsterSpawner>();
+        if (MonsterSpawner == null)
+            Debug.Log("DungeonManager could not find MonsterSpawner");
         Player = FindObjectOfType<PlayerMovement>().gameObject;
         if (Player == null)
             Debug.Log("DungeonManager could not find Player");
@@ -96,6 +100,7 @@ public class DungeonManager : MonoBehaviour
     {
         switch (DungeonState)
         {
+            #region Spawn
             case "Spawn":
                 if (Player.transform.position.x > _room_current.transform.position.x)
                 {
@@ -126,8 +131,12 @@ public class DungeonManager : MonoBehaviour
                         _room_current.transform.position.y);
 
                     DungeonState = "Shifting";
+
+                    MonsterSpawner.SpawnMobs(_level);
                 }
                 break;
+            #endregion
+            #region Shifting
             case "Shifting":
                 if (Player.transform.position.x > _room_current.transform.position.x + 10)
                 {
@@ -184,7 +193,8 @@ public class DungeonManager : MonoBehaviour
                     }
                 }
                 break;
-
+            #endregion
+            #region TransitionToBoss
             case "TransitionToBossA": //Player is in current room
                 //Move Camera to boss room
                 if (Player.transform.position.x > _room_current.transform.position.x + _dungeon_size / 2)
@@ -217,7 +227,8 @@ public class DungeonManager : MonoBehaviour
                     DungeonState = "BossFight";
                 }
                 break;
-
+            #endregion
+            #region BossFight
             case "BossFight":
                 if (BossDefeated)
                 {
@@ -245,7 +256,8 @@ public class DungeonManager : MonoBehaviour
                     BossDefeated = false;
                 }
                 break;
-
+            #endregion
+            #region TransitionToSpawn
             case "TransitionToSpawnA": //Player is in boss room
                 //Move Camera to spawn room
                 if (Player.transform.position.x > _room_boss.transform.position.x + _dungeon_size / 2)
@@ -291,6 +303,8 @@ public class DungeonManager : MonoBehaviour
                     DungeonState = "Spawn";
                 }
                 break;
+                #endregion
+            
         }
     }
 

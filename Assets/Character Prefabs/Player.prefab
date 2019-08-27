@@ -151,6 +151,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   EnableWeaponHitbox: 0
   WeaponDamage: 0
+  SetToStun: 0
 --- !u!1 &6543257239582837413
 GameObject:
   m_ObjectHideFlags: 0

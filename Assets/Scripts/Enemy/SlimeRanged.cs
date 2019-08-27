@@ -54,7 +54,7 @@ public class SlimeRanged : MonoBehaviour, IEnemy
         if (Stunned)
             return;
 
-        if (Time.time - _time_of_last_attack > AttackCooldown)
+        if (Time.time - _time_of_last_attack > AttackCooldown && Health > 0)
         {
             _animator.SetBool("Attacking", true);
             _time_of_last_attack = Time.time;
@@ -74,6 +74,7 @@ public class SlimeRanged : MonoBehaviour, IEnemy
         if (Health <= 0)
         {
             _animator.SetBool("Dead", true);
+            StopAllCoroutines();
         }
     }
 

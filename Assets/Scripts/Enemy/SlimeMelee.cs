@@ -59,7 +59,7 @@ public class SlimeMelee : MonoBehaviour, IEnemy
         if (Stunned)
             return;
 
-        if (Time.time - _time_of_last_attack > AttackCooldown)
+        if (Time.time - _time_of_last_attack > AttackCooldown && Health > 0)
         {
             _animator.SetTrigger("Attack");
             _time_of_last_attack = Time.time;
@@ -90,6 +90,8 @@ public class SlimeMelee : MonoBehaviour, IEnemy
         if (Health <= 0)
         {
             _animator.SetBool("Dead", true);
+            Stop();
+            StopAllCoroutines();
         }
     }
 

@@ -1,0 +1,26 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 212de5a5a9a08154d90d31c779431650, type: 3}
+  m_Name: TestWaves
+  m_EditorClassIdentifier: 
+  SpawnCooldown: 10
+  WaveArray:
+  - WaveBuffer: 0
+    Mobs:
+    - Prefab: {fileID: 1864851530522590640, guid: 597a23c27277c5149a21b1c82c7dc574,
+        type: 3}
+      Location: {x: -8, y: 4}
+      EjectSpeed: 10
+    - Prefab: {fileID: 1864851530522590640, guid: 597a23c27277c5149a21b1c82c7dc574,
+        type: 3}
+      Location: {x: 4, y: 8}
+      EjectSpeed: 10

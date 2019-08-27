@@ -28,6 +28,7 @@ public class SlimeBoss : MonoBehaviour, IEnemy
     private Animator _animator;
     private Transform _player_location;
     private SpriteRenderer _sprite;
+    private DungeonManager _dungeon_manager;
 
     private bool _idle;
 
@@ -37,6 +38,7 @@ public class SlimeBoss : MonoBehaviour, IEnemy
         _animator = GetComponent<Animator>();
         _player_location = FindObjectOfType<PlayerInventory>().transform;
         _sprite = GetComponent<SpriteRenderer>();
+        _dungeon_manager = FindObjectOfType<DungeonManager>();
 
         _idle = true;
     }
@@ -68,6 +70,7 @@ public class SlimeBoss : MonoBehaviour, IEnemy
 
         if (Dead)
         {
+            _dungeon_manager.BossDefeated = true;
             Destroy(gameObject);
         }
 
