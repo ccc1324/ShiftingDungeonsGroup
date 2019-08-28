@@ -13,8 +13,8 @@ public class Level : ScriptableObject
     //Rooms
     public GameObject Spawn;
     public GameObject Filler;
-    public GameObject Dungeons;
-    public GameObject BossRooms;
+    public List<GameObject> Stages; //first state is flat, should be able to be used for shifting
+    public GameObject BossRoom;
     public WallSet Walls;
 
     [System.Serializable]

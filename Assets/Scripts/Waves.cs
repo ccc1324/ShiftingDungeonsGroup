@@ -2,17 +2,28 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-[CreateAssetMenu(fileName = "New Waves", menuName = "Waves")]
+/*
+ * Contains information on how many waves to spawn each stage of a level
+ * and how to spawn a the mobs in each wave.
+ */
+
+[CreateAssetMenu(fileName = "New WavesData", menuName = "WavesData")]
 public class Waves : ScriptableObject
 {
-    public float SpawnCooldown;
-    public List<Wave> WaveArray;
+    public float SpawnCooldown; //How long between spawning of each wave
+    public List<Stage> StageList; //The stages contained in a level
+
+    [System.Serializable]
+    public struct Stage
+    {
+        public List<Wave> WaveList; //Waves for a stage
+    }
 
     [System.Serializable]
     public struct Wave
     {
-        public float WaveBuffer;
-        public List<Mob> Mobs;
+        public float WaveBuffer; //extra time between waves
+        public List<Mob> Mobs; //list of mobs
     }
 
     [System.Serializable]

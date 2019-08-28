@@ -4,42 +4,29 @@ using UnityEngine;
 
 public class DungeonManager : MonoBehaviour
 {
-    //prefabs to instantiate
-    public GameObject Spawn;
-    public List<GameObject> Filler;
-    public List<GameObject> Dungeons;
-    public List<GameObject> BossRooms;
-    public List<WallSet> Walls;
-
-    [System.Serializable]
-    public struct WallSet //Struct that contains references to the set of walls necessary for a dungeon level
-    {
-        public GameObject ShiftingWalls;
-        public GameObject ShiftingWallsAnimated;
-        public GameObject SpawnWallsLeft;
-        public GameObject SpawnWallsRight;
-        public GameObject StaticWalls;
-        public GameObject StaticWallsLeft;
-        public GameObject StaticWallsRight;
-    }
+    //levels
+    public List<Level> Levels;
 
     //stats of various rooms
     private float _player_offset; //-player's y coordinate
     private int _dungeon_size;
     private int _level;
+    private int _stage;
     private int _spawn_size;
 
     //references to rooms and wall
     private GameObject _room_left; //also used to store filler room (dirt)
-    private GameObject _room_current;
+    public GameObject _room_current;
     private GameObject _room_right;
     private GameObject _room_spawn;
     private GameObject _room_boss;
+    public GameObject RoomStage; //should always hold a reference to current stage (if it exists)
     private GameObject _wall;
     private GameObject _wall_another;
 
     //Dungeon States
     public string DungeonState;
+    public bool MobsCleared;
     public bool SpawnBoss;
     public bool BossDefeated;
 
@@ -72,23 +59,24 @@ public class DungeonManager : MonoBehaviour
 
         //Instantiate Spawn for the first time
         _room_spawn = MyInstantiate(
-                    Spawn,
+                    Levels[_level].Spawn,
                     Player.transform.position.x,
                     Player.transform.position.y + _player_offset);
         _room_left = MyInstantiate(
-                    Filler[_level],
+                    Levels[_level].Filler,
                     Player.transform.position.x - _spawn_size/2 - _dungeon_size/2,
                     Player.transform.position.y + _player_offset);
-        _room_current = MyInstantiate(
-                    Dungeons[_level],
+        RoomStage = _room_current = MyInstantiate(
+                    Levels[_level].Stages[_stage],
                     Player.transform.position.x + _spawn_size / 2 + _dungeon_size / 2,
                     Player.transform.position.y + _player_offset);
+
         _wall = MyInstantiate(
-                    Walls[_level].SpawnWallsRight,
+                    Levels[_level].Walls.SpawnWallsRight,
                     Player.transform.position.x,
                     Player.transform.position.y + _player_offset);
         _wall_another = MyInstantiate(
-                    Walls[_level].StaticWallsLeft,
+                    Levels[_level].Walls.StaticWallsLeft,
                     _room_current.transform.position.x,
                     Player.transform.position.y + _player_offset);
 
@@ -104,17 +92,21 @@ public class DungeonManager : MonoBehaviour
             case "Spawn":
                 if (Player.transform.position.x > _room_current.transform.position.x)
                 {
+                    //Lock Camera
+                    CameraObject.GetComponent<CameraMovement>().CameraState = "Locked";
+                    CameraObject.transform.position = new Vector3(_room_current.transform.position.x, CameraObject.transform.position.y, -10);
+
                     //Destroy previous rooms
                     Destroy(_room_spawn);
                     Destroy(_room_left);
 
                     //Instatiate new rooms
                     _room_left = MyInstantiate(
-                        Dungeons[_level],
+                        Levels[_level].Stages[0],
                         _room_current.transform.position.x - _dungeon_size,
                         _room_current.transform.position.y);
                     _room_right = MyInstantiate(
-                        Dungeons[_level],
+                        Levels[_level].Stages[0],
                         _room_current.transform.position.x + _dungeon_size,
                         _room_current.transform.position.y);
 
@@ -122,74 +114,213 @@ public class DungeonManager : MonoBehaviour
                     Destroy(_wall);
                     Destroy(_wall_another);
                     _wall = MyInstantiate(
-                        Walls[_level].ShiftingWalls,
-                        _room_current.transform.position.x,
-                        _room_current.transform.position.y);
-                    _wall_another = MyInstantiate(
-                        Walls[_level].ShiftingWallsAnimated,
+                        Levels[_level].Walls.StaticWalls,
                         _room_current.transform.position.x,
                         _room_current.transform.position.y);
 
-                    DungeonState = "Shifting";
+                    DungeonState = "Stage";
 
-                    MonsterSpawner.SpawnMobs(_level);
+                    MonsterSpawner.SpawnMobs(_level, _stage);
                 }
                 break;
             #endregion
-            #region Shifting
-            case "Shifting":
+            #region Stage
+            case "Stage":
+                if (MobsCleared)
+                {
+                    //Wait for certain conditions then transition to next state
+                    if (Player.transform.position.x <= _room_current.transform.position.x + 0.05 &&
+                        Player.transform.position.x >= _room_current.transform.position.x - 0.05)
+                    {
+                        //Update Walls
+                        Destroy(_wall);
+                        _wall = MyInstantiate(
+                            Levels[_level].Walls.ShiftingWalls,
+                            _room_current.transform.position.x,
+                            _room_current.transform.position.y);
+                        _wall_another = MyInstantiate(
+                            Levels[_level].Walls.ShiftingWallsAnimated,
+                            _room_current.transform.position.x,
+                            _room_current.transform.position.y);
+
+                        CameraObject.GetComponent<CameraMovement>().CameraState = "Follow";
+                        MobsCleared = false;
+                        _stage++;
+                        DungeonState = "TransitionToShifting";
+                    }
+                }
+                break;
+            #endregion
+            #region TransitionToShifting
+            case "TransitionToShifting":
+                //Loop empty rooms
                 if (Player.transform.position.x > _room_current.transform.position.x + 10)
                 {
                     Destroy(_room_left);
                     _room_left = _room_current;
                     _room_current = _room_right;
-                    _room_right = MyInstantiate(
-                        Dungeons[_level],
-                        _room_current.transform.position.x + _dungeon_size,
-                        _room_current.transform.position.y);
+                    if (!SpawnBoss)
+                    {
+                        RoomStage = _room_right = MyInstantiate(
+                            Levels[_level].Stages[_stage],
+                            _room_current.transform.position.x + _dungeon_size,
+                            _room_current.transform.position.y);
+                    }
+                    else if (SpawnBoss)
+                    {
+                        _room_right = MyInstantiate(
+                            Levels[_level].Stages[0],
+                            _room_current.transform.position.x + _dungeon_size,
+                            _room_current.transform.position.y);
+                    }
+                    DungeonState = "Shifting";
                 }
                 else if (Player.transform.position.x < _room_current.transform.position.x - 10)
                 {
                     Destroy(_room_right);
                     _room_right = _room_current;
                     _room_current = _room_left;
-                    _room_left = MyInstantiate(
-                        Dungeons[_level],
-                        _room_current.transform.position.x - _dungeon_size,
-                        _room_current.transform.position.y);
+                    if (!SpawnBoss)
+                    {
+                        RoomStage = _room_left = MyInstantiate(
+                            Levels[_level].Stages[_stage],
+                            _room_current.transform.position.x - _dungeon_size,
+                            _room_current.transform.position.y);
+                    }
+                    else if (SpawnBoss)
+                    {
+                        _room_left = MyInstantiate(
+                            Levels[_level].Stages[0],
+                            _room_current.transform.position.x - _dungeon_size,
+                            _room_current.transform.position.y);
+                    }
+                    DungeonState = "Shifting";
+                }
+                break;
+            #endregion
+            #region Shifting
+            case "Shifting":
+                //Continue looping rooms (room depends on whether or not to spawn boss)
+                if (Player.transform.position.x > _room_current.transform.position.x + 10)
+                {
+                    if (_room_left == RoomStage)
+                        RoomStage = null; //Destroy won't change RoomStage to null before check
+                    Destroy(_room_left);
+                    _room_left = _room_current;
+                    _room_current = _room_right;
+                    if (!SpawnBoss)
+                    {
+                        _room_right = MyInstantiate(
+                            Levels[_level].Stages[_stage],
+                            _room_current.transform.position.x + _dungeon_size,
+                            _room_current.transform.position.y);
+                        if (RoomStage == null)
+                            RoomStage = _room_right;
+                    }
+                    else
+                        _room_right = MyInstantiate(
+                            Levels[_level].Stages[0],
+                            _room_current.transform.position.x + _dungeon_size,
+                            _room_current.transform.position.y);
+                }
+                else if (Player.transform.position.x < _room_current.transform.position.x - 10)
+                {
+                    if (_room_right == RoomStage)
+                        RoomStage = null; //Destroy won't change RoomStage to null before check
+                    Destroy(_room_right);
+                    _room_right = _room_current;
+                    _room_current = _room_left;
+                    if (!SpawnBoss)
+                    {
+                        _room_left = MyInstantiate(
+                            Levels[_level].Stages[_stage],
+                            _room_current.transform.position.x - _dungeon_size,
+                            _room_current.transform.position.y);
+                        if (RoomStage == null)
+                            RoomStage = _room_left;
+                    }
+                    else
+                        _room_left = MyInstantiate(
+                            Levels[_level].Stages[0],
+                            _room_current.transform.position.x - _dungeon_size,
+                            _room_current.transform.position.y);
+                }
+
+                //If not spawning boss, wait for certain conditions, then transition back to stage
+                if (!SpawnBoss)
+                {
+                    if (Player.transform.position.x <= _room_current.transform.position.x + 0.05 &&
+                        Player.transform.position.x >= _room_current.transform.position.x - 0.05 &&
+                        _room_current == RoomStage)
+                    {
+                        //Lock Camera
+                        CameraObject.GetComponent<CameraMovement>().CameraState = "Locked";
+                        CameraObject.transform.position = new Vector3(_room_current.transform.position.x, CameraObject.transform.position.y, -10);
+
+                        //Destroy previous rooms
+                        Destroy(_room_left);
+                        Destroy(_room_right);
+
+                        //Instatiate new rooms
+                        _room_left = MyInstantiate(
+                            Levels[_level].Stages[0],
+                            _room_current.transform.position.x - _dungeon_size,
+                            _room_current.transform.position.y);
+                        _room_right = MyInstantiate(
+                            Levels[_level].Stages[0],
+                            _room_current.transform.position.x + _dungeon_size,
+                            _room_current.transform.position.y);
+
+                        //Update Walls
+                        Destroy(_wall);
+                        Destroy(_wall_another);
+                        _wall = MyInstantiate(
+                            Levels[_level].Walls.StaticWalls,
+                            _room_current.transform.position.x,
+                            _room_current.transform.position.y);
+
+                        DungeonState = "Stage";
+
+                        MonsterSpawner.SpawnMobs(_level, _stage);
+                        break;
+                    }
                 }
 
                 //When conditions for boss fight are met, Wait for certain conditions then transition to boss fight state
                 if (SpawnBoss)
                 {
                     if (Player.transform.position.x <= _room_current.transform.position.x + 0.05 &&
-                        Player.transform.position.x >= _room_current.transform.position.x - 0.05)
+                        Player.transform.position.x >= _room_current.transform.position.x - 0.05 &&
+                        RoomStage == null)
                     {
                         //Lock Camera
                         CameraObject.GetComponent<CameraMovement>().CameraState = "Locked";
                         CameraObject.transform.position = new Vector3(_room_current.transform.position.x, CameraObject.transform.position.y, -10);
 
+                        //Update Rooms
                         Destroy(_room_left);
                         Destroy(_room_right);
 
                         _room_boss = MyInstantiate(
-                            BossRooms[_level],
+                            Levels[_level].BossRoom,
                             _room_current.transform.position.x + _dungeon_size,
                             _room_current.transform.position.y);
 
+                        //Updates Walls
                         Destroy(_wall);
                         Destroy(_wall_another);
                         _wall = MyInstantiate(
-                            Walls[_level].StaticWallsRight,
+                            Levels[_level].Walls.StaticWallsRight,
                             _room_current.transform.position.x,
                             _room_current.transform.position.y);
                         _wall_another = MyInstantiate(
-                            Walls[_level].StaticWallsLeft,
+                            Levels[_level].Walls.StaticWallsLeft,
                             _room_current.transform.position.x + _dungeon_size,
                             _room_current.transform.position.y);
 
                         DungeonState = "TransitionToBossA";
                         SpawnBoss = false;
+                        _stage = 0;
                     }
                 }
                 break;
@@ -220,7 +351,7 @@ public class DungeonManager : MonoBehaviour
                     Destroy(_wall_another);
 
                     _wall = MyInstantiate(
-                        Walls[_level].StaticWalls,
+                        Levels[_level].Walls.StaticWalls,
                         _room_boss.transform.position.x,
                         _room_boss.transform.position.y);
 
@@ -233,22 +364,22 @@ public class DungeonManager : MonoBehaviour
                 if (BossDefeated)
                 {
                     _room_spawn = MyInstantiate(
-                        Spawn,
+                        Levels[_level].Spawn,
                         _room_boss.transform.position.x + _dungeon_size / 2 + _spawn_size / 2,
                         _room_boss.transform.position.y);
                     _room_current = MyInstantiate(
-                        Dungeons[_level],
+                        Levels[_level].Stages[_stage],
                         _room_boss.transform.position.x + _dungeon_size + _spawn_size,
                         _room_boss.transform.position.y);
 
                     Destroy(_wall);
 
                     _wall = MyInstantiate(
-                        Walls[_level].SpawnWallsLeft,
+                        Levels[_level].Walls.SpawnWallsLeft,
                         _room_spawn.transform.position.x,
                         _room_spawn.transform.position.y);
                     _wall_another = MyInstantiate(
-                        Walls[_level].StaticWallsRight,
+                        Levels[_level].Walls.StaticWallsRight,
                         _room_boss.transform.position.x,
                         _room_boss.transform.position.y);
 
@@ -284,7 +415,7 @@ public class DungeonManager : MonoBehaviour
                     Destroy(_room_boss);
 
                     _room_left = MyInstantiate(
-                        Filler[_level],
+                        Levels[_level].Filler,
                         _room_spawn.transform.position.x - _spawn_size / 2 - _dungeon_size / 2,
                         _room_spawn.transform.position.y);
 
@@ -292,11 +423,11 @@ public class DungeonManager : MonoBehaviour
                     Destroy(_wall_another);
 
                     _wall = MyInstantiate(
-                        Walls[_level].SpawnWallsRight,
+                        Levels[_level].Walls.SpawnWallsRight,
                         _room_spawn.transform.position.x,
                         _room_spawn.transform.position.y);
                     _wall_another = MyInstantiate(
-                        Walls[_level].StaticWallsLeft, 
+                        Levels[_level].Walls.StaticWallsLeft, 
                         _room_current.transform.position.x, 
                         _room_current.transform.position.y);
 
