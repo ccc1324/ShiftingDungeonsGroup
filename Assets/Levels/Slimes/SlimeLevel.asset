@@ -15,22 +15,22 @@ MonoBehaviour:
   Spawn: {fileID: 4989195846534273194, guid: 6e7d17cdf32991c48a2a9679bcfff2e6, type: 3}
   Filler: {fileID: 1967959683413659789, guid: dda05428e5def904e86015c965a3e489, type: 3}
   Stages:
-  - {fileID: 5903458808985548764, guid: bcb426e836b38f549bb392bc0375619d, type: 3}
-  - {fileID: 6176846258352014532, guid: dac39b8356b399b43979f449c07c3378, type: 3}
-  BossRoom: {fileID: 6176846258352014532, guid: dac39b8356b399b43979f449c07c3378,
+  - {fileID: 3109448219124973978, guid: 9f8c5190407ff6b4f8fcf3b2cd81c665, type: 3}
+  - {fileID: 3109448219124973978, guid: 9f8c5190407ff6b4f8fcf3b2cd81c665, type: 3}
+  BossRoom: {fileID: 3109448219124973978, guid: 9f8c5190407ff6b4f8fcf3b2cd81c665,
     type: 3}
   Walls:
-    ShiftingWalls: {fileID: 2306368403050413348, guid: b282d0d24559f934c8b332067d0ca1f7,
+    ShiftingWalls: {fileID: 2972691760349481277, guid: a424032e97aa6a84bad2612e13421bb1,
       type: 3}
-    ShiftingWallsAnimated: {fileID: 3631208112487209884, guid: ff7ff22831473194ca6d573d58663bdd,
+    ShiftingWallsAnimated: {fileID: 2972691760349481277, guid: a424032e97aa6a84bad2612e13421bb1,
       type: 3}
     SpawnWallsLeft: {fileID: 8667136119297713162, guid: e8e55b0ec45226741ba22d62bf87b551,
       type: 3}
     SpawnWallsRight: {fileID: 3432353839979352232, guid: 83b78453fae2f944daed57343427b06a,
       type: 3}
-    StaticWalls: {fileID: 6241980633882204273, guid: 42ef91f869cb7c643ab167df106a9875,
+    StaticWalls: {fileID: 2972691760349481277, guid: c2207037fc5edd94798207ad3fcf4772,
       type: 3}
-    StaticWallsLeft: {fileID: 8383698469072323415, guid: 40d8e461f0c663e44be1e2f584a4e75f,
+    StaticWallsLeft: {fileID: 107140877594416702, guid: ef9e53c05457e5549afb5a2bd7a2f00e,
       type: 3}
-    StaticWallsRight: {fileID: 1727450090831090820, guid: 462221a437e7abb47b32f649fc34fc2b,
+    StaticWallsRight: {fileID: 2648831122635744754, guid: bcd096bacc1489140b7db7b04e6d95f1,
       type: 3}

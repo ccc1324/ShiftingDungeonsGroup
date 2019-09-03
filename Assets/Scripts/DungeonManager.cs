@@ -60,25 +60,20 @@ public class DungeonManager : MonoBehaviour
         //Instantiate Spawn for the first time
         _room_spawn = MyInstantiate(
                     Levels[_level].Spawn,
-                    Player.transform.position.x,
-                    Player.transform.position.y + _player_offset);
+                    Player.transform.position.x, 0);
         _room_left = MyInstantiate(
                     Levels[_level].Filler,
-                    Player.transform.position.x - _spawn_size/2 - _dungeon_size/2,
-                    Player.transform.position.y + _player_offset);
+                    Player.transform.position.x - _spawn_size/2 - _dungeon_size/2, 0);
         RoomStage = _room_current = MyInstantiate(
                     Levels[_level].Stages[_stage],
-                    Player.transform.position.x + _spawn_size / 2 + _dungeon_size / 2,
-                    Player.transform.position.y + _player_offset);
+                    Player.transform.position.x + _spawn_size / 2 + _dungeon_size / 2, 0);
 
         _wall = MyInstantiate(
                     Levels[_level].Walls.SpawnWallsRight,
-                    Player.transform.position.x,
-                    Player.transform.position.y + _player_offset);
+                    Player.transform.position.x, 0);
         _wall_another = MyInstantiate(
                     Levels[_level].Walls.StaticWallsLeft,
-                    _room_current.transform.position.x,
-                    Player.transform.position.y + _player_offset);
+                    _room_current.transform.position.x, 0);
 
         //Update Dungeon State
         DungeonState = "Spawn";

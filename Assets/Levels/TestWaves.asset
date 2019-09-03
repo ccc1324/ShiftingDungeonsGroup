@@ -21,16 +21,6 @@ MonoBehaviour:
           type: 3}
         Location: {x: -8, y: 8}
         EjectSpeed: 10
-    - WaveBuffer: 0
-      Mobs:
-      - Prefab: {fileID: 1864851530522590640, guid: 597a23c27277c5149a21b1c82c7dc574,
-          type: 3}
-        Location: {x: -8, y: 8}
-        EjectSpeed: 0
-      - Prefab: {fileID: 1864851530522590640, guid: 597a23c27277c5149a21b1c82c7dc574,
-          type: 3}
-        Location: {x: -8, y: 8}
-        EjectSpeed: 0
   - WaveList:
     - WaveBuffer: 0
       Mobs:
@@ -38,29 +28,3 @@ MonoBehaviour:
           type: 3}
         Location: {x: -4, y: -2}
         EjectSpeed: 10
-      - Prefab: {fileID: 1864851530522590640, guid: 597a23c27277c5149a21b1c82c7dc574,
-          type: 3}
-        Location: {x: 2, y: 4}
-        EjectSpeed: 10
-      - Prefab: {fileID: 3823103236275552050, guid: a9a2036f32889274294ca2808771f20b,
-          type: 3}
-        Location: {x: -7, y: 5}
-        EjectSpeed: 10
-    - WaveBuffer: 0
-      Mobs:
-      - Prefab: {fileID: 1864851530522590640, guid: 597a23c27277c5149a21b1c82c7dc574,
-          type: 3}
-        Location: {x: 3, y: 5}
-        EjectSpeed: 10
-      - Prefab: {fileID: 1864851530522590640, guid: 597a23c27277c5149a21b1c82c7dc574,
-          type: 3}
-        Location: {x: -5, y: -3}
-        EjectSpeed: 10
-      - Prefab: {fileID: 3823103236275552050, guid: a9a2036f32889274294ca2808771f20b,
-          type: 3}
-        Location: {x: 7, y: 5}
-        EjectSpeed: 0
-      - Prefab: {fileID: 3823103236275552050, guid: a9a2036f32889274294ca2808771f20b,
-          type: 3}
-        Location: {x: -7, y: -5}
-        EjectSpeed: 0

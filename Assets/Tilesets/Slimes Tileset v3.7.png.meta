@@ -1,0 +1,1600 @@
+fileFormatVersion: 2
+guid: 3766d3ef737b70443b48d68de7c81944
+TextureImporter:
+  internalIDToNameTable:
+  - first:
+      213: 2424909068694197291
+    second: Slimes Tileset v3.7_0
+  - first:
+      213: 8352897614098912268
+    second: Slimes Tileset v3.7_1
+  - first:
+      213: -7939487142814938139
+    second: Slimes Tileset v3.7_2
+  - first:
+      213: -5191980667310428207
+    second: Slimes Tileset v3.7_3
+  - first:
+      213: -6614891964765936513
+    second: Slimes Tileset v3.7_4
+  - first:
+      213: -5454860635102900068
+    second: Slimes Tileset v3.7_5
+  - first:
+      213: 1533000096621430104
+    second: Slimes Tileset v3.7_6
+  - first:
+      213: -7931527531765137553
+    second: Slimes Tileset v3.7_7
+  - first:
+      213: 1769826749818773609
+    second: Slimes Tileset v3.7_8
+  - first:
+      213: 8367223817210012364
+    second: Slimes Tileset v3.7_9
+  - first:
+      213: -6735177418223596
+    second: Slimes Tileset v3.7_10
+  - first:
+      213: -3515487466783916906
+    second: Slimes Tileset v3.7_11
+  - first:
+      213: 4658486822722357795
+    second: Slimes Tileset v3.7_12
+  - first:
+      213: 182769825739942941
+    second: Slimes Tileset v3.7_13
+  - first:
+      213: -8362074092098460739
+    second: Slimes Tileset v3.7_14
+  - first:
+      213: -1883131425256918671
+    second: Slimes Tileset v3.7_15
+  - first:
+      213: -4454251605210861309
+    second: Slimes Tileset v3.7_16
+  - first:
+      213: -840399924160115984
+    second: Slimes Tileset v3.7_17
+  - first:
+      213: 481436063937554266
+    second: Slimes Tileset v3.7_18
+  - first:
+      213: 8019643385337889111
+    second: Slimes Tileset v3.7_19
+  - first:
+      213: -6615398684793225962
+    second: Slimes Tileset v3.7_20
+  - first:
+      213: 8404976954160754933
+    second: Slimes Tileset v3.7_21
+  - first:
+      213: -4305914344445949739
+    second: Slimes Tileset v3.7_22
+  - first:
+      213: 4380000497047919059
+    second: Slimes Tileset v3.7_23
+  - first:
+      213: -7437228408680035495
+    second: Slimes Tileset v3.7_24
+  - first:
+      213: 6612516183853853421
+    second: Slimes Tileset v3.7_25
+  - first:
+      213: -1690287691155666702
+    second: Slimes Tileset v3.7_26
+  - first:
+      213: 3700268940528710451
+    second: Slimes Tileset v3.7_27
+  - first:
+      213: -5731075934370323689
+    second: Slimes Tileset v3.7_28
+  - first:
+      213: 5338939444492103441
+    second: Slimes Tileset v3.7_29
+  - first:
+      213: -8852279656635240297
+    second: Slimes Tileset v3.7_30
+  - first:
+      213: -4330249062343883740
+    second: Slimes Tileset v3.7_31
+  - first:
+      213: -533761331100191140
+    second: Slimes Tileset v3.7_32
+  - first:
+      213: -2483867417406232532
+    second: Slimes Tileset v3.7_33
+  - first:
+      213: 2322247322298011091
+    second: Slimes Tileset v3.7_34
+  - first:
+      213: 4176164959199427149
+    second: Slimes Tileset v3.7_35
+  - first:
+      213: 7569651167499932812
+    second: Slimes Tileset v3.7_36
+  - first:
+      213: 2870581961404068616
+    second: Slimes Tileset v3.7_37
+  - first:
+      213: -7526818766183413214
+    second: Slimes Tileset v3.7_38
+  - first:
+      213: 541433855652301494
+    second: Slimes Tileset v3.7_39
+  - first:
+      213: -2740406713736988427
+    second: Slimes Tileset v3.7_40
+  - first:
+      213: 9019917448856764289
+    second: Slimes Tileset v3.7_41
+  - first:
+      213: 6210609428980652785
+    second: Slimes Tileset v3.7_42
+  - first:
+      213: -6507254130615389650
+    second: Slimes Tileset v3.7_43
+  - first:
+      213: -6107947729322423540
+    second: Slimes Tileset v3.7_44
+  - first:
+      213: -1582077811266321818
+    second: Slimes Tileset v3.7_45
+  - first:
+      213: 6112767959326666937
+    second: Slimes Tileset v3.7_46
+  - first:
+      213: -555070163068377438
+    second: Slimes Tileset v3.7_47
+  - first:
+      213: 1219986429747504351
+    second: Slimes Tileset v3.7_48
+  - first:
+      213: 7915933370477328559
+    second: Slimes Tileset v3.7_49
+  - first:
+      213: 1754457488051291124
+    second: Slimes Tileset v3.7_50
+  - first:
+      213: -6149901572256752462
+    second: Slimes Tileset v3.7_51
+  - first:
+      213: 7463008085729713172
+    second: Slimes Tileset v3.7_52
+  - first:
+      213: 6166647349478019938
+    second: Slimes Tileset v3.7_53
+  - first:
+      213: -252339981145274619
+    second: Slimes Tileset v3.7_54
+  - first:
+      213: 6565722300006772955
+    second: Slimes Tileset v3.7_55
+  - first:
+      213: -2129405516335896999
+    second: Slimes Tileset v3.7_56
+  - first:
+      213: -8003513652240411910
+    second: Slimes Tileset v3.7_57
+  - first:
+      213: 5807821134466763706
+    second: Slimes Tileset v3.7_58
+  - first:
+      213: -5537409607224801169
+    second: Slimes Tileset v3.7_59
+  - first:
+      213: -5139095508145443597
+    second: Slimes Tileset v3.7_60
+  - first:
+      213: 6498503965791845531
+    second: Slimes Tileset v3.7_61
+  externalObjects: {}
+  serializedVersion: 10
+  mipmaps:
+    mipMapMode: 0
+    enableMipMap: 0
+    sRGBTexture: 1
+    linearTexture: 0
+    fadeOut: 0
+    borderMipMap: 0
+    mipMapsPreserveCoverage: 0
+    alphaTestReferenceValue: 0.5
+    mipMapFadeDistanceStart: 1
+    mipMapFadeDistanceEnd: 3
+  bumpmap:
+    convertToNormalMap: 0
+    externalNormalMap: 0
+    heightScale: 0.25
+    normalMapFilter: 0
+  isReadable: 0
+  streamingMipmaps: 0
+  streamingMipmapsPriority: 0
+  grayScaleToAlpha: 0
+  generateCubemap: 6
+  cubemapConvolution: 0
+  seamlessCubemap: 0
+  textureFormat: 1
+  maxTextureSize: 2048
+  textureSettings:
+    serializedVersion: 2
+    filterMode: 0
+    aniso: -1
+    mipBias: -100
+    wrapU: 1
+    wrapV: 1
+    wrapW: 1
+  nPOTScale: 0
+  lightmap: 0
+  compressionQuality: 50
+  spriteMode: 2
+  spriteExtrude: 0
+  spriteMeshType: 1
+  alignment: 0
+  spritePivot: {x: 0.5, y: 0.5}
+  spritePixelsToUnits: 100
+  spriteBorder: {x: 0, y: 0, z: 0, w: 0}
+  spriteGenerateFallbackPhysicsShape: 1
+  alphaUsage: 1
+  alphaIsTransparency: 1
+  spriteTessellationDetail: -1
+  textureType: 8
+  textureShape: 1
+  singleChannelComponent: 0
+  maxTextureSizeSet: 0
+  compressionQualitySet: 0
+  textureFormatSet: 0
+  platformSettings:
+  - serializedVersion: 2
+    buildTarget: DefaultTexturePlatform
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 0
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    androidETC2FallbackOverride: 0
+  - serializedVersion: 2
+    buildTarget: Standalone
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 0
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    androidETC2FallbackOverride: 0
+  - serializedVersion: 2
+    buildTarget: WebGL
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 0
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    androidETC2FallbackOverride: 0
+  spriteSheet:
+    serializedVersion: 2
+    sprites:
+    - serializedVersion: 2
+      name: Slimes Tileset v3.7_0
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 901
+        width: 100
+        height: 100
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 8211b1ea1ab52fb4694b7aeaec7b04d0
+      internalID: 2424909068694197291
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Slimes Tileset v3.7_1
+      rect:
+        serializedVersion: 2
+        x: 100
+        y: 901
+        width: 100
+        height: 100
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 91ec32debe006dd48b53c46b0ece808a
+      internalID: 8352897614098912268
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Slimes Tileset v3.7_2
+      rect:
+        serializedVersion: 2
+        x: 200
+        y: 901
+        width: 100
+        height: 100
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 792ac477f0580d94492c361c2babc1ec
+      internalID: -7939487142814938139
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Slimes Tileset v3.7_3
+      rect:
+        serializedVersion: 2
+        x: 300
+        y: 901
+        width: 100
+        height: 100
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 6c03eb9989dc0224184bee284523f004
+      internalID: -5191980667310428207
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Slimes Tileset v3.7_4
+      rect:
+        serializedVersion: 2
+        x: 400
+        y: 901
+        width: 100
+        height: 100
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 0c02415610306394eb0812c59ee361b7
+      internalID: -6614891964765936513
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Slimes Tileset v3.7_5
+      rect:
+        serializedVersion: 2
+        x: 500
+        y: 901
+        width: 100
+        height: 100
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: adcd0a7842c1cc54fa056fce83d878a8
+      internalID: -5454860635102900068
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Slimes Tileset v3.7_6
+      rect:
+        serializedVersion: 2
+        x: 600
+        y: 901
+        width: 100
+        height: 100
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 8f5c731d1de4ec545867b8b8b97297f0
+      internalID: 1533000096621430104
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Slimes Tileset v3.7_7
+      rect:
+        serializedVersion: 2
+        x: 700
+        y: 901
+        width: 100
+        height: 100
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 42d41493eaa6fd84ab1195ed8fc87dd9
+      internalID: -7931527531765137553
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Slimes Tileset v3.7_8
+      rect:
+        serializedVersion: 2
+        x: 800
+        y: 901
+        width: 100
+        height: 100
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 5cf2e71c8d09f6d44aa61780a422f3b2
+      internalID: 1769826749818773609
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Slimes Tileset v3.7_9
+      rect:
+        serializedVersion: 2
+        x: 900
+        y: 901
+        width: 100
+        height: 100
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 5d521207e9e0411449ab59ed9f647574
+      internalID: 8367223817210012364
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Slimes Tileset v3.7_10
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 801
+        width: 100
+        height: 100
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: e7313db91a47e9840a3d138bf5725fb6
+      internalID: -6735177418223596
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Slimes Tileset v3.7_11
+      rect:
+        serializedVersion: 2
+        x: 100
+        y: 801
+        width: 100
+        height: 100
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 72dd89ba33b552e41b1d2f2630b8a4ce
+      internalID: -3515487466783916906
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Slimes Tileset v3.7_12
+      rect:
+        serializedVersion: 2
+        x: 200
+        y: 801
+        width: 100
+        height: 100
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 302392e184926e4478537d3c6d4b986c
+      internalID: 4658486822722357795
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Slimes Tileset v3.7_13
+      rect:
+        serializedVersion: 2
+        x: 300
+        y: 801
+        width: 100
+        height: 100
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: baa598257ede6984f8ae4cd1a0331779
+      internalID: 182769825739942941
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Slimes Tileset v3.7_14
+      rect:
+        serializedVersion: 2
+        x: 400
+        y: 801
+        width: 100
+        height: 100
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 857deaddc348ff24aba6ce206438d769
+      internalID: -8362074092098460739
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Slimes Tileset v3.7_15
+      rect:
+        serializedVersion: 2
+        x: 500
+        y: 801
+        width: 100
+        height: 100
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 1769667f74f42594cbcb3775cf422527
+      internalID: -1883131425256918671
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Slimes Tileset v3.7_16
+      rect:
+        serializedVersion: 2
+        x: 600
+        y: 801
+        width: 100
+        height: 100
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 79e47300e289059439d4cb7e4bac97ae
+      internalID: -4454251605210861309
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Slimes Tileset v3.7_17
+      rect:
+        serializedVersion: 2
+        x: 700
+        y: 801
+        width: 100
+        height: 100
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: e4e3d2f4b9787b740939346b896a25f0
+      internalID: -840399924160115984
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Slimes Tileset v3.7_18
+      rect:
+        serializedVersion: 2
+        x: 800
+        y: 801
+        width: 100
+        height: 100
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: f41b733d5455fa14b833eea9f34c4b2a
+      internalID: 481436063937554266
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Slimes Tileset v3.7_19
+      rect:
+        serializedVersion: 2
+        x: 900
+        y: 801
+        width: 100
+        height: 100
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 45c55b53eb31cc041805fa3ca2727aff
+      internalID: 8019643385337889111
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Slimes Tileset v3.7_20
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 701
+        width: 100
+        height: 100
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 8708ed5339fe89a43a77ecfc90f8a21d
+      internalID: -6615398684793225962
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Slimes Tileset v3.7_21
+      rect:
+        serializedVersion: 2
+        x: 100
+        y: 701
+        width: 100
+        height: 100
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 55b9f35bb3e16434ba7ee1c4aaaa8af4
+      internalID: 8404976954160754933
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Slimes Tileset v3.7_22
+      rect:
+        serializedVersion: 2
+        x: 200
+        y: 701
+        width: 100
+        height: 100
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: b1e7ad1537a35854ca516fbb01e9085b
+      internalID: -4305914344445949739
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Slimes Tileset v3.7_23
+      rect:
+        serializedVersion: 2
+        x: 300
+        y: 701
+        width: 100
+        height: 100
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 7502b6c0eac1e6e4da56f77f54760dd5
+      internalID: 4380000497047919059
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Slimes Tileset v3.7_24
+      rect:
+        serializedVersion: 2
+        x: 700
+        y: 701
+        width: 100
+        height: 100
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 8be70cd442b5d894c8f2c42c1054bf7c
+      internalID: -7437228408680035495
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Slimes Tileset v3.7_25
+      rect:
+        serializedVersion: 2
+        x: 800
+        y: 701
+        width: 100
+        height: 100
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 4538c5dc18723054f88dcf5a7c9e1ccd
+      internalID: 6612516183853853421
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Slimes Tileset v3.7_26
+      rect:
+        serializedVersion: 2
+        x: 900
+        y: 701
+        width: 100
+        height: 100
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: f44d32e0d6df1224692e0721c18c8cb5
+      internalID: -1690287691155666702
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Slimes Tileset v3.7_27
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 601
+        width: 100
+        height: 100
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 0eb42468ed3ac13458168ffdd1a002c9
+      internalID: 3700268940528710451
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Slimes Tileset v3.7_28
+      rect:
+        serializedVersion: 2
+        x: 100
+        y: 601
+        width: 100
+        height: 100
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 8bd556a5c14db184cba3352bbf5f3f64
+      internalID: -5731075934370323689
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Slimes Tileset v3.7_29
+      rect:
+        serializedVersion: 2
+        x: 200
+        y: 601
+        width: 100
+        height: 100
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: b459f1c41c368e945bf6515dd4ce1193
+      internalID: 5338939444492103441
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Slimes Tileset v3.7_30
+      rect:
+        serializedVersion: 2
+        x: 300
+        y: 601
+        width: 100
+        height: 100
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: c64fbd6bb0ae9004dbeb1914e7beaa38
+      internalID: -8852279656635240297
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Slimes Tileset v3.7_31
+      rect:
+        serializedVersion: 2
+        x: 700
+        y: 601
+        width: 100
+        height: 100
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: dab288c1836b4cc44a2281ebc73bd8f6
+      internalID: -4330249062343883740
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Slimes Tileset v3.7_32
+      rect:
+        serializedVersion: 2
+        x: 800
+        y: 601
+        width: 100
+        height: 100
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 54fd378b066902c4baf37b3b39fde6e8
+      internalID: -533761331100191140
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Slimes Tileset v3.7_33
+      rect:
+        serializedVersion: 2
+        x: 900
+        y: 601
+        width: 100
+        height: 100
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: bf5152e2e7867cc46b02d8d2e841cad5
+      internalID: -2483867417406232532
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Slimes Tileset v3.7_34
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 501
+        width: 100
+        height: 100
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: b2df4e0d4b0e99e41b31b101c7285279
+      internalID: 2322247322298011091
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Slimes Tileset v3.7_35
+      rect:
+        serializedVersion: 2
+        x: 100
+        y: 501
+        width: 100
+        height: 100
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: b3ce54e69b9d0824284d25ea49cb84c9
+      internalID: 4176164959199427149
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Slimes Tileset v3.7_36
+      rect:
+        serializedVersion: 2
+        x: 200
+        y: 501
+        width: 100
+        height: 100
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 6b7aaa65ef4b24840a8d7453612ffcc2
+      internalID: 7569651167499932812
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Slimes Tileset v3.7_37
+      rect:
+        serializedVersion: 2
+        x: 300
+        y: 501
+        width: 100
+        height: 100
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: a43a4694e870d8845b5479e8ddd08ecc
+      internalID: 2870581961404068616
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Slimes Tileset v3.7_38
+      rect:
+        serializedVersion: 2
+        x: 700
+        y: 501
+        width: 100
+        height: 100
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: ee3c9cc1856ee994eaceac61011b8ca0
+      internalID: -7526818766183413214
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Slimes Tileset v3.7_39
+      rect:
+        serializedVersion: 2
+        x: 800
+        y: 501
+        width: 100
+        height: 100
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: d4396ecb36bd5be43a29b6fd7686f6e7
+      internalID: 541433855652301494
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Slimes Tileset v3.7_40
+      rect:
+        serializedVersion: 2
+        x: 900
+        y: 501
+        width: 100
+        height: 100
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 38f79e87a78a67649989911b884aae59
+      internalID: -2740406713736988427
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Slimes Tileset v3.7_41
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 401
+        width: 100
+        height: 100
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 95a6fb2e18bccdf46a57461f777e823e
+      internalID: 9019917448856764289
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Slimes Tileset v3.7_42
+      rect:
+        serializedVersion: 2
+        x: 100
+        y: 401
+        width: 100
+        height: 100
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: d6d4deb8d3363a044908febd82fc6cc2
+      internalID: 6210609428980652785
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Slimes Tileset v3.7_43
+      rect:
+        serializedVersion: 2
+        x: 200
+        y: 401
+        width: 100
+        height: 100
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: ecd89606b439527408805f5bca6b3bda
+      internalID: -6507254130615389650
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Slimes Tileset v3.7_44
+      rect:
+        serializedVersion: 2
+        x: 300
+        y: 401
+        width: 100
+        height: 100
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: a308745a92803db48802ed506bd9cb12
+      internalID: -6107947729322423540
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Slimes Tileset v3.7_45
+      rect:
+        serializedVersion: 2
+        x: 700
+        y: 401
+        width: 100
+        height: 100
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: f07ae13a9589a6d4aa11a7613883a13e
+      internalID: -1582077811266321818
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Slimes Tileset v3.7_46
+      rect:
+        serializedVersion: 2
+        x: 800
+        y: 401
+        width: 100
+        height: 100
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 74d5a368429149c46b6a928daba4865d
+      internalID: 6112767959326666937
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Slimes Tileset v3.7_47
+      rect:
+        serializedVersion: 2
+        x: 900
+        y: 401
+        width: 100
+        height: 100
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: ec47d94dbc641d045b1e392638de18e3
+      internalID: -555070163068377438
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Slimes Tileset v3.7_48
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 301
+        width: 100
+        height: 100
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: a613e847adad7304faf24d6980cbbc78
+      internalID: 1219986429747504351
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Slimes Tileset v3.7_49
+      rect:
+        serializedVersion: 2
+        x: 100
+        y: 301
+        width: 100
+        height: 100
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 50c4b1e3f26b94548bb4ee81c5c24c15
+      internalID: 7915933370477328559
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Slimes Tileset v3.7_50
+      rect:
+        serializedVersion: 2
+        x: 200
+        y: 301
+        width: 100
+        height: 100
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 2dab0060a3c6d7f439b1386c7a35dc1d
+      internalID: 1754457488051291124
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Slimes Tileset v3.7_51
+      rect:
+        serializedVersion: 2
+        x: 300
+        y: 301
+        width: 100
+        height: 100
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 98fa93ab64d328c40b472ef1c770b71b
+      internalID: -6149901572256752462
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Slimes Tileset v3.7_52
+      rect:
+        serializedVersion: 2
+        x: 700
+        y: 301
+        width: 100
+        height: 100
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: fea2ac5c17445bf49a77a65454cb1b65
+      internalID: 7463008085729713172
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Slimes Tileset v3.7_53
+      rect:
+        serializedVersion: 2
+        x: 800
+        y: 301
+        width: 100
+        height: 100
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: bfd92001e1efe2e43bcf3aef86f71629
+      internalID: 6166647349478019938
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Slimes Tileset v3.7_54
+      rect:
+        serializedVersion: 2
+        x: 900
+        y: 301
+        width: 100
+        height: 100
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 6c5909512cc3a6a4293813764665847b
+      internalID: -252339981145274619
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Slimes Tileset v3.7_55
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 201
+        width: 100
+        height: 100
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 625a2881fd2eb3e4c9fb40aebf43e307
+      internalID: 6565722300006772955
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Slimes Tileset v3.7_56
+      rect:
+        serializedVersion: 2
+        x: 100
+        y: 201
+        width: 100
+        height: 100
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 84ae21921cc596c419359c1dcc00ac26
+      internalID: -2129405516335896999
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Slimes Tileset v3.7_57
+      rect:
+        serializedVersion: 2
+        x: 200
+        y: 201
+        width: 100
+        height: 100
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 411dc59623364a541a10fbfaed289030
+      internalID: -8003513652240411910
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Slimes Tileset v3.7_58
+      rect:
+        serializedVersion: 2
+        x: 300
+        y: 201
+        width: 100
+        height: 100
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 7fd45ab9a3705504cadd2a2c1a8bf5dd
+      internalID: 5807821134466763706
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Slimes Tileset v3.7_59
+      rect:
+        serializedVersion: 2
+        x: 700
+        y: 201
+        width: 100
+        height: 100
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 1f7edf54c44a21143bbc93221664d550
+      internalID: -5537409607224801169
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Slimes Tileset v3.7_60
+      rect:
+        serializedVersion: 2
+        x: 800
+        y: 201
+        width: 100
+        height: 100
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 5a2a8688f2c86e24aafe0175a5c81f90
+      internalID: -5139095508145443597
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Slimes Tileset v3.7_61
+      rect:
+        serializedVersion: 2
+        x: 900
+        y: 201
+        width: 100
+        height: 100
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: d753c4645a0ec364d9a8f8c4b43ab41b
+      internalID: 6498503965791845531
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    outline: []
+    physicsShape: []
+    bones: []
+    spriteID: 4b0a22a220220cc419cadfb2970cac7c
+    internalID: 0
+    vertices: []
+    indices: 
+    edges: []
+    weights: []
+    secondaryTextures: []
+  spritePackingTag: 
+  pSDRemoveMatte: 0
+  pSDShowRemoveMatteOption: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
