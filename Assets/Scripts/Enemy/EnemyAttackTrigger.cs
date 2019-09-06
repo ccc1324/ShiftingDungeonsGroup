@@ -9,11 +9,12 @@ public class EnemyAttackTrigger : MonoBehaviour
         if (collision.tag == "Player")
         {
             PlayerCombat player = collision.GetComponent<PlayerCombat>();
-            
             collision.GetComponent<PlayerMovement>().Stop();
             collision.GetComponent<Animator>().SetTrigger("Stun");
-            player.enabled = false;
             collision.GetComponent<Animator>().SetBool("Attacking", false);
+
+            player.enabled = false; //need to diable temporaily to get around animator overiding stun
+            StartCoroutine(ReEnable(player));
 
             if (tag == "Projectile")
                 Destroy(gameObject);
@@ -24,5 +25,11 @@ public class EnemyAttackTrigger : MonoBehaviour
             if (tag == "Projectile")
                 Destroy(gameObject);
         }
+    }
+
+    IEnumerator ReEnable(PlayerCombat player)
+    {
+        yield return new WaitForSeconds(0.1f);
+        player.enabled = true;
     }
 }

@@ -87,6 +87,8 @@ public class DungeonManager : MonoBehaviour
             case "Spawn":
                 if (Player.transform.position.x > _room_current.transform.position.x)
                 {
+                    //Play Sounds
+
                     //Lock Camera
                     CameraObject.GetComponent<CameraMovement>().CameraState = "Locked";
                     CameraObject.transform.position = new Vector3(_room_current.transform.position.x, CameraObject.transform.position.y, -10);
@@ -129,14 +131,6 @@ public class DungeonManager : MonoBehaviour
                     {
                         //Update Walls
                         Destroy(_wall);
-                        _wall = MyInstantiate(
-                            Levels[_level].Walls.ShiftingWalls,
-                            _room_current.transform.position.x,
-                            _room_current.transform.position.y);
-                        _wall_another = MyInstantiate(
-                            Levels[_level].Walls.ShiftingWallsAnimated,
-                            _room_current.transform.position.x,
-                            _room_current.transform.position.y);
 
                         CameraObject.GetComponent<CameraMovement>().CameraState = "Follow";
                         MobsCleared = false;
@@ -267,8 +261,6 @@ public class DungeonManager : MonoBehaviour
                             _room_current.transform.position.y);
 
                         //Update Walls
-                        Destroy(_wall);
-                        Destroy(_wall_another);
                         _wall = MyInstantiate(
                             Levels[_level].Walls.StaticWalls,
                             _room_current.transform.position.x,
@@ -288,6 +280,8 @@ public class DungeonManager : MonoBehaviour
                         Player.transform.position.x >= _room_current.transform.position.x - 0.05 &&
                         RoomStage == null)
                     {
+                        StartCoroutine(OpenRight(2));
+
                         //Lock Camera
                         CameraObject.GetComponent<CameraMovement>().CameraState = "Locked";
                         CameraObject.transform.position = new Vector3(_room_current.transform.position.x, CameraObject.transform.position.y, -10);
@@ -305,7 +299,7 @@ public class DungeonManager : MonoBehaviour
                         Destroy(_wall);
                         Destroy(_wall_another);
                         _wall = MyInstantiate(
-                            Levels[_level].Walls.StaticWallsRight,
+                            Levels[_level].Walls.StaticWalls,
                             _room_current.transform.position.x,
                             _room_current.transform.position.y);
                         _wall_another = MyInstantiate(
@@ -325,6 +319,7 @@ public class DungeonManager : MonoBehaviour
                 //Move Camera to boss room
                 if (Player.transform.position.x > _room_current.transform.position.x + _dungeon_size / 2)
                 {
+                    StartCoroutine(FreezePlayer(1));
                     CameraObject.GetComponent<CameraMovement>().ShiftRight(_dungeon_size);
                     DungeonState = "TransitionToBossB";
                 }
@@ -334,6 +329,7 @@ public class DungeonManager : MonoBehaviour
                 //Move Camera to curr room
                 if (Player.transform.position.x < _room_boss.transform.position.x - _dungeon_size / 2)
                 {
+                    StartCoroutine(FreezePlayer(1));
                     CameraObject.GetComponent<CameraMovement>().ShiftLeft(_dungeon_size);
                     DungeonState = "TransitionToBossA";
                 }
@@ -388,6 +384,7 @@ public class DungeonManager : MonoBehaviour
                 //Move Camera to spawn room
                 if (Player.transform.position.x > _room_boss.transform.position.x + _dungeon_size / 2)
                 {
+                    StartCoroutine(FreezePlayer(1));
                     CameraObject.GetComponent<CameraMovement>().ShiftRight(_dungeon_size);
                     DungeonState = "TransitionToSpawnB";
                 }
@@ -397,6 +394,7 @@ public class DungeonManager : MonoBehaviour
                 //Move Camera to boss room
                 if (Player.transform.position.x < _room_spawn.transform.position.x - _spawn_size / 2)
                 {
+                    StartCoroutine(FreezePlayer(1));
                     CameraObject.GetComponent<CameraMovement>().ShiftLeft(_dungeon_size);
                     DungeonState = "TransitionToSpawnA";
                 }
@@ -438,5 +436,27 @@ public class DungeonManager : MonoBehaviour
     private GameObject MyInstantiate(GameObject obj, float x, float y)
     {
         return Instantiate(obj, new Vector3(x, y, 0), new Quaternion(0, 0, 0, 0), Grid.transform);
+    }
+
+    IEnumerator FreezePlayer(float time)
+    {
+        Player.GetComponent<PlayerMovement>().enabled = false;
+        Player.GetComponent<PlayerMovement>().Stop();
+        Player.GetComponent<PlayerCombat>().enabled = false;
+        yield return new WaitForSeconds(time);
+
+        Player.GetComponent<PlayerMovement>().enabled = true;
+        Player.GetComponent<PlayerCombat>().enabled = true;
+        Player.GetComponent<Animator>().SetTrigger("Idle");
+    }
+
+    IEnumerator OpenRight(float time)
+    {
+        yield return new WaitForSeconds(time);
+        Destroy(_wall);
+        _wall = MyInstantiate(
+            Levels[_level].Walls.StaticWallsRight,
+            _room_current.transform.position.x,
+            _room_current.transform.position.y);
     }
 }

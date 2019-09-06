@@ -5,6 +5,7 @@ using UnityEngine;
 public class PlayerCombat : MonoBehaviour
 {
     public SpriteRenderer Weapon;
+    public bool Stunned;
 
     private int _attackNumber; //Used to allow smooth transition between different weapons
     private int _equipNumber; //Used to correctly display current weapon
@@ -25,6 +26,9 @@ public class PlayerCombat : MonoBehaviour
 
     void Update()
     {
+        if (Stunned)
+            return;
+
         //Update Weapon
         switch (_equipNumber)
         {

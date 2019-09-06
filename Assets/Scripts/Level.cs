@@ -20,8 +20,6 @@ public class Level : ScriptableObject
     [System.Serializable]
     public struct WallSet
     {
-        public GameObject ShiftingWalls;
-        public GameObject ShiftingWallsAnimated;
         public GameObject SpawnWallsLeft;
         public GameObject SpawnWallsRight;
         public GameObject StaticWalls;

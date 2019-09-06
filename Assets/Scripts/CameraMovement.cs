@@ -7,6 +7,9 @@ public class CameraMovement : MonoBehaviour
     public GameObject Player;
     public string CameraState;
 
+    PlayerMovement _player_movement;
+    PlayerCombat _player_combat;
+
     private float start;
     private float end;
 
@@ -17,9 +20,11 @@ public class CameraMovement : MonoBehaviour
         {
             Debug.Log("Camera could not find player");
         }
+        _player_movement = Player.GetComponent<PlayerMovement>();
+        _player_combat = Player.GetComponent<PlayerCombat>();
     }
 
-    void Update()
+    void LateUpdate()
     {
         switch (CameraState)
         {
@@ -55,13 +60,16 @@ public class CameraMovement : MonoBehaviour
     IEnumerator LerpCamera()
     {
         float start_time = Time.time;
-        Player.GetComponent<PlayerMovement>().enabled = false;
+        //_player_combat.enabled = false;
+        //_player_movement.Stop();
+        //_player_movement.enabled = false;
         while (Time.time < start_time + 1) //1 = transition time
         {
             transform.position = new Vector3(Mathf.Lerp(start, end, (Time.time - start_time)/1), transform.position.y, -10);
             yield return null;
         }
         transform.position = new Vector3(end, transform.position.y, -10);
-        Player.GetComponent<PlayerMovement>().enabled = true;
+        //_player_combat.enabled = true;
+        //_player_movement.enabled = true;
     }
 }

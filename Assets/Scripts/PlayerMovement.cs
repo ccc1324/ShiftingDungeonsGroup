@@ -22,6 +22,11 @@ public class PlayerMovement : MonoBehaviour
 
     void Update()
     {
+        if (Stunned)
+            return;
+
+        _animator.SetFloat("VerticalSpeed", _rigidbody.velocity.y);
+
         #region Movement
         if (Input.GetKey("a"))
         {
@@ -50,10 +55,6 @@ public class PlayerMovement : MonoBehaviour
         #endregion
 
         #region Jumping
-        if (Grounded == false)
-        {
-            _animator.SetFloat("VerticalSpeed", _rigidbody.velocity.y);
-        }
         if (Input.GetKeyDown(";"))
         {
             if (Grounded == true)

@@ -13,8 +13,8 @@ MonoBehaviour:
   m_Name: Wooden Hammer
   m_EditorClassIdentifier: 
   ItemName: Wooden Hammer
-  ItemDescription: 
+  ItemDescription: Lighter than it looks.
   WeaponClass: Hammer
-  WeaponDamage: 100
-  GameObjectSprite: {fileID: 21300000, guid: 744825e69ef1eda4095006043c0723f5, type: 3}
-  InventorySprite: {fileID: 21300000, guid: 744825e69ef1eda4095006043c0723f5, type: 3}
+  WeaponDamage: 20
+  GameObjectSprite: {fileID: 21300000, guid: a62d283a4ae28e94a8b4e727a7d312e7, type: 3}
+  InventorySprite: {fileID: 21300000, guid: a62d283a4ae28e94a8b4e727a7d312e7, type: 3}
