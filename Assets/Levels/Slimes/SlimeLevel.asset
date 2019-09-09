@@ -17,13 +17,10 @@ MonoBehaviour:
   Stages:
   - {fileID: 3109448219124973978, guid: 9f8c5190407ff6b4f8fcf3b2cd81c665, type: 3}
   - {fileID: 3109448219124973978, guid: 9f8c5190407ff6b4f8fcf3b2cd81c665, type: 3}
-  BossRoom: {fileID: 3109448219124973978, guid: 9f8c5190407ff6b4f8fcf3b2cd81c665,
+  - {fileID: 3109448219124973978, guid: 9f8c5190407ff6b4f8fcf3b2cd81c665, type: 3}
+  BossRoom: {fileID: 6218201775023758319, guid: 58fe6332da64db94b9448afbfb07291e,
     type: 3}
   Walls:
-    ShiftingWalls: {fileID: 2972691760349481277, guid: a424032e97aa6a84bad2612e13421bb1,
-      type: 3}
-    ShiftingWallsAnimated: {fileID: 2972691760349481277, guid: a424032e97aa6a84bad2612e13421bb1,
-      type: 3}
     SpawnWallsLeft: {fileID: 8667136119297713162, guid: e8e55b0ec45226741ba22d62bf87b551,
       type: 3}
     SpawnWallsRight: {fileID: 3432353839979352232, guid: 83b78453fae2f944daed57343427b06a,

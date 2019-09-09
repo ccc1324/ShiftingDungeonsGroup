@@ -10,7 +10,7 @@ public class PlayerCombat : MonoBehaviour
     private int _attackNumber; //Used to allow smooth transition between different weapons
     private int _equipNumber; //Used to correctly display current weapon
 
-    private float _time_of_last_attack;
+    public float _time_of_last_attack;
     private float _weapon_cooldown;
 
     private Animator _animator;
@@ -34,19 +34,24 @@ public class PlayerCombat : MonoBehaviour
         if (Stunned)
             return;
 
-        if (Input.GetKeyDown("k") || Input.GetKeyDown("l") && _time_of_last_attack + 0.5f < Time.time)
-            _time_of_last_attack = Time.time;
-
         //Update Weapon
         switch (_equipNumber)
         {
             case 1:
                 Weapon.sprite = _equipment.PrimaryWeapon.Item == null ? null : _equipment.PrimaryWeapon.Item.GameObjectSprite;
+                _weapon_cooldown = _equipment.PrimaryWeapon.Item == null ? 0 : GetWeaponCooldown(_equipment.PrimaryWeapon.Item);
                 break;
             case 2:
                 Weapon.sprite = _equipment.SecondaryWeapon.Item == null ? null : _equipment.SecondaryWeapon.Item.GameObjectSprite;
+                _weapon_cooldown = _equipment.SecondaryWeapon.Item == null ? 0 : GetWeaponCooldown(_equipment.SecondaryWeapon.Item);
                 break;
         }
+
+        if (_time_of_last_attack + _weapon_cooldown > Time.time)
+            return;
+
+        if ((Input.GetKeyDown("k") || Input.GetKeyDown("l")) && _time_of_last_attack + _weapon_cooldown < Time.time)
+            _time_of_last_attack = Time.time;
 
         //Attack
         if (Input.GetKey("k"))
@@ -63,23 +68,22 @@ public class PlayerCombat : MonoBehaviour
                     _time_of_last_attack = Time.time;
                     _animator.SetBool("Attacking", false);
                     _animator.SetInteger("Weapon", _equipment.PrimaryWeapon.Item.GetWeaponAnimationKey());
-                    Destroy(_weaponHitbox);
+                    //Destroy(_weaponHitbox);
                 }
 
                 else
                 {
-                    if (_time_of_last_attack + 0.5f < Time.time)
+                    _playerMovement.Stop();
+                    _animator.SetBool("Attacking", true);
+                    _animator.SetInteger("Weapon", _equipment.PrimaryWeapon.Item.GetWeaponAnimationKey());
+                    _playerMovement.enabled = false;
+
+                    _weapon.WeaponDamage = _equipment.PrimaryWeapon.Item.WeaponDamage;
+                    if (Weapon.GetComponent<PolygonCollider2D>() == null && _attackNumber != 0) //attack number check to fix a bug
                     {
-                        _playerMovement.Stop();
-                        _animator.SetBool("Attacking", true);
-                        _animator.SetInteger("Weapon", _equipment.PrimaryWeapon.Item.GetWeaponAnimationKey());
-                        _playerMovement.enabled = false;
-                        if (Weapon.GetComponent<PolygonCollider2D>() == null && _attackNumber != 0) //attack number check to fix a bug
-                        {
-                            _weapon.WeaponDamage = _equipment.PrimaryWeapon.Item.WeaponDamage;
-                            _weaponHitbox = Weapon.gameObject.AddComponent<PolygonCollider2D>();
-                            _weaponHitbox.isTrigger = true;
-                        }
+                        
+                        //_weaponHitbox = Weapon.gameObject.AddComponent<PolygonCollider2D>();
+                        //_weaponHitbox.isTrigger = true;
                     }
                 }
             }
@@ -102,23 +106,22 @@ public class PlayerCombat : MonoBehaviour
                     _time_of_last_attack = Time.time;
                     _animator.SetBool("Attacking", false);
                     _animator.SetInteger("Weapon", _equipment.SecondaryWeapon.Item.GetWeaponAnimationKey());
-                    Destroy(_weaponHitbox);
+                   // Destroy(_weaponHitbox);
                 }
 
                 else
                 {
-                    if (_time_of_last_attack + 0.5f < Time.time)
+                    _playerMovement.Stop();
+                    _animator.SetBool("Attacking", true);
+                    _animator.SetInteger("Weapon", _equipment.SecondaryWeapon.Item.GetWeaponAnimationKey());
+                    _playerMovement.enabled = false;
+
+                    _weapon.WeaponDamage = _equipment.SecondaryWeapon.Item.WeaponDamage;
+                    if (Weapon.GetComponent<PolygonCollider2D>() == null && _attackNumber != 0) //attack number check to fix a bug
                     {
-                        _playerMovement.Stop();
-                        _animator.SetBool("Attacking", true);
-                        _animator.SetInteger("Weapon", _equipment.SecondaryWeapon.Item.GetWeaponAnimationKey());
-                        _playerMovement.enabled = false;
-                        if (Weapon.GetComponent<PolygonCollider2D>() == null && _attackNumber != 0) //attack number check to fix a bug
-                        {
-                            _weapon.WeaponDamage = _equipment.SecondaryWeapon.Item.WeaponDamage;
-                            _weaponHitbox = Weapon.gameObject.AddComponent<PolygonCollider2D>();
-                            _weaponHitbox.isTrigger = true;
-                        }
+                        
+                        //_weaponHitbox = Weapon.gameObject.AddComponent<PolygonCollider2D>();
+                        //_weaponHitbox.isTrigger = true;
                     }
                 }
             }
@@ -133,7 +136,7 @@ public class PlayerCombat : MonoBehaviour
             _animator.SetInteger("Weapon", 0);
             _playerMovement.enabled = true;
             _attackNumber = 0;
-            Destroy(_weaponHitbox);
+            //Destroy(_weaponHitbox);
         }
         
     }
@@ -143,19 +146,19 @@ public class PlayerCombat : MonoBehaviour
         switch (item.GetWeaponAnimationKey())
         {
             case 1: //Sword
-                return 30/60f;
+                return 26/60f;
             case 2: //Axe
-                return 30/60f;
+                return 0f;
             case 3: //Dagger
-                return 20/60f;
+                return 22/60f;
             case 4: //Spear
-                return 30/60f;
+                return 28/60f;
             case 5: //Staff
-                return 30/60f;
+                return 28/60f;
             case 6: //Hammer
-                return 30/60f;
+                return 0f;
             default:
-                return 0.5f;
+                return 0f;
         }
     }
 }

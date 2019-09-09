@@ -17,7 +17,11 @@ public class EnemyAttackTrigger : MonoBehaviour
             StartCoroutine(ReEnable(player));
 
             if (tag == "Projectile")
-                Destroy(gameObject);
+            {
+                GetComponent<SpriteRenderer>().enabled = false;
+                GetComponent<Collider2D>().enabled = false;
+                Destroy(gameObject, 0.2f);
+            }
         }
 
         if (collision.tag == "Room")
@@ -29,7 +33,7 @@ public class EnemyAttackTrigger : MonoBehaviour
 
     IEnumerator ReEnable(PlayerCombat player)
     {
-        yield return new WaitForSeconds(0.1f);
+        yield return new WaitForSeconds(0.05f);
         player.enabled = true;
     }
 }

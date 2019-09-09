@@ -68,9 +68,9 @@ public class PlayerMovement : MonoBehaviour
         #endregion
     }
 
-    void OnCollisionEnter2D(Collision2D collision)
+    void OnTriggerEnter2D(Collider2D collision)
     {
-        if (collision.collider.tag == "Room" || collision.collider.tag == "Platform")
+        if (collision.tag == "Room" || collision.tag == "Platform")
         {
             Grounded = true;
             _animator.SetBool("Grounded", true);

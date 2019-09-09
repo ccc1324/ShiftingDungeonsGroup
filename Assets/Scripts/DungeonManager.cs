@@ -363,16 +363,7 @@ public class DungeonManager : MonoBehaviour
                         _room_boss.transform.position.x + _dungeon_size + _spawn_size,
                         _room_boss.transform.position.y);
 
-                    Destroy(_wall);
-
-                    _wall = MyInstantiate(
-                        Levels[_level].Walls.SpawnWallsLeft,
-                        _room_spawn.transform.position.x,
-                        _room_spawn.transform.position.y);
-                    _wall_another = MyInstantiate(
-                        Levels[_level].Walls.StaticWallsRight,
-                        _room_boss.transform.position.x,
-                        _room_boss.transform.position.y);
+                    StartCoroutine(OpenBossRoom(2));
 
                     DungeonState = "TransitionToSpawnA";
                     BossDefeated = false;
@@ -458,5 +449,20 @@ public class DungeonManager : MonoBehaviour
             Levels[_level].Walls.StaticWallsRight,
             _room_current.transform.position.x,
             _room_current.transform.position.y);
+    }
+
+    IEnumerator OpenBossRoom(float time)
+    {
+        yield return new WaitForSeconds(time);
+        Destroy(_wall);
+
+        _wall = MyInstantiate(
+            Levels[_level].Walls.SpawnWallsLeft,
+            _room_spawn.transform.position.x,
+            _room_spawn.transform.position.y);
+        _wall_another = MyInstantiate(
+            Levels[_level].Walls.StaticWallsRight,
+            _room_boss.transform.position.x,
+            _room_boss.transform.position.y);
     }
 }

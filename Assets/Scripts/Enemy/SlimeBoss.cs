@@ -32,6 +32,8 @@ public class SlimeBoss : MonoBehaviour, IEnemy
 
     private bool _idle;
 
+    private Color _tempColor;
+
     void Start()
     {
         _rigidbody = GetComponent<Rigidbody2D>();
@@ -47,7 +49,8 @@ public class SlimeBoss : MonoBehaviour, IEnemy
     {
         if (_idle)
         {
-            _sprite.color = Color.Lerp(ColorAngry, ColorIdle, (Health - 800) / 200);
+            Color tempColor = Color.Lerp(ColorAngry, ColorIdle, (Health - 800) / 200);
+            _sprite.color = Color.Lerp(tempColor, _tempColor, 0.97f);
         }
 
         if (Health < HealthTransformOne)
@@ -66,6 +69,9 @@ public class SlimeBoss : MonoBehaviour, IEnemy
 
     void Update()
     {
+        if (Health >= HealthTransformOne)
+            _tempColor = _sprite.color;
+
         Stop();
 
         if (Dead)
@@ -87,7 +93,7 @@ public class SlimeBoss : MonoBehaviour, IEnemy
             _direction = Mathf.Sign(_player_location.position.x - transform.position.x);
         }
 
-        if (Attacking && Time.time - _time_of_last_attack > AttackCooldown)
+        if (Attacking && Time.time - _time_of_last_attack > AttackCooldown && Health > 0)
         {
             _animator.SetTrigger("Attack");
             _time_of_last_attack = Time.time;

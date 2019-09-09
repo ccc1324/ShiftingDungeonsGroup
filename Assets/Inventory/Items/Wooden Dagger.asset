@@ -17,4 +17,4 @@ MonoBehaviour:
   WeaponClass: Dagger
   WeaponDamage: 5
   GameObjectSprite: {fileID: 21300000, guid: 9d4424f1cbfb17940b195fc6a1b4fe96, type: 3}
-  InventorySprite: {fileID: 21300000, guid: d6b955c5a05b1474096ca19b8fdcc008, type: 3}
+  InventorySprite: {fileID: 21300000, guid: 9d4424f1cbfb17940b195fc6a1b4fe96, type: 3}
