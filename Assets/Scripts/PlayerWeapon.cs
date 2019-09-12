@@ -7,6 +7,7 @@ public class PlayerWeapon : MonoBehaviour
     public bool EnableWeaponHitbox;
     public int WeaponDamage;
     public bool SetToStun;
+    public GameObject ParticleSpawnPoint;
 
     private bool _hitbox_enabled;
     private Collider2D _weapon_hitbox;
@@ -16,6 +17,7 @@ public class PlayerWeapon : MonoBehaviour
         if (collision.tag == "Enemy" && EnableWeaponHitbox)
         {
             collision.GetComponent<IEnemy>().OnHit(WeaponDamage, SetToStun);
+            Instantiate(collision.GetComponent<IEnemy>().GetParticles(), ParticleSpawnPoint.transform.position, new Quaternion());
         }
     }
 

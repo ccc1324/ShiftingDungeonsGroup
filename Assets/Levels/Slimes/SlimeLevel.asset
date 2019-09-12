@@ -12,8 +12,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: dd388cbfb52d63541bf6492742832e82, type: 3}
   m_Name: SlimeLevel
   m_EditorClassIdentifier: 
-  Spawn: {fileID: 4989195846534273194, guid: 6e7d17cdf32991c48a2a9679bcfff2e6, type: 3}
-  Filler: {fileID: 1967959683413659789, guid: dda05428e5def904e86015c965a3e489, type: 3}
+  Spawn: {fileID: 7982638502240541356, guid: 05d09faaf58dac74883dd58b96185cb6, type: 3}
+  Filler: {fileID: 2579569235598798443, guid: d7b292df23e6c3043a33185f8a6c9910, type: 3}
   Stages:
   - {fileID: 3109448219124973978, guid: 9f8c5190407ff6b4f8fcf3b2cd81c665, type: 3}
   - {fileID: 3109448219124973978, guid: 9f8c5190407ff6b4f8fcf3b2cd81c665, type: 3}
@@ -21,9 +21,9 @@ MonoBehaviour:
   BossRoom: {fileID: 6218201775023758319, guid: 58fe6332da64db94b9448afbfb07291e,
     type: 3}
   Walls:
-    SpawnWallsLeft: {fileID: 8667136119297713162, guid: e8e55b0ec45226741ba22d62bf87b551,
+    SpawnWallsLeft: {fileID: 8498974615535964153, guid: 7df33bf1a29e5ba488d3e0756cd7da72,
       type: 3}
-    SpawnWallsRight: {fileID: 3432353839979352232, guid: 83b78453fae2f944daed57343427b06a,
+    SpawnWallsRight: {fileID: 1721843802714449430, guid: 8cce4115439cafc42b9621b9de9d4a8f,
       type: 3}
     StaticWalls: {fileID: 2972691760349481277, guid: c2207037fc5edd94798207ad3fcf4772,
       type: 3}

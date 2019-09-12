@@ -17,4 +17,4 @@ MonoBehaviour:
   WeaponClass: Staff
   WeaponDamage: 4
   GameObjectSprite: {fileID: 21300000, guid: 42ec8777f1648974eaf8d6c8c080d743, type: 3}
-  InventorySprite: {fileID: 21300000, guid: 42ec8777f1648974eaf8d6c8c080d743, type: 3}
+  InventorySprite: {fileID: 21300000, guid: 45b7bcdadc2ea364bb4e5941689deaa4, type: 3}

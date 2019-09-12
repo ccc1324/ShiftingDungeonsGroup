@@ -5,5 +5,7 @@ using UnityEngine;
 public interface IEnemy
 {
     void OnHit(int damage, bool stun);
+
+    ParticleSystem GetParticles();
 };
 

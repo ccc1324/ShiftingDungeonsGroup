@@ -17,4 +17,4 @@ MonoBehaviour:
   WeaponClass: Spear
   WeaponDamage: 6
   GameObjectSprite: {fileID: 21300000, guid: 8f5dca4a8cb9dc9489785286479de00a, type: 3}
-  InventorySprite: {fileID: 21300000, guid: 8f5dca4a8cb9dc9489785286479de00a, type: 3}
+  InventorySprite: {fileID: 21300000, guid: 7d094edc0405cc347aca8e836e265c6b, type: 3}

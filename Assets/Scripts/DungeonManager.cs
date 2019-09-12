@@ -6,17 +6,18 @@ public class DungeonManager : MonoBehaviour
 {
     //levels
     public List<Level> Levels;
+    public int MaxLevel;
+    public int Level;
 
     //stats of various rooms
     private float _player_offset; //-player's y coordinate
     private int _dungeon_size;
-    private int _level;
     private int _stage;
     private int _spawn_size;
 
     //references to rooms and wall
     private GameObject _room_left; //also used to store filler room (dirt)
-    public GameObject _room_current;
+    private GameObject _room_current;
     private GameObject _room_right;
     private GameObject _room_spawn;
     private GameObject _room_boss;
@@ -41,7 +42,7 @@ public class DungeonManager : MonoBehaviour
         _player_offset = 3.5f;
         _dungeon_size = 18;
         _spawn_size = 40;
-        _level = 0;
+        Level = 0;
 
         MonsterSpawner = FindObjectOfType<MonsterSpawner>().GetComponent<MonsterSpawner>();
         if (MonsterSpawner == null)
@@ -59,20 +60,20 @@ public class DungeonManager : MonoBehaviour
 
         //Instantiate Spawn for the first time
         _room_spawn = MyInstantiate(
-                    Levels[_level].Spawn,
+                    Levels[Level].Spawn,
                     Player.transform.position.x, 0);
         _room_left = MyInstantiate(
-                    Levels[_level].Filler,
+                    Levels[Level].Filler,
                     Player.transform.position.x - _spawn_size/2 - _dungeon_size/2, 0);
         RoomStage = _room_current = MyInstantiate(
-                    Levels[_level].Stages[_stage],
+                    Levels[Level].Stages[_stage],
                     Player.transform.position.x + _spawn_size / 2 + _dungeon_size / 2, 0);
 
         _wall = MyInstantiate(
-                    Levels[_level].Walls.SpawnWallsRight,
+                    Levels[Level].Walls.SpawnWallsRight,
                     Player.transform.position.x, 0);
         _wall_another = MyInstantiate(
-                    Levels[_level].Walls.StaticWallsLeft,
+                    Levels[Level].Walls.StaticWallsLeft,
                     _room_current.transform.position.x, 0);
 
         //Update Dungeon State
@@ -99,11 +100,11 @@ public class DungeonManager : MonoBehaviour
 
                     //Instatiate new rooms
                     _room_left = MyInstantiate(
-                        Levels[_level].Stages[0],
+                        Levels[Level].Stages[0],
                         _room_current.transform.position.x - _dungeon_size,
                         _room_current.transform.position.y);
                     _room_right = MyInstantiate(
-                        Levels[_level].Stages[0],
+                        Levels[Level].Stages[0],
                         _room_current.transform.position.x + _dungeon_size,
                         _room_current.transform.position.y);
 
@@ -111,13 +112,13 @@ public class DungeonManager : MonoBehaviour
                     Destroy(_wall);
                     Destroy(_wall_another);
                     _wall = MyInstantiate(
-                        Levels[_level].Walls.StaticWalls,
+                        Levels[Level].Walls.StaticWalls,
                         _room_current.transform.position.x,
                         _room_current.transform.position.y);
 
                     DungeonState = "Stage";
 
-                    MonsterSpawner.SpawnMobs(_level, _stage);
+                    MonsterSpawner.SpawnMobs(Level, _stage);
                 }
                 break;
             #endregion
@@ -151,14 +152,14 @@ public class DungeonManager : MonoBehaviour
                     if (!SpawnBoss)
                     {
                         RoomStage = _room_right = MyInstantiate(
-                            Levels[_level].Stages[_stage],
+                            Levels[Level].Stages[_stage],
                             _room_current.transform.position.x + _dungeon_size,
                             _room_current.transform.position.y);
                     }
                     else if (SpawnBoss)
                     {
                         _room_right = MyInstantiate(
-                            Levels[_level].Stages[0],
+                            Levels[Level].Stages[0],
                             _room_current.transform.position.x + _dungeon_size,
                             _room_current.transform.position.y);
                     }
@@ -172,14 +173,14 @@ public class DungeonManager : MonoBehaviour
                     if (!SpawnBoss)
                     {
                         RoomStage = _room_left = MyInstantiate(
-                            Levels[_level].Stages[_stage],
+                            Levels[Level].Stages[_stage],
                             _room_current.transform.position.x - _dungeon_size,
                             _room_current.transform.position.y);
                     }
                     else if (SpawnBoss)
                     {
                         _room_left = MyInstantiate(
-                            Levels[_level].Stages[0],
+                            Levels[Level].Stages[0],
                             _room_current.transform.position.x - _dungeon_size,
                             _room_current.transform.position.y);
                     }
@@ -200,7 +201,7 @@ public class DungeonManager : MonoBehaviour
                     if (!SpawnBoss)
                     {
                         _room_right = MyInstantiate(
-                            Levels[_level].Stages[_stage],
+                            Levels[Level].Stages[_stage],
                             _room_current.transform.position.x + _dungeon_size,
                             _room_current.transform.position.y);
                         if (RoomStage == null)
@@ -208,7 +209,7 @@ public class DungeonManager : MonoBehaviour
                     }
                     else
                         _room_right = MyInstantiate(
-                            Levels[_level].Stages[0],
+                            Levels[Level].Stages[0],
                             _room_current.transform.position.x + _dungeon_size,
                             _room_current.transform.position.y);
                 }
@@ -222,7 +223,7 @@ public class DungeonManager : MonoBehaviour
                     if (!SpawnBoss)
                     {
                         _room_left = MyInstantiate(
-                            Levels[_level].Stages[_stage],
+                            Levels[Level].Stages[_stage],
                             _room_current.transform.position.x - _dungeon_size,
                             _room_current.transform.position.y);
                         if (RoomStage == null)
@@ -230,7 +231,7 @@ public class DungeonManager : MonoBehaviour
                     }
                     else
                         _room_left = MyInstantiate(
-                            Levels[_level].Stages[0],
+                            Levels[Level].Stages[0],
                             _room_current.transform.position.x - _dungeon_size,
                             _room_current.transform.position.y);
                 }
@@ -252,23 +253,23 @@ public class DungeonManager : MonoBehaviour
 
                         //Instatiate new rooms
                         _room_left = MyInstantiate(
-                            Levels[_level].Stages[0],
+                            Levels[Level].Stages[0],
                             _room_current.transform.position.x - _dungeon_size,
                             _room_current.transform.position.y);
                         _room_right = MyInstantiate(
-                            Levels[_level].Stages[0],
+                            Levels[Level].Stages[0],
                             _room_current.transform.position.x + _dungeon_size,
                             _room_current.transform.position.y);
 
                         //Update Walls
                         _wall = MyInstantiate(
-                            Levels[_level].Walls.StaticWalls,
+                            Levels[Level].Walls.StaticWalls,
                             _room_current.transform.position.x,
                             _room_current.transform.position.y);
 
                         DungeonState = "Stage";
 
-                        MonsterSpawner.SpawnMobs(_level, _stage);
+                        MonsterSpawner.SpawnMobs(Level, _stage);
                         break;
                     }
                 }
@@ -291,7 +292,7 @@ public class DungeonManager : MonoBehaviour
                         Destroy(_room_right);
 
                         _room_boss = MyInstantiate(
-                            Levels[_level].BossRoom,
+                            Levels[Level].BossRoom,
                             _room_current.transform.position.x + _dungeon_size,
                             _room_current.transform.position.y);
 
@@ -299,11 +300,11 @@ public class DungeonManager : MonoBehaviour
                         Destroy(_wall);
                         Destroy(_wall_another);
                         _wall = MyInstantiate(
-                            Levels[_level].Walls.StaticWalls,
+                            Levels[Level].Walls.StaticWalls,
                             _room_current.transform.position.x,
                             _room_current.transform.position.y);
                         _wall_another = MyInstantiate(
-                            Levels[_level].Walls.StaticWallsLeft,
+                            Levels[Level].Walls.StaticWallsLeft,
                             _room_current.transform.position.x + _dungeon_size,
                             _room_current.transform.position.y);
 
@@ -342,7 +343,7 @@ public class DungeonManager : MonoBehaviour
                     Destroy(_wall_another);
 
                     _wall = MyInstantiate(
-                        Levels[_level].Walls.StaticWalls,
+                        Levels[Level].Walls.StaticWalls,
                         _room_boss.transform.position.x,
                         _room_boss.transform.position.y);
 
@@ -355,11 +356,11 @@ public class DungeonManager : MonoBehaviour
                 if (BossDefeated)
                 {
                     _room_spawn = MyInstantiate(
-                        Levels[_level].Spawn,
+                        Levels[Level].Spawn,
                         _room_boss.transform.position.x + _dungeon_size / 2 + _spawn_size / 2,
                         _room_boss.transform.position.y);
                     _room_current = MyInstantiate(
-                        Levels[_level].Stages[_stage],
+                        Levels[Level].Stages[_stage],
                         _room_boss.transform.position.x + _dungeon_size + _spawn_size,
                         _room_boss.transform.position.y);
 
@@ -399,7 +400,7 @@ public class DungeonManager : MonoBehaviour
                     Destroy(_room_boss);
 
                     _room_left = MyInstantiate(
-                        Levels[_level].Filler,
+                        Levels[Level].Filler,
                         _room_spawn.transform.position.x - _spawn_size / 2 - _dungeon_size / 2,
                         _room_spawn.transform.position.y);
 
@@ -407,11 +408,11 @@ public class DungeonManager : MonoBehaviour
                     Destroy(_wall_another);
 
                     _wall = MyInstantiate(
-                        Levels[_level].Walls.SpawnWallsRight,
+                        Levels[Level].Walls.SpawnWallsRight,
                         _room_spawn.transform.position.x,
                         _room_spawn.transform.position.y);
                     _wall_another = MyInstantiate(
-                        Levels[_level].Walls.StaticWallsLeft, 
+                        Levels[Level].Walls.StaticWallsLeft, 
                         _room_current.transform.position.x, 
                         _room_current.transform.position.y);
 
@@ -446,7 +447,7 @@ public class DungeonManager : MonoBehaviour
         yield return new WaitForSeconds(time);
         Destroy(_wall);
         _wall = MyInstantiate(
-            Levels[_level].Walls.StaticWallsRight,
+            Levels[Level].Walls.StaticWallsRight,
             _room_current.transform.position.x,
             _room_current.transform.position.y);
     }
@@ -457,11 +458,11 @@ public class DungeonManager : MonoBehaviour
         Destroy(_wall);
 
         _wall = MyInstantiate(
-            Levels[_level].Walls.SpawnWallsLeft,
+            Levels[Level].Walls.SpawnWallsLeft,
             _room_spawn.transform.position.x,
             _room_spawn.transform.position.y);
         _wall_another = MyInstantiate(
-            Levels[_level].Walls.StaticWallsRight,
+            Levels[Level].Walls.StaticWallsRight,
             _room_boss.transform.position.x,
             _room_boss.transform.position.y);
     }

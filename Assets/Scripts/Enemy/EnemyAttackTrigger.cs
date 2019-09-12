@@ -4,23 +4,22 @@ using UnityEngine;
 
 public class EnemyAttackTrigger : MonoBehaviour
 {
+    public ParticleSystem ParticleEffects;
+
     private void OnTriggerEnter2D(Collider2D collision)
     {
-        if (collision.tag == "Player")
+        if (collision.tag == "Player" && !collision.GetComponent<PlayerStun>().ParalyzeHeal)
         {
-            PlayerCombat player = collision.GetComponent<PlayerCombat>();
             collision.GetComponent<PlayerMovement>().Stop();
             collision.GetComponent<Animator>().SetTrigger("Stun");
             collision.GetComponent<Animator>().SetBool("Attacking", false);
 
-            player.enabled = false; //need to diable temporaily to get around animator overiding stun
-            StartCoroutine(ReEnable(player));
+            collision.GetComponent<PlayerStun>().DisablePlayerCombat(0.1f);
 
             if (tag == "Projectile")
             {
-                GetComponent<SpriteRenderer>().enabled = false;
-                GetComponent<Collider2D>().enabled = false;
-                Destroy(gameObject, 0.2f);
+                Instantiate(ParticleEffects, transform.position, new Quaternion());
+                Destroy(gameObject);
             }
         }
 
@@ -29,11 +28,5 @@ public class EnemyAttackTrigger : MonoBehaviour
             if (tag == "Projectile")
                 Destroy(gameObject);
         }
-    }
-
-    IEnumerator ReEnable(PlayerCombat player)
-    {
-        yield return new WaitForSeconds(0.05f);
-        player.enabled = true;
     }
 }

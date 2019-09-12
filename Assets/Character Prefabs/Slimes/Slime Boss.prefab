@@ -23,7 +23,7 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 5748819777603370310}
-  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 3.04, y: -1.55, z: -0.102327585}
   m_LocalScale: {x: 0.6, y: 0.6, z: 1}
   m_Children:
@@ -196,6 +196,8 @@ MonoBehaviour:
     type: 3}
   RangedProjectile: {fileID: 8611557003057830286, guid: 4ef79f0401de8e24a884231a553e5378,
     type: 3}
+  Particles: {fileID: 3218626813253202539, guid: e1b5d0ff45b804b4c82b285c7dbe31e3,
+    type: 3}
   Grounded: 0
   Attacking: 0
   Dead: 0
@@ -210,7 +212,6 @@ GameObject:
   - component: {fileID: 5748819779414224757}
   - component: {fileID: 5748819779414224762}
   - component: {fileID: 5748819779414224761}
-  - component: {fileID: 5748819779414224760}
   m_Layer: 11
   m_Name: Attack Trigger
   m_TagString: Untagged
@@ -244,6 +245,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 02413b0e2019fce44abc5d4c7cf7f0f8, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  ParticleEffects: {fileID: 0}
 --- !u!70 &5748819779414224761
 CapsuleCollider2D:
   m_ObjectHideFlags: 0
@@ -260,19 +262,3 @@ CapsuleCollider2D:
   m_Offset: {x: -0.023980398, y: -2.132259}
   m_Size: {x: 15.949765, y: 10.631138}
   m_Direction: 1
---- !u!58 &5748819779414224760
-CircleCollider2D:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 5748819779414224756}
-  m_Enabled: 0
-  m_Density: 1
-  m_Material: {fileID: 0}
-  m_IsTrigger: 1
-  m_UsedByEffector: 0
-  m_UsedByComposite: 0
-  m_Offset: {x: -0.02395749, y: -1.5812123}
-  serializedVersion: 2
-  m_Radius: 7.088392

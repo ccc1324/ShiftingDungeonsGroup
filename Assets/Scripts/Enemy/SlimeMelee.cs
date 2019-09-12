@@ -21,6 +21,8 @@ public class SlimeMelee : MonoBehaviour, IEnemy
     public ItemSets ItemDropSets;
     public GameObject Item;
 
+    public ParticleSystem Particles;
+
     public bool Grounded;
     public bool Stunned;
     public bool Dead;
@@ -78,6 +80,11 @@ public class SlimeMelee : MonoBehaviour, IEnemy
 
     public void OnHit(int damage, bool stun)
     {
+        if (Health <= 0)
+            return;
+
+        Instantiate(Particles, transform.position, new Quaternion());
+
         if (stun)
         {
             Stop();
@@ -128,5 +135,10 @@ public class SlimeMelee : MonoBehaviour, IEnemy
             _rigidbody.velocity = new Vector2(Movespeed * Time.deltaTime * direction, _rigidbody.velocity.y);
             yield return null;
         }
+    }
+
+    public ParticleSystem GetParticles()
+    {
+        return Particles;
     }
 }

@@ -17,4 +17,4 @@ MonoBehaviour:
   WeaponClass: Axe
   WeaponDamage: 100
   GameObjectSprite: {fileID: 21300000, guid: 3777b1331d63e024887c8943a92e4c87, type: 3}
-  InventorySprite: {fileID: 21300000, guid: 3777b1331d63e024887c8943a92e4c87, type: 3}
+  InventorySprite: {fileID: 21300000, guid: 95810927c8a3a08478b9100fe99348e9, type: 3}

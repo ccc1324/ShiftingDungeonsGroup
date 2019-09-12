@@ -17,4 +17,4 @@ MonoBehaviour:
   WeaponClass: Hammer
   WeaponDamage: 20
   GameObjectSprite: {fileID: 21300000, guid: a62d283a4ae28e94a8b4e727a7d312e7, type: 3}
-  InventorySprite: {fileID: 21300000, guid: a62d283a4ae28e94a8b4e727a7d312e7, type: 3}
+  InventorySprite: {fileID: 21300000, guid: f15c6e9a13ce5f74296c37097a3a3ae2, type: 3}

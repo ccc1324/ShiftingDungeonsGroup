@@ -21,6 +21,8 @@ public class SlimeRanged : MonoBehaviour, IEnemy
     public ItemSets ItemDropSets;
     public GameObject Item;
 
+    public ParticleSystem Particles;
+
     public bool Stunned;
     public bool Dead;
 
@@ -64,6 +66,11 @@ public class SlimeRanged : MonoBehaviour, IEnemy
 
     public void OnHit(int damage, bool stun)
     {
+        if (Health <= 0)
+            return;
+
+        Instantiate(Particles, transform.position, new Quaternion());
+
         if (stun)
         {
             _animator.SetTrigger("Stun");
@@ -93,5 +100,10 @@ public class SlimeRanged : MonoBehaviour, IEnemy
 
         _animator.SetBool("Attacking", false);
         yield return null;
+    }
+
+    public ParticleSystem GetParticles()
+    {
+        return Particles;
     }
 }

@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class PlayerMovement : MonoBehaviour
 {
@@ -23,7 +24,9 @@ public class PlayerMovement : MonoBehaviour
     void Update()
     {
         if (Stunned)
+        {
             return;
+        }
 
         _animator.SetFloat("VerticalSpeed", _rigidbody.velocity.y);
 

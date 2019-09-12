@@ -173,6 +173,8 @@ MonoBehaviour:
     Rare: {fileID: 11400000, guid: 50e0246562f49984eb71c5c7dd8b84c2, type: 2}
     Epic: {fileID: 11400000, guid: 50e0246562f49984eb71c5c7dd8b84c2, type: 2}
   Item: {fileID: 1747576819488917488, guid: 528bd23c711b56d4582ba91b6b9e6aa4, type: 3}
+  Particles: {fileID: 3218626813253202539, guid: c0180b3ef46454647b27f9210ac86018,
+    type: 3}
   Stunned: 0
   Dead: 0
 --- !u!1 &3823103236411365693
