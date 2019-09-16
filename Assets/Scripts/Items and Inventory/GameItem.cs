@@ -21,6 +21,7 @@ public class GameItem : MonoBehaviour
         _collider = gameObject.AddComponent<PolygonCollider2D>();
         _trigger = gameObject.AddComponent<PolygonCollider2D>();
         _trigger.isTrigger = true;
+        StartCoroutine(DestroyOutOfBounds());
     }
 
     void OnTriggerEnter2D(Collider2D collision)
@@ -37,5 +38,14 @@ public class GameItem : MonoBehaviour
         {
             collision.GetComponentInParent<PlayerInventory>().ToAddItems.Remove(gameObject);
         }
+    }
+
+    IEnumerator DestroyOutOfBounds()
+    {
+        while(transform.position.y > -100)
+        {
+            yield return new WaitForSeconds(30);
+        }
+        Destroy(gameObject);
     }
 }

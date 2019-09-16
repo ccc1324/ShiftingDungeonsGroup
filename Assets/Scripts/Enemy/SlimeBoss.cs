@@ -117,8 +117,6 @@ public class SlimeBoss : MonoBehaviour, IEnemy
         if (Health <= 0)
             return;
 
-        //Instantiate(Particles, transform.position, new Quaternion());
-
         _direction = Mathf.Sign(_player_location.position.x - transform.position.x);
         Health -= damage;
         if (Health <= 0)

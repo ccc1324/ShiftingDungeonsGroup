@@ -8,18 +8,20 @@ using UnityEngine.EventSystems;
  * Manages display of items in the UI
  */
 
-public class UIItem : MonoBehaviour, IPointerClickHandler
+public class UIItem : MonoBehaviour, IPointerClickHandler, IPointerEnterHandler, IPointerExitHandler
 {
     public Item Item;
     public UIItem SelectedItem;
+    public ItemHoverPanel ItemHoverPanel;
 
     private Image _image;
-    
+
 
     void Start()
     {
         _image = GetComponent<Image>();
         SelectedItem = FindObjectOfType<SelectedItem>().GetComponent<UIItem>();
+        ItemHoverPanel = FindObjectOfType<ItemHoverPanel>();
     }
 
     void Update()
@@ -33,5 +35,21 @@ public class UIItem : MonoBehaviour, IPointerClickHandler
         Item temp_item = Item;
         Item = SelectedItem.Item;
         SelectedItem.Item = temp_item;
+    }
+
+    public void OnPointerEnter(PointerEventData eventData)
+    {
+        if (Item != null)
+        {
+            ItemHoverPanel.Item = Item;
+            ItemHoverPanel.UpdateItem();
+            ItemHoverPanel.transform.position = transform.position;
+            ItemHoverPanel.Show();
+        }
+    }
+
+    public void OnPointerExit(PointerEventData eventData)
+    {
+        ItemHoverPanel.Hide();
     }
 }

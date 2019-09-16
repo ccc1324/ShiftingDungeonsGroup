@@ -9,15 +9,21 @@ using UnityEngine;
 public class PlayerInventory : MonoBehaviour
 {
     public Inventory Inventory;
+    public Equipment Equipment;
     public List<GameObject> ToAddItems;
+    public bool Stunned;
 
     void Start()
     {
         Inventory = FindObjectOfType<Inventory>();
+        Equipment = FindObjectOfType<Equipment>();
     }
 
     void Update()
     {
+        if (Stunned)
+            return;
+
         if (Input.GetKeyDown("j"))
         {
             if (ToAddItems.Count != 0)
@@ -26,6 +32,22 @@ public class PlayerInventory : MonoBehaviour
                 ToAddItems.Remove(item);
                 Destroy(item);
             }
+        }
+
+        if (Input.GetKeyDown("i"))
+        {
+            CanvasGroup canvasGroup = Inventory.GetComponent<CanvasGroup>();
+            canvasGroup.alpha = canvasGroup.alpha == 1 ? 0 : 1;
+            canvasGroup.interactable = canvasGroup.interactable ? false : true;
+            canvasGroup.blocksRaycasts = canvasGroup.blocksRaycasts ? false : true;
+        }
+
+        if (Input.GetKeyDown("o"))
+        {
+            CanvasGroup canvasGroup = Equipment.GetComponent<CanvasGroup>();
+            canvasGroup.alpha = canvasGroup.alpha == 1 ? 0 : 1;
+            canvasGroup.interactable = canvasGroup.interactable ? false : true;
+            canvasGroup.blocksRaycasts = canvasGroup.blocksRaycasts ? false : true;
         }
     }
 }

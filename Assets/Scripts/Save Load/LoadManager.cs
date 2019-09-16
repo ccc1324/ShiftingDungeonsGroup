@@ -15,26 +15,23 @@ public class LoadManager : MonoBehaviour
         ItemDictionary.BuildDictionary();
     }
 
-    void Update()
+    public void LoadGame()
     {
-        if (Input.GetKeyDown("y"))
+        _inventory = FindObjectOfType<Inventory>();
+        _equipment = FindObjectOfType<Equipment>();
+        _dungeon_manager = FindObjectOfType<DungeonManager>();
+
+        SaveData saveData = SaveSystem.Load();
+
+        _dungeon_manager.Level = saveData.Level;
+        _dungeon_manager.MaxLevel = saveData.MaxLevel;
+
+        for (int i = 0; i < 15; i++)
         {
-            _inventory = FindObjectOfType<Inventory>();
-            _equipment = FindObjectOfType<Equipment>();
-            _dungeon_manager = FindObjectOfType<DungeonManager>();
-
-            SaveData saveData = SaveSystem.Load();
-
-            _dungeon_manager.Level = saveData.Level;
-            _dungeon_manager.MaxLevel = saveData.MaxLevel;
-
-            for (int i = 0; i < 15; i++)
-            {
-                _inventory.InventorySlots[i].Item = saveData.InventoryItemNames[i] == "" ? null : ItemDictionary.GetItem(saveData.InventoryItemNames[i]);
-            }
-
-            _equipment.PrimaryWeapon.Item = saveData.PrimaryWeaponName == "" ? null : ItemDictionary.GetItem(saveData.PrimaryWeaponName);
-            _equipment.SecondaryWeapon.Item = saveData.SecondaryWeaponName == "" ? null : ItemDictionary.GetItem(saveData.SecondaryWeaponName);
+            _inventory.InventorySlots[i].Item = saveData.InventoryItemNames[i] == "" ? null : ItemDictionary.GetItem(saveData.InventoryItemNames[i]);
         }
+
+        _equipment.PrimaryWeapon.Item = saveData.PrimaryWeaponName == "" ? null : ItemDictionary.GetItem(saveData.PrimaryWeaponName);
+        _equipment.SecondaryWeapon.Item = saveData.SecondaryWeaponName == "" ? null : ItemDictionary.GetItem(saveData.SecondaryWeaponName);
     }
 }

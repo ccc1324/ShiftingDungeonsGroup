@@ -64,7 +64,7 @@ public class DungeonManager : MonoBehaviour
                     Player.transform.position.x, 0);
         _room_left = MyInstantiate(
                     Levels[Level].Filler,
-                    Player.transform.position.x - _spawn_size/2 - _dungeon_size/2, 0);
+                    Player.transform.position.x - _spawn_size / 2 - _dungeon_size / 2, 0);
         RoomStage = _room_current = MyInstantiate(
                     Levels[Level].Stages[_stage],
                     Player.transform.position.x + _spawn_size / 2 + _dungeon_size / 2, 0);
@@ -76,7 +76,6 @@ public class DungeonManager : MonoBehaviour
                     Levels[Level].Walls.StaticWallsLeft,
                     _room_current.transform.position.x, 0);
 
-        //Update Dungeon State
         DungeonState = "Spawn";
     }
 
@@ -84,6 +83,47 @@ public class DungeonManager : MonoBehaviour
     {
         switch (DungeonState)
         {
+            #region StartGame
+
+            #endregion
+            #region Respawn
+            case "Respawn":
+                //Destory all existing non-layer objects
+                Destroy(_room_left);
+                Destroy(_room_current);
+                Destroy(_room_right);
+                Destroy(_room_spawn);
+                Destroy(_room_boss);
+                Destroy(_wall);
+                Destroy(_wall_another);
+                MonsterSpawner.DestoryAllMobs();
+                foreach (GameItem item in FindObjectsOfType<GameItem>())
+                    Destroy(item.gameObject);
+
+                //Instantiate Spawn for the first time
+                _room_spawn = MyInstantiate(
+                            Levels[Level].Spawn,
+                            Player.transform.position.x, 0);
+                _room_left = MyInstantiate(
+                            Levels[Level].Filler,
+                            Player.transform.position.x - _spawn_size / 2 - _dungeon_size / 2, 0);
+                RoomStage = _room_current = MyInstantiate(
+                            Levels[Level].Stages[_stage],
+                            Player.transform.position.x + _spawn_size / 2 + _dungeon_size / 2, 0);
+
+                _wall = MyInstantiate(
+                            Levels[Level].Walls.SpawnWallsRight,
+                            Player.transform.position.x, 0);
+                _wall_another = MyInstantiate(
+                            Levels[Level].Walls.StaticWallsLeft,
+                            _room_current.transform.position.x, 0);
+
+                //Update Dungeon State
+                DungeonState = "Spawn";
+                _stage = 0;
+
+                break;
+            #endregion
             #region Spawn
             case "Spawn":
                 if (Player.transform.position.x > _room_current.transform.position.x)

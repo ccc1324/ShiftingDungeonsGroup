@@ -83,8 +83,6 @@ public class SlimeMelee : MonoBehaviour, IEnemy
         if (Health <= 0)
             return;
 
-        Instantiate(Particles, transform.position, new Quaternion());
-
         if (stun)
         {
             Stop();

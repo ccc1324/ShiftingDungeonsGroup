@@ -111,4 +111,19 @@ public class MonsterSpawner : MonoBehaviour
         }
         _dungeon_manager.MobsCleared = true;
     }
+
+    public void DestoryAllMobs()
+    {
+        foreach (GameObject mob in _mobs)
+        {
+            if (mob == null)
+                continue;
+            Destroy(mob);
+        }
+        _mobs = new List<GameObject>();
+        _spawnMobs = false;
+        _waveNumber = 0;
+        _stageNumber = 0;
+        StopAllCoroutines();
+    }
 }
