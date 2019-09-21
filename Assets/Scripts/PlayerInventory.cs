@@ -40,14 +40,16 @@ public class PlayerInventory : MonoBehaviour
             canvasGroup.alpha = canvasGroup.alpha == 1 ? 0 : 1;
             canvasGroup.interactable = canvasGroup.interactable ? false : true;
             canvasGroup.blocksRaycasts = canvasGroup.blocksRaycasts ? false : true;
+
+            canvasGroup = Equipment.GetComponent<CanvasGroup>();
+            canvasGroup.alpha = canvasGroup.alpha == 1 ? 0 : 1;
+            canvasGroup.interactable = canvasGroup.interactable ? false : true;
+            canvasGroup.blocksRaycasts = canvasGroup.blocksRaycasts ? false : true;
         }
 
         if (Input.GetKeyDown("o"))
         {
-            CanvasGroup canvasGroup = Equipment.GetComponent<CanvasGroup>();
-            canvasGroup.alpha = canvasGroup.alpha == 1 ? 0 : 1;
-            canvasGroup.interactable = canvasGroup.interactable ? false : true;
-            canvasGroup.blocksRaycasts = canvasGroup.blocksRaycasts ? false : true;
+            
         }
     }
 }

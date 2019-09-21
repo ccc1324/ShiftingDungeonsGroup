@@ -14,7 +14,7 @@ public class PlayerWeapon : MonoBehaviour
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
-        if (collision.tag == "Enemy" && EnableWeaponHitbox)
+        if ((collision.tag == "Enemy") && EnableWeaponHitbox)
         {
             collision.GetComponent<IEnemy>().OnHit(WeaponDamage, SetToStun);
             Instantiate(collision.GetComponent<IEnemy>().GetParticles(), ParticleSpawnPoint.transform.position, new Quaternion());

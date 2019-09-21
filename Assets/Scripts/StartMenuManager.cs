@@ -12,6 +12,7 @@ public class StartMenuManager : MonoBehaviour
     public GameObject Player;
     public CanvasGroup StartMenu;
     public LoadManager LoadManager;
+    public GameObject TutorialObjects;
 
     private Player _player;
     private PlayerCombat _player_combat;
@@ -34,6 +35,7 @@ public class StartMenuManager : MonoBehaviour
 
     public void NewGame()
     {
+        StartCoroutine(EnableTutorial(5f));
         _player.ResetPlayer(2.5f);
         StartCoroutine(FadeUI(2f));
     }
@@ -57,5 +59,11 @@ public class StartMenuManager : MonoBehaviour
             yield return null;
         }
         StartMenu.alpha = 0;
+    }
+
+    IEnumerator EnableTutorial(float time)
+    {
+        yield return new WaitForSeconds(time);
+        TutorialObjects.SetActive(true);
     }
 }
