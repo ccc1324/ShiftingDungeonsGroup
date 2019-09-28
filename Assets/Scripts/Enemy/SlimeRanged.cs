@@ -23,6 +23,8 @@ public class SlimeRanged : MonoBehaviour, IEnemy
 
     public ParticleSystem Particles;
 
+    public AudioClip AttackSFX;
+
     public bool Stunned;
     public bool Dead;
 
@@ -30,6 +32,7 @@ public class SlimeRanged : MonoBehaviour, IEnemy
     private Animator _animator;
     private Transform _player_location;
     private ItemDropManager _item_drop_manager;
+    private AudioSource _audio_source;
 
     void Start()
     {
@@ -37,6 +40,7 @@ public class SlimeRanged : MonoBehaviour, IEnemy
         _animator = GetComponent<Animator>();
         _player_location = FindObjectOfType<PlayerInventory>().transform;
         _item_drop_manager = FindObjectOfType<ItemDropManager>();
+        _audio_source = GetComponent<AudioSource>();
     }
 
     void Update()
@@ -46,7 +50,7 @@ public class SlimeRanged : MonoBehaviour, IEnemy
             Item item = _item_drop_manager.GetDrop(ItemDropSets.Common, ItemDropSets.Uncommon, ItemDropSets.Rare, ItemDropSets.Epic);
             if (item != null)
             {
-                GameObject clone = Instantiate(Item, transform.position, new Quaternion());
+                GameObject clone = Instantiate(Item, transform.position, Quaternion.Euler(new Vector3(0, 0, -45)));
                 clone.GetComponent<Rigidbody2D>().velocity = new Vector2(0, 20);
                 clone.GetComponent<GameItem>().Item = item;
             }
@@ -86,6 +90,8 @@ public class SlimeRanged : MonoBehaviour, IEnemy
     IEnumerator Attack()
     {
         yield return new WaitForSeconds(1);
+
+        _audio_source.PlayOneShot(AttackSFX);
 
         GameObject projectile = Instantiate(Projectile, transform.position, new Quaternion());
         Rigidbody2D rb = projectile.GetComponent<Rigidbody2D>();

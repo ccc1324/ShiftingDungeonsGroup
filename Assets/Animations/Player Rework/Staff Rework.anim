@@ -1370,7 +1370,7 @@ AnimationClip:
         inWeight: 0
         outWeight: 0
       - serializedVersion: 3
-        time: 0.016666668
+        time: 0.05
         value: 1
         inSlope: Infinity
         outSlope: Infinity
@@ -1388,7 +1388,7 @@ AnimationClip:
         inWeight: 0
         outWeight: 0
       - serializedVersion: 3
-        time: 0.5
+        time: 0.55
         value: 1
         inSlope: Infinity
         outSlope: Infinity
@@ -1578,6 +1578,43 @@ AnimationClip:
     path: Chest/Shoulders/Right Arm/Weapon
     classID: 114
     script: {fileID: 11500000, guid: 14b3bb53b6d33904b973e8ae7001402f, type: 3}
+  - curve:
+      serializedVersion: 2
+      m_Curve:
+      - serializedVersion: 3
+        time: 0
+        value: 1
+        inSlope: 0
+        outSlope: 0
+        tangentMode: 69
+        weightedMode: 0
+        inWeight: 0
+        outWeight: 0
+      - serializedVersion: 3
+        time: 0.9166667
+        value: 1
+        inSlope: -0
+        outSlope: 60.000057
+        tangentMode: 69
+        weightedMode: 0
+        inWeight: 0
+        outWeight: 0
+      - serializedVersion: 3
+        time: 0.95
+        value: 3
+        inSlope: 60.000057
+        outSlope: 0
+        tangentMode: 69
+        weightedMode: 0
+        inWeight: 0
+        outWeight: 0
+      m_PreInfinity: 2
+      m_PostInfinity: 2
+      m_RotationOrder: 4
+    attribute: SFXID
+    path: Chest/Shoulders/Right Arm/Weapon
+    classID: 114
+    script: {fileID: 11500000, guid: 14b3bb53b6d33904b973e8ae7001402f, type: 3}
   m_PPtrCurves: []
   m_SampleRate: 60
   m_WrapMode: 0
@@ -1715,6 +1752,13 @@ AnimationClip:
     - serializedVersion: 2
       path: 3939147649
       attribute: 3548723371
+      script: {fileID: 11500000, guid: 14b3bb53b6d33904b973e8ae7001402f, type: 3}
+      typeID: 114
+      customType: 0
+      isPPtrCurve: 0
+    - serializedVersion: 2
+      path: 3939147649
+      attribute: 894126890
       script: {fileID: 11500000, guid: 14b3bb53b6d33904b973e8ae7001402f, type: 3}
       typeID: 114
       customType: 0
@@ -5408,7 +5452,7 @@ AnimationClip:
         inWeight: 0
         outWeight: 0
       - serializedVersion: 3
-        time: 0.016666668
+        time: 0.05
         value: 1
         inSlope: Infinity
         outSlope: Infinity
@@ -5426,7 +5470,7 @@ AnimationClip:
         inWeight: 0
         outWeight: 0
       - serializedVersion: 3
-        time: 0.5
+        time: 0.55
         value: 1
         inSlope: Infinity
         outSlope: Infinity
@@ -6105,6 +6149,43 @@ AnimationClip:
       m_PostInfinity: 2
       m_RotationOrder: 4
     attribute: SetToStun
+    path: Chest/Shoulders/Right Arm/Weapon
+    classID: 114
+    script: {fileID: 11500000, guid: 14b3bb53b6d33904b973e8ae7001402f, type: 3}
+  - curve:
+      serializedVersion: 2
+      m_Curve:
+      - serializedVersion: 3
+        time: 0
+        value: 1
+        inSlope: 0
+        outSlope: 0
+        tangentMode: 69
+        weightedMode: 0
+        inWeight: 0
+        outWeight: 0
+      - serializedVersion: 3
+        time: 0.9166667
+        value: 1
+        inSlope: -0
+        outSlope: 60.000057
+        tangentMode: 69
+        weightedMode: 0
+        inWeight: 0
+        outWeight: 0
+      - serializedVersion: 3
+        time: 0.95
+        value: 3
+        inSlope: 60.000057
+        outSlope: 0
+        tangentMode: 69
+        weightedMode: 0
+        inWeight: 0
+        outWeight: 0
+      m_PreInfinity: 2
+      m_PostInfinity: 2
+      m_RotationOrder: 4
+    attribute: SFXID
     path: Chest/Shoulders/Right Arm/Weapon
     classID: 114
     script: {fileID: 11500000, guid: 14b3bb53b6d33904b973e8ae7001402f, type: 3}

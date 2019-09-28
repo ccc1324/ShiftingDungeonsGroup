@@ -11,6 +11,8 @@ public class TutorialRock : MonoBehaviour, IEnemy
     public int TransformationHealthA;
     public Sprite TransformationB;
     public int TransformationHealthB;
+    public AudioClip DestroySFX;
+    public float DestroySFXVolume;
 
     public void OnHit(int damage, bool stun)
     {
@@ -18,7 +20,10 @@ public class TutorialRock : MonoBehaviour, IEnemy
         
         if (Health <= 0)
         {
-            Instantiate(DestroyParticleEffects, transform.position, new Quaternion());
+            ParticleSystem particles = Instantiate(DestroyParticleEffects, transform.position, new Quaternion());
+            AudioSource audio_source = particles.gameObject.AddComponent<AudioSource>();
+            audio_source.PlayOneShot(DestroySFX);
+            audio_source.volume = DestroySFXVolume;
             Destroy(gameObject);
             return;
         }

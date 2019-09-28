@@ -26,7 +26,7 @@ public class LoadManager : MonoBehaviour
         _dungeon_manager.Level = saveData.Level;
         _dungeon_manager.MaxLevel = saveData.MaxLevel;
 
-        for (int i = 0; i < 15; i++)
+        for (int i = 0; i < _inventory.InventorySlots.Count; i++)
         {
             _inventory.InventorySlots[i].Item = saveData.InventoryItemNames[i] == "" ? null : ItemDictionary.GetItem(saveData.InventoryItemNames[i]);
         }

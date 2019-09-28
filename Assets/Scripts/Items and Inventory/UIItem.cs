@@ -13,6 +13,17 @@ public class UIItem : MonoBehaviour, IPointerClickHandler, IPointerEnterHandler,
     public Item Item;
     public UIItem SelectedItem;
     public ItemHoverPanel ItemHoverPanel;
+    public bool Equipment;
+    public bool DropItem;
+    public GameObject ItemPrefab;
+    public Transform Player;
+
+    public AudioClip EquipSFX;
+    public float EquipSFXVolume;
+    public AudioClip DropSFX;
+    public float DropSFXVolume;
+
+    private AudioSource _audio_source;
 
     private Image _image;
 
@@ -22,6 +33,7 @@ public class UIItem : MonoBehaviour, IPointerClickHandler, IPointerEnterHandler,
         _image = GetComponent<Image>();
         SelectedItem = FindObjectOfType<SelectedItem>().GetComponent<UIItem>();
         ItemHoverPanel = FindObjectOfType<ItemHoverPanel>();
+        _audio_source = GetComponent<AudioSource>();
     }
 
     void Update()
@@ -35,6 +47,20 @@ public class UIItem : MonoBehaviour, IPointerClickHandler, IPointerEnterHandler,
         Item temp_item = Item;
         Item = SelectedItem.Item;
         SelectedItem.Item = temp_item;
+        if (Equipment && Item != null)
+        {
+            _audio_source.volume = EquipSFXVolume;
+            _audio_source.PlayOneShot(EquipSFX);
+        }
+        if (DropItem && Item != null)
+        {
+            _audio_source.volume = DropSFXVolume;
+            _audio_source.PlayOneShot(DropSFX);
+            GameObject clone = Instantiate(ItemPrefab, Player.position, Quaternion.Euler(new Vector3(0, 0, -45)));
+            clone.GetComponent<Rigidbody2D>().velocity = new Vector2(0, 20);
+            clone.GetComponent<GameItem>().Item = Item;
+            Item = null;
+        }
     }
 
     public void OnPointerEnter(PointerEventData eventData)

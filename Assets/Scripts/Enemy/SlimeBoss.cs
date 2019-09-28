@@ -19,6 +19,11 @@ public class SlimeBoss : MonoBehaviour, IEnemy
 
     public ParticleSystem Particles;
 
+    public AudioClip JumpSFX;
+    public AudioClip EnragedSFX;
+    public AudioClip TransformSFX;
+    public AudioClip DeathSFX;
+
     public bool Grounded;
     public bool Attacking;
     public bool Dead;
@@ -31,6 +36,7 @@ public class SlimeBoss : MonoBehaviour, IEnemy
     private Transform _player_location;
     private SpriteRenderer _sprite;
     private DungeonManager _dungeon_manager;
+    private AudioSource _audio_source;
 
     private bool _idle;
 
@@ -43,6 +49,7 @@ public class SlimeBoss : MonoBehaviour, IEnemy
         _player_location = FindObjectOfType<PlayerInventory>().transform;
         _sprite = GetComponent<SpriteRenderer>();
         _dungeon_manager = FindObjectOfType<DungeonManager>();
+        _audio_source = GetComponent<AudioSource>();
 
         _idle = true;
     }
@@ -66,6 +73,8 @@ public class SlimeBoss : MonoBehaviour, IEnemy
             _idle = false;
 
             _direction = Mathf.Sign(_player_location.position.x - transform.position.x);
+
+            _audio_source.PlayOneShot(EnragedSFX);
         }
     }
 
@@ -93,6 +102,8 @@ public class SlimeBoss : MonoBehaviour, IEnemy
             HealthTransformTwo = Mathf.NegativeInfinity;
 
             _direction = Mathf.Sign(_player_location.position.x - transform.position.x);
+
+            _audio_source.PlayOneShot(EnragedSFX);
         }
 
         if (Attacking && Time.time - _time_of_last_attack > AttackCooldown && Health > 0)
@@ -121,8 +132,11 @@ public class SlimeBoss : MonoBehaviour, IEnemy
         Health -= damage;
         if (Health <= 0)
         {
+            _audio_source.PlayOneShot(DeathSFX);
+
             _animator.SetBool("Dead", true);
             Attacking = false;
+            StopAllCoroutines();
         }
     }
 
@@ -134,6 +148,8 @@ public class SlimeBoss : MonoBehaviour, IEnemy
     IEnumerator Attack()
     {
         yield return new WaitForSeconds(0.5f);
+
+        _audio_source.PlayOneShot(JumpSFX);
 
         _rigidbody.velocity = new Vector2(0, JumpForce);
         _animator.ResetTrigger("Attack");
@@ -177,6 +193,8 @@ public class SlimeBoss : MonoBehaviour, IEnemy
     IEnumerator Shower()
     {
         yield return new WaitForSeconds(2f);
+
+        _audio_source.PlayOneShot(TransformSFX);
 
         GameObject projectile = Instantiate(TransformProjectile, transform.position, new Quaternion());
         Rigidbody2D rb = projectile.GetComponent<Rigidbody2D>();

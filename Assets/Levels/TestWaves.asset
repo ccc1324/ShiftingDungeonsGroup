@@ -16,15 +16,4 @@ MonoBehaviour:
   StageList:
   - WaveList:
     - WaveBuffer: 0
-      Mobs:
-      - Prefab: {fileID: 1864851530522590640, guid: 597a23c27277c5149a21b1c82c7dc574,
-          type: 3}
-        Location: {x: -8, y: 8}
-        EjectSpeed: 10
-  - WaveList:
-    - WaveBuffer: 0
-      Mobs:
-      - Prefab: {fileID: 1864851530522590640, guid: 597a23c27277c5149a21b1c82c7dc574,
-          type: 3}
-        Location: {x: -4, y: -2}
-        EjectSpeed: 10
+      Mobs: []
