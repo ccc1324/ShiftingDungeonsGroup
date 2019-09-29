@@ -27,13 +27,13 @@ public class MonsterSpawner : MonoBehaviour
         if (_spawnMobs)
         {
             Waves.Wave wave = _waves.StageList[_stageNumber].WaveList[_waveNumber]; //for readability
-            if (Time.time - _last_spawn_time > _waves.SpawnCooldown + wave.WaveBuffer || _mobs.Count == 0)
+            if (Time.time - _last_spawn_time > _waves.StageList[_stageNumber].SpawnCooldown + wave.WaveBuffer || _mobs.Count == 0)
             {
                 for (int i = 0; i < wave.Mobs.Count; i++)
                 {
                     Waves.Mob mob = wave.Mobs[i];
                     float x = Random.Range(mob.Location.x, mob.Location.y);
-                    float y = mob.EjectSpeed > 0 ? -3 : 3;
+                    float y = mob.EjectSpeed > 0 ? -3.4f : 3.3f;
                     GameObject myMob = Instantiate(wave.Mobs[i].Prefab, new Vector2(x + _room_transform.position.x, y), new Quaternion());
                     myMob.GetComponent<Rigidbody2D>().velocity = new Vector2(0, mob.EjectSpeed);
                     _mobs.Add(myMob);

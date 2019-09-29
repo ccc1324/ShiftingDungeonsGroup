@@ -10,12 +10,12 @@ using UnityEngine;
 [CreateAssetMenu(fileName = "New WavesData", menuName = "WavesData")]
 public class Waves : ScriptableObject
 {
-    public float SpawnCooldown; //How long between spawning of each wave
     public List<Stage> StageList; //The stages contained in a level
 
     [System.Serializable]
     public struct Stage
     {
+        public float SpawnCooldown; //How long between spawning of each wave
         public List<Wave> WaveList; //Waves for a stage
     }
 

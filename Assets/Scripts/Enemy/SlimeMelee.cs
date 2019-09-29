@@ -80,6 +80,11 @@ public class SlimeMelee : MonoBehaviour, IEnemy
             Grounded = true;
             _animator.SetBool("Grounded", true);
         }
+
+        if (collision.collider.tag == "EnemyPlatform")
+        {
+            Physics2D.IgnoreCollision(collision.collider, GetComponent<Collider2D>());
+        }
     }
 
     public void OnHit(int damage, bool stun)

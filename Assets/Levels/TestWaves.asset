@@ -17,3 +17,9 @@ MonoBehaviour:
   - WaveList:
     - WaveBuffer: 0
       Mobs: []
+  - WaveList:
+    - WaveBuffer: 0
+      Mobs: []
+  - WaveList:
+    - WaveBuffer: 0
+      Mobs: []
