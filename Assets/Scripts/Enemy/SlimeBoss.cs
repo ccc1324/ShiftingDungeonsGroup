@@ -58,7 +58,7 @@ public class SlimeBoss : MonoBehaviour, IEnemy
     {
         if (_idle)
         {
-            Color tempColor = Color.Lerp(ColorAngry, ColorIdle, (Health - 800) / 200);
+            Color tempColor = Color.Lerp(ColorAngry, ColorIdle, (Health - 8000) / 2000);
             _sprite.color = Color.Lerp(tempColor, _tempColor, 0.97f);
         }
 
@@ -223,4 +223,10 @@ public class SlimeBoss : MonoBehaviour, IEnemy
     {
         return Particles;
     }
+
+    public float GetHealth()
+    {
+        return Health;
+    }
+
 }

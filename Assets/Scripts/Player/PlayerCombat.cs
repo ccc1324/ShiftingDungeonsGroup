@@ -65,7 +65,7 @@ public class PlayerCombat : MonoBehaviour
             {
                 if (_attackNumber == 2)
                 {
-                    _time_of_last_attack = Time.time;
+                    _time_of_last_attack = -1; //ignores weapon cooldown when transitioning
                     _animator.SetBool("Attacking", false);
                     _animator.SetInteger("Weapon", _equipment.PrimaryWeapon.Item.GetWeaponAnimationKey());
                     //Destroy(_weaponHitbox);
@@ -103,7 +103,7 @@ public class PlayerCombat : MonoBehaviour
             {
                 if (_attackNumber == 1)
                 {
-                    _time_of_last_attack = Time.time;
+                    _time_of_last_attack = -1; //ignores weapon cooldown when transitioning
                     _animator.SetBool("Attacking", false);
                     _animator.SetInteger("Weapon", _equipment.SecondaryWeapon.Item.GetWeaponAnimationKey());
                    // Destroy(_weaponHitbox);

@@ -48,12 +48,7 @@ public class SlimeRanged : MonoBehaviour, IEnemy
         if (Dead)
         {
             Item item = _item_drop_manager.GetDrop(ItemDropSets.Common, ItemDropSets.Uncommon, ItemDropSets.Rare, ItemDropSets.Epic);
-            if (item != null)
-            {
-                GameObject clone = Instantiate(Item, transform.position, Quaternion.Euler(new Vector3(0, 0, -45)));
-                clone.GetComponent<Rigidbody2D>().velocity = new Vector2(0, 20);
-                clone.GetComponent<GameItem>().Item = item;
-            }
+            EnemyFunctions.SpawnItem(Item, item, transform.position);
             Destroy(gameObject);
         }
 
@@ -109,5 +104,10 @@ public class SlimeRanged : MonoBehaviour, IEnemy
     public ParticleSystem GetParticles()
     {
         return Particles;
+    }
+
+    public float GetHealth()
+    {
+        return Health;
     }
 }

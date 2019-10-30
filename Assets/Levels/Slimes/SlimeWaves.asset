@@ -19,21 +19,21 @@ MonoBehaviour:
       Mobs:
       - Prefab: {fileID: 1864851530522590640, guid: 597a23c27277c5149a21b1c82c7dc574,
           type: 3}
-        Location: {x: -6, y: 6}
+        Location: {x: 0, y: 6}
         EjectSpeed: 10
       - Prefab: {fileID: 1864851530522590640, guid: 597a23c27277c5149a21b1c82c7dc574,
           type: 3}
-        Location: {x: -6, y: 6}
+        Location: {x: -6, y: 0}
         EjectSpeed: 10
     - WaveBuffer: 0
       Mobs:
       - Prefab: {fileID: 1864851530522590640, guid: 597a23c27277c5149a21b1c82c7dc574,
           type: 3}
-        Location: {x: -7, y: 7}
+        Location: {x: 0, y: 7}
         EjectSpeed: 10
       - Prefab: {fileID: 1864851530522590640, guid: 597a23c27277c5149a21b1c82c7dc574,
           type: 3}
-        Location: {x: -7, y: 7}
+        Location: {x: -7, y: 0}
         EjectSpeed: 0
       - Prefab: {fileID: 1864851530522590640, guid: 597a23c27277c5149a21b1c82c7dc574,
           type: 3}
@@ -73,7 +73,7 @@ MonoBehaviour:
           type: 3}
         Location: {x: 5, y: 7}
         EjectSpeed: 10
-  - SpawnCooldown: 12
+  - SpawnCooldown: 13
     WaveList:
     - WaveBuffer: 0
       Mobs:
@@ -157,7 +157,7 @@ MonoBehaviour:
           type: 3}
         Location: {x: 6, y: 0}
         EjectSpeed: 0
-  - SpawnCooldown: 4
+  - SpawnCooldown: 6
     WaveList:
     - WaveBuffer: 0
       Mobs:
@@ -219,7 +219,47 @@ MonoBehaviour:
           type: 3}
         Location: {x: -7, y: 7}
         EjectSpeed: 10
-  - SpawnCooldown: 5
+    - WaveBuffer: 0
+      Mobs:
+      - Prefab: {fileID: 1864851530522590640, guid: 597a23c27277c5149a21b1c82c7dc574,
+          type: 3}
+        Location: {x: -7, y: 7}
+        EjectSpeed: 10
+      - Prefab: {fileID: 1864851530522590640, guid: 597a23c27277c5149a21b1c82c7dc574,
+          type: 3}
+        Location: {x: -7, y: 7}
+        EjectSpeed: 10
+    - WaveBuffer: 0
+      Mobs:
+      - Prefab: {fileID: 1864851530522590640, guid: 597a23c27277c5149a21b1c82c7dc574,
+          type: 3}
+        Location: {x: -7, y: 7}
+        EjectSpeed: 10
+      - Prefab: {fileID: 1864851530522590640, guid: 597a23c27277c5149a21b1c82c7dc574,
+          type: 3}
+        Location: {x: -7, y: 7}
+        EjectSpeed: 10
+    - WaveBuffer: 0
+      Mobs:
+      - Prefab: {fileID: 1864851530522590640, guid: 597a23c27277c5149a21b1c82c7dc574,
+          type: 3}
+        Location: {x: -7, y: 7}
+        EjectSpeed: 10
+      - Prefab: {fileID: 1864851530522590640, guid: 597a23c27277c5149a21b1c82c7dc574,
+          type: 3}
+        Location: {x: -7, y: 7}
+        EjectSpeed: 10
+    - WaveBuffer: 0
+      Mobs:
+      - Prefab: {fileID: 1864851530522590640, guid: 597a23c27277c5149a21b1c82c7dc574,
+          type: 3}
+        Location: {x: -7, y: 7}
+        EjectSpeed: 10
+      - Prefab: {fileID: 1864851530522590640, guid: 597a23c27277c5149a21b1c82c7dc574,
+          type: 3}
+        Location: {x: -7, y: 7}
+        EjectSpeed: 10
+  - SpawnCooldown: 13
     WaveList:
     - WaveBuffer: 0
       Mobs:

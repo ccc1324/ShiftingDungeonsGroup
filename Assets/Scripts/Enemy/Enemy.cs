@@ -7,5 +7,7 @@ public interface IEnemy
     void OnHit(int damage, bool stun);
 
     ParticleSystem GetParticles();
+
+    float GetHealth();
 };
 

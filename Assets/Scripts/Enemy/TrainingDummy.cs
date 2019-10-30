@@ -5,12 +5,13 @@ using TMPro;
 
 public class TrainingDummy : MonoBehaviour, IEnemy
 {
+    public float Health = 9999;
     public float DisplayTime;
     public float StartBuffer;
     public TextMeshPro DamageText;
     public ParticleSystem ParticleEffects;
 
-    private int _total_damage;
+    private float _total_damage;
     private float _last_hit_time;
     private float _start_time;
 
@@ -32,11 +33,16 @@ public class TrainingDummy : MonoBehaviour, IEnemy
 
         float time = Time.time - _start_time;
         time = time <= StartBuffer ? 1 : time;
-        DamageText.text = ((int) (_total_damage / time)).ToString();
+        DamageText.text = Mathf.Round(_total_damage / 10 / time).ToString();
     }
 
     public ParticleSystem GetParticles()
     {
         return ParticleEffects;
+    }
+
+    public float GetHealth()
+    {
+        return Health;
     }
 }

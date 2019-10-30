@@ -34,7 +34,7 @@ public class ItemHoverPanel : MonoBehaviour
         ItemName.text = Item.ItemName;
         ItemClass.text = Item.WeaponClass;
         ItemDescription.text = Item.ItemDescription;
-        ItemStats.text = "Damage: " + Item.WeaponDamage.ToString();
+        ItemStats.text = "Damage: " + Mathf.Round(((float) Item.WeaponDamage)/10).ToString();
     }
 
     public void Show()

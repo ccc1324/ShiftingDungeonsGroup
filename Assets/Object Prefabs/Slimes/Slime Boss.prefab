@@ -188,9 +188,9 @@ MonoBehaviour:
   RangedCooldown: 1
   Movespeed: 140
   JumpForce: 11
-  Health: 1000
-  HealthTransformOne: 800
-  HealthTransformTwo: 500
+  Health: 10000
+  HealthTransformOne: 8000
+  HealthTransformTwo: 5000
   ColorIdle: {r: 0.27959237, g: 0.90689886, b: 0.9716981, a: 1}
   ColorAngry: {r: 0.7647169, g: 0.3999644, b: 0.7924528, a: 1}
   TransformProjectile: {fileID: 8611557003057830286, guid: 7466ee3aa044fba428248318ca59c14e,

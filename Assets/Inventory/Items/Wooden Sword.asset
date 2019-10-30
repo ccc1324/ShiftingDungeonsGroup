@@ -15,6 +15,6 @@ MonoBehaviour:
   ItemName: Wooden Sword
   ItemDescription: Recommended for kids ages 8+.
   WeaponClass: Sword
-  WeaponDamage: 20
+  WeaponDamage: 139
   GameObjectSprite: {fileID: 21300000, guid: 5a30728fe8217d14d8fba91c2cdc5ff6, type: 3}
   InventorySprite: {fileID: 21300000, guid: 751b7bdf25d9dbe48b322e08ec05126e, type: 3}

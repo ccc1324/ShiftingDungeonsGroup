@@ -13,7 +13,6 @@ public class DungeonManager : MonoBehaviour
     public int Level;
 
     //stats of various rooms
-    private float _player_offset; //-player's y coordinate
     private int _dungeon_size;
     private int _stage;
     private int _spawn_size;
@@ -51,7 +50,6 @@ public class DungeonManager : MonoBehaviour
 
     private void Start()
     {
-        _player_offset = 3.5f;
         _dungeon_size = 18;
         _spawn_size = 40;
         Level = 0;
@@ -112,6 +110,9 @@ public class DungeonManager : MonoBehaviour
                 foreach (GameItem item in FindObjectsOfType<GameItem>())
                     Destroy(item.gameObject);
 
+                //Reset Stage
+                _stage = 0;
+
                 //Instantiate Spawn for the first time
                 _room_spawn = MyInstantiate(
                             Levels[Level].Spawn,
@@ -134,7 +135,6 @@ public class DungeonManager : MonoBehaviour
 
                 //Update Dungeon State
                 DungeonState = "Spawn";
-                _stage = 0;
 
                 //Music
                 StartCoroutine(MusicManager.FadeInMusic(2, MusicManager.SpawnMusic, MusicManager.SpawnMusicVolume));
@@ -587,7 +587,7 @@ public class DungeonManager : MonoBehaviour
         {
             return _room_spawn.transform;
         }
-        catch (System.Exception e)
+        catch
         {
             Debug.Log("Spawn does not exist");
             return null;

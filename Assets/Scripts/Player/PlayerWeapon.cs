@@ -39,13 +39,17 @@ public class PlayerWeapon : MonoBehaviour
     {
         if ((collision.tag == "Enemy") && EnableWeaponHitbox)
         {
+            if (collision.GetComponent<IEnemy>().GetHealth() <= 0)
+                return;
+
             collision.GetComponent<IEnemy>().OnHit(WeaponDamage, SetToStun);
+
             Instantiate(collision.GetComponent<IEnemy>().GetParticles(), ParticleSpawnPoint.transform.position, new Quaternion());
 
             //if (_audio_source.isPlaying) //prevent mutiple hit sounds playing
                 //return;
             _audio_source.PlayOneShot(HitSFX);
-            _audio_source.volume = SetToStun ? 0.75f : 0.1f;
+            _audio_source.volume = SetToStun ? 0.75f : 0.85f;
         }
     }
 

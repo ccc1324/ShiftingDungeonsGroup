@@ -164,13 +164,13 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   AttackCooldown: 4
-  Health: 30
+  Health: 400
   Projectile: {fileID: 8611557003057830286, guid: e066b68f546b85547b0f5a3b3f8dca73,
     type: 3}
   ProjectileHangTime: 1.5
   ItemDropSets:
     Common: {fileID: 11400000, guid: 50e0246562f49984eb71c5c7dd8b84c2, type: 2}
-    Uncommon: {fileID: 11400000, guid: 50e0246562f49984eb71c5c7dd8b84c2, type: 2}
+    Uncommon: {fileID: 11400000, guid: 74728655a46482045bdf2d446d4693af, type: 2}
     Rare: {fileID: 11400000, guid: 50e0246562f49984eb71c5c7dd8b84c2, type: 2}
     Epic: {fileID: 11400000, guid: 50e0246562f49984eb71c5c7dd8b84c2, type: 2}
   Item: {fileID: 1747576819488917488, guid: 528bd23c711b56d4582ba91b6b9e6aa4, type: 3}

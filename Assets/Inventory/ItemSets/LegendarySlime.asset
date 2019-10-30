@@ -12,4 +12,5 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 84fc638f01aae18439838891a847a954, type: 3}
   m_Name: LegendarySlime
   m_EditorClassIdentifier: 
-  Items: []
+  Items:
+  - {fileID: 11400000, guid: 9b4cb1f404a6fa94794297f5b1c7e880, type: 2}

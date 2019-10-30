@@ -6,7 +6,7 @@ public class TutorialRock : MonoBehaviour, IEnemy
 {
     public ParticleSystem ParticleEffects;
     public ParticleSystem DestroyParticleEffects;
-    public int Health;
+    public float Health;
     public Sprite TransformationA;
     public int TransformationHealthA;
     public Sprite TransformationB;
@@ -37,5 +37,10 @@ public class TutorialRock : MonoBehaviour, IEnemy
     public ParticleSystem GetParticles()
     {
         return ParticleEffects;
+    }
+
+    public float GetHealth()
+    {
+        return Health;
     }
 }

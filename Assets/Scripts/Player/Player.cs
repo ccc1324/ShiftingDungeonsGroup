@@ -61,6 +61,9 @@ public class Player : MonoBehaviour
             if (HealthBar[i].color == new Color(0, 0, 0, 0))
                 break;
             HealthBar[i].color = new Color(0, 0, 0, 0);
+            Vector2 point = _camera.ScreenToWorldPoint(HealthBar[i].transform.position);
+            //Vector2 point = RectTransformUtility.PixelAdjustPoint(HealthBar[i].transform.position, HealthBar[i].transform, HealthBar[i].canvas);
+            Instantiate(ParticleEffects, point, new Quaternion(0, 0, 0, 0));
         }
 
         if (_health <= 0)

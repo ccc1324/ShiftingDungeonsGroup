@@ -581,7 +581,8 @@ MonoBehaviour:
   - {fileID: 0}
   FilledHeart: {fileID: 21300000, guid: 55edd9066e4fd4845824bb7e488703af, type: 3}
   EmptyHeart: {fileID: 0}
-  ParticleEffects: {fileID: 0}
+  ParticleEffects: {fileID: 6856392134728063707, guid: c0d7f1ea2bebbb34d9c71c6f935ef18d,
+    type: 3}
   MaxHealth: 5
   FadeEffect: {fileID: 0}
   CameraCutscene: {fileID: 0}
@@ -762,7 +763,7 @@ SpriteRenderer:
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0
-  m_Size: {x: 3.01, y: 7.52}
+  m_Size: {x: 4.33, y: 8.09}
   m_AdaptiveModeThreshold: 0.5
   m_SpriteTileMode: 0
   m_WasSpriteAssigned: 0
@@ -787,7 +788,7 @@ MonoBehaviour:
   HitSFX: {fileID: 8300000, guid: 916bb71fe03c0b046a7b47bf175d7aa8, type: 3}
   SFXDatas:
   - clip: {fileID: 8300000, guid: 5efa1c2694e113946a7153ec3f2a3e33, type: 3}
-    volume: 0.4
+    volume: 0.25
   - clip: {fileID: 8300000, guid: 5d3d40dc59e117145815291355e79714, type: 3}
     volume: 0.2
   - clip: {fileID: 8300000, guid: 097f3c6f86faf634986c4961cc590c5b, type: 3}
@@ -797,7 +798,7 @@ MonoBehaviour:
   - clip: {fileID: 8300000, guid: 5e28212cffaa01540b78c3817d4ec3f7, type: 3}
     volume: 0.35
   - clip: {fileID: 8300000, guid: e0a84d98b6342554aa8a0f38b37b3d64, type: 3}
-    volume: 0.58
+    volume: 0.45
   SFXID: 0
 --- !u!50 &257314282802556804
 Rigidbody2D:
