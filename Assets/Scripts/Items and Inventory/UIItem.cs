@@ -13,6 +13,7 @@ public class UIItem : MonoBehaviour, IPointerClickHandler, IPointerEnterHandler,
     public Item Item;
     public UIItem SelectedItem;
     public ItemHoverPanel ItemHoverPanel;
+    public EquipmentStats EquipmentStats;
     public bool Equipment;
     public bool DropItem;
     public GameObject ItemPrefab;
@@ -51,7 +52,11 @@ public class UIItem : MonoBehaviour, IPointerClickHandler, IPointerEnterHandler,
         {
             _audio_source.volume = EquipSFXVolume;
             _audio_source.PlayOneShot(EquipSFX);
+            EquipmentStats.Item = Item;
+            EquipmentStats.UpdateItem();
         }
+        if (Equipment && Item == null)
+            EquipmentStats.ClearItem();
         if (DropItem && Item != null)
         {
             _audio_source.volume = DropSFXVolume;

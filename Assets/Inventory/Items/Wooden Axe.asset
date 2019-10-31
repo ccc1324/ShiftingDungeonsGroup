@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: Wooden Axe
   m_EditorClassIdentifier: 
   ItemName: Wooden Axe
-  ItemDescription: Not recommended to be used for chopping wood.
+  ItemDescription: Not recommended for chopping wood.
   WeaponClass: Axe
   WeaponDamage: 500
   GameObjectSprite: {fileID: 21300000, guid: 3777b1331d63e024887c8943a92e4c87, type: 3}

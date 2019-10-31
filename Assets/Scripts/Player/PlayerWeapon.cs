@@ -49,7 +49,7 @@ public class PlayerWeapon : MonoBehaviour
             //if (_audio_source.isPlaying) //prevent mutiple hit sounds playing
                 //return;
             _audio_source.PlayOneShot(HitSFX);
-            _audio_source.volume = SetToStun ? 0.75f : 0.85f;
+            _audio_source.volume = SetToStun ? 0.5f : 0.70f;
         }
     }
 

@@ -29,6 +29,7 @@ public class Note : MonoBehaviour
                 }
                 else
                 {
+                    _player.GetComponent<PlayerMovement>().Stop();
                     _player.GetComponent<PlayerMovement>().enabled = false;
                     _player.GetComponent<PlayerCombat>().enabled = false;
                     NoteOverlay.SetActive(true);

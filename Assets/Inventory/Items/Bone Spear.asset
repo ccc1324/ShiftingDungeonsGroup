@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: Bone Spear
   m_EditorClassIdentifier: 
   ItemName: Bone Spear
-  ItemDescription: A spear entirely fashioned from bone.
+  ItemDescription: A spear fashioned from bone.
   WeaponClass: Spear
   WeaponDamage: 122
   GameObjectSprite: {fileID: 21300000, guid: c4331fda44fff4c4bb06379784d34cb6, type: 3}

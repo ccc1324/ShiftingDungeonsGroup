@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: Wooden Hammer
   m_EditorClassIdentifier: 
   ItemName: Wooden Hammer
-  ItemDescription: Lighter than it looks.
+  ItemDescription: Lighter than it looks. Unbalances enemies.
   WeaponClass: Hammer
   WeaponDamage: 220
   GameObjectSprite: {fileID: 21300000, guid: a62d283a4ae28e94a8b4e727a7d312e7, type: 3}

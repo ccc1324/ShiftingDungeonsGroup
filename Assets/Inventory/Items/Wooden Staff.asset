@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: Wooden Staff
   m_EditorClassIdentifier: 
   ItemName: Wooden Staff
-  ItemDescription: A long not-so-pointy stick. Unbalances enemies on second hit.
+  ItemDescription: A long not-so-pointy stick. Unbalances enemies on third strike.
   WeaponClass: Staff
   WeaponDamage: 90
   GameObjectSprite: {fileID: 21300000, guid: 42ec8777f1648974eaf8d6c8c080d743, type: 3}

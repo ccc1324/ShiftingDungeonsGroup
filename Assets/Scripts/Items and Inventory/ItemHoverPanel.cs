@@ -11,7 +11,8 @@ public class ItemHoverPanel : MonoBehaviour
     public TextMeshProUGUI ItemName;
     public TextMeshProUGUI ItemClass;
     public TextMeshProUGUI ItemDescription;
-    public TextMeshProUGUI ItemStats;
+    public TextMeshProUGUI ItemDamage;
+    public TextMeshProUGUI ItemDPS;
 
     private RectTransform _rectTransform;
     private CanvasGroup _canvasGroup;
@@ -34,7 +35,8 @@ public class ItemHoverPanel : MonoBehaviour
         ItemName.text = Item.ItemName;
         ItemClass.text = Item.WeaponClass;
         ItemDescription.text = Item.ItemDescription;
-        ItemStats.text = "Damage: " + Mathf.Round(((float) Item.WeaponDamage)/10).ToString();
+        ItemDamage.text = "Damage: " + Mathf.Round(((float) Item.WeaponDamage)/10).ToString();
+        ItemDPS.text = "DPS: " + Mathf.Round((Item.WeaponDamage) / GetFramesPerHit(Item.WeaponClass) * 60 / 10).ToString();
     }
 
     public void Show()
@@ -46,4 +48,25 @@ public class ItemHoverPanel : MonoBehaviour
     {
         _canvasGroup.alpha = 0;
     }
+
+    private float GetFramesPerHit(string weapon)
+    {
+        switch (Item.WeaponClass)
+        {
+            case "Sword":
+                return 25;
+            case "Spear":
+                return 22;
+            case "Staff":
+                return 26;
+            case "Dagger":
+                return 17;
+            case "Hammer":
+                return 60;
+            case "Axe":
+                return 60;
+        }
+        return 30;
+    }
+
 }

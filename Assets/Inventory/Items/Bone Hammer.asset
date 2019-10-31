@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: Bone Hammer
   m_EditorClassIdentifier: 
   ItemName: Bone Hammer
-  ItemDescription: A large hammer made of very dense bone.
+  ItemDescription: A large hammer made of very dense bone. Unbalances enemies.
   WeaponClass: Hammer
   WeaponDamage: 270
   GameObjectSprite: {fileID: 21300000, guid: 6dc2b9faa3daf244a8e48d40462abfc2, type: 3}

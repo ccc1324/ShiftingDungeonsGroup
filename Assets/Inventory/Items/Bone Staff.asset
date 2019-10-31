@@ -13,7 +13,8 @@ MonoBehaviour:
   m_Name: Bone Staff
   m_EditorClassIdentifier: 
   ItemName: Bone Staff
-  ItemDescription: A very humerus weapon (made from a femur).
+  ItemDescription: A humerus weapon (made from a femur). Unbalances enemies on third
+    strike.
   WeaponClass: Staff
   WeaponDamage: 110
   GameObjectSprite: {fileID: 21300000, guid: 616d4532f01218048ad0ad34ea15aec9, type: 3}

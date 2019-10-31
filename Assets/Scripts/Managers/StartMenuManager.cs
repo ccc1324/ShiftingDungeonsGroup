@@ -18,6 +18,7 @@ public class StartMenuManager : MonoBehaviour
     public DungeonManager DungeonManager;
     public AudioClip ClickSFX;
     public TextMeshProUGUI StoryCanvas;
+    public TextMeshProUGUI CreditsCanvas;
     public string[] StoryText;
 
     private Player _player;
@@ -49,7 +50,7 @@ public class StartMenuManager : MonoBehaviour
 
     public void NewGame()
     {
-        StartCoroutine(EnableTutorial(17f));
+        StartCoroutine(EnableTutorial(21f));
         StartCoroutine(FadeUI(2f));
         _audio_source.PlayOneShot(ClickSFX);
         StartCoroutine(DisableTutorial());
@@ -63,6 +64,50 @@ public class StartMenuManager : MonoBehaviour
         StartCoroutine(FadeUI(2f));
         _audio_source.PlayOneShot(ClickSFX);
         PostTutorialObjects.SetActive(true);
+    }
+
+    public void Credits()
+    {
+        StartCoroutine(RollCredits(2));
+    }
+
+    IEnumerator RollCredits(float time)
+    {
+        CanvasGroup canvas = CreditsCanvas.GetComponent<CanvasGroup>();
+        StartCoroutine(FadeUI(2f));
+        yield return new WaitForSeconds(2f);
+
+        float startTime = Time.time;
+        while (Time.time < startTime + time)
+        {
+            canvas.alpha = Mathf.Lerp(0, 1, (Time.time - startTime) / time);
+            yield return null;
+        }
+        canvas.alpha = 1;
+
+        while (!Input.GetMouseButtonDown(0))
+        {
+            yield return null;
+        }
+
+        startTime = Time.time;
+        while (Time.time < startTime + time)
+        {
+            canvas.alpha = Mathf.Lerp(1, 0, (Time.time - startTime) / time);
+            yield return null;
+        }
+        canvas.alpha = 0;
+
+        StartMenu.interactable = true;
+        StartMenu.blocksRaycasts = true;
+
+        startTime = Time.time;
+        while (Time.time < startTime + time)
+        {
+            StartMenu.alpha = Mathf.Lerp(0, 1, (Time.time - startTime) / time);
+            yield return null;
+        }
+        StartMenu.alpha = 1;
     }
 
     IEnumerator FadeUI(float time)
@@ -113,7 +158,7 @@ public class StartMenuManager : MonoBehaviour
             }
 
             canvas.alpha = 1;
-            yield return new WaitForSeconds(1f);
+            yield return new WaitForSeconds(3f);
             startTime = Time.time;
 
             while (Time.time < startTime + time)
