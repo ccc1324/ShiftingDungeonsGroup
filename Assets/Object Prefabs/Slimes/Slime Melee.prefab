@@ -124,6 +124,7 @@ SpriteRenderer:
   m_ProbeAnchor: {fileID: 0}
   m_LightProbeVolumeOverride: {fileID: 0}
   m_ScaleInLightmap: 1
+  m_ReceiveGI: 1
   m_PreserveUVs: 0
   m_IgnoreNormalsForChartDetection: 0
   m_ImportantGI: 0
@@ -232,8 +233,7 @@ MonoBehaviour:
   ItemDropSets:
     Common: {fileID: 11400000, guid: 50e0246562f49984eb71c5c7dd8b84c2, type: 2}
     Uncommon: {fileID: 11400000, guid: 74728655a46482045bdf2d446d4693af, type: 2}
-    Rare: {fileID: 11400000, guid: 50e0246562f49984eb71c5c7dd8b84c2, type: 2}
-    Epic: {fileID: 11400000, guid: 50e0246562f49984eb71c5c7dd8b84c2, type: 2}
+    Epic: {fileID: 11400000, guid: 74728655a46482045bdf2d446d4693af, type: 2}
   Item: {fileID: 1747576819488917488, guid: 528bd23c711b56d4582ba91b6b9e6aa4, type: 3}
   Particles: {fileID: 3218626813253202539, guid: 9d0c1b6d251ba144fb2c9a759d388495,
     type: 3}

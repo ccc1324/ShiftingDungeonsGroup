@@ -27,7 +27,7 @@ public class EnemyAttackTrigger : MonoBehaviour
             }
         }
 
-        if (collision.tag == "Room")
+        if (collision.tag == "Room" || collision.tag == "Wall")
         {
             if (tag == "Projectile")
                 Destroy(gameObject);

@@ -2652,6 +2652,31 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 5123694644257376391, guid: 75539983bfcbf5f438c05f81e45dfbb5,
+        type: 3}
+      propertyPath: HealthBar.Array.data[0]
+      value: 
+      objectReference: {fileID: 976565461}
+    - target: {fileID: 5123694644257376391, guid: 75539983bfcbf5f438c05f81e45dfbb5,
+        type: 3}
+      propertyPath: HealthBar.Array.data[1]
+      value: 
+      objectReference: {fileID: 654614109}
+    - target: {fileID: 5123694644257376391, guid: 75539983bfcbf5f438c05f81e45dfbb5,
+        type: 3}
+      propertyPath: HealthBar.Array.data[2]
+      value: 
+      objectReference: {fileID: 1021109712}
+    - target: {fileID: 5123694644257376391, guid: 75539983bfcbf5f438c05f81e45dfbb5,
+        type: 3}
+      propertyPath: HealthBar.Array.data[3]
+      value: 
+      objectReference: {fileID: 254805245}
+    - target: {fileID: 5123694644257376391, guid: 75539983bfcbf5f438c05f81e45dfbb5,
+        type: 3}
+      propertyPath: HealthBar.Array.data[4]
+      value: 
+      objectReference: {fileID: 1466132133}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 75539983bfcbf5f438c05f81e45dfbb5, type: 3}
 --- !u!1 &1247412651
@@ -3535,7 +3560,7 @@ PrefabInstance:
     - target: {fileID: 1864851530522590646, guid: 597a23c27277c5149a21b1c82c7dc574,
         type: 3}
       propertyPath: m_LocalPosition.y
-      value: -4.242
+      value: -3.27
       objectReference: {fileID: 0}
     - target: {fileID: 1864851530522590646, guid: 597a23c27277c5149a21b1c82c7dc574,
         type: 3}
@@ -3581,16 +3606,6 @@ PrefabInstance:
         type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 1864851530522590646, guid: 597a23c27277c5149a21b1c82c7dc574,
-        type: 3}
-      propertyPath: m_LocalScale.x
-      value: 0.018000001
-      objectReference: {fileID: 0}
-    - target: {fileID: 1864851530522590646, guid: 597a23c27277c5149a21b1c82c7dc574,
-        type: 3}
-      propertyPath: m_LocalScale.y
-      value: 0.018000001
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 597a23c27277c5149a21b1c82c7dc574, type: 3}
@@ -4012,6 +4027,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: Skeleton Archer
+      objectReference: {fileID: 0}
+    - target: {fileID: 4186563004602957431, guid: 206cc5e765f12cc409707b2ec8c5f216,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 4186563004602957430, guid: 206cc5e765f12cc409707b2ec8c5f216,
         type: 3}
@@ -4730,7 +4750,7 @@ PrefabInstance:
     - target: {fileID: 4186563004602957430, guid: f0c210a796235fd45a872151d54cf4b3,
         type: 3}
       propertyPath: m_LocalPosition.y
-      value: -3.544
+      value: -3.49
       objectReference: {fileID: 0}
     - target: {fileID: 4186563004602957430, guid: f0c210a796235fd45a872151d54cf4b3,
         type: 3}
@@ -4790,6 +4810,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: Arrow
+      objectReference: {fileID: 0}
+    - target: {fileID: 5799054086187570035, guid: aa4471889c02226449d645052e5e0910,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 8537770339061860226, guid: aa4471889c02226449d645052e5e0910,
         type: 3}

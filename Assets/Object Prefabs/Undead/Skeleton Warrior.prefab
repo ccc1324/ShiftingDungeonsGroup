@@ -10,9 +10,9 @@ GameObject:
   m_Component:
   - component: {fileID: 4186563004459380553}
   - component: {fileID: 4186563004459380552}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: Head
-  m_TagString: Untagged
+  m_TagString: Enemy
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -92,7 +92,8 @@ GameObject:
   - component: {fileID: 4186563004602957430}
   - component: {fileID: 3233517983819660967}
   - component: {fileID: 4186563004602957419}
-  - component: {fileID: 4186563004602957416}
+  - component: {fileID: 1360923080}
+  - component: {fileID: 1360923079}
   - component: {fileID: 4186563004602957417}
   - component: {fileID: 1942448819}
   m_Layer: 9
@@ -150,8 +151,8 @@ BoxCollider2D:
   m_Material: {fileID: 0}
   m_IsTrigger: 0
   m_UsedByEffector: 0
-  m_UsedByComposite: 0
-  m_Offset: {x: 0.06277943, y: 0.9899607}
+  m_UsedByComposite: 1
+  m_Offset: {x: 0.06277943, y: 1.004925}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0, y: 0}
@@ -162,10 +163,36 @@ BoxCollider2D:
     adaptiveTiling: 0
   m_AutoTiling: 0
   serializedVersion: 2
-  m_Size: {x: 2.2120647, y: 6.534175}
+  m_Size: {x: 2.2120647, y: 6.504246}
   m_EdgeRadius: 0
---- !u!70 &4186563004602957416
-CapsuleCollider2D:
+--- !u!61 &1360923080
+BoxCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4186563004602957431}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_UsedByEffector: 0
+  m_UsedByComposite: 1
+  m_Offset: {x: 0.035304546, y: 2.3477302}
+  m_SpriteTilingProperty:
+    border: {x: 0, y: 0, z: 0, w: 0}
+    pivot: {x: 0, y: 0}
+    oldSize: {x: 0, y: 0}
+    newSize: {x: 0, y: 0}
+    adaptiveTilingThreshold: 0
+    drawMode: 0
+    adaptiveTiling: 0
+  m_AutoTiling: 0
+  serializedVersion: 2
+  m_Size: {x: 3.9655542, y: 1.67078}
+  m_EdgeRadius: 0
+--- !u!66 &1360923079
+CompositeCollider2D:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
@@ -177,9 +204,47 @@ CapsuleCollider2D:
   m_IsTrigger: 0
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: -0.03701494, y: 2.4811857}
-  m_Size: {x: 4.1092167, y: 3.5169797}
-  m_Direction: 1
+  m_Offset: {x: 0, y: 0}
+  m_GeometryType: 1
+  m_GenerationType: 0
+  m_EdgeRadius: 0
+  m_ColliderPaths:
+  - m_Collider: {fileID: 4186563004602957419}
+    m_ColliderPaths:
+    - - X: 2337594
+        Y: -4494396
+      - X: 2337594
+        Y: 8514096
+      - X: -2086505
+        Y: 8514067
+      - X: -2086476
+        Y: -4494396
+  - m_Collider: {fileID: 1360923080}
+    m_ColliderPaths:
+    - - X: 4036134
+        Y: 3024680
+      - X: 4036134
+        Y: 6366240
+      - X: -3894945
+        Y: 6366211
+      - X: -3894916
+        Y: 3024680
+  m_CompositePaths:
+    m_Paths:
+    - - {x: 0.2337565, y: -0.44943962}
+      - {x: 0.23376231, y: 0.302468}
+      - {x: 0.40361342, y: 0.3024709}
+      - {x: 0.4036105, y: 0.636624}
+      - {x: 0.2337594, y: 0.6366263}
+      - {x: 0.2337565, y: 0.8514096}
+      - {x: -0.2086505, y: 0.85140383}
+      - {x: -0.2086529, y: 0.63662183}
+      - {x: -0.3894945, y: 0.6366182}
+      - {x: -0.3894887, y: 0.302468}
+      - {x: -0.20864931, y: 0.3024651}
+      - {x: -0.2086447, y: -0.44943962}
+  m_VertexDistance: 0.0005
+  m_OffsetDistance: 0.000005
 --- !u!50 &4186563004602957417
 Rigidbody2D:
   serializedVersion: 4
@@ -213,6 +278,13 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 29008dc9d3615574f9c2638d8dbc8129, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  Health: 2000
+  AttackCooldown: 1
+  BlockTime: 2
+  SpawnAttackBuffer: 2
+  Particles: {fileID: 3218626813253202539, guid: 346ffb73d1bd5144c8d22b82c1c88056,
+    type: 3}
+  AttackTrigger: {fileID: 4186563005783097715}
 --- !u!1 &4186563004731521793
 GameObject:
   m_ObjectHideFlags: 0
@@ -254,11 +326,11 @@ CapsuleCollider2D:
   m_Enabled: 1
   m_Density: 1
   m_Material: {fileID: 0}
-  m_IsTrigger: 0
+  m_IsTrigger: 1
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: -0.012695193, y: 0.35547078}
-  m_Size: {x: 3.9785397, y: 7.9141183}
+  m_Offset: {x: -0.14204383, y: 0.79243004}
+  m_Size: {x: 3.7198424, y: 7.0401993}
   m_Direction: 0
 --- !u!1 &4186563005622797801
 GameObject:
@@ -270,7 +342,7 @@ GameObject:
   m_Component:
   - component: {fileID: 4186563005622797800}
   - component: {fileID: 4186563005622797803}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: Left Leg
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -353,9 +425,10 @@ GameObject:
   - component: {fileID: 4186563005783097712}
   - component: {fileID: 4186563005783097715}
   - component: {fileID: 5601322344364540034}
-  m_Layer: 0
+  - component: {fileID: 1209318071}
+  m_Layer: 11
   m_Name: Sword
-  m_TagString: Untagged
+  m_TagString: Enemy
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -369,7 +442,7 @@ Transform:
   m_GameObject: {fileID: 4186563005783097726}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: -0.58, y: 0.03, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalScale: {x: 0.8, y: 0.8, z: 1}
   m_Children: []
   m_Father: {fileID: 4186563006360703870}
   m_RootOrder: 0
@@ -430,10 +503,10 @@ PolygonCollider2D:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 4186563005783097726}
-  m_Enabled: 1
+  m_Enabled: 0
   m_Density: 1
   m_Material: {fileID: 0}
-  m_IsTrigger: 0
+  m_IsTrigger: 1
   m_UsedByEffector: 0
   m_UsedByComposite: 0
   m_Offset: {x: 0, y: 0}
@@ -520,6 +593,27 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   ParticleEffects: {fileID: 0}
   Damage: 1
+--- !u!50 &1209318071
+Rigidbody2D:
+  serializedVersion: 4
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4186563005783097726}
+  m_BodyType: 1
+  m_Simulated: 1
+  m_UseFullKinematicContacts: 0
+  m_UseAutoMass: 0
+  m_Mass: 1
+  m_LinearDrag: 0
+  m_AngularDrag: 0.05
+  m_GravityScale: 1
+  m_Material: {fileID: 0}
+  m_Interpolate: 0
+  m_SleepingMode: 1
+  m_CollisionDetection: 1
+  m_Constraints: 0
 --- !u!1 &4186563005866630571
 GameObject:
   m_ObjectHideFlags: 0
@@ -530,7 +624,7 @@ GameObject:
   m_Component:
   - component: {fileID: 4186563005866630570}
   - component: {fileID: 4186563005866630573}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: Shield Front
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -611,7 +705,7 @@ GameObject:
   m_Component:
   - component: {fileID: 4186563005964301770}
   - component: {fileID: 4186563005964301773}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: Right Leg
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -691,9 +785,9 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 4186563006031908483}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: Hip
-  m_TagString: Untagged
+  m_TagString: Enemy
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -724,9 +818,9 @@ GameObject:
   m_Component:
   - component: {fileID: 4186563006215193828}
   - component: {fileID: 4186563006215193831}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: Chest
-  m_TagString: Untagged
+  m_TagString: Enemy
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -808,9 +902,9 @@ GameObject:
   m_Component:
   - component: {fileID: 4186563006360703870}
   - component: {fileID: 4186563006360703857}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: Left Arm
-  m_TagString: Untagged
+  m_TagString: Enemy
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -890,7 +984,7 @@ GameObject:
   m_Component:
   - component: {fileID: 4186563006365091144}
   - component: {fileID: 4186563006365091147}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: Strap
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -971,9 +1065,9 @@ GameObject:
   m_Component:
   - component: {fileID: 4186563006416799717}
   - component: {fileID: 4186563006416799716}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: Right Arm
-  m_TagString: Untagged
+  m_TagString: Enemy
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -1054,7 +1148,7 @@ GameObject:
   m_Component:
   - component: {fileID: 4186563006446595555}
   - component: {fileID: 4186563006446595554}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: Shield Back
   m_TagString: Untagged
   m_Icon: {fileID: 0}

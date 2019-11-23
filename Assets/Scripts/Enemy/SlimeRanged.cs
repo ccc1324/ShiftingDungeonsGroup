@@ -15,7 +15,6 @@ public class SlimeRanged : MonoBehaviour, IEnemy
     {
         public ItemSet Common;
         public ItemSet Uncommon;
-        public ItemSet Rare;
         public ItemSet Epic;
     }
     public ItemSets ItemDropSets;
@@ -47,7 +46,7 @@ public class SlimeRanged : MonoBehaviour, IEnemy
     {
         if (Dead)
         {
-            Item item = _item_drop_manager.GetDrop(ItemDropSets.Common, ItemDropSets.Uncommon, ItemDropSets.Rare, ItemDropSets.Epic);
+            Item item = _item_drop_manager.GetDrop(ItemDropSets.Common, ItemDropSets.Uncommon, ItemDropSets.Epic);
             EnemyFunctions.SpawnItem(Item, item, transform.position);
             Destroy(gameObject);
         }

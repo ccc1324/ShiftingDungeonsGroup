@@ -10,6 +10,8 @@ TagManager:
   - Projectile
   - Platform
   - EnemyPlatform
+  - Wall
+  - ItemDropManager
   layers:
   - Default
   - TransparentFX

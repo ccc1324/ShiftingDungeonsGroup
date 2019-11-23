@@ -42,7 +42,7 @@ public class PlayerMovement : MonoBehaviour
             _moveSpeed = _moveSpeed > 0 ? 0 : _moveSpeed - Acceleration;
             _moveSpeed = _moveSpeed < -MaxSpeed ? -MaxSpeed : _moveSpeed;
 
-            _rigidbody.velocity = new Vector2(_moveSpeed * Time.deltaTime, _rigidbody.velocity.y);
+            _rigidbody.velocity = new Vector2(_moveSpeed * Time.fixedDeltaTime, _rigidbody.velocity.y);
             transform.eulerAngles = new Vector3(0, 180, 0);
             _animator.SetBool("Running", true);
         }
@@ -51,7 +51,7 @@ public class PlayerMovement : MonoBehaviour
             _moveSpeed = _moveSpeed < 0 ? 0 : _moveSpeed + Acceleration;
             _moveSpeed = _moveSpeed > MaxSpeed ? MaxSpeed : _moveSpeed;
 
-            _rigidbody.velocity = new Vector2(_moveSpeed * Time.deltaTime, _rigidbody.velocity.y);
+            _rigidbody.velocity = new Vector2(_moveSpeed * Time.fixedDeltaTime, _rigidbody.velocity.y);
             transform.eulerAngles = new Vector3(0, 0, 0);
             _animator.SetBool("Running", true);
         }

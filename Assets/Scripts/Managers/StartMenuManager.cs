@@ -59,7 +59,14 @@ public class StartMenuManager : MonoBehaviour
 
     public void Continue()
     {
-        LoadManager.LoadGame();
+        try
+        {
+            LoadManager.LoadGame();
+        }
+        catch
+        {
+            return;
+        }
         _player.ResetPlayer(2.5f);
         StartCoroutine(FadeUI(2f));
         _audio_source.PlayOneShot(ClickSFX);

@@ -15,7 +15,6 @@ public class SlimeMelee : MonoBehaviour, IEnemy
     {
         public ItemSet Common;
         public ItemSet Uncommon;
-        public ItemSet Rare;
         public ItemSet Epic;
     }
     public ItemSets ItemDropSets;
@@ -52,7 +51,7 @@ public class SlimeMelee : MonoBehaviour, IEnemy
 
         if (Dead)
         {
-            Item item = _item_drop_manager.GetDrop(ItemDropSets.Common, ItemDropSets.Uncommon, ItemDropSets.Rare, ItemDropSets.Epic);
+            Item item = _item_drop_manager.GetDrop(ItemDropSets.Common, ItemDropSets.Uncommon, ItemDropSets.Epic);
             EnemyFunctions.SpawnItem(Item, item, transform.position);
             Destroy(gameObject);
         }
@@ -136,7 +135,7 @@ public class SlimeMelee : MonoBehaviour, IEnemy
         float direction = Mathf.Sign(_player_location.position.x - transform.position.x);
         while (Grounded == false)
         {
-            _rigidbody.velocity = new Vector2(Movespeed * Time.deltaTime * direction, _rigidbody.velocity.y);
+            _rigidbody.velocity = new Vector2(Movespeed * Time.fixedDeltaTime * direction, _rigidbody.velocity.y);
             yield return null;
         }
     }
