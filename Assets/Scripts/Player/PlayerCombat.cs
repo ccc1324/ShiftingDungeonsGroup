@@ -146,15 +146,15 @@ public class PlayerCombat : MonoBehaviour
         switch (item.GetWeaponAnimationKey())
         {
             case 1: //Sword
-                return 26/60f;
+                return 25/60f;
             case 2: //Axe
                 return 0f;
             case 3: //Dagger
-                return 22/60f;
+                return 17/60f;
             case 4: //Spear
-                return 28/60f;
+                return 22/60f;
             case 5: //Staff
-                return 28/60f;
+                return 26/60f;
             case 6: //Hammer
                 return 0f;
             default:

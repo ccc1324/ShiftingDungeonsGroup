@@ -17,29 +17,29 @@ MonoBehaviour:
     WaveList:
     - WaveBuffer: 0
       Mobs:
-      - Prefab: {fileID: 1864851530522590640, guid: 597a23c27277c5149a21b1c82c7dc574,
+      - Prefab: {fileID: 6544853163543370353, guid: 2c1703b6295542f43b18cba3305a9bda,
           type: 3}
         Location: {x: 0, y: 6}
         EjectSpeed: 10
-      - Prefab: {fileID: 1864851530522590640, guid: 597a23c27277c5149a21b1c82c7dc574,
+      - Prefab: {fileID: 6544853163543370353, guid: 2c1703b6295542f43b18cba3305a9bda,
           type: 3}
         Location: {x: -6, y: 0}
         EjectSpeed: 10
     - WaveBuffer: 0
       Mobs:
-      - Prefab: {fileID: 1864851530522590640, guid: 597a23c27277c5149a21b1c82c7dc574,
+      - Prefab: {fileID: 6544853163543370353, guid: 2c1703b6295542f43b18cba3305a9bda,
           type: 3}
         Location: {x: 0, y: 7}
         EjectSpeed: 10
-      - Prefab: {fileID: 1864851530522590640, guid: 597a23c27277c5149a21b1c82c7dc574,
+      - Prefab: {fileID: 6544853163543370353, guid: 2c1703b6295542f43b18cba3305a9bda,
           type: 3}
         Location: {x: -7, y: 0}
         EjectSpeed: 0
-      - Prefab: {fileID: 1864851530522590640, guid: 597a23c27277c5149a21b1c82c7dc574,
+      - Prefab: {fileID: 6544853163543370353, guid: 2c1703b6295542f43b18cba3305a9bda,
           type: 3}
         Location: {x: -7, y: 7}
         EjectSpeed: 10
-      - Prefab: {fileID: 1864851530522590640, guid: 597a23c27277c5149a21b1c82c7dc574,
+      - Prefab: {fileID: 6544853163543370353, guid: 2c1703b6295542f43b18cba3305a9bda,
           type: 3}
         Location: {x: -7, y: 7}
         EjectSpeed: 10
@@ -47,29 +47,29 @@ MonoBehaviour:
     WaveList:
     - WaveBuffer: 0
       Mobs:
-      - Prefab: {fileID: 3823103236275552050, guid: a9a2036f32889274294ca2808771f20b,
+      - Prefab: {fileID: 4186563004602957431, guid: 206cc5e765f12cc409707b2ec8c5f216,
           type: 3}
         Location: {x: -6, y: -4}
         EjectSpeed: 10
-      - Prefab: {fileID: 3823103236275552050, guid: a9a2036f32889274294ca2808771f20b,
+      - Prefab: {fileID: 4186563004602957431, guid: 206cc5e765f12cc409707b2ec8c5f216,
           type: 3}
         Location: {x: 4, y: 6}
         EjectSpeed: 10
     - WaveBuffer: 0
       Mobs:
-      - Prefab: {fileID: 1864851530522590640, guid: 597a23c27277c5149a21b1c82c7dc574,
+      - Prefab: {fileID: 6544853163543370353, guid: 2c1703b6295542f43b18cba3305a9bda,
           type: 3}
         Location: {x: -5, y: -3}
         EjectSpeed: 10
-      - Prefab: {fileID: 1864851530522590640, guid: 597a23c27277c5149a21b1c82c7dc574,
+      - Prefab: {fileID: 6544853163543370353, guid: 2c1703b6295542f43b18cba3305a9bda,
           type: 3}
         Location: {x: 3, y: 5}
         EjectSpeed: 10
-      - Prefab: {fileID: 3823103236275552050, guid: a9a2036f32889274294ca2808771f20b,
+      - Prefab: {fileID: 4186563004602957431, guid: 206cc5e765f12cc409707b2ec8c5f216,
           type: 3}
         Location: {x: -7, y: -5}
         EjectSpeed: 10
-      - Prefab: {fileID: 3823103236275552050, guid: a9a2036f32889274294ca2808771f20b,
+      - Prefab: {fileID: 4186563004602957431, guid: 206cc5e765f12cc409707b2ec8c5f216,
           type: 3}
         Location: {x: 5, y: 7}
         EjectSpeed: 10
@@ -77,263 +77,149 @@ MonoBehaviour:
     WaveList:
     - WaveBuffer: 0
       Mobs:
-      - Prefab: {fileID: 1864851530522590640, guid: 597a23c27277c5149a21b1c82c7dc574,
+      - Prefab: {fileID: 4186563004602957431, guid: f0c210a796235fd45a872151d54cf4b3,
           type: 3}
         Location: {x: 3, y: 5}
         EjectSpeed: 10
-      - Prefab: {fileID: 1864851530522590640, guid: 597a23c27277c5149a21b1c82c7dc574,
+      - Prefab: {fileID: 4186563004602957431, guid: f0c210a796235fd45a872151d54cf4b3,
           type: 3}
         Location: {x: -3, y: -5}
         EjectSpeed: 10
-      - Prefab: {fileID: 3823103236275552050, guid: a9a2036f32889274294ca2808771f20b,
+    - WaveBuffer: 0
+      Mobs:
+      - Prefab: {fileID: 4186563004602957431, guid: f0c210a796235fd45a872151d54cf4b3,
+          type: 3}
+        Location: {x: -2, y: -5}
+        EjectSpeed: 0
+      - Prefab: {fileID: 4186563004602957431, guid: f0c210a796235fd45a872151d54cf4b3,
+          type: 3}
+        Location: {x: -2, y: -5}
+        EjectSpeed: 10
+      - Prefab: {fileID: 4186563004602957431, guid: 206cc5e765f12cc409707b2ec8c5f216,
           type: 3}
         Location: {x: 5, y: 7}
-        EjectSpeed: 10
-      - Prefab: {fileID: 3823103236275552050, guid: a9a2036f32889274294ca2808771f20b,
+        EjectSpeed: 0
+      - Prefab: {fileID: 4186563004602957431, guid: 206cc5e765f12cc409707b2ec8c5f216,
           type: 3}
         Location: {x: -5, y: -7}
         EjectSpeed: 10
     - WaveBuffer: 0
       Mobs:
-      - Prefab: {fileID: 1864851530522590640, guid: 597a23c27277c5149a21b1c82c7dc574,
-          type: 3}
-        Location: {x: -2, y: -5}
-        EjectSpeed: 0
-      - Prefab: {fileID: 1864851530522590640, guid: 597a23c27277c5149a21b1c82c7dc574,
-          type: 3}
-        Location: {x: -2, y: -5}
-        EjectSpeed: 10
-      - Prefab: {fileID: 1864851530522590640, guid: 597a23c27277c5149a21b1c82c7dc574,
-          type: 3}
-        Location: {x: 2, y: 5}
-        EjectSpeed: 0
-      - Prefab: {fileID: 1864851530522590640, guid: 597a23c27277c5149a21b1c82c7dc574,
-          type: 3}
-        Location: {x: 2, y: 5}
-        EjectSpeed: 10
-      - Prefab: {fileID: 3823103236275552050, guid: a9a2036f32889274294ca2808771f20b,
-          type: 3}
-        Location: {x: 5, y: 7}
-        EjectSpeed: 10
-      - Prefab: {fileID: 3823103236275552050, guid: a9a2036f32889274294ca2808771f20b,
-          type: 3}
-        Location: {x: -5, y: -7}
-        EjectSpeed: 10
-    - WaveBuffer: 2
-      Mobs:
-      - Prefab: {fileID: 3823103236275552050, guid: a9a2036f32889274294ca2808771f20b,
+      - Prefab: {fileID: 6544853163543370353, guid: 2c1703b6295542f43b18cba3305a9bda,
           type: 3}
         Location: {x: 7, y: 5}
         EjectSpeed: 10
-      - Prefab: {fileID: 3823103236275552050, guid: a9a2036f32889274294ca2808771f20b,
+      - Prefab: {fileID: 6544853163543370353, guid: 2c1703b6295542f43b18cba3305a9bda,
           type: 3}
         Location: {x: -7, y: -5}
         EjectSpeed: 10
-      - Prefab: {fileID: 3823103236275552050, guid: a9a2036f32889274294ca2808771f20b,
+      - Prefab: {fileID: 6544853163543370353, guid: 2c1703b6295542f43b18cba3305a9bda,
           type: 3}
-        Location: {x: -5, y: 5}
+        Location: {x: 0, y: 6}
         EjectSpeed: 0
-      - Prefab: {fileID: 1864851530522590640, guid: 597a23c27277c5149a21b1c82c7dc574,
+      - Prefab: {fileID: 6544853163543370353, guid: 2c1703b6295542f43b18cba3305a9bda,
           type: 3}
         Location: {x: -6, y: 0}
         EjectSpeed: 10
-      - Prefab: {fileID: 1864851530522590640, guid: 597a23c27277c5149a21b1c82c7dc574,
-          type: 3}
-        Location: {x: -6, y: 0}
-        EjectSpeed: 10
-      - Prefab: {fileID: 1864851530522590640, guid: 597a23c27277c5149a21b1c82c7dc574,
-          type: 3}
-        Location: {x: -6, y: 0}
-        EjectSpeed: 0
-      - Prefab: {fileID: 1864851530522590640, guid: 597a23c27277c5149a21b1c82c7dc574,
-          type: 3}
-        Location: {x: 6, y: 0}
-        EjectSpeed: 10
-      - Prefab: {fileID: 1864851530522590640, guid: 597a23c27277c5149a21b1c82c7dc574,
-          type: 3}
-        Location: {x: 6, y: 0}
-        EjectSpeed: 10
-      - Prefab: {fileID: 1864851530522590640, guid: 597a23c27277c5149a21b1c82c7dc574,
-          type: 3}
-        Location: {x: 6, y: 0}
-        EjectSpeed: 0
   - SpawnCooldown: 6
     WaveList:
     - WaveBuffer: 0
       Mobs:
-      - Prefab: {fileID: 1864851530522590640, guid: 597a23c27277c5149a21b1c82c7dc574,
+      - Prefab: {fileID: 6544853163543370353, guid: 2c1703b6295542f43b18cba3305a9bda,
           type: 3}
-        Location: {x: -7, y: 7}
-        EjectSpeed: 10
-      - Prefab: {fileID: 1864851530522590640, guid: 597a23c27277c5149a21b1c82c7dc574,
-          type: 3}
-        Location: {x: -7, y: 7}
-        EjectSpeed: 10
-    - WaveBuffer: 0
-      Mobs:
-      - Prefab: {fileID: 1864851530522590640, guid: 597a23c27277c5149a21b1c82c7dc574,
-          type: 3}
-        Location: {x: -7, y: 7}
-        EjectSpeed: 10
-      - Prefab: {fileID: 1864851530522590640, guid: 597a23c27277c5149a21b1c82c7dc574,
-          type: 3}
-        Location: {x: -7, y: 7}
-        EjectSpeed: 10
-    - WaveBuffer: 0
-      Mobs:
-      - Prefab: {fileID: 1864851530522590640, guid: 597a23c27277c5149a21b1c82c7dc574,
-          type: 3}
-        Location: {x: -7, y: 7}
-        EjectSpeed: 10
-      - Prefab: {fileID: 1864851530522590640, guid: 597a23c27277c5149a21b1c82c7dc574,
-          type: 3}
-        Location: {x: -7, y: 7}
-        EjectSpeed: 10
-    - WaveBuffer: 0
-      Mobs:
-      - Prefab: {fileID: 1864851530522590640, guid: 597a23c27277c5149a21b1c82c7dc574,
-          type: 3}
-        Location: {x: -7, y: 7}
-        EjectSpeed: 10
-      - Prefab: {fileID: 1864851530522590640, guid: 597a23c27277c5149a21b1c82c7dc574,
-          type: 3}
-        Location: {x: -7, y: 7}
-        EjectSpeed: 10
-    - WaveBuffer: 0
-      Mobs:
-      - Prefab: {fileID: 1864851530522590640, guid: 597a23c27277c5149a21b1c82c7dc574,
-          type: 3}
-        Location: {x: -7, y: 7}
-        EjectSpeed: 10
-      - Prefab: {fileID: 1864851530522590640, guid: 597a23c27277c5149a21b1c82c7dc574,
-          type: 3}
-        Location: {x: -7, y: 7}
-        EjectSpeed: 10
-    - WaveBuffer: 0
-      Mobs:
-      - Prefab: {fileID: 1864851530522590640, guid: 597a23c27277c5149a21b1c82c7dc574,
-          type: 3}
-        Location: {x: -7, y: 7}
-        EjectSpeed: 10
-      - Prefab: {fileID: 1864851530522590640, guid: 597a23c27277c5149a21b1c82c7dc574,
-          type: 3}
-        Location: {x: -7, y: 7}
-        EjectSpeed: 10
-    - WaveBuffer: 0
-      Mobs:
-      - Prefab: {fileID: 1864851530522590640, guid: 597a23c27277c5149a21b1c82c7dc574,
-          type: 3}
-        Location: {x: -7, y: 7}
-        EjectSpeed: 10
-      - Prefab: {fileID: 1864851530522590640, guid: 597a23c27277c5149a21b1c82c7dc574,
-          type: 3}
-        Location: {x: -7, y: 7}
-        EjectSpeed: 10
-    - WaveBuffer: 0
-      Mobs:
-      - Prefab: {fileID: 1864851530522590640, guid: 597a23c27277c5149a21b1c82c7dc574,
-          type: 3}
-        Location: {x: -7, y: 7}
-        EjectSpeed: 10
-      - Prefab: {fileID: 1864851530522590640, guid: 597a23c27277c5149a21b1c82c7dc574,
-          type: 3}
-        Location: {x: -7, y: 7}
-        EjectSpeed: 10
-    - WaveBuffer: 0
-      Mobs:
-      - Prefab: {fileID: 1864851530522590640, guid: 597a23c27277c5149a21b1c82c7dc574,
-          type: 3}
-        Location: {x: -7, y: 7}
-        EjectSpeed: 10
-      - Prefab: {fileID: 1864851530522590640, guid: 597a23c27277c5149a21b1c82c7dc574,
-          type: 3}
-        Location: {x: -7, y: 7}
-        EjectSpeed: 10
-    - WaveBuffer: 0
-      Mobs:
-      - Prefab: {fileID: 1864851530522590640, guid: 597a23c27277c5149a21b1c82c7dc574,
-          type: 3}
-        Location: {x: -7, y: 7}
-        EjectSpeed: 10
-      - Prefab: {fileID: 1864851530522590640, guid: 597a23c27277c5149a21b1c82c7dc574,
-          type: 3}
-        Location: {x: -7, y: 7}
-        EjectSpeed: 10
-  - SpawnCooldown: 13
-    WaveList:
-    - WaveBuffer: 0
-      Mobs:
-      - Prefab: {fileID: 1864851530522590640, guid: 597a23c27277c5149a21b1c82c7dc574,
-          type: 3}
-        Location: {x: -7, y: 7}
-        EjectSpeed: 10
-      - Prefab: {fileID: 1864851530522590640, guid: 597a23c27277c5149a21b1c82c7dc574,
-          type: 3}
-        Location: {x: -7, y: 7}
-        EjectSpeed: 10
-      - Prefab: {fileID: 3823103236275552050, guid: a9a2036f32889274294ca2808771f20b,
-          type: 3}
-        Location: {x: 6.85, y: 6.85}
+        Location: {x: -6, y: 6}
         EjectSpeed: 0
-      - Prefab: {fileID: 3823103236275552050, guid: a9a2036f32889274294ca2808771f20b,
+      - Prefab: {fileID: 6544853163543370353, guid: 2c1703b6295542f43b18cba3305a9bda,
           type: 3}
-        Location: {x: -3, y: -3}
+        Location: {x: -6, y: 6}
         EjectSpeed: 0
     - WaveBuffer: 0
       Mobs:
-      - Prefab: {fileID: 1864851530522590640, guid: 597a23c27277c5149a21b1c82c7dc574,
+      - Prefab: {fileID: 4186563004602957431, guid: f0c210a796235fd45a872151d54cf4b3,
           type: 3}
-        Location: {x: -7, y: 7}
-        EjectSpeed: 10
-      - Prefab: {fileID: 1864851530522590640, guid: 597a23c27277c5149a21b1c82c7dc574,
-          type: 3}
-        Location: {x: -7, y: 7}
-        EjectSpeed: 10
-      - Prefab: {fileID: 3823103236275552050, guid: a9a2036f32889274294ca2808771f20b,
-          type: 3}
-        Location: {x: -6.85, y: -6.85}
+        Location: {x: -6, y: 6}
         EjectSpeed: 0
-      - Prefab: {fileID: 3823103236275552050, guid: a9a2036f32889274294ca2808771f20b,
+      - Prefab: {fileID: 4186563004602957431, guid: 206cc5e765f12cc409707b2ec8c5f216,
           type: 3}
-        Location: {x: 3, y: 3}
+        Location: {x: -6, y: 6}
         EjectSpeed: 0
     - WaveBuffer: 0
       Mobs:
-      - Prefab: {fileID: 1864851530522590640, guid: 597a23c27277c5149a21b1c82c7dc574,
+      - Prefab: {fileID: 6544853163543370353, guid: 2c1703b6295542f43b18cba3305a9bda,
           type: 3}
-        Location: {x: -7, y: 7}
-        EjectSpeed: 10
-      - Prefab: {fileID: 1864851530522590640, guid: 597a23c27277c5149a21b1c82c7dc574,
+        Location: {x: -6, y: 6}
+        EjectSpeed: 0
+      - Prefab: {fileID: 6544853163543370353, guid: 2c1703b6295542f43b18cba3305a9bda,
           type: 3}
-        Location: {x: -7, y: 7}
-        EjectSpeed: 10
+        Location: {x: -6, y: 6}
+        EjectSpeed: 0
     - WaveBuffer: 0
       Mobs:
-      - Prefab: {fileID: 1864851530522590640, guid: 597a23c27277c5149a21b1c82c7dc574,
+      - Prefab: {fileID: 4186563004602957431, guid: f0c210a796235fd45a872151d54cf4b3,
           type: 3}
-        Location: {x: -7, y: 7}
-        EjectSpeed: 10
-      - Prefab: {fileID: 1864851530522590640, guid: 597a23c27277c5149a21b1c82c7dc574,
+        Location: {x: -6, y: 6}
+        EjectSpeed: 0
+      - Prefab: {fileID: 4186563004602957431, guid: 206cc5e765f12cc409707b2ec8c5f216,
           type: 3}
-        Location: {x: -7, y: 7}
-        EjectSpeed: 10
+        Location: {x: -6, y: 6}
+        EjectSpeed: 0
     - WaveBuffer: 0
       Mobs:
-      - Prefab: {fileID: 1864851530522590640, guid: 597a23c27277c5149a21b1c82c7dc574,
+      - Prefab: {fileID: 6544853163543370353, guid: 2c1703b6295542f43b18cba3305a9bda,
           type: 3}
-        Location: {x: -7, y: 7}
-        EjectSpeed: 10
-      - Prefab: {fileID: 1864851530522590640, guid: 597a23c27277c5149a21b1c82c7dc574,
+        Location: {x: -6, y: 6}
+        EjectSpeed: 0
+      - Prefab: {fileID: 6544853163543370353, guid: 2c1703b6295542f43b18cba3305a9bda,
           type: 3}
-        Location: {x: -7, y: 7}
-        EjectSpeed: 10
+        Location: {x: -6, y: 6}
+        EjectSpeed: 0
     - WaveBuffer: 0
       Mobs:
-      - Prefab: {fileID: 1864851530522590640, guid: 597a23c27277c5149a21b1c82c7dc574,
+      - Prefab: {fileID: 4186563004602957431, guid: f0c210a796235fd45a872151d54cf4b3,
           type: 3}
-        Location: {x: -7, y: 7}
-        EjectSpeed: 10
-      - Prefab: {fileID: 1864851530522590640, guid: 597a23c27277c5149a21b1c82c7dc574,
+        Location: {x: -6, y: 6}
+        EjectSpeed: 0
+      - Prefab: {fileID: 4186563004602957431, guid: 206cc5e765f12cc409707b2ec8c5f216,
           type: 3}
-        Location: {x: -7, y: 7}
-        EjectSpeed: 10
+        Location: {x: -6, y: 6}
+        EjectSpeed: 0
+    - WaveBuffer: 0
+      Mobs:
+      - Prefab: {fileID: 6544853163543370353, guid: 2c1703b6295542f43b18cba3305a9bda,
+          type: 3}
+        Location: {x: -6, y: 6}
+        EjectSpeed: 0
+      - Prefab: {fileID: 6544853163543370353, guid: 2c1703b6295542f43b18cba3305a9bda,
+          type: 3}
+        Location: {x: -6, y: 6}
+        EjectSpeed: 0
+    - WaveBuffer: 0
+      Mobs:
+      - Prefab: {fileID: 4186563004602957431, guid: f0c210a796235fd45a872151d54cf4b3,
+          type: 3}
+        Location: {x: -6, y: 6}
+        EjectSpeed: 0
+      - Prefab: {fileID: 4186563004602957431, guid: 206cc5e765f12cc409707b2ec8c5f216,
+          type: 3}
+        Location: {x: -6, y: 6}
+        EjectSpeed: 0
+    - WaveBuffer: 0
+      Mobs:
+      - Prefab: {fileID: 6544853163543370353, guid: 2c1703b6295542f43b18cba3305a9bda,
+          type: 3}
+        Location: {x: -6, y: 6}
+        EjectSpeed: 0
+      - Prefab: {fileID: 6544853163543370353, guid: 2c1703b6295542f43b18cba3305a9bda,
+          type: 3}
+        Location: {x: -6, y: 6}
+        EjectSpeed: 0
+    - WaveBuffer: 0
+      Mobs:
+      - Prefab: {fileID: 4186563004602957431, guid: f0c210a796235fd45a872151d54cf4b3,
+          type: 3}
+        Location: {x: -6, y: 6}
+        EjectSpeed: 0
+      - Prefab: {fileID: 4186563004602957431, guid: 206cc5e765f12cc409707b2ec8c5f216,
+          type: 3}
+        Location: {x: -6, y: 6}
+        EjectSpeed: 0

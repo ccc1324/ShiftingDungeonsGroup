@@ -12,7 +12,6 @@ public class SkeletonWarrior : MonoBehaviour, IEnemy
     public float BlockTime;
     public float SpawnAttackBuffer;
     public ParticleSystem Particles;
-    public Collider2D AttackTrigger;
 
     private Animator _animator;
     private GameObject _player;

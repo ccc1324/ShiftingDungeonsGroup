@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class SkeletonArcher : MonoBehaviour, IEnemy
+public class Zombie : MonoBehaviour, IEnemy
 {
     public float Health;
     public float AttackCooldown;
@@ -10,8 +10,8 @@ public class SkeletonArcher : MonoBehaviour, IEnemy
     public ParticleSystem Particles;
 
     private Animator _animator;
-    private GameObject _player;
     private float _time_of_last_attack;
+    private bool _stunned;
 
     void Start()
     {
@@ -19,19 +19,17 @@ public class SkeletonArcher : MonoBehaviour, IEnemy
         _time_of_last_attack = Time.time + SpawnAttackBuffer;
     }
 
-    void Update()
+    private void OnTriggerEnter2D(Collider2D collision)
     {
-        //Check if dead
-        if (Health < 0)
+        if (collision.isTrigger)
             return;
-
-        //Check if time to attack
-        if (_time_of_last_attack + AttackCooldown <= Time.time)
-        {
-            _animator.SetTrigger("Attack");
-            _time_of_last_attack = Time.time;
-            return;
-        }
+        if (collision.tag == "Player" && !_stunned)
+            if (_time_of_last_attack + AttackCooldown <= Time.time)
+            {
+                _animator.SetTrigger("Attack");
+                _time_of_last_attack = Time.time;
+                return;
+            }
     }
 
     public void OnHit(int damage, bool stun)
@@ -41,7 +39,13 @@ public class SkeletonArcher : MonoBehaviour, IEnemy
             _animator.SetBool("Dead", true);
 
         else if (stun)
+        {
             _animator.SetTrigger("Stun");
+
+            _stunned = true;
+            StopCoroutine(ResetStun());
+            StartCoroutine(ResetStun());
+        }
     }
 
     public ParticleSystem GetParticles()
@@ -52,5 +56,13 @@ public class SkeletonArcher : MonoBehaviour, IEnemy
     public float GetHealth()
     {
         return Health;
+    }
+
+    //Just used to not trigger an attack when stunned
+    IEnumerator ResetStun()
+    {
+        yield return new WaitForSeconds(1);
+        _animator.ResetTrigger("Attack");
+        _stunned = false;
     }
 }

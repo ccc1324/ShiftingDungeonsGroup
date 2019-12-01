@@ -32,6 +32,14 @@ public class OnAttackProjectile : StateMachineBehaviour
         _attack_count = AttackCount;
         _gameObject = animator.gameObject;
         _player = GameObject.FindWithTag("Player"); //May cause performance issues, consider optimizing if there is a bottleneck
+
+        if (FiringMode == "straight")
+        {
+            if (_player.transform.position.x > _gameObject.transform.position.x)
+                _gameObject.transform.eulerAngles = new Vector3(0, 0, 0);
+            else
+                _gameObject.transform.eulerAngles = new Vector3(0, 180, 0);
+        }
     }
 
     public override void OnStateUpdate(Animator animator, AnimatorStateInfo animatorStateInfo, int layerIndex)
@@ -47,12 +55,9 @@ public class OnAttackProjectile : StateMachineBehaviour
             switch (FiringMode)
             {
                 case "straight":
-                    if (_player.transform.position.x > _gameObject.transform.position.x)
-                        projectile = Instantiate(Projectile, _gameObject.transform.position, new Quaternion());
-                    else
-                        projectile = Instantiate(Projectile, _gameObject.transform.position, Quaternion.Euler(new Vector3(0, 180)));
+                    projectile = Instantiate(Projectile, _gameObject.transform.position, _gameObject.transform.rotation);
                     rb = projectile.GetComponent<Rigidbody2D>();
-                    rb.velocity = new Vector2(Mathf.Sign(_player.transform.position.x - _gameObject.transform.position.x) * ProjectileSpeed, 0);
+                    rb.velocity = new Vector2(Mathf.Sign((_gameObject.transform.rotation.eulerAngles.y - 90) * -1) * ProjectileSpeed, 0);
                     break;
                 case "arc":
                     projectile = Instantiate(Projectile, _gameObject.transform.position, new Quaternion());
