@@ -8,16 +8,24 @@ using UnityEngine;
  */
 public class OnAttackProjectile : StateMachineBehaviour
 {
-    //Be careful not to modify these variables, as changes aren't reset on OnStateEnter
-    public string FiringMode; //How to fire the projectile. Current options are: "straight", "arc"
+    //Be careful not to modify these variables in the script, as changes aren't reset on OnStateEnter
+    [Tooltip("How to fire the projectile.Current options are: \"straight\", \"arc\"")]
+    public string FiringMode;
+    [Tooltip("Amount of time that passes before attacking starts (waiting for animation)")]
     public float AttackStartBuffer;
-    public int AttackCount = 1; //How many time to fire
-    public float ShotDelay; //Delay between shots
-    public float ProjectileSpeed; //How quickly a straight projectile travels
-    public float ProjectileHangTime; //How long an arc-ed projectile is in the air
     public GameObject Projectile;
     public AudioClip AttackSFX; //Can be null
     public float AttackVolume = 1;
+
+    [Tooltip("How many times to fire")]
+    public int AttackCount = 1;
+    [Tooltip("Delay between shots (if mutiple shots are fired)")]
+    public float ShotDelay;
+
+    [Tooltip("How quickly a straight projectile travels. Used for 'straight' firing mode")]
+    public float ProjectileSpeed;
+    [Tooltip("How long an arc-ed projectile is in the air. Used for 'arc' firing mode")]
+    public float ProjectileHangTime;
 
     private int _attack_count;
     private float _startTime;

@@ -7,22 +7,10 @@ public class SlimeRanged : MonoBehaviour, IEnemy
 {
     public float AttackCooldown;
     public float Health;
-    public GameObject Projectile;
-    public float ProjectileHangTime;
-
-    [System.Serializable]
-    public struct ItemSets
-    {
-        public ItemSet Common;
-        public ItemSet Uncommon;
-        public ItemSet Epic;
-    }
-    public ItemSets ItemDropSets;
-    public GameObject Item;
 
     public ParticleSystem Particles;
 
-    public AudioClip AttackSFX;
+    public AudioClip HitSFX;
 
     public bool Stunned;
     public bool Dead;
@@ -44,69 +32,35 @@ public class SlimeRanged : MonoBehaviour, IEnemy
 
     void Update()
     {
-        if (Dead)
-        {
-            Item item = _item_drop_manager.GetDrop(ItemDropSets.Common, ItemDropSets.Uncommon, ItemDropSets.Epic);
-            EnemyFunctions.SpawnItem(Item, item, transform.position);
-            Destroy(gameObject);
-        }
+        if (Health < 0)
+            return;
 
         if (Stunned)
             return;
 
         if (Time.time - _time_of_last_attack > AttackCooldown && Health > 0)
         {
-            _animator.SetBool("Attacking", true);
+            _animator.SetTrigger("Attack");
             _time_of_last_attack = Time.time;
-            StartCoroutine(Attack());
         }
     }
 
-    public void OnHit(int damage, bool stun)
+    public void OnHit(int damage, bool stun, Vector3 particlePosition)
     {
         if (Health <= 0)
             return;
-        
-        if (stun)
-        {
-            _animator.SetTrigger("Stun");
-            StopAllCoroutines();
-        }
+
+        Instantiate(Particles, particlePosition, new Quaternion());
+        _audio_source.volume = stun ? 0.5f : 0.2f;
+        _audio_source.PlayOneShot(HitSFX);
 
         Health -= damage;
         if (Health <= 0)
         {
             _animator.SetBool("Dead", true);
-            StopAllCoroutines();
         }
-    }
 
-    IEnumerator Attack()
-    {
-        yield return new WaitForSeconds(1);
-
-        _audio_source.PlayOneShot(AttackSFX);
-
-        GameObject projectile = Instantiate(Projectile, transform.position, new Quaternion());
-        Rigidbody2D rb = projectile.GetComponent<Rigidbody2D>();
-
-        float range = _player_location.position.x - transform.position.x;
-        float angle = Mathf.Atan(Physics2D.gravity.y * rb.gravityScale * ProjectileHangTime * ProjectileHangTime / (2 * range));
-        float velocity = range / (ProjectileHangTime * Mathf.Cos(angle));
-
-        rb.velocity = new Vector2(velocity * Mathf.Cos(angle), Mathf.Abs(velocity * Mathf.Sin(angle)));
-
-        _animator.SetBool("Attacking", false);
-        yield return null;
-    }
-
-    public ParticleSystem GetParticles()
-    {
-        return Particles;
-    }
-
-    public float GetHealth()
-    {
-        return Health;
+        else if (stun)
+            _animator.SetTrigger("Stun");
     }
 }

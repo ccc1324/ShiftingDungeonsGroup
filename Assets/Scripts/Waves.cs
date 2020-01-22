@@ -5,9 +5,10 @@ using UnityEngine;
 /*
  * Contains information on how many waves to spawn each stage of a level
  * and how to spawn a the mobs in each wave.
+ * 
+ * THIS CLASS IS DEPRECIATED AND HAS BEEN REPLACED BY SpawnData AND Wave
  */
 
-[CreateAssetMenu(fileName = "New WavesData", menuName = "WavesData")]
 public class Waves : ScriptableObject
 {
     public List<Stage> StageList; //The stages contained in a level

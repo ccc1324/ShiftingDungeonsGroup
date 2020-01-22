@@ -55,6 +55,8 @@ public class PlayerInventory : MonoBehaviour
             canvasGroup.alpha = canvasGroup.alpha == 1 ? 0 : 1;
             canvasGroup.interactable = canvasGroup.interactable ? false : true;
             canvasGroup.blocksRaycasts = canvasGroup.blocksRaycasts ? false : true;
+            Equipment.PrimaryWeapon.EquipmentStats.UpdateItem();
+            Equipment.SecondaryWeapon.EquipmentStats.UpdateItem();
 
             _audio_source.volume = OpenCloseSFXVolume;
             if (canvasGroup.alpha == 1)

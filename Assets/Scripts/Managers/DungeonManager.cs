@@ -9,7 +9,7 @@ public class DungeonManager : MonoBehaviour
 
     //levels
     public List<Level> Levels;
-    public int MaxLevel;
+    public int MaxLevel; //Level from save data
     public int Level;
 
     //stats of various rooms
@@ -192,10 +192,6 @@ public class DungeonManager : MonoBehaviour
             case "Stage":
                 if (MobsCleared)
                 {
-                    //Wait for certain conditions then transition to next state
-                    if (Player.transform.position.x <= _room_current.transform.position.x + 0.05 &&
-                        Player.transform.position.x >= _room_current.transform.position.x - 0.05)
-                    {
                         //Play Sounds
                         _room_current.GetComponent<AudioSource>().volume = UnlockSFXVolume;
                         _room_current.GetComponent<AudioSource>().PlayOneShot(UnlockSFX);
@@ -203,11 +199,10 @@ public class DungeonManager : MonoBehaviour
                         //Update Walls
                         Destroy(_wall);
 
-                        CameraObject.GetComponent<CameraMovement>().CameraState = "Follow";
+                        CameraObject.GetComponent<CameraMovement>().ShiftToPlayer();
                         MobsCleared = false;
                         _stage++;
                         DungeonState = "TransitionToShifting";
-                    }
                 }
                 break;
             #endregion
@@ -321,8 +316,8 @@ public class DungeonManager : MonoBehaviour
                 //If not spawning boss, wait for certain conditions, then transition back to stage (spawn mobs)
                 if (!SpawnBoss)
                 {
-                    if (Player.transform.position.x <= _room_current.transform.position.x + 0.05 &&
-                        Player.transform.position.x >= _room_current.transform.position.x - 0.05 &&
+                    if (Player.transform.position.x <= _room_current.transform.position.x + 0.15 &&
+                        Player.transform.position.x >= _room_current.transform.position.x - 0.15 &&
                         _room_current == RoomStage)
                     {
                         //Lock Camera
@@ -521,6 +516,10 @@ public class DungeonManager : MonoBehaviour
 
                     _room_left.GetComponent<AudioSource>().volume = DestroySFXVolume;
                     _room_left.GetComponent<AudioSource>().PlayOneShot(DestroySFX);
+
+                    RoomStage = _room_current;
+                    if (Level + 1 < Levels.Count)
+                        Level++;
 
                     DungeonState = "Spawn";
 

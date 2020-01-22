@@ -19,6 +19,7 @@ public class SlimeBoss : MonoBehaviour, IEnemy
 
     public ParticleSystem Particles;
 
+    public AudioClip HitSFX;
     public AudioClip JumpSFX;
     public AudioClip EnragedSFX;
     public AudioClip TransformSFX;
@@ -123,12 +124,17 @@ public class SlimeBoss : MonoBehaviour, IEnemy
         }
     }
 
-    public void OnHit(int damage, bool stun)
+    public void OnHit(int damage, bool stun, Vector3 particlePosition)
     {
         if (Health <= 0)
             return;
 
         _direction = Mathf.Sign(_player_location.position.x - transform.position.x);
+
+        Instantiate(Particles, particlePosition, new Quaternion());
+        _audio_source.volume = stun ? 0.5f : 0.2f;
+        _audio_source.PlayOneShot(HitSFX);
+
         Health -= damage;
         if (Health <= 0)
         {
@@ -217,16 +223,6 @@ public class SlimeBoss : MonoBehaviour, IEnemy
             }
             yield return null;
         }
-    }
-
-    public ParticleSystem GetParticles()
-    {
-        return Particles;
-    }
-
-    public float GetHealth()
-    {
-        return Health;
     }
 
 }

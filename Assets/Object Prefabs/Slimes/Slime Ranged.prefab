@@ -177,6 +177,7 @@ MonoBehaviour:
   Particles: {fileID: 3218626813253202539, guid: c0180b3ef46454647b27f9210ac86018,
     type: 3}
   AttackSFX: {fileID: 8300000, guid: a675f7f5f8e84bf4b81a166cf90d5090, type: 3}
+  HitSFX: {fileID: 8300000, guid: 916bb71fe03c0b046a7b47bf175d7aa8, type: 3}
   Stunned: 0
   Dead: 0
 --- !u!82 &6358246981836126756

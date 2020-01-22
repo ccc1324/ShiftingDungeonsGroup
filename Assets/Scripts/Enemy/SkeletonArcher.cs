@@ -8,6 +8,7 @@ public class SkeletonArcher : MonoBehaviour, IEnemy
     public float AttackCooldown;
     public float SpawnAttackBuffer;
     public ParticleSystem Particles;
+    public AudioClip HitSFX;
 
     private Animator _animator;
     private GameObject _player;
@@ -34,23 +35,23 @@ public class SkeletonArcher : MonoBehaviour, IEnemy
         }
     }
 
-    public void OnHit(int damage, bool stun)
+    public void OnHit(int damage, bool stun, Vector3 particlePosition)
     {
+        if (Health <= 0)
+            return;
+
+        Instantiate(Particles, particlePosition, new Quaternion());
+        GetComponent<AudioSource>().volume = stun ? 0.5f : 0.2f;
+        GetComponent<AudioSource>().PlayOneShot(HitSFX);
+
         Health -= damage;
-        if (Health < 0)
+        if (Health <= 0)
+        {
             _animator.SetBool("Dead", true);
+        }
 
         else if (stun)
             _animator.SetTrigger("Stun");
     }
 
-    public ParticleSystem GetParticles()
-    {
-        return Particles;
-    }
-
-    public float GetHealth()
-    {
-        return Health;
-    }
 }

@@ -12,6 +12,8 @@ public class SkeletonWarrior : MonoBehaviour, IEnemy
     public float BlockTime;
     public float SpawnAttackBuffer;
     public ParticleSystem Particles;
+    public AudioClip HitSFX;
+    public AudioClip BlockSFX;
 
     private Animator _animator;
     private GameObject _player;
@@ -50,13 +52,29 @@ public class SkeletonWarrior : MonoBehaviour, IEnemy
             }
     }
 
+    private void OnTriggerStay2D(Collider2D collision)
+    {
+        if (collision.isTrigger)
+            return;
+        if (collision.tag == "Player" && !_animator.GetBool("Block") && !_stunned)
+            if (_time_of_last_attack + AttackCooldown <= Time.time)
+            {
+                _animator.SetTrigger("Attack");
+                _time_of_last_attack = Time.time;
+                return;
+            }
+    }
+
     /*
      * If hit with a normal attack from the front, the skeleton warrior should block and take no damage 
      * If hit with a normal attack from the back, the skeleton warrior should take damage
      * If hit with a stun attack, should be stun regardless if blocking or not
      */
-    public void OnHit(int damage, bool stun)
+    public void OnHit(int damage, bool stun, Vector3 particlePosition)
     {
+        if (Health <= 0)
+            return;
+
         bool facing_player = false;
         //if facing right and to the left of player
         if (transform.eulerAngles.y == 0 && transform.position.x < _player.transform.position.x)
@@ -64,17 +82,27 @@ public class SkeletonWarrior : MonoBehaviour, IEnemy
         if (transform.eulerAngles.y == 180 && transform.position.x > _player.transform.position.x)
             facing_player = true;
 
-        if (!stun && facing_player && !_stunned)
+        if (!stun && facing_player && !_stunned && Health > 0)
         {
             _animator.ResetTrigger("Attack");
             _animator.SetBool("Block", true);
             _time_of_block_start = Time.time;
+
+            GetComponent<AudioSource>().volume = 0.2f;
+            GetComponent<AudioSource>().PlayOneShot(BlockSFX);
             return;
         }
 
+        Instantiate(Particles, particlePosition, new Quaternion());
+        GetComponent<AudioSource>().volume = stun ? 0.5f : 0.2f;
+        GetComponent<AudioSource>().PlayOneShot(HitSFX);
+
         Health -= damage;
-        if (Health < 0)
+        if (Health <= 0)
+        {
             _animator.SetBool("Dead", true);
+            return;
+        }
 
         else if (stun)
         {
@@ -85,16 +113,6 @@ public class SkeletonWarrior : MonoBehaviour, IEnemy
             StopCoroutine(ResetStun());
             StartCoroutine(ResetStun());
         }
-    }
-
-    public ParticleSystem GetParticles()
-    {
-        return Particles;
-    }
-
-    public float GetHealth()
-    {
-        return Health;
     }
 
     //Just used to not trigger an attack when stunned

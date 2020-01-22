@@ -10,9 +10,15 @@ using UnityEngine;
  */
 public class OnDeath : StateMachineBehaviour
 {
-    //Be careful not to modify these variables, as changes aren't reset on OnStateEnter
-    public float DecayStartBuffer;
-    public float DecayDuration;
+    //Changes to these variables aren't reset on OnStateEnter
+    [SerializeField]
+    private float DecayStartBuffer = 0;
+    [SerializeField]
+    private float DecayDuration = 1;
+    [SerializeField]
+    private float YOffset = 0.2f;
+    [SerializeField]
+    private float ItemYSpeed = 20;
 
     [System.Serializable]
     public struct ItemSets
@@ -22,7 +28,6 @@ public class OnDeath : StateMachineBehaviour
         public ItemSet Epic;
     }
     public ItemSets ItemDropSets;
-    public GameObject Item;
 
     private SpriteRenderer[] _spriteRenderers;
     private float _startTime;
@@ -48,8 +53,12 @@ public class OnDeath : StateMachineBehaviour
 
         if (decayProgress > 1)
         {
+            if (_item_drop_manager == null)
+                return;
+
             Item item = _item_drop_manager.GetDrop(ItemDropSets.Common, ItemDropSets.Uncommon, ItemDropSets.Epic);
-            EnemyFunctions.SpawnItem(Item, item, _gameObject.transform.position);
+            _item_drop_manager.SpawnItem(_item_drop_manager.GetDrop(ItemDropSets.Common, ItemDropSets.Uncommon, ItemDropSets.Epic),
+                _gameObject.transform.position, YOffset, ItemYSpeed);
             Destroy(_gameObject);
         }
     }

@@ -93,6 +93,7 @@ SpriteRenderer:
   m_ProbeAnchor: {fileID: 0}
   m_LightProbeVolumeOverride: {fileID: 0}
   m_ScaleInLightmap: 1
+  m_ReceiveGI: 1
   m_PreserveUVs: 0
   m_IgnoreNormalsForChartDetection: 0
   m_ImportantGI: 0
@@ -199,6 +200,7 @@ MonoBehaviour:
     type: 3}
   Particles: {fileID: 3218626813253202539, guid: e1b5d0ff45b804b4c82b285c7dbe31e3,
     type: 3}
+  HitSFX: {fileID: 8300000, guid: 916bb71fe03c0b046a7b47bf175d7aa8, type: 3}
   JumpSFX: {fileID: 8300000, guid: a8f082fd46127094bab52a7a2b811f29, type: 3}
   EnragedSFX: {fileID: 8300000, guid: 882d9334b8086c04aabb60e19118d44f, type: 3}
   TransformSFX: {fileID: 8300000, guid: 559e13c569e945e40819bd22a2f49145, type: 3}

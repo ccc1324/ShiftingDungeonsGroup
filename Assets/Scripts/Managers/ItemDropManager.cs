@@ -4,6 +4,7 @@ using UnityEngine;
 
 public class ItemDropManager : MonoBehaviour
 {
+    [Header("Drop Rate Variables")]
     public int NullWeight;
     public int CommonWeight;
     public int UncommonWeight;
@@ -15,6 +16,10 @@ public class ItemDropManager : MonoBehaviour
 
     public int DropsSinceLastItem;
     public int DropsSinceLastEpic;
+
+    [Header("Item Drop Behavior")]
+    public GameObject ItemPrefab;
+
 
     public Item GetDrop(ItemSet common, ItemSet uncommon, ItemSet epic)
     {
@@ -54,6 +59,17 @@ public class ItemDropManager : MonoBehaviour
             DropsSinceLastEpic = 0; ;
             rng = Random.Range(0, epic.Items.Length);
             return epic.Items[rng];
+        }
+    }
+
+    public void SpawnItem(Item item, Vector3 position, float yOffset, float velocity)
+    {
+        if (item != null)
+        {
+            position = new Vector3(position.x, position.y + yOffset);
+            GameObject clone = Instantiate(ItemPrefab, position, Quaternion.Euler(new Vector3(0, 0, -45)));
+            clone.GetComponent<Rigidbody2D>().velocity = new Vector2(0, velocity);
+            clone.GetComponent<GameItem>().Item = item;
         }
     }
 

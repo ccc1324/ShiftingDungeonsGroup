@@ -2,15 +2,23 @@
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
+using UnityEngine.Events;
 
 public class PlayerStun : MonoBehaviour
 {
     public float StunDuration;
     public bool Stunned;
+    [Tooltip("Indicates that the player currently cannot be stunned")]
     public bool ParalyzeHeal;
-    public Image StunEffect;
     public AudioClip StunSFX;
     public float StunSFXVolume;
+
+    private BlackOverlay _stun_effect;
+
+    private void Start()
+    {
+        _stun_effect = FindObjectOfType<BlackOverlay>();
+    }
 
     void Update()
     {
@@ -19,29 +27,23 @@ public class PlayerStun : MonoBehaviour
             if (!ParalyzeHeal)
             {
                 ParalyzeHeal = true;
-                StartCoroutine(OnStun(StunDuration));
+                StartCoroutine(Stun(StunDuration));
             }
         }
     }
 
-    IEnumerator OnStun(float time)
+    IEnumerator Stun(float time)
     {
         float startTime = Time.time;
-        Color color = StunEffect.color;
-        color.a = 0.5f;
-        StunEffect.color = color;
         GetComponent<AudioSource>().PlayOneShot(StunSFX);
         GetComponent<AudioSource>().volume = StunSFXVolume;
+        if (_stun_effect != null)
+            _stun_effect.Stun(StunDuration);
+        else
+            Debug.Log("No Stun Effect Found");
 
-        while (Time.time < startTime + time)
-        {
-            color.a = Mathf.Lerp(0.2f, 0, (Time.time - startTime) / (time + 0.5f));
-            StunEffect.color = color;
-            yield return null;
-        }
+        yield return new WaitForSeconds(time);
 
-        color.a = 0;
-        StunEffect.color = color;
         ParalyzeHeal = false;
     }
 

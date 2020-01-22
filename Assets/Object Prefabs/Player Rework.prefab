@@ -501,8 +501,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d7618f95cc4dc7d4f9ed35e1eb5815ba, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  MaxSpeed: 350
-  Acceleration: 40
+  MaxSpeed: 250
+  Acceleration: 25
   JumpForce: 22
   JumpSFX: {fileID: 8300000, guid: a7c1eb80c63145549b7c3ac476441983, type: 3}
   JumpSFXVolume: 0.2
@@ -561,6 +561,20 @@ MonoBehaviour:
   StunDuration: 1
   Stunned: 0
   ParalyzeHeal: 0
+  OnStun:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 0}
+        m_MethodName: Stun
+        m_Mode: 4
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
   StunEffect: {fileID: 0}
   StunSFX: {fileID: 8300000, guid: 3b9351cb4bf03e54f98fd148aa7c58de, type: 3}
   StunSFXVolume: 0.3

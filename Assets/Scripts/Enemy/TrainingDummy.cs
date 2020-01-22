@@ -10,6 +10,7 @@ public class TrainingDummy : MonoBehaviour, IEnemy
     public float StartBuffer;
     public TextMeshPro DamageText;
     public ParticleSystem ParticleEffects;
+    public AudioClip HitSFX;
 
     private float _total_damage;
     private float _last_hit_time;
@@ -24,7 +25,7 @@ public class TrainingDummy : MonoBehaviour, IEnemy
         }
     }
 
-    public void OnHit(int damage, bool stun)
+    public void OnHit(int damage, bool stun, Vector3 particlePosition)
     {
         _total_damage += damage;
         if (_last_hit_time + DisplayTime < Time.time)
@@ -34,15 +35,9 @@ public class TrainingDummy : MonoBehaviour, IEnemy
         float time = Time.time - _start_time;
         time = time <= StartBuffer ? 1 : time;
         DamageText.text = Mathf.Round(_total_damage / 10 / time).ToString();
-    }
 
-    public ParticleSystem GetParticles()
-    {
-        return ParticleEffects;
-    }
-
-    public float GetHealth()
-    {
-        return Health;
+        Instantiate(ParticleEffects, particlePosition, new Quaternion());
+        GetComponent<AudioSource>().volume = stun ? 0.5f : 0.2f;
+        GetComponent<AudioSource>().PlayOneShot(HitSFX);
     }
 }

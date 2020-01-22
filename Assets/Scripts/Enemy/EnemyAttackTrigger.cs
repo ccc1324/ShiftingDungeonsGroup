@@ -2,6 +2,9 @@
 using System.Collections.Generic;
 using UnityEngine;
 
+/*
+ * Attach to any object with a trigger2D to implement physical damage
+ */
 public class EnemyAttackTrigger : MonoBehaviour
 {
     public ParticleSystem ParticleEffects;
@@ -17,7 +20,8 @@ public class EnemyAttackTrigger : MonoBehaviour
             collision.GetComponent<Animator>().SetTrigger("Stun");
             collision.GetComponent<Animator>().SetBool("Attacking", false);
 
-            collision.GetComponent<PlayerStun>().DisablePlayerCombat(0.1f);
+            //Disables PlayerCombat and re-enables after 0.1 seconds, used to avoid some issues with stunning the player
+            collision.GetComponent<PlayerStun>().DisablePlayerCombat(0.1f); 
             collision.GetComponent<Player>().OnHit(Damage);
 
             if (tag == "Projectile")

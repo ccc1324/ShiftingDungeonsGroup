@@ -6,6 +6,9 @@ public class CameraMovement : MonoBehaviour
 {
     public GameObject Player;
     public string CameraState;
+    public float ShiftTime;
+    public float ShiftToPlayerStep;
+    public float PlayerBuffer;
 
     PlayerMovement _player_movement;
     PlayerCombat _player_combat;
@@ -56,6 +59,11 @@ public class CameraMovement : MonoBehaviour
         }
     }
 
+    public void ShiftToPlayer()
+    {
+        StartCoroutine(LerpToPlayer());
+    }
+
     //Lerps Camera across the x axis
     IEnumerator LerpCamera()
     {
@@ -63,7 +71,7 @@ public class CameraMovement : MonoBehaviour
         //_player_combat.enabled = false;
         //_player_movement.Stop();
         //_player_movement.enabled = false;
-        while (Time.time < start_time + 1) //1 = transition time
+        while (Time.time < start_time + ShiftTime) //1 = transition time
         {
             transform.position = new Vector3(Mathf.Lerp(start, end, (Time.time - start_time)/1), transform.position.y, -10);
             yield return null;
@@ -71,5 +79,19 @@ public class CameraMovement : MonoBehaviour
         transform.position = new Vector3(end, transform.position.y, -10);
         //_player_combat.enabled = true;
         //_player_movement.enabled = true;
+    }
+
+    IEnumerator LerpToPlayer()
+    {
+        while (Mathf.Abs(transform.position.x - Player.transform.position.x) > PlayerBuffer)
+        {
+            if (Player.transform.position.x > transform.position.x)
+                transform.position = new Vector3(transform.position.x + ShiftToPlayerStep, transform.position.y, -10);
+            else
+                transform.position = new Vector3(transform.position.x - ShiftToPlayerStep, transform.position.y, -10);
+            yield return null;
+        }
+
+        CameraState = "Follow";
     }
 }

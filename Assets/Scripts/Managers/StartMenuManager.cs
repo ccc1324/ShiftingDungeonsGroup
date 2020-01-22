@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.Events;
 using TMPro;
 
 /* Manages the start menu portion of the game
@@ -20,6 +21,7 @@ public class StartMenuManager : MonoBehaviour
     public TextMeshProUGUI StoryCanvas;
     public TextMeshProUGUI CreditsCanvas;
     public string[] StoryText;
+    public UnityEvent EnablePauseMenuEvent;
 
     private Player _player;
     private PlayerCombat _player_combat;
@@ -30,7 +32,6 @@ public class StartMenuManager : MonoBehaviour
 
     void Start()
     {
-
         _player = Player.GetComponent<Player>();
         _player_combat = Player.GetComponent<PlayerCombat>();
         _player_movement = Player.GetComponent<PlayerMovement>();
@@ -50,11 +51,12 @@ public class StartMenuManager : MonoBehaviour
 
     public void NewGame()
     {
-        StartCoroutine(EnableTutorial(21f));
+        StartCoroutine(EnableTutorial(21f)); //21 = length of tutorial transition
         StartCoroutine(FadeUI(2f));
         _audio_source.PlayOneShot(ClickSFX);
-        StartCoroutine(DisableTutorial());
-        StartCoroutine(Story(2, 2));
+        StartCoroutine(DisableTutorial()); //Destroys tutorial objects once the game starts
+        StartCoroutine(DisplayStory(2, 2)); //Displays story text
+        StartCoroutine(EnablePauseMenu(21f));
     }
 
     public void Continue()
@@ -71,6 +73,7 @@ public class StartMenuManager : MonoBehaviour
         StartCoroutine(FadeUI(2f));
         _audio_source.PlayOneShot(ClickSFX);
         PostTutorialObjects.SetActive(true);
+        StartCoroutine(EnablePauseMenu(2f));
     }
 
     public void Credits()
@@ -137,17 +140,21 @@ public class StartMenuManager : MonoBehaviour
         TutorialObjects.SetActive(true);
     }
 
+    //Destroys tutorial objects once the game starts
     IEnumerator DisableTutorial()
     {
         while (true)
         {
             if (DungeonManager.DungeonState == "Stage")
+            {
                 Destroy(TutorialObjects);
+                break;
+            }
             yield return new WaitForSeconds(2);
         }
     }
 
-    IEnumerator Story(float delayTime, float time)
+    IEnumerator DisplayStory(float delayTime, float time)
     {
         CanvasGroup canvas = StoryCanvas.GetComponent<CanvasGroup>();
         float startTime;
@@ -179,5 +186,12 @@ public class StartMenuManager : MonoBehaviour
         }
 
         _player.ResetPlayer(1.5f);
+    }
+
+    IEnumerator EnablePauseMenu(float time)
+    {
+        yield return new WaitForSeconds(time);
+        if (EnablePauseMenuEvent != null)
+            EnablePauseMenuEvent.Invoke();
     }
 }

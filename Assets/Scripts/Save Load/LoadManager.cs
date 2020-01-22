@@ -13,14 +13,14 @@ public class LoadManager : MonoBehaviour
     void Start()
     {
         ItemDictionary.BuildDictionary();
+
+        _inventory = FindObjectOfType<Inventory>();
+        _equipment = FindObjectOfType<Equipment>();
+        _dungeon_manager = FindObjectOfType<DungeonManager>();
     }
 
     public void LoadGame()
     {
-        _inventory = FindObjectOfType<Inventory>();
-        _equipment = FindObjectOfType<Equipment>();
-        _dungeon_manager = FindObjectOfType<DungeonManager>();
-
         SaveData saveData = SaveSystem.Load();
 
         _dungeon_manager.Level = saveData.Level;
@@ -32,6 +32,10 @@ public class LoadManager : MonoBehaviour
         }
 
         _equipment.PrimaryWeapon.Item = saveData.PrimaryWeaponName == "" ? null : ItemDictionary.GetItem(saveData.PrimaryWeaponName);
+        _equipment.PrimaryWeapon.EquipmentStats.Item = _equipment.PrimaryWeapon.Item;
+        _equipment.PrimaryWeapon.EquipmentStats.UpdateItem();
         _equipment.SecondaryWeapon.Item = saveData.SecondaryWeaponName == "" ? null : ItemDictionary.GetItem(saveData.SecondaryWeaponName);
+        _equipment.SecondaryWeapon.EquipmentStats.Item = _equipment.SecondaryWeapon.Item;
+        _equipment.SecondaryWeapon.EquipmentStats.UpdateItem();
     }
 }

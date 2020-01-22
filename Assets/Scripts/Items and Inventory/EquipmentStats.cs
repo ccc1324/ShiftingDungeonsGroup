@@ -4,6 +4,9 @@ using UnityEngine;
 using UnityEngine.UI;
 using TMPro;
 
+/*
+ * Used to display item info in UI
+ */
 public class EquipmentStats : MonoBehaviour
 {
     public Item Item;
@@ -24,11 +27,15 @@ public class EquipmentStats : MonoBehaviour
 
     public void UpdateItem()
     {
+        if (Item == null)
+            return;
+
         ItemName.text = Item.ItemName;
         ItemDamage.text = "Damage: " + Mathf.Round(((float)Item.WeaponDamage) / 10).ToString();
         ItemDPS.text = "DPS: " + Mathf.Round((Item.WeaponDamage) / GetFramesPerHit(Item.WeaponClass) * 60 / 10).ToString();
     }
 
+    //poor way of keeping track of weapon attack speed
     private float GetFramesPerHit(string weapon)
     {
         switch (Item.WeaponClass)

@@ -11,10 +11,11 @@ public class TutorialRock : MonoBehaviour, IEnemy
     public int TransformationHealthA;
     public Sprite TransformationB;
     public int TransformationHealthB;
+    public AudioClip HitSFX;
     public AudioClip DestroySFX;
     public float DestroySFXVolume;
 
-    public void OnHit(int damage, bool stun)
+    public void OnHit(int damage, bool stun, Vector3 particlePosition)
     {
         Health -= damage;
         
@@ -27,20 +28,16 @@ public class TutorialRock : MonoBehaviour, IEnemy
             Destroy(gameObject);
             return;
         }
+        else
+        {
+            Instantiate(ParticleEffects, particlePosition, new Quaternion());
+            GetComponent<AudioSource>().volume = stun ? 0.5f : 0.2f;
+            GetComponent<AudioSource>().PlayOneShot(HitSFX);
+        }
 
         if (Health <= TransformationHealthB)
             GetComponent<SpriteRenderer>().sprite = TransformationB;
         else if (Health  <= TransformationHealthA)
             GetComponent<SpriteRenderer>().sprite = TransformationA;
-    }
-
-    public ParticleSystem GetParticles()
-    {
-        return ParticleEffects;
-    }
-
-    public float GetHealth()
-    {
-        return Health;
     }
 }

@@ -2,16 +2,24 @@
 using System.Collections.Generic;
 using UnityEngine;
 
+/*
+ * Spawns mobs, and communicates with the dungeon manager when all mobs have been cleared
+ */
 public class MonsterSpawner : MonoBehaviour
 {
+    [Tooltip("Time between entering the room and mobs spawning")]
     public float SpawnDelay;
-    public List<Waves> WaveData;
+    [Tooltip("Spawn Data for each level (should match number of levels in dungeon manager)")]
+    public List<SpawnData> SpawnDataList;
+
+    const float CEILING_HEIGHT = 3.3f;
+    const float FLOOR_HEIGHT = -3.4f;
 
     private bool _spawnMobs;
     private int _waveNumber;
     private int _stageNumber;
     private float _last_spawn_time;
-    private Waves _waves;
+    private SpawnData _spawn_data;
     private List<GameObject> _mobs;
     private Transform _room_transform;
     private DungeonManager _dungeon_manager;
@@ -26,15 +34,16 @@ public class MonsterSpawner : MonoBehaviour
     {
         if (_spawnMobs)
         {
-            Waves.Wave wave = _waves.StageList[_stageNumber].WaveList[_waveNumber]; //for readability
-            if (Time.time - _last_spawn_time > _waves.StageList[_stageNumber].SpawnCooldown + wave.WaveBuffer || _mobs.Count == 0)
+            SpawnData.WaveData current_wave = _spawn_data.StageList[_stageNumber].WaveList[_waveNumber]; //for readability
+            if (Time.time - _last_spawn_time > _spawn_data.StageList[_stageNumber].SpawnCooldown + current_wave.WaveBuffer || _mobs.Count == 0)
             {
-                for (int i = 0; i < wave.Mobs.Count; i++)
+                //Spawn each mob in current wave and add it to _mobs list
+                for (int i = 0; i < current_wave.Wave.MobsList.Count; i++)
                 {
-                    Waves.Mob mob = wave.Mobs[i];
-                    float x = Random.Range(mob.Location.x, mob.Location.y);
-                    float y = mob.EjectSpeed > 0 ? -3.4f : 3.3f;
-                    GameObject myMob = Instantiate(wave.Mobs[i].Prefab, new Vector2(x + _room_transform.position.x, y), new Quaternion());
+                    Wave.Mob mob = current_wave.Wave.MobsList[i];
+                    float x = Random.Range(mob.LeftmostPosition, mob.RightmostPosition);
+                    float y = mob.EjectSpeed > 0 ? FLOOR_HEIGHT : CEILING_HEIGHT;
+                    GameObject myMob = Instantiate(current_wave.Wave.MobsList[i].Prefab, new Vector2(x + _room_transform.position.x, y), new Quaternion());
                     myMob.GetComponent<Rigidbody2D>().velocity = new Vector2(0, mob.EjectSpeed);
                     _mobs.Add(myMob);
                 }
@@ -43,10 +52,11 @@ public class MonsterSpawner : MonoBehaviour
                 _last_spawn_time = Time.time;
                 StartCoroutine(UpdateMobsList());
 
-                if (_waveNumber >= _waves.StageList[_stageNumber].WaveList.Count)
+                //End condition for mob spawning
+                if (_waveNumber >= _spawn_data.StageList[_stageNumber].WaveList.Count)
                 {
                     _spawnMobs = false;
-                    if (_stageNumber == _waves.StageList.Count - 1)
+                    if (_stageNumber == _spawn_data.StageList.Count - 1)
                         StartCoroutine(SpawnBoss());
                     else
                         StartCoroutine(TransitionToShifting());
@@ -55,9 +65,10 @@ public class MonsterSpawner : MonoBehaviour
         }
     }
 
+    //Used by DungeonManager to start mob spawning
     public void SpawnMobs(int level, int stage)
     {
-        _waves = WaveData[level];
+        _spawn_data = SpawnDataList[level];
         _waveNumber = 0;
         _stageNumber = stage;
         _room_transform = _dungeon_manager.RoomStage.transform;
@@ -70,6 +81,7 @@ public class MonsterSpawner : MonoBehaviour
         _spawnMobs = true;
     }
 
+    //Remove dead mobs from mobs list
     IEnumerator UpdateMobsList()
     {
         while (_mobs.Count != 0)
@@ -83,6 +95,8 @@ public class MonsterSpawner : MonoBehaviour
         }
     }
 
+    //Should be called when final wave has been spawned and the next level is the boss level
+    //Remove dead mobs from mobs list and set MobsCleared and SpawnBoss flag when all mobs are dead
     IEnumerator SpawnBoss()
     {
         while (_mobs.Count != 0)
@@ -98,6 +112,8 @@ public class MonsterSpawner : MonoBehaviour
         _dungeon_manager.SpawnBoss = true;
     }
 
+    //Should be called when final wave has been spawned
+    //Remove dead mobs from mobs list and set MobsCleared flag when all mobs are dead
     IEnumerator TransitionToShifting()
     {
         while (_mobs.Count != 0)

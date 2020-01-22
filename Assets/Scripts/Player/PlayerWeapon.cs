@@ -9,6 +9,7 @@ public class PlayerWeapon : MonoBehaviour
     public bool SetToStun;
     public GameObject ParticleSpawnPoint;
     public AudioClip HitSFX;
+    [Tooltip("0 - Dagger\n1 - Spear/Staff 1&2\n2 - Sword\n3 - Staff 3\n4 - Axe\n5 - Hammer")]
     public SFXData[] SFXDatas;
     public int SFXID; //to be used by animator when specifying sound effects
     /* 0 = Dagger
@@ -39,18 +40,13 @@ public class PlayerWeapon : MonoBehaviour
     {
         if ((collision.tag == "Enemy") && EnableWeaponHitbox)
         {
-            if (collision.GetComponent<IEnemy>().GetHealth() <= 0)
-                return;
+            /*Make particle spawn point depend on weapon type
+            switch(weaponType){
+                case: "axe"
+                    offset = new Vector3(1, 0);
+            }*/
 
-            collision.GetComponent<IEnemy>().OnHit(WeaponDamage, SetToStun);
-
-            Instantiate(collision.GetComponent<IEnemy>().GetParticles(), ParticleSpawnPoint.transform.position, new Quaternion());
-
-            //if (_audio_source.isPlaying) //prevent mutiple hit sounds playing
-                //return;
-            _audio_source.volume = SetToStun ? 0.5f : 0.2f;
-            _audio_source.PlayOneShot(HitSFX);
-
+            collision.GetComponent<IEnemy>().OnHit(WeaponDamage, SetToStun, ParticleSpawnPoint.transform.position);
         }
     }
 

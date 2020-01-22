@@ -10,19 +10,10 @@ public class SlimeMelee : MonoBehaviour, IEnemy
     public float JumpForce;
     public float Health;
 
-    [System.Serializable]
-    public struct ItemSets
-    {
-        public ItemSet Common;
-        public ItemSet Uncommon;
-        public ItemSet Epic;
-    }
-    public ItemSets ItemDropSets;
-    public GameObject Item;
-
     public ParticleSystem Particles;
 
     public AudioClip JumpSFX;
+    public AudioClip HitSFX;
 
     public bool Grounded;
     public bool Stunned;
@@ -47,14 +38,10 @@ public class SlimeMelee : MonoBehaviour, IEnemy
 
     void Update()
     {
-        Stop();
+        if (Health < 0)
+            return;
 
-        if (Dead)
-        {
-            Item item = _item_drop_manager.GetDrop(ItemDropSets.Common, ItemDropSets.Uncommon, ItemDropSets.Epic);
-            EnemyFunctions.SpawnItem(Item, item, transform.position);
-            Destroy(gameObject);
-        }
+        Stop();
 
         if (Stunned)
             return;
@@ -81,7 +68,7 @@ public class SlimeMelee : MonoBehaviour, IEnemy
         }
     }
 
-    public void OnHit(int damage, bool stun)
+    public void OnHit(int damage, bool stun, Vector3 particlePosition)
     {
         if (Health <= 0)
             return;
@@ -93,7 +80,11 @@ public class SlimeMelee : MonoBehaviour, IEnemy
             _animator.SetFloat("VerticalSpeed", 0);
             StopAllCoroutines();
         }
-        
+
+        Instantiate(Particles, particlePosition, new Quaternion());
+        _audio_source.volume = stun ? 0.5f : 0.2f;
+        _audio_source.PlayOneShot(HitSFX);
+
         Health -= damage;
         if (Health <= 0)
         {
@@ -138,15 +129,5 @@ public class SlimeMelee : MonoBehaviour, IEnemy
             _rigidbody.velocity = new Vector2(Movespeed * Time.fixedDeltaTime * direction, _rigidbody.velocity.y);
             yield return null;
         }
-    }
-
-    public ParticleSystem GetParticles()
-    {
-        return Particles;
-    }
-
-    public float GetHealth()
-    {
-        return Health;
     }
 }

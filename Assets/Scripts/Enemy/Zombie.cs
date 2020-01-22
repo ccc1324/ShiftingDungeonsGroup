@@ -8,6 +8,7 @@ public class Zombie : MonoBehaviour, IEnemy
     public float AttackCooldown;
     public float SpawnAttackBuffer;
     public ParticleSystem Particles;
+    public AudioClip HitSFX;
 
     private Animator _animator;
     private float _time_of_last_attack;
@@ -32,11 +33,34 @@ public class Zombie : MonoBehaviour, IEnemy
             }
     }
 
-    public void OnHit(int damage, bool stun)
+    private void OnTriggerStay2D(Collider2D collision)
     {
+        if (collision.isTrigger)
+            return;
+        if (collision.tag == "Player" && !_stunned)
+            if (_time_of_last_attack + AttackCooldown <= Time.time)
+            {
+                _animator.SetTrigger("Attack");
+                _time_of_last_attack = Time.time;
+                return;
+            }
+    }
+
+    public void OnHit(int damage, bool stun, Vector3 particlePosition)
+    {
+        if (Health <= 0)
+            return;
+
+        Instantiate(Particles, particlePosition, new Quaternion());
+        GetComponent<AudioSource>().volume = stun ? 0.5f : 0.2f;
+        GetComponent<AudioSource>().PlayOneShot(HitSFX);
+
         Health -= damage;
-        if (Health < 0)
+        if (Health <= 0)
+        {
             _animator.SetBool("Dead", true);
+            return;
+        }
 
         else if (stun)
         {
@@ -46,16 +70,6 @@ public class Zombie : MonoBehaviour, IEnemy
             StopCoroutine(ResetStun());
             StartCoroutine(ResetStun());
         }
-    }
-
-    public ParticleSystem GetParticles()
-    {
-        return Particles;
-    }
-
-    public float GetHealth()
-    {
-        return Health;
     }
 
     //Just used to not trigger an attack when stunned

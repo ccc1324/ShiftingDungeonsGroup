@@ -2,20 +2,15 @@
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
+using UnityEngine.Events;
 
-/* Manages player health, death, and spawning
+/* Manages player health, death, and spawning/respawning
  * Player movement, combat, and stun effects are handled seperately
  */
 
 public class Player : MonoBehaviour
 {
-    public Image[] HealthBar;
-    public Sprite FilledHeart;
-    public Sprite EmptyHeart;
-    public ParticleSystem ParticleEffects;
-
     public int MaxHealth;
-    public Image FadeEffect;
     public GameObject CameraCutscene;
 
     public AudioClip DeathSFX;
@@ -24,11 +19,13 @@ public class Player : MonoBehaviour
     public float SpawnMusicVolume;
 
     private int _health;
+    private HealthbarSegmented _healthbar;
     private DungeonManager _dungeon_manager;
     private Camera _camera;
     private CanvasGroup _inventory;
     private CanvasGroup _equipment;
     private AudioSource _audio_source;
+    private BlackOverlay _fade_effect;
     
     private Animator _animator;
     private PlayerCombat _player_combat;
@@ -37,10 +34,13 @@ public class Player : MonoBehaviour
 
     void Start()
     {
+        _healthbar = FindObjectOfType<HealthbarSegmented>();
         _dungeon_manager = FindObjectOfType<DungeonManager>();
         _camera = FindObjectOfType<Camera>();
         _inventory = FindObjectOfType<Inventory>().GetComponent<CanvasGroup>();
         _equipment = FindObjectOfType<Equipment>().GetComponent<CanvasGroup>();
+        _fade_effect = FindObjectOfType<BlackOverlay>();
+
         _player_combat = GetComponent<PlayerCombat>();
         _player_movement = GetComponent<PlayerMovement>();
         _player_inventory = GetComponent<PlayerInventory>();
@@ -55,16 +55,7 @@ public class Player : MonoBehaviour
             return;
 
         _health -= damage;
-        
-        for (int i = _health; i < MaxHealth; i++)
-        {
-            if (HealthBar[i].color == new Color(0, 0, 0, 0))
-                break;
-            HealthBar[i].color = new Color(0, 0, 0, 0);
-            Vector2 point = _camera.ScreenToWorldPoint(HealthBar[i].transform.position);
-            //Vector2 point = RectTransformUtility.PixelAdjustPoint(HealthBar[i].transform.position, HealthBar[i].transform, HealthBar[i].canvas);
-            Instantiate(ParticleEffects, point, new Quaternion(0, 0, 0, 0));
-        }
+        _healthbar.DecreaseHealth(damage);
 
         if (_health <= 0)
         {
@@ -83,29 +74,34 @@ public class Player : MonoBehaviour
     //fade screen, reset dungeonmanager, move camera, hide inventory/equipment, hide player, unfade, spawn
     IEnumerator Death()
     {
-        _player_inventory.Stunned = true;
+        if (_player_inventory != null)
+            _player_inventory.Stunned = true;
 
         _animator.SetBool("Dead", true);
-        StartCoroutine(FadeToBlack(4f));
+        if (_fade_effect != null)
+            _fade_effect.FadeInFull(4);
+        StartCoroutine(SlowTime(4));
         yield return new WaitForSeconds(4f);
 
         transform.position = new Vector2(0, -50);
-        _dungeon_manager.DungeonState = "Respawn";
+        if (_dungeon_manager != null)
+            _dungeon_manager.DungeonState = "Respawn";
         _camera.transform.position = new Vector3(transform.position.x, 14.5f, -10);
-        if (_inventory.alpha == 1)
+        if (_inventory != null && _inventory.alpha == 1)
         {
             _inventory.alpha = 0;
             _inventory.blocksRaycasts = false;
             _inventory.interactable = false;
         }
-        if (_equipment.alpha == 1)
+        if (_equipment != null && _equipment.alpha == 1)
         {
             _equipment.alpha = 0;
             _equipment.blocksRaycasts = false;
             _equipment.interactable = false;
         }
 
-        StartCoroutine(FadeToWhite(2f));
+        if (_fade_effect != null)
+            _fade_effect.FadeOutFull(2);
         yield return new WaitForSeconds(2f);
 
         StartCoroutine(Reset(1f));
@@ -135,39 +131,24 @@ public class Player : MonoBehaviour
 
         CameraCutscene.SetActive(false);
         GetComponent<Rigidbody2D>().gravityScale = 1f;
-        _player_inventory.Stunned = false;
-        foreach (Image heart in HealthBar)
-            heart.color = new Color(1, 1, 1, 1);
+        if (_player_inventory != null)
+            _player_inventory.Stunned = false;
+        _healthbar.SetHealth(MaxHealth);
         _camera.GetComponent<CameraMovement>().CameraState = "Follow";
     }
 
-    IEnumerator FadeToBlack(float time)
+    IEnumerator SlowTime(float time)
     {
         float startTime = Time.time;
         Time.timeScale = 0.5f;
 
         while (Time.time < startTime + time)
         {
-            FadeEffect.color = Color.Lerp(new Color(0, 0, 0, 0), Color.black, (Time.time - startTime) / time);
             Time.timeScale = Mathf.Lerp(0.5f, 1, (Time.time - startTime) / (time));
             yield return null;
         }
 
         Time.timeScale = 1;
-        FadeEffect.color = Color.black;
-    }
-
-    IEnumerator FadeToWhite(float time)
-    {
-        float startTime = Time.time;
-
-        while (Time.time < startTime + time)
-        {
-            FadeEffect.color = Color.Lerp(Color.black, new Color(0, 0, 0, 0), (Time.time - startTime) / time);
-            yield return null;
-        }
-
-        FadeEffect.color = new Color(0, 0, 0, 0);
     }
 
     void OnTriggerEnter2D(Collider2D collision)
