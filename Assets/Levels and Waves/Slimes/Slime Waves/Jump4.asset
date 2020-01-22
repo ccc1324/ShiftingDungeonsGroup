@@ -1,0 +1,35 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 448caf47a2fc4174bad4769529f0f794, type: 3}
+  m_Name: Jump4
+  m_EditorClassIdentifier: 
+  MobsList:
+  - Prefab: {fileID: 1864851530522590640, guid: 597a23c27277c5149a21b1c82c7dc574,
+      type: 3}
+    LeftmostPosition: 0
+    RightmostPosition: 7
+    EjectSpeed: 10
+  - Prefab: {fileID: 1864851530522590640, guid: 597a23c27277c5149a21b1c82c7dc574,
+      type: 3}
+    LeftmostPosition: -7
+    RightmostPosition: 0
+    EjectSpeed: 10
+  - Prefab: {fileID: 1864851530522590640, guid: 597a23c27277c5149a21b1c82c7dc574,
+      type: 3}
+    LeftmostPosition: -7
+    RightmostPosition: 7
+    EjectSpeed: 0
+  - Prefab: {fileID: 1864851530522590640, guid: 597a23c27277c5149a21b1c82c7dc574,
+      type: 3}
+    LeftmostPosition: -7
+    RightmostPosition: 7
+    EjectSpeed: 0

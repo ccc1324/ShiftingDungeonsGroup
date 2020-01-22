@@ -1,0 +1,60 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!687078895 &4343727234628468602
+SpriteAtlas:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_Name: Spawn Sprite Atlas
+  m_EditorData:
+    serializedVersion: 2
+    textureSettings:
+      serializedVersion: 2
+      anisoLevel: 1
+      compressionQuality: 50
+      maxTextureSize: 2048
+      textureCompression: 0
+      filterMode: 1
+      generateMipMaps: 0
+      readable: 0
+      crunchedCompression: 0
+      sRGB: 1
+    platformSettings: []
+    packingSettings:
+      serializedVersion: 2
+      padding: 4
+      blockOffset: 1
+      allowAlphaSplitting: 0
+      enableRotation: 1
+      enableTightPacking: 1
+    variantMultiplier: 1
+    packables:
+    - {fileID: 2800000, guid: 0e93ec1befe5746469b758d59a0dcf1c, type: 3}
+    totalSpriteSurfaceArea: 100000
+    bindAsDefault: 1
+  m_MasterAtlas: {fileID: 0}
+  m_PackedSprites:
+  - {fileID: 2790554328338646931, guid: 0e93ec1befe5746469b758d59a0dcf1c, type: 3}
+  - {fileID: 1098916667900879787, guid: 0e93ec1befe5746469b758d59a0dcf1c, type: 3}
+  - {fileID: 8253533702026047180, guid: 0e93ec1befe5746469b758d59a0dcf1c, type: 3}
+  - {fileID: 4009121045806761554, guid: 0e93ec1befe5746469b758d59a0dcf1c, type: 3}
+  - {fileID: -1109067718483456348, guid: 0e93ec1befe5746469b758d59a0dcf1c, type: 3}
+  - {fileID: -9143858407033515538, guid: 0e93ec1befe5746469b758d59a0dcf1c, type: 3}
+  - {fileID: -2310977769434388061, guid: 0e93ec1befe5746469b758d59a0dcf1c, type: 3}
+  - {fileID: -4292545929282932458, guid: 0e93ec1befe5746469b758d59a0dcf1c, type: 3}
+  - {fileID: -4883475474075981603, guid: 0e93ec1befe5746469b758d59a0dcf1c, type: 3}
+  - {fileID: -2490237237266844745, guid: 0e93ec1befe5746469b758d59a0dcf1c, type: 3}
+  m_PackedSpriteNamesToIndex:
+  - Spawn Tileset v1_6
+  - Spawn Tileset v1_7
+  - Spawn Tileset v1_4
+  - Spawn Tileset v1_5
+  - Spawn Tileset v1_2
+  - Spawn Tileset v1_3
+  - Spawn Tileset v1_0
+  - Spawn Tileset v1_1
+  - Spawn Tileset v1_8
+  - Spawn Tileset v1_9
+  m_Tag: Spawn Sprite Atlas
+  m_IsVariant: 0

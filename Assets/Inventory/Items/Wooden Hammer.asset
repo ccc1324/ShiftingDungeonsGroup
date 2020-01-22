@@ -1,0 +1,20 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 232191b8f07ba85419dffb89100f3745, type: 3}
+  m_Name: Wooden Hammer
+  m_EditorClassIdentifier: 
+  ItemName: Wooden Hammer
+  ItemDescription: Lighter than it looks. Unbalances enemies.
+  WeaponClass: Hammer
+  WeaponDamage: 220
+  GameObjectSprite: {fileID: 21300000, guid: a62d283a4ae28e94a8b4e727a7d312e7, type: 3}
+  InventorySprite: {fileID: 21300000, guid: f15c6e9a13ce5f74296c37097a3a3ae2, type: 3}

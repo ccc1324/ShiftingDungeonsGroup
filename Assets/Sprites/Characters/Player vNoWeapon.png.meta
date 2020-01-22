@@ -1,0 +1,256 @@
+fileFormatVersion: 2
+guid: 879282e4887f96543bb77847bf29c19e
+TextureImporter:
+  internalIDToNameTable:
+  - first:
+      213: 7813168195314496883
+    second: Player vNoWeapon_0
+  - first:
+      213: 5266447828412390612
+    second: Player vNoWeapon_1
+  - first:
+      213: -3553463964894396256
+    second: Player vNoWeapon_2
+  - first:
+      213: -815451501312669626
+    second: Player vNoWeapon_3
+  - first:
+      213: 9015189114168880857
+    second: Player vNoWeapon_4
+  - first:
+      213: 2500954678028921902
+    second: Player vNoWeapon_5
+  externalObjects: {}
+  serializedVersion: 10
+  mipmaps:
+    mipMapMode: 0
+    enableMipMap: 0
+    sRGBTexture: 1
+    linearTexture: 0
+    fadeOut: 0
+    borderMipMap: 0
+    mipMapsPreserveCoverage: 0
+    alphaTestReferenceValue: 0.5
+    mipMapFadeDistanceStart: 1
+    mipMapFadeDistanceEnd: 3
+  bumpmap:
+    convertToNormalMap: 0
+    externalNormalMap: 0
+    heightScale: 0.25
+    normalMapFilter: 0
+  isReadable: 0
+  streamingMipmaps: 0
+  streamingMipmapsPriority: 0
+  grayScaleToAlpha: 0
+  generateCubemap: 6
+  cubemapConvolution: 0
+  seamlessCubemap: 0
+  textureFormat: 1
+  maxTextureSize: 2048
+  textureSettings:
+    serializedVersion: 2
+    filterMode: -1
+    aniso: -1
+    mipBias: -100
+    wrapU: 1
+    wrapV: 1
+    wrapW: 1
+  nPOTScale: 0
+  lightmap: 0
+  compressionQuality: 50
+  spriteMode: 2
+  spriteExtrude: 1
+  spriteMeshType: 1
+  alignment: 0
+  spritePivot: {x: 0.5, y: 0.5}
+  spritePixelsToUnits: 100
+  spriteBorder: {x: 0, y: 0, z: 0, w: 0}
+  spriteGenerateFallbackPhysicsShape: 1
+  alphaUsage: 1
+  alphaIsTransparency: 1
+  spriteTessellationDetail: -1
+  textureType: 8
+  textureShape: 1
+  singleChannelComponent: 0
+  maxTextureSizeSet: 0
+  compressionQualitySet: 0
+  textureFormatSet: 0
+  platformSettings:
+  - serializedVersion: 2
+    buildTarget: DefaultTexturePlatform
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    androidETC2FallbackOverride: 0
+  - serializedVersion: 2
+    buildTarget: Standalone
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    androidETC2FallbackOverride: 0
+  - serializedVersion: 2
+    buildTarget: WebGL
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    androidETC2FallbackOverride: 0
+  spriteSheet:
+    serializedVersion: 2
+    sprites:
+    - serializedVersion: 2
+      name: Player vNoWeapon_0
+      rect:
+        serializedVersion: 2
+        x: 836
+        y: 790
+        width: 463
+        height: 549
+      alignment: 9
+      pivot: {x: 0.5055736, y: 0.029925348}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 020358f8b857ce040993761fee27440f
+      internalID: 7813168195314496883
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Player vNoWeapon_1
+      rect:
+        serializedVersion: 2
+        x: 722
+        y: 680
+        width: 114
+        height: 83
+      alignment: 9
+      pivot: {x: 0.8395664, y: 0.59327865}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 3b76ed03ac6081048900db93916cc752
+      internalID: 5266447828412390612
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Player vNoWeapon_2
+      rect:
+        serializedVersion: 2
+        x: 977
+        y: 573
+        width: 211
+        height: 212
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: eaceb3369b761e14aa6fd903db290451
+      internalID: -3553463964894396256
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Player vNoWeapon_3
+      rect:
+        serializedVersion: 2
+        x: 1366
+        y: 680
+        width: 120
+        height: 84
+      alignment: 9
+      pivot: {x: 0.069881186, y: 0.62289065}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: b64d31bf84a69104886720f41be1117e
+      internalID: -815451501312669626
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Player vNoWeapon_4
+      rect:
+        serializedVersion: 2
+        x: 943
+        y: 440
+        width: 80
+        height: 103
+      alignment: 9
+      pivot: {x: 0.6290352, y: 0.8257203}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 0480daa15274b4345b712db2bdfae7f5
+      internalID: 9015189114168880857
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Player vNoWeapon_5
+      rect:
+        serializedVersion: 2
+        x: 1153
+        y: 428
+        width: 83
+        height: 112
+      alignment: 9
+      pivot: {x: 0.31344274, y: 0.868673}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 0db6fd1d68f66a2429dbb263790fd074
+      internalID: 2500954678028921902
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    outline: []
+    physicsShape: []
+    bones: []
+    spriteID: bd512e5bbc72d93449822314beb38987
+    internalID: 0
+    vertices: []
+    indices: 
+    edges: []
+    weights: []
+    secondaryTextures: []
+  spritePackingTag: 
+  pSDRemoveMatte: 0
+  pSDShowRemoveMatteOption: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 

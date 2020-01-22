@@ -16,7 +16,7 @@ GameObject:
   - component: {fileID: 8051347009655923475}
   m_Layer: 0
   m_Name: SpawnBeta
-  m_TagString: Untagged
+  m_TagString: Room
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -28,7 +28,7 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 4989195846534273194}
-  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
@@ -569,25 +569,25 @@ CompositeCollider2D:
   m_ColliderPaths:
   - m_Collider: {fileID: 6000117744728339698}
     m_ColliderPaths:
-    - - X: 199999971
-        Y: -50000000
-      - X: 199999992
-        Y: -40312494
-      - X: 199687492
-        Y: -40000000
-      - X: -200000000
-        Y: -40000029
-      - X: -199999992
-        Y: -49687506
-      - X: -199687492
-        Y: -50000000
+    - - X: 199999983
+        Y: -50000100
+      - X: 200000069
+        Y: -40312431
+      - X: 199687500
+        Y: -39999900
+      - X: -200000100
+        Y: -39999988
+      - X: -200000077
+        Y: -49687563
+      - X: -199687549
+        Y: -50000085
   m_CompositePaths:
     m_Paths:
-    - - {x: 20, y: -4.0312495}
-      - {x: 19.968748, y: -4}
-      - {x: -20, y: -4.000003}
-      - {x: -20, y: -4.9687505}
-      - {x: -19.968748, y: -5}
-      - {x: 19.999996, y: -5}
+    - - {x: 20.000006, y: -4.0312433}
+      - {x: 19.96875, y: -3.99999}
+      - {x: -20.00001, y: -3.9999988}
+      - {x: -20.000008, y: -4.9687567}
+      - {x: -19.968756, y: -5.0000086}
+      - {x: 19.999998, y: -5.00001}
   m_VertexDistance: 0.0005
   m_OffsetDistance: 0.000005

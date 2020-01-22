@@ -6,6 +6,12 @@ public class CameraMovement : MonoBehaviour
 {
     public GameObject Player;
     public string CameraState;
+    public float ShiftTime;
+    public float ShiftToPlayerStep;
+    public float PlayerBuffer;
+
+    PlayerMovement _player_movement;
+    PlayerCombat _player_combat;
 
     private float start;
     private float end;
@@ -17,9 +23,11 @@ public class CameraMovement : MonoBehaviour
         {
             Debug.Log("Camera could not find player");
         }
+        _player_movement = Player.GetComponent<PlayerMovement>();
+        _player_combat = Player.GetComponent<PlayerCombat>();
     }
 
-    void Update()
+    void LateUpdate()
     {
         switch (CameraState)
         {
@@ -51,17 +59,39 @@ public class CameraMovement : MonoBehaviour
         }
     }
 
+    public void ShiftToPlayer()
+    {
+        StartCoroutine(LerpToPlayer());
+    }
+
     //Lerps Camera across the x axis
     IEnumerator LerpCamera()
     {
         float start_time = Time.time;
-        Player.GetComponent<PlayerMovement>().enabled = false;
-        while (Time.time < start_time + 1) //1 = transition time
+        //_player_combat.enabled = false;
+        //_player_movement.Stop();
+        //_player_movement.enabled = false;
+        while (Time.time < start_time + ShiftTime) //1 = transition time
         {
             transform.position = new Vector3(Mathf.Lerp(start, end, (Time.time - start_time)/1), transform.position.y, -10);
             yield return null;
         }
         transform.position = new Vector3(end, transform.position.y, -10);
-        Player.GetComponent<PlayerMovement>().enabled = true;
+        //_player_combat.enabled = true;
+        //_player_movement.enabled = true;
+    }
+
+    IEnumerator LerpToPlayer()
+    {
+        while (Mathf.Abs(transform.position.x - Player.transform.position.x) > PlayerBuffer)
+        {
+            if (Player.transform.position.x > transform.position.x)
+                transform.position = new Vector3(transform.position.x + ShiftToPlayerStep, transform.position.y, -10);
+            else
+                transform.position = new Vector3(transform.position.x - ShiftToPlayerStep, transform.position.y, -10);
+            yield return null;
+        }
+
+        CameraState = "Follow";
     }
 }

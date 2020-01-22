@@ -1,0 +1,73 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6d78cdfc585d08e44a9a6b5ea4dc4a0a, type: 3}
+  m_Name: SlimeSpawnData
+  m_EditorClassIdentifier: 
+  StageList:
+  - SpawnCooldown: 10
+    WaveList:
+    - WaveBuffer: 0
+      Wave: {fileID: 11400000, guid: 34447619800538443a86b55739f77a0c, type: 2}
+    - WaveBuffer: 0
+      Wave: {fileID: 11400000, guid: 221087f45ee5fac4aa4282d765268fe3, type: 2}
+  - SpawnCooldown: 10
+    WaveList:
+    - WaveBuffer: 0
+      Wave: {fileID: 11400000, guid: 29532f3014224c541865bca1d52864bd, type: 2}
+    - WaveBuffer: 0
+      Wave: {fileID: 11400000, guid: c8ec8f2a3074aee4bb1192cd377bb1ad, type: 2}
+  - SpawnCooldown: 13
+    WaveList:
+    - WaveBuffer: 0
+      Wave: {fileID: 11400000, guid: c8ec8f2a3074aee4bb1192cd377bb1ad, type: 2}
+    - WaveBuffer: 0
+      Wave: {fileID: 11400000, guid: f93d6a9fd8c8f4e408061e71a7630c15, type: 2}
+    - WaveBuffer: 2
+      Wave: {fileID: 11400000, guid: cf16e8a9d9ebe7c45af672c64966198e, type: 2}
+    - WaveBuffer: -7
+      Wave: {fileID: 11400000, guid: 122d0e41ff5a0fb4c83e58c89121f6dd, type: 2}
+  - SpawnCooldown: 6
+    WaveList:
+    - WaveBuffer: 0
+      Wave: {fileID: 11400000, guid: 34447619800538443a86b55739f77a0c, type: 2}
+    - WaveBuffer: 0
+      Wave: {fileID: 11400000, guid: 34447619800538443a86b55739f77a0c, type: 2}
+    - WaveBuffer: 0
+      Wave: {fileID: 11400000, guid: 34447619800538443a86b55739f77a0c, type: 2}
+    - WaveBuffer: 0
+      Wave: {fileID: 11400000, guid: 34447619800538443a86b55739f77a0c, type: 2}
+    - WaveBuffer: 0
+      Wave: {fileID: 11400000, guid: 34447619800538443a86b55739f77a0c, type: 2}
+    - WaveBuffer: 0
+      Wave: {fileID: 11400000, guid: 34447619800538443a86b55739f77a0c, type: 2}
+    - WaveBuffer: 0
+      Wave: {fileID: 11400000, guid: 34447619800538443a86b55739f77a0c, type: 2}
+    - WaveBuffer: 0
+      Wave: {fileID: 11400000, guid: 34447619800538443a86b55739f77a0c, type: 2}
+    - WaveBuffer: 0
+      Wave: {fileID: 11400000, guid: 34447619800538443a86b55739f77a0c, type: 2}
+    - WaveBuffer: 0
+      Wave: {fileID: 11400000, guid: 34447619800538443a86b55739f77a0c, type: 2}
+  - SpawnCooldown: 13
+    WaveList:
+    - WaveBuffer: 0
+      Wave: {fileID: 11400000, guid: eca0e807641d7f34a98257e5fadb8839, type: 2}
+    - WaveBuffer: 0
+      Wave: {fileID: 11400000, guid: 34447619800538443a86b55739f77a0c, type: 2}
+    - WaveBuffer: 0
+      Wave: {fileID: 11400000, guid: 34447619800538443a86b55739f77a0c, type: 2}
+    - WaveBuffer: 0
+      Wave: {fileID: 11400000, guid: bbb8f4392d9af9a4bb29cd02862bd328, type: 2}
+    - WaveBuffer: 0
+      Wave: {fileID: 11400000, guid: 34447619800538443a86b55739f77a0c, type: 2}
+    - WaveBuffer: 0
+      Wave: {fileID: 11400000, guid: 34447619800538443a86b55739f77a0c, type: 2}
