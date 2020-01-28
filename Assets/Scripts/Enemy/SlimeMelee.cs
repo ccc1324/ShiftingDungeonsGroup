@@ -17,7 +17,6 @@ public class SlimeMelee : MonoBehaviour, IEnemy
 
     public bool Grounded;
     public bool Stunned;
-    public bool Dead;
 
     private float _time_of_last_attack;
     private Rigidbody2D _rigidbody;

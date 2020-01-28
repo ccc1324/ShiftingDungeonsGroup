@@ -46,7 +46,7 @@ AnimatorState:
   m_MirrorParameterActive: 0
   m_CycleOffsetParameterActive: 0
   m_TimeParameterActive: 0
-  m_Motion: {fileID: 7400000, guid: 4d62d4e674d19b0448bebaa4c92ef5da, type: 2}
+  m_Motion: {fileID: 7400000, guid: fe67204b8ce66bd4d88b35445c6bfa40, type: 2}
   m_Tag: 
   m_SpeedParameter: 
   m_MirrorParameter: 
@@ -95,7 +95,7 @@ AnimatorState:
   m_MirrorParameterActive: 0
   m_CycleOffsetParameterActive: 0
   m_TimeParameterActive: 0
-  m_Motion: {fileID: 7400000, guid: 8c73bdfc7f475b74d8e6f8308280c6bd, type: 2}
+  m_Motion: {fileID: 7400000, guid: d02af66f9326bc940ab5847751183627, type: 2}
   m_Tag: 
   m_SpeedParameter: 
   m_MirrorParameter: 
@@ -168,7 +168,7 @@ AnimatorState:
   m_MirrorParameterActive: 0
   m_CycleOffsetParameterActive: 0
   m_TimeParameterActive: 0
-  m_Motion: {fileID: 7400000, guid: e54bf960a2ab0ae4c989658476b0a73a, type: 2}
+  m_Motion: {fileID: 7400000, guid: df4a2c8973dde4741a6fbc569f4b2081, type: 2}
   m_Tag: 
   m_SpeedParameter: 
   m_MirrorParameter: 
@@ -208,7 +208,7 @@ AnimatorController:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: Slime Ranged
+  m_Name: Slime Dashing
   serializedVersion: 5
   m_AnimatorParameters:
   - m_Name: Dead
@@ -285,7 +285,7 @@ AnimatorState:
   m_MirrorParameterActive: 0
   m_CycleOffsetParameterActive: 0
   m_TimeParameterActive: 0
-  m_Motion: {fileID: 7400000, guid: f4be1c8d43c46e44383e63adad8a2d16, type: 2}
+  m_Motion: {fileID: 7400000, guid: 12580aeee31ecd044936ae5f7fa219ad, type: 2}
   m_Tag: 
   m_SpeedParameter: 
   m_MirrorParameter: 
