@@ -32,8 +32,7 @@ Transform:
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 9.576574, y: -3.5922203, z: 0}
   m_LocalScale: {x: 0.072, y: 0.072000004, z: 1}
-  m_Children:
-  - {fileID: 3823103236411365692}
+  m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -166,20 +165,10 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   AttackCooldown: 4
   Health: 400
-  Projectile: {fileID: 8611557003057830286, guid: e066b68f546b85547b0f5a3b3f8dca73,
-    type: 3}
-  ProjectileHangTime: 1.5
-  ItemDropSets:
-    Common: {fileID: 11400000, guid: 50e0246562f49984eb71c5c7dd8b84c2, type: 2}
-    Uncommon: {fileID: 11400000, guid: 74728655a46482045bdf2d446d4693af, type: 2}
-    Epic: {fileID: 11400000, guid: 74728655a46482045bdf2d446d4693af, type: 2}
-  Item: {fileID: 1747576819488917488, guid: 528bd23c711b56d4582ba91b6b9e6aa4, type: 3}
   Particles: {fileID: 3218626813253202539, guid: c0180b3ef46454647b27f9210ac86018,
     type: 3}
-  AttackSFX: {fileID: 8300000, guid: a675f7f5f8e84bf4b81a166cf90d5090, type: 3}
   HitSFX: {fileID: 8300000, guid: 916bb71fe03c0b046a7b47bf175d7aa8, type: 3}
   Stunned: 0
-  Dead: 0
 --- !u!82 &6358246981836126756
 AudioSource:
   m_ObjectHideFlags: 0
@@ -276,65 +265,3 @@ AudioSource:
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 4
---- !u!1 &3823103236411365693
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 3823103236411365692}
-  - component: {fileID: 3823103236411365694}
-  - component: {fileID: 3823103236411365695}
-  m_Layer: 11
-  m_Name: Attack Trigger
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!4 &3823103236411365692
-Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 3823103236411365693}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_Children: []
-  m_Father: {fileID: 3823103236275552052}
-  m_RootOrder: 0
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!70 &3823103236411365694
-CapsuleCollider2D:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 3823103236411365693}
-  m_Enabled: 0
-  m_Density: 1
-  m_Material: {fileID: 0}
-  m_IsTrigger: 1
-  m_UsedByEffector: 0
-  m_UsedByComposite: 0
-  m_Offset: {x: -0.35763463, y: -0.8940787}
-  m_Size: {x: 16.235611, y: 9.172569}
-  m_Direction: 1
---- !u!114 &3823103236411365695
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 3823103236411365693}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 02413b0e2019fce44abc5d4c7cf7f0f8, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  ParticleEffects: {fileID: 0}
-  Damage: 1

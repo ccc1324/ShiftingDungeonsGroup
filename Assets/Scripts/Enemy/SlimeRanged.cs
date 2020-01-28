@@ -13,7 +13,6 @@ public class SlimeRanged : MonoBehaviour, IEnemy
     public AudioClip HitSFX;
 
     public bool Stunned;
-    public bool Dead;
 
     private float _time_of_last_attack;
     private Animator _animator;
