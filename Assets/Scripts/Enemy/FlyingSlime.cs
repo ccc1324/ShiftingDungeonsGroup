@@ -7,6 +7,8 @@ public class FlyingSlime : MonoBehaviour, IEnemy
     public float Health;
     public float FlyingSpeed;
     public float ZigZagInterval;
+    public float AttackInterval;
+    public float AttackDuration;
 
     private Animator _animator;
     private Rigidbody2D _rigidbody;
@@ -14,7 +16,10 @@ public class FlyingSlime : MonoBehaviour, IEnemy
     private int _yDirectionScale = -1; //1 for positive, -1 for negative
     private float _startTime;
     private float _lastDirectionChange;
+    private float _lastTimeAttacking;
+    private float _timeStartAttacking;
     private bool _resetTime = false;
+    
     
 
 
@@ -24,7 +29,8 @@ public class FlyingSlime : MonoBehaviour, IEnemy
         _rigidbody = GetComponent<Rigidbody2D>();
         _startTime = Time.time;
         _lastDirectionChange = _startTime;
-    }
+        _lastTimeAttacking = Time.time;
+}
 
 
     void Update()
@@ -41,6 +47,7 @@ public class FlyingSlime : MonoBehaviour, IEnemy
         Health -= damage;
         if (Health <= 0)
         {
+            _rigidbody.velocity = new Vector2(0, 0);
             _rigidbody.gravityScale = .6f;
             _animator.SetBool("Dead", true);
             return;
@@ -51,7 +58,6 @@ public class FlyingSlime : MonoBehaviour, IEnemy
     {
         if (collision.collider.tag == "Wall")
         {
-            Debug.Log("Collided with wall");
             _xDirectionScale *= -1;
             _rigidbody.velocity = new Vector2(FlyingSpeed * _xDirectionScale, FlyingSpeed * _yDirectionScale);
         }
@@ -66,20 +72,43 @@ public class FlyingSlime : MonoBehaviour, IEnemy
     void FlyAround()
     {
         if (_animator.GetBool("Dead"))
+        {
             return;
-        if(_resetTime)
+        }
+
+        if (Time.time - _lastTimeAttacking > AttackInterval && !_animator.GetBool("Attacking")) 
+        {
+            _timeStartAttacking = Time.time;
+            _animator.SetBool("Attacking", true);
+        }
+        
+        if(_animator.GetBool("Attacking") && Time.time - _timeStartAttacking > AttackDuration)
+        {
+            _animator.SetBool("Attacking", false);
+            _lastTimeAttacking = Time.time;
+            return;
+        }
+
+        if (_animator.GetBool("Attacking") && Time.time - _timeStartAttacking < AttackDuration)
+        {
+            _rigidbody.velocity = new Vector2(0, 0);
+            return;
+        }
+
+            if (_resetTime)
         {
             _lastDirectionChange = Time.time;
             _resetTime = false;
         }
+
         if (Time.time - _lastDirectionChange >  ZigZagInterval)
         {
             _yDirectionScale *= -1;
             _lastDirectionChange = Time.time;
         } 
         _rigidbody.velocity = new Vector2(FlyingSpeed*_xDirectionScale,FlyingSpeed*_yDirectionScale);
-        //_rigidbody.velocity = new Vector2(FlyingSpeed * _xDirectionScale, 0);
     }
+
 
 
 }

@@ -13,6 +13,7 @@ AnimatorState:
   m_Transitions: []
   m_StateMachineBehaviours:
   - {fileID: -120444538606922438}
+  - {fileID: 7431195637657312865}
   m_Position: {x: 50, y: 50, z: 0}
   m_IKOnFeet: 0
   m_WriteDefaultValues: 1
@@ -85,15 +86,15 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   FiringMode: arc
-  AttackStartBuffer: 0
-  Projectile: {fileID: 8611557003057830286, guid: 7466ee3aa044fba428248318ca59c14e,
+  AttackStartBuffer: 1
+  Projectile: {fileID: 8611557003057830286, guid: e066b68f546b85547b0f5a3b3f8dca73,
     type: 3}
   AttackSFX: {fileID: 0}
   AttackVolume: 1
   AttackCount: 1
   ShotDelay: 4
-  ProjectileSpeed: 3
-  ProjectileHangTime: 0.65
+  ProjectileSpeed: 0
+  ProjectileHangTime: 1
 --- !u!91 &9100000
 AnimatorController:
   m_ObjectHideFlags: 0
@@ -117,6 +118,12 @@ AnimatorController:
     m_Controller: {fileID: 0}
   - m_Name: Attack
     m_Type: 9
+    m_DefaultFloat: 0
+    m_DefaultInt: 0
+    m_DefaultBool: 0
+    m_Controller: {fileID: 0}
+  - m_Name: Attacking
+    m_Type: 4
     m_DefaultFloat: 0
     m_DefaultInt: 0
     m_DefaultBool: 0
@@ -187,3 +194,15 @@ AnimatorStateMachine:
   m_ExitPosition: {x: 800, y: 120, z: 0}
   m_ParentStateMachinePosition: {x: 800, y: 20, z: 0}
   m_DefaultState: {fileID: -8781720463509936121}
+--- !u!114 &7431195637657312865
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d1b1ae03547b7194e8d9d8afe92ab957, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
