@@ -15735,6 +15735,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: Slime Flying (1)
       objectReference: {fileID: 0}
+    - target: {fileID: 4914100369351651485, guid: 187281309c3d80f4299b48c581b37af2,
+        type: 3}
+      propertyPath: m_Enabled
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 5283806851405358499, guid: 187281309c3d80f4299b48c581b37af2,
         type: 3}
       propertyPath: m_ColliderPaths.Array.data[0].m_ColliderPaths.Array.data[0].Array.size
@@ -20118,7 +20123,17 @@ PrefabInstance:
     - target: {fileID: 6291383879444932473, guid: 187281309c3d80f4299b48c581b37af2,
         type: 3}
       propertyPath: ZigZagInterval
-      value: 1
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 6291383879444932473, guid: 187281309c3d80f4299b48c581b37af2,
+        type: 3}
+      propertyPath: AttackInterval
+      value: 5
+      objectReference: {fileID: 0}
+    - target: {fileID: 6291383879444932473, guid: 187281309c3d80f4299b48c581b37af2,
+        type: 3}
+      propertyPath: AttackDuration
+      value: 2
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 187281309c3d80f4299b48c581b37af2, type: 3}

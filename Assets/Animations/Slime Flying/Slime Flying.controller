@@ -364,8 +364,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d1b1ae03547b7194e8d9d8afe92ab957, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  FinalColor: {r: 0, g: 0, b: 0, a: 0}
-  TransitionTime: 1.25
+  FinalColor: {r: 0.6692677, g: 0.10332859, b: 0.8113208, a: 1}
+  TransitionTime: 0.75
+  WaitDuration: 0.5
 --- !u!1101 &8153763630075384640
 AnimatorStateTransition:
   m_ObjectHideFlags: 1
