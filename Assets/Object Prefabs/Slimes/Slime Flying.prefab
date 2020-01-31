@@ -488,6 +488,7 @@ GameObject:
   - component: {fileID: 2136413871705867531}
   - component: {fileID: 6663742501832368456}
   - component: {fileID: 5283806851405358499}
+  - component: {fileID: 6291383879444932473}
   m_Layer: 9
   m_Name: Slime Flying
   m_TagString: Enemy
@@ -1090,6 +1091,22 @@ CompositeCollider2D:
       - {x: -0.4168408, y: 0.1573534}
   m_VertexDistance: 0.0005
   m_OffsetDistance: 0.000005
+--- !u!114 &6291383879444932473
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3551437597940589662}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1b19512229d8a7d4eb5424c117038df5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Health: 100
+  FlyingSpeed: 3
+  StartMovementBuffer: 5
+  ZigZagInterval: 3
 --- !u!1 &7795591689980760577
 GameObject:
   m_ObjectHideFlags: 0
