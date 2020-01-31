@@ -1104,9 +1104,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Health: 100
-  FlyingSpeed: 3
+  FlyingSpeed: 5
   StartMovementBuffer: 5
-  ZigZagInterval: 3
+  ZigZagInterval: 1
 --- !u!1 &7795591689980760577
 GameObject:
   m_ObjectHideFlags: 0

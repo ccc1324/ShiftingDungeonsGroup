@@ -6,15 +6,15 @@ public class FlyingSlime : MonoBehaviour, IEnemy
 {
     public float Health;
     public float FlyingSpeed;
-    public float StartMovementBuffer;
     public float ZigZagInterval;
 
     private Animator _animator;
     private Rigidbody2D _rigidbody;
     private int _xDirectionScale = -1; //1 for positive, -1 for negative
-    private int _yDirectionScale = 1; //1 for positive, -1 for negative
+    private int _yDirectionScale = -1; //1 for positive, -1 for negative
     private float _startTime;
     private float _lastDirectionChange;
+    private bool _resetTime = false;
     
 
 
@@ -41,6 +41,7 @@ public class FlyingSlime : MonoBehaviour, IEnemy
         Health -= damage;
         if (Health <= 0)
         {
+            _rigidbody.gravityScale = .6f;
             _animator.SetBool("Dead", true);
             return;
         }
@@ -50,22 +51,34 @@ public class FlyingSlime : MonoBehaviour, IEnemy
     {
         if (collision.collider.tag == "Wall")
         {
+            Debug.Log("Collided with wall");
             _xDirectionScale *= -1;
+            _rigidbody.velocity = new Vector2(FlyingSpeed * _xDirectionScale, FlyingSpeed * _yDirectionScale);
         }
-        if (collision.collider.tag == "Room")
+        else if (collision.collider.tag == "Room")
         {
-            _yDirectionScale = 1;
+            _yDirectionScale *= -1;
+            _resetTime = true;
+            _rigidbody.velocity = new Vector2(FlyingSpeed * _xDirectionScale, FlyingSpeed * _yDirectionScale);
         }
     }
 
     void FlyAround()
     {
-        if (Time.time > _startTime + StartMovementBuffer && Time.time - _lastDirectionChange >  ZigZagInterval)
+        if (_animator.GetBool("Dead"))
+            return;
+        if(_resetTime)
         {
             _lastDirectionChange = Time.time;
-            _yDirectionScale *= -1;
+            _resetTime = false;
         }
+        if (Time.time - _lastDirectionChange >  ZigZagInterval)
+        {
+            _yDirectionScale *= -1;
+            _lastDirectionChange = Time.time;
+        } 
         _rigidbody.velocity = new Vector2(FlyingSpeed*_xDirectionScale,FlyingSpeed*_yDirectionScale);
+        //_rigidbody.velocity = new Vector2(FlyingSpeed * _xDirectionScale, 0);
     }
 
 
