@@ -10,11 +10,13 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: dd388cbfb52d63541bf6492742832e82, type: 3}
-  m_Name: TestStages
+  m_Name: UndeadLevel_Intro
   m_EditorClassIdentifier: 
   Spawn: {fileID: 7982638502240541356, guid: 05d09faaf58dac74883dd58b96185cb6, type: 3}
   Filler: {fileID: 2579569235598798443, guid: d7b292df23e6c3043a33185f8a6c9910, type: 3}
   Stages:
+  - {fileID: 3109448219124973978, guid: 9f8c5190407ff6b4f8fcf3b2cd81c665, type: 3}
+  - {fileID: 3109448219124973978, guid: 9f8c5190407ff6b4f8fcf3b2cd81c665, type: 3}
   - {fileID: 3109448219124973978, guid: 9f8c5190407ff6b4f8fcf3b2cd81c665, type: 3}
   BossRoom: {fileID: 0}
   Walls:

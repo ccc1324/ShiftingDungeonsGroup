@@ -48,6 +48,8 @@ public class DungeonManager : MonoBehaviour
     private MonsterSpawner MonsterSpawner;
     private MusicManager MusicManager;
 
+    private const float ROOM_CENTER_BUFFER = 0.15f; //
+
     private void Start()
     {
         _dungeon_size = 18;
@@ -316,8 +318,8 @@ public class DungeonManager : MonoBehaviour
                 //If not spawning boss, wait for certain conditions, then transition back to stage (spawn mobs)
                 if (!SpawnBoss)
                 {
-                    if (Player.transform.position.x <= _room_current.transform.position.x + 0.15 &&
-                        Player.transform.position.x >= _room_current.transform.position.x - 0.15 &&
+                    if (Player.transform.position.x <= _room_current.transform.position.x + ROOM_CENTER_BUFFER &&
+                        Player.transform.position.x >= _room_current.transform.position.x - ROOM_CENTER_BUFFER &&
                         _room_current == RoomStage)
                     {
                         //Lock Camera
@@ -356,10 +358,10 @@ public class DungeonManager : MonoBehaviour
                 }
 
                 //When conditions for boss fight are met, Wait for certain conditions then transition to boss fight state
-                if (SpawnBoss)
+                else if (SpawnBoss && Levels[Level].BossRoom != null)
                 {
-                    if (Player.transform.position.x <= _room_current.transform.position.x + 0.05 &&
-                        Player.transform.position.x >= _room_current.transform.position.x - 0.05 &&
+                    if (Player.transform.position.x <= _room_current.transform.position.x + ROOM_CENTER_BUFFER &&
+                        Player.transform.position.x >= _room_current.transform.position.x - ROOM_CENTER_BUFFER &&
                         RoomStage == null)
                     {
                         StartCoroutine(OpenRight(2));
@@ -394,6 +396,53 @@ public class DungeonManager : MonoBehaviour
                         _room_current.GetComponent<AudioSource>().PlayOneShot(LockSFX);
 
                         DungeonState = "TransitionToBossA";
+                        SpawnBoss = false;
+                        _stage = 0;
+
+                        //Music
+                        StartCoroutine(MusicManager.FadeOutMusic(2));
+                    }
+                }
+
+                //If there are no more stages but there isn't a boss, get ready to transition to spawn
+                else
+                {
+                    if (Player.transform.position.x <= _room_current.transform.position.x + ROOM_CENTER_BUFFER &&
+                        Player.transform.position.x >= _room_current.transform.position.x - ROOM_CENTER_BUFFER &&
+                        RoomStage == null)
+                    {
+                        StartCoroutine(OpenBossRoom(2));
+
+                        //Lock Camera
+                        CameraObject.GetComponent<CameraMovement>().CameraState = "Locked";
+                        CameraObject.transform.position = new Vector3(_room_current.transform.position.x, CameraObject.transform.position.y, -10);
+
+                        //Update Rooms
+                        Destroy(_room_left);
+                        Destroy(_room_right);
+
+                        _room_boss = _room_current;
+                        _room_current = null;
+                        _room_spawn = MyInstantiate(
+                        Levels[Level].Spawn,
+                        _room_boss.transform.position.x + _dungeon_size / 2 + _spawn_size / 2,
+                        _room_boss.transform.position.y);
+                        PostTutorialObjects.SetActive(true);
+                        PostTutorialObjects.transform.position = _room_spawn.transform.position;
+
+                        //Updates Walls
+                        Destroy(_wall);
+                        Destroy(_wall_another);
+                        _wall = MyInstantiate(
+                            Levels[Level].Walls.StaticWalls,
+                            _room_boss.transform.position.x,
+                            _room_boss.transform.position.y);
+
+                        //Play Sounds
+                        _room_boss.GetComponent<AudioSource>().volume = LockSFXVolume;
+                        _room_boss.GetComponent<AudioSource>().PlayOneShot(LockSFX);
+
+                        DungeonState = "TransitionToSpawnA";
                         SpawnBoss = false;
                         _stage = 0;
 
@@ -455,10 +504,6 @@ public class DungeonManager : MonoBehaviour
                         _room_boss.transform.position.y);
                     PostTutorialObjects.SetActive(true);
                     PostTutorialObjects.transform.position = _room_spawn.transform.position;
-                    _room_current = MyInstantiate(
-                        Levels[Level].Stages[_stage],
-                        _room_boss.transform.position.x + _dungeon_size + _spawn_size,
-                        _room_boss.transform.position.y);
 
                     StartCoroutine(OpenBossRoom(2));
 
@@ -490,8 +535,8 @@ public class DungeonManager : MonoBehaviour
                 }
 
                 //Transition to Game State Spawn
-                if (Player.transform.position.x > _room_spawn.transform.position.x - _spawn_size / 2 
-                        + CameraObject.GetComponent<Camera>().orthographicSize * 2)
+                if (Player.transform.position.x >= _room_boss.transform.position.x + _dungeon_size / 2 
+                        + CameraObject.GetComponent<Camera>().orthographicSize * CameraObject.GetComponent<Camera>().aspect)
                 {
                     CameraObject.GetComponent<CameraMovement>().CameraState = "Follow";
 
@@ -501,6 +546,10 @@ public class DungeonManager : MonoBehaviour
                         Levels[Level].Filler,
                         _room_spawn.transform.position.x - _spawn_size / 2 - _dungeon_size / 2,
                         _room_spawn.transform.position.y);
+                    _room_current = MyInstantiate(
+                        Levels[Level].Stages[_stage],
+                        _room_boss.transform.position.x + _dungeon_size + _spawn_size,
+                        _room_boss.transform.position.y);
 
                     Destroy(_wall);
                     Destroy(_wall_another);
