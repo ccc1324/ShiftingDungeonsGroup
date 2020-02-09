@@ -14,7 +14,7 @@ public class PauseMenuManager : MonoBehaviour
 
     public void Update()
     {
-        if (Input.GetKeyDown(KeyCode.Escape))
+        if (Input.GetKeyDown(KeyCode.M))
             ShowHideMenu();
     }
 
@@ -28,6 +28,13 @@ public class PauseMenuManager : MonoBehaviour
     public void ReturnToMenu()
     {
         SceneManager.LoadScene(0); //0 is the index of main scene
+        enabled = false;
+        ShowHideMenu();
+    }
+
+    public void LoadScene(int n)
+    {
+        SceneManager.LoadScene(n); //0 is the index of main scene
         enabled = false;
         ShowHideMenu();
     }

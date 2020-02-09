@@ -8,8 +8,6 @@ public class SlimeFlying : MonoBehaviour, IEnemy
     public float XFlyingSpeed;
     public float YFlyingSpeed;
     public float ZigZagInterval;
-    public float AttackInterval;
-    public float AttackDuration;
     public float DeathGravityScale;
 
     private Animator _animator;
@@ -18,12 +16,8 @@ public class SlimeFlying : MonoBehaviour, IEnemy
     private int _yDirectionScale = -1; //1 for positive, -1 for negative
     private float _startTime;
     private float _lastDirectionChange;
-    private float _lastTimeAttacking;
-    private float _timeStartAttacking;
     private bool _resetTime = false;
     
-    
-
 
     void Start()
     {
@@ -31,7 +25,6 @@ public class SlimeFlying : MonoBehaviour, IEnemy
         _rigidbody = GetComponent<Rigidbody2D>();
         _startTime = Time.time;
         _lastDirectionChange = _startTime;
-        _lastTimeAttacking = Time.time;
         _rigidbody.velocity = new Vector2(XFlyingSpeed * _xDirectionScale, YFlyingSpeed * _yDirectionScale);
     }
 
@@ -74,27 +67,12 @@ public class SlimeFlying : MonoBehaviour, IEnemy
 
     void FlyAround()
     {
-        if (_animator.GetBool("Dead"))
+        if (Health <= 0)
         {
             return;
         }
 
-        //Starts the animation during the start of the attack
-        if (Time.time - _lastTimeAttacking > AttackInterval && !_animator.GetBool("Attacking")) 
-        {
-            _timeStartAttacking = Time.time;
-            _animator.SetBool("Attacking", true);
-        }
-        
-        //Called at the end of the attack
-        if(_animator.GetBool("Attacking") && Time.time - _timeStartAttacking > AttackDuration)
-        {
-            _animator.SetBool("Attacking", false);
-            _lastTimeAttacking = Time.time;
-            return;
-        }
-
-            if (_resetTime)
+        if (_resetTime)
         {
             _lastDirectionChange = Time.time;
             _resetTime = false;

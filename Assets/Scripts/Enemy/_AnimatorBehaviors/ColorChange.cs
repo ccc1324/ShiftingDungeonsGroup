@@ -17,6 +17,7 @@ public class ColorChange : StateMachineBehaviour
     public float NewColorTime; //Time spent with Color = NewColor
     public float UnLerpTime; //Time it takes to lerp to original color
     public bool RevertOnExit; //Revert to original color when exiting the state
+    public bool Loop; //Loop the color change, ignores start delay
 
     private float _start_time;
     private Color _originial_color;
@@ -48,8 +49,16 @@ public class ColorChange : StateMachineBehaviour
 
         //Lerp to original color
         else if (Time.time < _start_time + StartDelay + LerpTime + NewColorTime + UnLerpTime)
-            _sprite_renderer.color = Color.Lerp(NewColor, _originial_color, 
+            _sprite_renderer.color = Color.Lerp(NewColor, _originial_color,
                 (Time.time - _start_time - StartDelay - LerpTime - NewColorTime) / UnLerpTime);
+
+        else
+        {
+            _sprite_renderer.color = _originial_color;
+            if (Loop)
+                _start_time = Time.time;
+        }
+
     }
 
     public override void OnStateExit(Animator animator, AnimatorStateInfo animatorStateInfo, int layerIndex)
