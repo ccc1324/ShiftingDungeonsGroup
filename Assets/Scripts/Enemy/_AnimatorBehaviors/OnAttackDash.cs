@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class OnDashAttack : StateMachineBehaviour
+public class OnAttackDash : StateMachineBehaviour
 {
     //Be careful not to modify these variables in the script, as changes aren't reset on OnStateEnter
     [Tooltip("Amount of time that passes before attacking starts (waiting for animation)")]
