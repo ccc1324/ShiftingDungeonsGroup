@@ -12,4 +12,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6d78cdfc585d08e44a9a6b5ea4dc4a0a, type: 3}
   m_Name: TestSpawnData
   m_EditorClassIdentifier: 
-  StageList: []
+  StageList:
+  - SpawnCooldown: 0
+    WaveList:
+    - WaveBuffer: 0
+      Wave: {fileID: 11400000, guid: 0a18e120e7369fd4798e1dae4e1350c0, type: 2}

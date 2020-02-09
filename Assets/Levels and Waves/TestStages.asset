@@ -16,13 +16,9 @@ MonoBehaviour:
   Filler: {fileID: 2579569235598798443, guid: d7b292df23e6c3043a33185f8a6c9910, type: 3}
   Stages:
   - {fileID: 3109448219124973978, guid: 9f8c5190407ff6b4f8fcf3b2cd81c665, type: 3}
-  - {fileID: 3109448219124973978, guid: 9f8c5190407ff6b4f8fcf3b2cd81c665, type: 3}
-  - {fileID: 3109448219124973978, guid: 9f8c5190407ff6b4f8fcf3b2cd81c665, type: 3}
-  - {fileID: 3109448219124973978, guid: 9f8c5190407ff6b4f8fcf3b2cd81c665, type: 3}
-  - {fileID: 3109448219124973978, guid: 9f8c5190407ff6b4f8fcf3b2cd81c665, type: 3}
-  - {fileID: 3109448219124973978, guid: 9f8c5190407ff6b4f8fcf3b2cd81c665, type: 3}
-  BossRoom: {fileID: 6218201775023758319, guid: 58fe6332da64db94b9448afbfb07291e,
+  ShiftingRoom: {fileID: 3109448219124973978, guid: 9f8c5190407ff6b4f8fcf3b2cd81c665,
     type: 3}
+  BossRoom: {fileID: 0}
   Walls:
     SpawnWallsLeft: {fileID: 8498974615535964153, guid: 7df33bf1a29e5ba488d3e0756cd7da72,
       type: 3}

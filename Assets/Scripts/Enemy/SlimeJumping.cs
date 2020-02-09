@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.Events;
 
-public class SlimeMelee : MonoBehaviour, IEnemy
+public class SlimeJumping : MonoBehaviour, IEnemy
 {
     public float AttackCooldown;
     public float Movespeed;

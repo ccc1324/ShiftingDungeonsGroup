@@ -12,8 +12,9 @@ public class Level : ScriptableObject
 
     //Rooms
     public GameObject Spawn;
-    public GameObject Filler;
-    public List<GameObject> Stages; //first state is flat, should be able to be used for shifting
+    public GameObject Filler; //Filled room
+    public List<GameObject> Stages;
+    public GameObject ShiftingRoom; //Room used when in shifting state
     public GameObject BossRoom;
     public WallSet Walls;
 

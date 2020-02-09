@@ -1,0 +1,35 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6d78cdfc585d08e44a9a6b5ea4dc4a0a, type: 3}
+  m_Name: UndeadSpawnData_Intro
+  m_EditorClassIdentifier: 
+  StageList:
+  - SpawnCooldown: 10
+    WaveList:
+    - WaveBuffer: 0
+      Wave: {fileID: 11400000, guid: 0a18e120e7369fd4798e1dae4e1350c0, type: 2}
+    - WaveBuffer: 0
+      Wave: {fileID: 11400000, guid: 6f300483eb6c56e46981a2a2dc43555f, type: 2}
+  - SpawnCooldown: 10
+    WaveList:
+    - WaveBuffer: 0
+      Wave: {fileID: 11400000, guid: 9c7b3781cc426aa408b229db2951a213, type: 2}
+    - WaveBuffer: 0
+      Wave: {fileID: 11400000, guid: ffc1f20975ec0f646bcd9a632ddf8d38, type: 2}
+  - SpawnCooldown: 13
+    WaveList:
+    - WaveBuffer: 0
+      Wave: {fileID: 11400000, guid: f1768ed34b213754fa847ccd55dd6442, type: 2}
+    - WaveBuffer: 0
+      Wave: {fileID: 11400000, guid: 4df17912f0b530e44969c5cb33ee893d, type: 2}
+    - WaveBuffer: 0
+      Wave: {fileID: 11400000, guid: 0210631021636604696c1c2d212bb7a9, type: 2}

@@ -20,6 +20,8 @@ MonoBehaviour:
   - {fileID: 3109448219124973978, guid: 9f8c5190407ff6b4f8fcf3b2cd81c665, type: 3}
   - {fileID: 3109448219124973978, guid: 9f8c5190407ff6b4f8fcf3b2cd81c665, type: 3}
   - {fileID: 4909723549550796687, guid: 44b903c8fc31c834e8e999655ddd3c21, type: 3}
+  ShiftingRoom: {fileID: 3109448219124973978, guid: 9f8c5190407ff6b4f8fcf3b2cd81c665,
+    type: 3}
   BossRoom: {fileID: 6218201775023758319, guid: 58fe6332da64db94b9448afbfb07291e,
     type: 3}
   Walls:
