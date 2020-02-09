@@ -15,8 +15,7 @@ MonoBehaviour:
   Spawn: {fileID: 7982638502240541356, guid: 05d09faaf58dac74883dd58b96185cb6, type: 3}
   Filler: {fileID: 2579569235598798443, guid: d7b292df23e6c3043a33185f8a6c9910, type: 3}
   Stages:
-  - {fileID: 3109448219124973978, guid: 9f8c5190407ff6b4f8fcf3b2cd81c665, type: 3}
-  - {fileID: 3109448219124973978, guid: 9f8c5190407ff6b4f8fcf3b2cd81c665, type: 3}
+  - {fileID: 4992999972151384172, guid: cf9f534a044db0144b14f9b34dd55850, type: 3}
   - {fileID: 3109448219124973978, guid: 9f8c5190407ff6b4f8fcf3b2cd81c665, type: 3}
   - {fileID: 3109448219124973978, guid: 9f8c5190407ff6b4f8fcf3b2cd81c665, type: 3}
   BossRoom: {fileID: 6218201775023758319, guid: 58fe6332da64db94b9448afbfb07291e,

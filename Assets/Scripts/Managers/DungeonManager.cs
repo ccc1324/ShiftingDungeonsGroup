@@ -158,11 +158,11 @@ public class DungeonManager : MonoBehaviour
 
                     //Instatiate new rooms
                     _room_left = MyInstantiate(
-                        Levels[Level].Stages[0],
+                        Levels[Level].ShiftingRoom,
                         _room_current.transform.position.x - _dungeon_size,
                         _room_current.transform.position.y);
                     _room_right = MyInstantiate(
-                        Levels[Level].Stages[0],
+                        Levels[Level].ShiftingRoom,
                         _room_current.transform.position.x + _dungeon_size,
                         _room_current.transform.position.y);
 
@@ -226,7 +226,7 @@ public class DungeonManager : MonoBehaviour
                     else if (SpawnBoss)
                     {
                         _room_right = MyInstantiate(
-                            Levels[Level].Stages[0],
+                            Levels[Level].ShiftingRoom,
                             _room_current.transform.position.x + _dungeon_size,
                             _room_current.transform.position.y);
                     }
@@ -250,7 +250,7 @@ public class DungeonManager : MonoBehaviour
                     else if (SpawnBoss)
                     {
                         _room_left = MyInstantiate(
-                            Levels[Level].Stages[0],
+                            Levels[Level].ShiftingRoom,
                             _room_current.transform.position.x - _dungeon_size,
                             _room_current.transform.position.y);
                     }
@@ -282,7 +282,7 @@ public class DungeonManager : MonoBehaviour
                     }
                     else
                         _room_right = MyInstantiate(
-                            Levels[Level].Stages[0],
+                            Levels[Level].ShiftingRoom,
                             _room_current.transform.position.x + _dungeon_size,
                             _room_current.transform.position.y);
 
@@ -307,7 +307,7 @@ public class DungeonManager : MonoBehaviour
                     }
                     else
                         _room_left = MyInstantiate(
-                            Levels[Level].Stages[0],
+                            Levels[Level].ShiftingRoom,
                             _room_current.transform.position.x - _dungeon_size,
                             _room_current.transform.position.y);
 
@@ -332,11 +332,11 @@ public class DungeonManager : MonoBehaviour
 
                         //Instatiate new rooms
                         _room_left = MyInstantiate(
-                            Levels[Level].Stages[0],
+                            Levels[Level].ShiftingRoom,
                             _room_current.transform.position.x - _dungeon_size,
                             _room_current.transform.position.y);
                         _room_right = MyInstantiate(
-                            Levels[Level].Stages[0],
+                            Levels[Level].ShiftingRoom,
                             _room_current.transform.position.x + _dungeon_size,
                             _room_current.transform.position.y);
 
