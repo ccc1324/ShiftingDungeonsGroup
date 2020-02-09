@@ -2,13 +2,15 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class FlyingSlime : MonoBehaviour, IEnemy
+public class SlimeFlying : MonoBehaviour, IEnemy
 {
     public float Health;
-    public float FlyingSpeed;
+    public float XFlyingSpeed;
+    public float YFlyingSpeed;
     public float ZigZagInterval;
     public float AttackInterval;
     public float AttackDuration;
+    public float DeathGravityScale;
 
     private Animator _animator;
     private Rigidbody2D _rigidbody;
@@ -30,7 +32,8 @@ public class FlyingSlime : MonoBehaviour, IEnemy
         _startTime = Time.time;
         _lastDirectionChange = _startTime;
         _lastTimeAttacking = Time.time;
-}
+        _rigidbody.velocity = new Vector2(XFlyingSpeed * _xDirectionScale, YFlyingSpeed * _yDirectionScale);
+    }
 
 
     void Update()
@@ -48,7 +51,7 @@ public class FlyingSlime : MonoBehaviour, IEnemy
         if (Health <= 0)
         {
             _rigidbody.velocity = new Vector2(0, 0);
-            _rigidbody.gravityScale = .6f;
+            _rigidbody.gravityScale = DeathGravityScale;
             _animator.SetBool("Dead", true);
             return;
         }
@@ -59,13 +62,13 @@ public class FlyingSlime : MonoBehaviour, IEnemy
         if (collision.collider.tag == "Wall")
         {
             _xDirectionScale *= -1;
-            _rigidbody.velocity = new Vector2(FlyingSpeed * _xDirectionScale, FlyingSpeed * _yDirectionScale);
+            _rigidbody.velocity = new Vector2(XFlyingSpeed * _xDirectionScale, YFlyingSpeed * _yDirectionScale);
         }
         else if (collision.collider.tag == "Room")
         {
             _yDirectionScale *= -1;
             _resetTime = true;
-            _rigidbody.velocity = new Vector2(FlyingSpeed * _xDirectionScale, FlyingSpeed * _yDirectionScale);
+            _rigidbody.velocity = new Vector2(XFlyingSpeed * _xDirectionScale, YFlyingSpeed * _yDirectionScale);
         }
     }
 
@@ -76,22 +79,18 @@ public class FlyingSlime : MonoBehaviour, IEnemy
             return;
         }
 
+        //Starts the animation during the start of the attack
         if (Time.time - _lastTimeAttacking > AttackInterval && !_animator.GetBool("Attacking")) 
         {
             _timeStartAttacking = Time.time;
             _animator.SetBool("Attacking", true);
         }
         
+        //Called at the end of the attack
         if(_animator.GetBool("Attacking") && Time.time - _timeStartAttacking > AttackDuration)
         {
             _animator.SetBool("Attacking", false);
             _lastTimeAttacking = Time.time;
-            return;
-        }
-
-        if (_animator.GetBool("Attacking") && Time.time - _timeStartAttacking < AttackDuration)
-        {
-            _rigidbody.velocity = new Vector2(0, 0);
             return;
         }
 
@@ -106,7 +105,7 @@ public class FlyingSlime : MonoBehaviour, IEnemy
             _yDirectionScale *= -1;
             _lastDirectionChange = Time.time;
         } 
-        _rigidbody.velocity = new Vector2(FlyingSpeed*_xDirectionScale,FlyingSpeed*_yDirectionScale);
+        _rigidbody.velocity = new Vector2(XFlyingSpeed*_xDirectionScale,YFlyingSpeed*_yDirectionScale);
     }
 
 
