@@ -113,8 +113,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5f501bbf756105b4da855c504d9b0991, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  DecayStartBuffer: 0
-  DecayDuration: 1
+  DecayStartBuffer: 0.5
+  DecayDuration: 0.5
   YOffset: 0.2
   ItemYSpeed: 20
   ItemDropSets:
@@ -159,7 +159,7 @@ AnimatorState:
   m_Transitions:
   - {fileID: -7024513540895549153}
   m_StateMachineBehaviours:
-  - {fileID: 6532778113903195545}
+  - {fileID: 8611731820555015489}
   m_Position: {x: 50, y: 50, z: 0}
   m_IKOnFeet: 0
   m_WriteDefaultValues: 1
@@ -305,7 +305,7 @@ AnimatorStateMachine:
     m_Position: {x: 330, y: 120, z: 0}
   - serializedVersion: 1
     m_State: {fileID: -3687211867225959509}
-    m_Position: {x: 600, y: 120, z: 0}
+    m_Position: {x: 590, y: 120, z: 0}
   - serializedVersion: 1
     m_State: {fileID: -5929384179721804250}
     m_Position: {x: 330, y: 50, z: 0}
@@ -321,10 +321,10 @@ AnimatorStateMachine:
   m_StateMachineBehaviours: []
   m_AnyStatePosition: {x: 80, y: 20, z: 0}
   m_EntryPosition: {x: 50, y: 120, z: 0}
-  m_ExitPosition: {x: 800, y: 120, z: 0}
+  m_ExitPosition: {x: 810, y: 120, z: 0}
   m_ParentStateMachinePosition: {x: 800, y: 20, z: 0}
   m_DefaultState: {fileID: -8781720463509936121}
---- !u!114 &6532778113903195545
+--- !u!114 &8611731820555015489
 MonoBehaviour:
   m_ObjectHideFlags: 1
   m_CorrespondingSourceObject: {fileID: 0}
@@ -333,16 +333,13 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: b4d728b2fde07ab469c7c6b1880369be, type: 3}
+  m_Script: {fileID: 11500000, guid: 795aad2724caf914ba81af4d135bf202, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  FiringMode: arc
   AttackStartBuffer: 1
-  Projectile: {fileID: 8611557003057830286, guid: e066b68f546b85547b0f5a3b3f8dca73,
-    type: 3}
-  AttackSFX: {fileID: 8300000, guid: a675f7f5f8e84bf4b81a166cf90d5090, type: 3}
+  AttackSFX: {fileID: 0}
   AttackVolume: 1
   AttackCount: 1
-  ShotDelay: 0
-  ProjectileSpeed: 0
-  ProjectileHangTime: 1.5
+  DashDelay: 10
+  DashVelocityX: 10
+  DashVelocityY: 0
