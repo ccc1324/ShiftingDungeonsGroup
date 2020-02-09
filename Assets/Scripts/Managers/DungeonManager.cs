@@ -540,6 +540,9 @@ public class DungeonManager : MonoBehaviour
                 {
                     CameraObject.GetComponent<CameraMovement>().CameraState = "Follow";
 
+                    if (Level + 1 < Levels.Count)
+                        Level++;
+
                     Destroy(_room_boss);
 
                     _room_left = MyInstantiate(
@@ -567,8 +570,6 @@ public class DungeonManager : MonoBehaviour
                     _room_left.GetComponent<AudioSource>().PlayOneShot(DestroySFX);
 
                     RoomStage = _room_current;
-                    if (Level + 1 < Levels.Count)
-                        Level++;
 
                     DungeonState = "Spawn";
 

@@ -13,42 +13,28 @@ MonoBehaviour:
   m_Name: UndeadSpawnData
   m_EditorClassIdentifier: 
   StageList:
-  - SpawnCooldown: 6
+  - SpawnCooldown: 10
     WaveList:
     - WaveBuffer: 0
       Wave: {fileID: 11400000, guid: a8a0569e259d51544970bcb9ac76909b, type: 2}
-    - WaveBuffer: 0
+    - WaveBuffer: -6
       Wave: {fileID: 11400000, guid: ad34e3ca5d77f5b45ad3e8d35170a06b, type: 2}
     - WaveBuffer: 0
       Wave: {fileID: 11400000, guid: e5a2d5c0399edf043986012c5486f977, type: 2}
-    - WaveBuffer: 0
+    - WaveBuffer: -5
       Wave: {fileID: 11400000, guid: f1768ed34b213754fa847ccd55dd6442, type: 2}
     - WaveBuffer: 0
       Wave: {fileID: 11400000, guid: a8a0569e259d51544970bcb9ac76909b, type: 2}
-    - WaveBuffer: 0
+    - WaveBuffer: -4
       Wave: {fileID: 11400000, guid: ad34e3ca5d77f5b45ad3e8d35170a06b, type: 2}
-  - SpawnCooldown: 6
+    - WaveBuffer: 0
+      Wave: {fileID: 11400000, guid: e5a2d5c0399edf043986012c5486f977, type: 2}
+    - WaveBuffer: -5
+      Wave: {fileID: 11400000, guid: f1768ed34b213754fa847ccd55dd6442, type: 2}
+  - SpawnCooldown: 10
     WaveList:
     - WaveBuffer: 0
-      Wave: {fileID: 11400000, guid: b5d230de4cd59604a982bc8f102db3a6, type: 2}
-    - WaveBuffer: 0
-      Wave: {fileID: 11400000, guid: f7054f763b215d741a9e224e3c0f3302, type: 2}
-    - WaveBuffer: 0
-      Wave: {fileID: 11400000, guid: b5d230de4cd59604a982bc8f102db3a6, type: 2}
-    - WaveBuffer: 0
-      Wave: {fileID: 11400000, guid: f7054f763b215d741a9e224e3c0f3302, type: 2}
-    - WaveBuffer: 0
-      Wave: {fileID: 11400000, guid: b5d230de4cd59604a982bc8f102db3a6, type: 2}
-    - WaveBuffer: 0
-      Wave: {fileID: 11400000, guid: f7054f763b215d741a9e224e3c0f3302, type: 2}
-    - WaveBuffer: 0
-      Wave: {fileID: 11400000, guid: b5d230de4cd59604a982bc8f102db3a6, type: 2}
-    - WaveBuffer: 0
-      Wave: {fileID: 11400000, guid: f7054f763b215d741a9e224e3c0f3302, type: 2}
-    - WaveBuffer: 0
-      Wave: {fileID: 11400000, guid: b5d230de4cd59604a982bc8f102db3a6, type: 2}
-    - WaveBuffer: 0
-      Wave: {fileID: 11400000, guid: f7054f763b215d741a9e224e3c0f3302, type: 2}
+      Wave: {fileID: 11400000, guid: cd99b909ed1fff54fa23dbb7d5e74452, type: 2}
   - SpawnCooldown: 6
     WaveList:
     - WaveBuffer: 0
