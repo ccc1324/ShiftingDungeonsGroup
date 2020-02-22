@@ -22,6 +22,7 @@ public class MusicManager : MonoBehaviour
     void Start()
     {
         _audio_source = GetComponent<AudioSource>();
+        SpawnMusicVolume = PlayerPrefsController.GetMusicVolume();
     }
 
     public IEnumerator FadeOutMusic(float time)
