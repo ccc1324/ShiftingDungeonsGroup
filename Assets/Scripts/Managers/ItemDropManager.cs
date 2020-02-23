@@ -10,6 +10,7 @@ public class ItemDropManager : MonoBehaviour
     public int UncommonWeight;
     public int RareWeight;
     public int EpicWeight;
+    /*Suggested Weights: 244, 28, 7, 0, 1*/
 
     public int MaxNoDrops;
     public int MaxNoEpics;
@@ -73,6 +74,7 @@ public class ItemDropManager : MonoBehaviour
         }
     }
 
+    //Old version of GetDrop that uses 4 item sets
     public Item GetDrop(ItemSet common, ItemSet uncommon, ItemSet rare, ItemSet epic)
     {
         //DetermineDrop

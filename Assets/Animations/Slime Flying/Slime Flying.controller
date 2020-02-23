@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   FiringMode: arc
-  AttackStartBuffer: 0
+  AttackStartBuffer: 6
   Projectile: {fileID: 8611557003057830286, guid: e066b68f546b85547b0f5a3b3f8dca73,
     type: 3}
   AttackSFX: {fileID: 0}
@@ -133,12 +133,13 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Name: Body
-  NewColor: {r: 0.7647169, g: 0.3999644, b: 0.7924528, a: 1}
-  StartDelay: 0
+  NewColor: {r: 0.6133374, g: 0.23905303, b: 0.6415094, a: 1}
+  StartDelay: 2
   LerpTime: 4
   NewColorTime: 0
   UnLerpTime: 0
   RevertOnExit: 1
+  Loop: 1
 --- !u!91 &9100000
 AnimatorController:
   m_ObjectHideFlags: 0
@@ -197,7 +198,7 @@ AnimatorStateTransition:
     m_ConditionEvent: Attacking
     m_EventTreshold: 0
   m_DstStateMachine: {fileID: 0}
-  m_DstState: {fileID: 2698575021568072878}
+  m_DstState: {fileID: 0}
   m_Solo: 0
   m_Mute: 0
   m_IsExit: 0

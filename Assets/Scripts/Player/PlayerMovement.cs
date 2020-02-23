@@ -14,6 +14,7 @@ public class PlayerMovement : MonoBehaviour
     public float LandSFXVolume;
     public bool Grounded;
     public bool Stunned;
+    public bool InCombat;
     public float JumpTime;
 
     private bool _isJumping;
@@ -39,35 +40,47 @@ public class PlayerMovement : MonoBehaviour
 
         _animator.SetFloat("VerticalSpeed", _rigidbody.velocity.y);
 
-        #region Movement
-        if (Input.GetKey("a"))
+        if (InCombat && Grounded)
         {
-            _moveSpeed = _moveSpeed > 0 ? 0 : _moveSpeed - Acceleration;
-            _moveSpeed = _moveSpeed < -MaxSpeed ? -MaxSpeed : _moveSpeed;
-
-            _rigidbody.velocity = new Vector2(_moveSpeed * Time.fixedDeltaTime, _rigidbody.velocity.y);
-            transform.eulerAngles = new Vector3(0, 180, 0);
-            _animator.SetBool("Running", true);
-        }
-        else if (Input.GetKey("d"))
-        {
-            _moveSpeed = _moveSpeed < 0 ? 0 : _moveSpeed + Acceleration;
-            _moveSpeed = _moveSpeed > MaxSpeed ? MaxSpeed : _moveSpeed;
-
-            _rigidbody.velocity = new Vector2(_moveSpeed * Time.fixedDeltaTime, _rigidbody.velocity.y);
-            transform.eulerAngles = new Vector3(0, 0, 0);
-            _animator.SetBool("Running", true);
+            Stop();
+            if (Input.GetKey("a"))
+                transform.eulerAngles = new Vector3(0, 180, 0);
+            else if (Input.GetKey("d"))
+                transform.eulerAngles = new Vector3(0, 0, 0);
         }
         else
         {
-            _moveSpeed = 0;
-            _rigidbody.velocity = new Vector2(0, _rigidbody.velocity.y);
-            _animator.SetBool("Running", false);
+            #region Movement
+            if (Input.GetKey("a"))
+            {
+                _moveSpeed = _moveSpeed > 0 ? 0 : _moveSpeed - Acceleration;
+                _moveSpeed = _moveSpeed < -MaxSpeed ? -MaxSpeed : _moveSpeed;
+
+                _rigidbody.velocity = new Vector2(_moveSpeed * Time.fixedDeltaTime, _rigidbody.velocity.y);
+                transform.eulerAngles = new Vector3(0, 180, 0);
+                _animator.SetBool("Running", true);
+            }
+            else if (Input.GetKey("d"))
+            {
+                _moveSpeed = _moveSpeed < 0 ? 0 : _moveSpeed + Acceleration;
+                _moveSpeed = _moveSpeed > MaxSpeed ? MaxSpeed : _moveSpeed;
+
+                _rigidbody.velocity = new Vector2(_moveSpeed * Time.fixedDeltaTime, _rigidbody.velocity.y);
+                transform.eulerAngles = new Vector3(0, 0, 0);
+                _animator.SetBool("Running", true);
+            }
+            else
+            {
+                _moveSpeed = 0;
+                _rigidbody.velocity = new Vector2(0, _rigidbody.velocity.y);
+                _animator.SetBool("Running", false);
+            }
+            #endregion
         }
-        #endregion
+
 
         #region Jumping
-        if (Input.GetKeyDown(";"))
+        if (Input.GetKeyDown(";") && !InCombat)
         {
             if (Grounded == true)
             {

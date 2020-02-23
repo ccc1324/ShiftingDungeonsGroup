@@ -9,6 +9,7 @@ public class LoadManager : MonoBehaviour
     private Inventory _inventory;
     private Equipment _equipment;
     private DungeonManager _dungeon_manager;
+    private MonsterSpawner _monster_spawner;
 
     void Start()
     {
@@ -17,6 +18,7 @@ public class LoadManager : MonoBehaviour
         _inventory = FindObjectOfType<Inventory>();
         _equipment = FindObjectOfType<Equipment>();
         _dungeon_manager = FindObjectOfType<DungeonManager>();
+        _monster_spawner = FindObjectOfType<MonsterSpawner>();
     }
 
     public void LoadGame()
@@ -25,6 +27,7 @@ public class LoadManager : MonoBehaviour
 
         _dungeon_manager.Level = saveData.Level;
         _dungeon_manager.MaxLevel = saveData.MaxLevel;
+        _monster_spawner.Difficulty = saveData.Difficulty;
 
         for (int i = 0; i < _inventory.InventorySlots.Count; i++)
         {

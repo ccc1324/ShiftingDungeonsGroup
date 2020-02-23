@@ -10,50 +10,46 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 6d78cdfc585d08e44a9a6b5ea4dc4a0a, type: 3}
-  m_Name: UndeadSpawnData
+  m_Name: UndeadSpawnData_Level2_Normal
   m_EditorClassIdentifier: 
   StageList:
-  - SpawnCooldown: 10
+  - SpawnCooldown: 13
     WaveList:
     - WaveBuffer: 0
-      Wave: {fileID: 11400000, guid: a8a0569e259d51544970bcb9ac76909b, type: 2}
+      Wave: {fileID: 11400000, guid: 3179d8cb69fe1bf47a6079ae2845f6f6, type: 2}
     - WaveBuffer: -6
       Wave: {fileID: 11400000, guid: ad34e3ca5d77f5b45ad3e8d35170a06b, type: 2}
     - WaveBuffer: 0
-      Wave: {fileID: 11400000, guid: e5a2d5c0399edf043986012c5486f977, type: 2}
+      Wave: {fileID: 11400000, guid: 6086c77978131914a8afb4a2faa403d6, type: 2}
     - WaveBuffer: -5
       Wave: {fileID: 11400000, guid: f1768ed34b213754fa847ccd55dd6442, type: 2}
     - WaveBuffer: 0
-      Wave: {fileID: 11400000, guid: a8a0569e259d51544970bcb9ac76909b, type: 2}
+      Wave: {fileID: 11400000, guid: 3179d8cb69fe1bf47a6079ae2845f6f6, type: 2}
     - WaveBuffer: -4
       Wave: {fileID: 11400000, guid: ad34e3ca5d77f5b45ad3e8d35170a06b, type: 2}
     - WaveBuffer: 0
-      Wave: {fileID: 11400000, guid: e5a2d5c0399edf043986012c5486f977, type: 2}
+      Wave: {fileID: 11400000, guid: 6086c77978131914a8afb4a2faa403d6, type: 2}
     - WaveBuffer: -5
       Wave: {fileID: 11400000, guid: f1768ed34b213754fa847ccd55dd6442, type: 2}
   - SpawnCooldown: 10
     WaveList:
     - WaveBuffer: 0
-      Wave: {fileID: 11400000, guid: cd99b909ed1fff54fa23dbb7d5e74452, type: 2}
-  - SpawnCooldown: 6
+      Wave: {fileID: 11400000, guid: f91f1df2123a4794c8779f6644cd685e, type: 2}
+  - SpawnCooldown: 9
     WaveList:
     - WaveBuffer: 0
-      Wave: {fileID: 11400000, guid: b5d230de4cd59604a982bc8f102db3a6, type: 2}
+      Wave: {fileID: 11400000, guid: 41d2d95df7d093147b9d033116de3be6, type: 2}
     - WaveBuffer: 0
       Wave: {fileID: 11400000, guid: f7054f763b215d741a9e224e3c0f3302, type: 2}
     - WaveBuffer: 0
       Wave: {fileID: 11400000, guid: b5d230de4cd59604a982bc8f102db3a6, type: 2}
     - WaveBuffer: 0
-      Wave: {fileID: 11400000, guid: f7054f763b215d741a9e224e3c0f3302, type: 2}
+      Wave: {fileID: 11400000, guid: 6c711e46f8e4d384b8fa91a30fe06771, type: 2}
     - WaveBuffer: 0
-      Wave: {fileID: 11400000, guid: b5d230de4cd59604a982bc8f102db3a6, type: 2}
-    - WaveBuffer: 0
-      Wave: {fileID: 11400000, guid: f7054f763b215d741a9e224e3c0f3302, type: 2}
-    - WaveBuffer: 0
-      Wave: {fileID: 11400000, guid: b5d230de4cd59604a982bc8f102db3a6, type: 2}
+      Wave: {fileID: 11400000, guid: 41d2d95df7d093147b9d033116de3be6, type: 2}
     - WaveBuffer: 0
       Wave: {fileID: 11400000, guid: f7054f763b215d741a9e224e3c0f3302, type: 2}
     - WaveBuffer: 0
       Wave: {fileID: 11400000, guid: b5d230de4cd59604a982bc8f102db3a6, type: 2}
     - WaveBuffer: 0
-      Wave: {fileID: 11400000, guid: f7054f763b215d741a9e224e3c0f3302, type: 2}
+      Wave: {fileID: 11400000, guid: 6c711e46f8e4d384b8fa91a30fe06771, type: 2}
