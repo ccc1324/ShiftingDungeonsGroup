@@ -15,7 +15,10 @@ public class PlayerMovement : MonoBehaviour
     public bool Grounded;
     public bool Stunned;
     public bool InCombat;
+    public float JumpTime;
 
+    private bool _isJumping;
+    private float _jumpTimeCounter;
     private float _moveSpeed;
     private Rigidbody2D _rigidbody;
     private Animator _animator;
@@ -83,12 +86,31 @@ public class PlayerMovement : MonoBehaviour
             {
                 _rigidbody.velocity = new Vector2(_rigidbody.velocity.x, JumpForce);
                 Grounded = false;
+                _jumpTimeCounter = JumpTime;
+                _isJumping = true;
                 _animator.SetBool("Running", false);
                 _animator.SetBool("Grounded", false);
 
                 _audio_source.volume = JumpSFXVolume;
                 _audio_source.PlayOneShot(JumpSFX);
             }
+        }
+        if (Input.GetKey(";") && !Grounded)
+        {
+            if (_jumpTimeCounter > 0 && _isJumping)
+            {
+                _rigidbody.velocity = new Vector2(_rigidbody.velocity.x, JumpForce);
+                _jumpTimeCounter -= Time.deltaTime;
+            }
+            else
+            {
+                _isJumping = false;
+            }
+        }
+
+        if (Input.GetKeyUp(";"))
+        {
+            _isJumping = false;
         }
         #endregion
     }
