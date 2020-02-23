@@ -1,0 +1,25 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 448caf47a2fc4174bad4769529f0f794, type: 3}
+  m_Name: Dash1_Ranged1_Right
+  m_EditorClassIdentifier: 
+  MobsList:
+  - Prefab: {fileID: 1498092570633228908, guid: a98270f9bbaec53468bec9f777c13b09,
+      type: 3}
+    LeftmostPosition: 5
+    RightmostPosition: 6
+    EjectSpeed: 10
+  - Prefab: {fileID: 3823103236275552050, guid: a9a2036f32889274294ca2808771f20b,
+      type: 3}
+    LeftmostPosition: 6
+    RightmostPosition: 7
+    EjectSpeed: 10

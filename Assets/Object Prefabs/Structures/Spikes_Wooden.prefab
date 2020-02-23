@@ -10,10 +10,10 @@ GameObject:
   m_Component:
   - component: {fileID: 8995251535836239451}
   - component: {fileID: 8995251535836239450}
-  - component: {fileID: 8995251535836239399}
   - component: {fileID: 8995251535836239398}
-  - component: {fileID: 8995251535836239449}
   - component: {fileID: 8995251535836239448}
+  - component: {fileID: 2724088873580951470}
+  - component: {fileID: 4854518630668649868}
   m_Layer: 11
   m_Name: Spikes_Wooden
   m_TagString: Untagged
@@ -85,32 +85,6 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
---- !u!61 &8995251535836239399
-BoxCollider2D:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 8995251535836239453}
-  m_Enabled: 1
-  m_Density: 1
-  m_Material: {fileID: 0}
-  m_IsTrigger: 1
-  m_UsedByEffector: 0
-  m_UsedByComposite: 0
-  m_Offset: {x: -0.38946223, y: 0}
-  m_SpriteTilingProperty:
-    border: {x: 0, y: 0, z: 0, w: 0}
-    pivot: {x: 0.5, y: 0.5}
-    oldSize: {x: 1.005, y: 0.9}
-    newSize: {x: 1.005, y: 0.9}
-    adaptiveTilingThreshold: 0.5
-    drawMode: 0
-    adaptiveTiling: 0
-  m_AutoTiling: 0
-  serializedVersion: 2
-  m_Size: {x: 0.14946032, y: 0.9}
-  m_EdgeRadius: 0
 --- !u!114 &8995251535836239398
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -126,33 +100,7 @@ MonoBehaviour:
   ParticleEffects: {fileID: 0}
   Damage: 1
   OneWay: 1
-  OneWayTrigger: {fileID: 8995251535836239399}
---- !u!61 &8995251535836239449
-BoxCollider2D:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 8995251535836239453}
-  m_Enabled: 1
-  m_Density: 1
-  m_Material: {fileID: 0}
-  m_IsTrigger: 1
-  m_UsedByEffector: 0
-  m_UsedByComposite: 0
-  m_Offset: {x: 0.3894624, y: 0}
-  m_SpriteTilingProperty:
-    border: {x: 0, y: 0, z: 0, w: 0}
-    pivot: {x: 0.5, y: 0.5}
-    oldSize: {x: 1.005, y: 0.9}
-    newSize: {x: 1.005, y: 0.9}
-    adaptiveTilingThreshold: 0.5
-    drawMode: 0
-    adaptiveTiling: 0
-  m_AutoTiling: 0
-  serializedVersion: 2
-  m_Size: {x: 0.14945972, y: 0.9}
-  m_EdgeRadius: 0
+  OneWayTrigger: {fileID: 2724088873580951470}
 --- !u!114 &8995251535836239448
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -168,4 +116,36 @@ MonoBehaviour:
   ParticleEffects: {fileID: 0}
   Damage: 1
   OneWay: 2
-  OneWayTrigger: {fileID: 8995251535836239449}
+  OneWayTrigger: {fileID: 4854518630668649868}
+--- !u!58 &2724088873580951470
+CircleCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8995251535836239453}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: -0.34988183, y: 0.29116547}
+  serializedVersion: 2
+  m_Radius: 0.01007396
+--- !u!58 &4854518630668649868
+CircleCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8995251535836239453}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: 0.34016198, y: 0.28703606}
+  serializedVersion: 2
+  m_Radius: 0.008739114

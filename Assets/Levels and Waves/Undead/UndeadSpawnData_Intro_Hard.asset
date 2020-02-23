@@ -10,7 +10,7 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 6d78cdfc585d08e44a9a6b5ea4dc4a0a, type: 3}
-  m_Name: UndeadSpawnData_Intro
+  m_Name: UndeadSpawnData_Intro_Hard
   m_EditorClassIdentifier: 
   StageList:
   - SpawnCooldown: 10

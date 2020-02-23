@@ -11,5 +11,5 @@ public class SaveData
 
     public int Level;
     public int MaxLevel;
-
+    public MonsterSpawner.DifficultyEnum Difficulty;
 }

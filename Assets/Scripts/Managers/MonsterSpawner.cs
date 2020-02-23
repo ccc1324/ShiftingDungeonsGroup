@@ -7,13 +7,26 @@ using UnityEngine;
  */
 public class MonsterSpawner : MonoBehaviour
 {
+    public enum DifficultyEnum
+    {
+        Easy, Normal, Hard
+    }
+    public DifficultyEnum Difficulty = DifficultyEnum.Hard;
     [Tooltip("Time between entering the room and mobs spawning")]
     public float SpawnDelay;
+    [System.Serializable]
+    public struct SpawnDataLists
+    {
+        public List<SpawnData> Easy;
+        public List<SpawnData> Normal;
+        public List<SpawnData> Hard;
+    }
     [Tooltip("Spawn Data for each level (should match number of levels in dungeon manager)")]
-    public List<SpawnData> SpawnDataList;
+    public SpawnDataLists SpawnDataInfo;
 
     const float CEILING_HEIGHT = 3.3f;
     const float FLOOR_HEIGHT = -3.4f;
+
 
     private bool _spawnMobs;
     private int _waveNumber;
@@ -68,7 +81,24 @@ public class MonsterSpawner : MonoBehaviour
     //Used by DungeonManager to start mob spawning
     public void SpawnMobs(int level, int stage)
     {
-        _spawn_data = SpawnDataList[level];
+        List<SpawnData> list;
+        switch (Difficulty)
+        {
+            case DifficultyEnum.Easy:
+                list = SpawnDataInfo.Easy;
+                break;
+            case DifficultyEnum.Normal:
+                list = SpawnDataInfo.Normal;
+                break;
+            case DifficultyEnum.Hard:
+                list = SpawnDataInfo.Hard;
+                break;
+            default:
+                list = SpawnDataInfo.Hard;
+                break;
+        }
+
+        _spawn_data = list[level];
         _waveNumber = 0;
         _stageNumber = stage;
         _room_transform = _dungeon_manager.RoomStage.transform;
@@ -141,5 +171,25 @@ public class MonsterSpawner : MonoBehaviour
         _waveNumber = 0;
         _stageNumber = 0;
         StopAllCoroutines();
+    }
+
+    //2/22, Used for Demo Difficulty Selection
+    public void SetDifficulty(int difficulty) //int because the editer can't serialize enums for button events
+    {
+        switch (difficulty)
+        {
+            case 0:
+                Difficulty = DifficultyEnum.Easy;
+                break;
+            case 1:
+                Difficulty = DifficultyEnum.Normal;
+                break;
+            case 2:
+                Difficulty = DifficultyEnum.Hard;
+                break;
+            default:
+                Difficulty = DifficultyEnum.Hard;
+                break;
+        }
     }
 }

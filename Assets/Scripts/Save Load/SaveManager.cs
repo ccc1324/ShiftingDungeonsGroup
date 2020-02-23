@@ -14,6 +14,7 @@ public class SaveManager : MonoBehaviour
     private DungeonManager _dungeon_manager;
     private Animator _animator;
     private AudioSource _audio_source;
+    private MonsterSpawner _monster_spawner;
     public AudioSource SecondaryAudioSource;
     public GameObject KeyPressAnimation;
 
@@ -24,6 +25,7 @@ public class SaveManager : MonoBehaviour
         _inventory = FindObjectOfType<Inventory>();
         _equipment = FindObjectOfType<Equipment>();
         _dungeon_manager = FindObjectOfType<DungeonManager>();
+        _monster_spawner = FindObjectOfType<MonsterSpawner>();
         _animator = GetComponent<Animator>();
         _audio_source = GetComponent<AudioSource>();
     }
@@ -43,6 +45,7 @@ public class SaveManager : MonoBehaviour
 
             saveData.Level = _dungeon_manager.Level;
             saveData.MaxLevel = _dungeon_manager.MaxLevel;
+            saveData.Difficulty = _monster_spawner.Difficulty;
 
             saveData.InventoryItemNames = new string[_inventory.InventorySlots.Count];
             for (int i = 0; i < _inventory.InventorySlots.Count; i++)

@@ -12,7 +12,7 @@ public class ColorChange : StateMachineBehaviour
 {
     public string Name; //Name of object sprite renderer is attached to
     public Color NewColor;
-    public float StartDelay; //Time between entering state and color change
+    public float StartDelay; //Time between entering state and color change, not included in loop time
     public float LerpTime; //Time it takes to lerp to NewColor
     public float NewColorTime; //Time spent with Color = NewColor
     public float UnLerpTime; //Time it takes to lerp to original color
@@ -56,7 +56,7 @@ public class ColorChange : StateMachineBehaviour
         {
             _sprite_renderer.color = _originial_color;
             if (Loop)
-                _start_time = Time.time;
+                _start_time = Time.time - StartDelay;
         }
 
     }

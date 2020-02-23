@@ -1424,10 +1424,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Health: 10
-  XFlyingSpeed: 1
-  YFlyingSpeed: 2
+  XFlyingSpeed: 1.5
+  YFlyingSpeed: 2.5
   ZigZagInterval: 2
-  DeathGravityScale: 0.4
+  DeathGravityScale: 0.2
 --- !u!1 &7795591689980760577
 GameObject:
   m_ObjectHideFlags: 0
