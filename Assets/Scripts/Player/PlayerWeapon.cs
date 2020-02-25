@@ -57,7 +57,7 @@ public class PlayerWeapon : MonoBehaviour
             _weapon_hitbox = gameObject.AddComponent<PolygonCollider2D>();
             _weapon_hitbox.isTrigger = true;
 
-            _audio_source.volume = SFXDatas[SFXID].volume;
+            _audio_source.volume = SFXDatas[SFXID].volume * PlayerPrefsController.GetSoundVolume();
             _audio_source.PlayOneShot(SFXDatas[SFXID].clip);
         }
         else if (!EnableWeaponHitbox && _hitbox_enabled)

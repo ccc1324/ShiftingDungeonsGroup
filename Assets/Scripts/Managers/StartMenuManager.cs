@@ -38,6 +38,7 @@ public class StartMenuManager : MonoBehaviour
         _player_inventory = Player.GetComponent<PlayerInventory>();
         _player_animator = Player.GetComponent<Animator>();
         _audio_source = GetComponent<AudioSource>();
+        _audio_source.volume = _audio_source.volume * PlayerPrefsController.GetSoundVolume();
 
         _player_inventory.Stunned = true;
         _player_animator.SetBool("Dead", true);

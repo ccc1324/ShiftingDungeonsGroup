@@ -60,7 +60,7 @@ public class Player : MonoBehaviour
         if (_health <= 0)
         {
             _audio_source.PlayOneShot(DeathSFX);
-            _audio_source.volume = DeathSFXVolume;
+            _audio_source.volume = DeathSFXVolume * PlayerPrefsController.GetSoundVolume();
             StartCoroutine(Death());
         }
     }

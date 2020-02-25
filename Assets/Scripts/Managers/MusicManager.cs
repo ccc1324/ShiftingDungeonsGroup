@@ -22,7 +22,7 @@ public class MusicManager : MonoBehaviour
     void Start()
     {
         _audio_source = GetComponent<AudioSource>();
-        SpawnMusicVolume = PlayerPrefsController.GetMusicVolume();
+        _audio_source.volume = PlayerPrefsController.GetMusicVolume();
     }
 
     public IEnumerator FadeOutMusic(float time)
@@ -32,7 +32,7 @@ public class MusicManager : MonoBehaviour
 
         while (Time.time < startTime + time)
         {
-            _audio_source.volume = Mathf.Lerp(startVolume, 0, (Time.time - startTime) / time);
+            _audio_source.volume = Mathf.Lerp(startVolume * PlayerPrefsController.GetMusicVolume(), 0, (Time.time - startTime) / time);
             yield return null;
         }
 
@@ -47,7 +47,7 @@ public class MusicManager : MonoBehaviour
 
         while (Time.time < startTime + time)
         {
-            _audio_source.volume = Mathf.Lerp(0, newVolume, (Time.time - startTime) / time);
+            _audio_source.volume = Mathf.Lerp(0, newVolume * PlayerPrefsController.GetMusicVolume(), (Time.time - startTime) / time);
             yield return null;
         }
 
@@ -57,7 +57,7 @@ public class MusicManager : MonoBehaviour
     public void PlayMusic(AudioClip newClip, float newVolume)
     {
         _audio_source.clip = newClip;
-        _audio_source.volume = newVolume;
+        _audio_source.volume = newVolume * PlayerPrefsController.GetMusicVolume();
         _audio_source.Play();
     }
 

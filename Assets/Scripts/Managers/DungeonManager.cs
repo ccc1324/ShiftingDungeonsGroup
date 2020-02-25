@@ -175,7 +175,7 @@ public class DungeonManager : MonoBehaviour
                         _room_current.transform.position.y);
 
                     //Play Sounds
-                    _room_current.GetComponent<AudioSource>().volume = LockSFXVolume;
+                    _room_current.GetComponent<AudioSource>().volume = LockSFXVolume * PlayerPrefsController.GetSoundVolume();
                     _room_current.GetComponent<AudioSource>().PlayOneShot(LockSFX);
 
                     DungeonState = "Stage";
@@ -195,7 +195,7 @@ public class DungeonManager : MonoBehaviour
                 if (MobsCleared)
                 {
                         //Play Sounds
-                        _room_current.GetComponent<AudioSource>().volume = UnlockSFXVolume;
+                        _room_current.GetComponent<AudioSource>().volume = UnlockSFXVolume * PlayerPrefsController.GetSoundVolume();
                         _room_current.GetComponent<AudioSource>().PlayOneShot(UnlockSFX);
 
                         //Update Walls
@@ -232,7 +232,7 @@ public class DungeonManager : MonoBehaviour
                     }
                     DungeonState = "Shifting";
 
-                    _room_left.GetComponent<AudioSource>().volume = DestroySFXVolume;
+                    _room_left.GetComponent<AudioSource>().volume = DestroySFXVolume * PlayerPrefsController.GetSoundVolume();
                     _room_left.GetComponent<AudioSource>().PlayOneShot(DestroySFX);
                 }
                 else if (Player.transform.position.x < _room_current.transform.position.x - 10)
@@ -256,7 +256,7 @@ public class DungeonManager : MonoBehaviour
                     }
                     DungeonState = "Shifting";
 
-                    _room_right.GetComponent<AudioSource>().volume = DestroySFXVolume;
+                    _room_right.GetComponent<AudioSource>().volume = DestroySFXVolume * PlayerPrefsController.GetSoundVolume();
                     _room_right.GetComponent<AudioSource>().PlayOneShot(DestroySFX);
                 }
                 break;
@@ -286,7 +286,7 @@ public class DungeonManager : MonoBehaviour
                             _room_current.transform.position.x + _dungeon_size,
                             _room_current.transform.position.y);
 
-                    _room_left.GetComponent<AudioSource>().volume = DestroySFXVolume;
+                    _room_left.GetComponent<AudioSource>().volume = DestroySFXVolume * PlayerPrefsController.GetSoundVolume();
                     _room_left.GetComponent<AudioSource>().PlayOneShot(DestroySFX);
                 }
                 else if (Player.transform.position.x < _room_current.transform.position.x - 10)
@@ -311,7 +311,7 @@ public class DungeonManager : MonoBehaviour
                             _room_current.transform.position.x - _dungeon_size,
                             _room_current.transform.position.y);
 
-                    _room_right.GetComponent<AudioSource>().volume = DestroySFXVolume;
+                    _room_right.GetComponent<AudioSource>().volume = DestroySFXVolume * PlayerPrefsController.GetSoundVolume();
                     _room_right.GetComponent<AudioSource>().PlayOneShot(DestroySFX);
                 }
 
@@ -347,7 +347,7 @@ public class DungeonManager : MonoBehaviour
                             _room_current.transform.position.y);
 
                         //Play Sounds
-                        _room_current.GetComponent<AudioSource>().volume = LockSFXVolume;
+                        _room_current.GetComponent<AudioSource>().volume = LockSFXVolume * PlayerPrefsController.GetSoundVolume();
                         _room_current.GetComponent<AudioSource>().PlayOneShot(LockSFX);
 
                         DungeonState = "Stage";
@@ -392,7 +392,7 @@ public class DungeonManager : MonoBehaviour
                             _room_current.transform.position.y);
 
                         //Play Sounds
-                        _room_current.GetComponent<AudioSource>().volume = LockSFXVolume;
+                        _room_current.GetComponent<AudioSource>().volume = LockSFXVolume * PlayerPrefsController.GetSoundVolume();
                         _room_current.GetComponent<AudioSource>().PlayOneShot(LockSFX);
 
                         DungeonState = "TransitionToBossA";
@@ -439,7 +439,7 @@ public class DungeonManager : MonoBehaviour
                             _room_boss.transform.position.y);
 
                         //Play Sounds
-                        _room_boss.GetComponent<AudioSource>().volume = LockSFXVolume;
+                        _room_boss.GetComponent<AudioSource>().volume = LockSFXVolume * PlayerPrefsController.GetSoundVolume();
                         _room_boss.GetComponent<AudioSource>().PlayOneShot(LockSFX);
 
                         DungeonState = "TransitionToSpawnA";
@@ -484,7 +484,7 @@ public class DungeonManager : MonoBehaviour
                         _room_boss.transform.position.x,
                         _room_boss.transform.position.y);
 
-                    _room_boss.GetComponent<AudioSource>().volume = LockSFXVolume;
+                    _room_boss.GetComponent<AudioSource>().volume = LockSFXVolume * PlayerPrefsController.GetSoundVolume();
                     _room_boss.GetComponent<AudioSource>().PlayOneShot(LockSFX);
 
                     DungeonState = "BossFight";
@@ -566,7 +566,7 @@ public class DungeonManager : MonoBehaviour
                         _room_current.transform.position.x, 
                         _room_current.transform.position.y);
 
-                    _room_left.GetComponent<AudioSource>().volume = DestroySFXVolume;
+                    _room_left.GetComponent<AudioSource>().volume = DestroySFXVolume * PlayerPrefsController.GetSoundVolume();
                     _room_left.GetComponent<AudioSource>().PlayOneShot(DestroySFX);
 
                     RoomStage = _room_current;
@@ -608,7 +608,7 @@ public class DungeonManager : MonoBehaviour
             _room_current.transform.position.x,
             _room_current.transform.position.y);
 
-        _room_current.GetComponent<AudioSource>().volume = UnlockSFXVolume;
+        _room_current.GetComponent<AudioSource>().volume = UnlockSFXVolume * PlayerPrefsController.GetSoundVolume();
         _room_current.GetComponent<AudioSource>().PlayOneShot(UnlockSFX);
     }
 
@@ -626,7 +626,7 @@ public class DungeonManager : MonoBehaviour
             _room_boss.transform.position.x,
             _room_boss.transform.position.y);
 
-        _room_boss.GetComponent<AudioSource>().volume = UnlockSFXVolume;
+        _room_boss.GetComponent<AudioSource>().volume = UnlockSFXVolume * PlayerPrefsController.GetSoundVolume();
         _room_boss.GetComponent<AudioSource>().PlayOneShot(UnlockSFX);
     }
 

@@ -44,7 +44,7 @@ public class OnAttackDash : StateMachineBehaviour
         if (Time.time > _startTime + AttackStartBuffer && Time.time > _time_of_last_dash + DashDelay && _attack_count > 0)
         {
             if (AttackSFX != null)
-                animator.GetComponent<AudioSource>().PlayOneShot(AttackSFX, AttackVolume);
+                animator.GetComponent<AudioSource>().PlayOneShot(AttackSFX, AttackVolume * PlayerPrefsController.GetSoundVolume());
             if (_player.transform.position.x > _gameObject.transform.position.x) //if player is to the right
             {
                 _rigidBody2D.velocity = new Vector2(DashVelocityX, DashVelocityY);

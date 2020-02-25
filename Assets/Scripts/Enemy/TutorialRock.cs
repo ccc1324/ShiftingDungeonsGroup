@@ -24,14 +24,14 @@ public class TutorialRock : MonoBehaviour, IEnemy
             ParticleSystem particles = Instantiate(DestroyParticleEffects, transform.position, new Quaternion());
             AudioSource audio_source = particles.gameObject.AddComponent<AudioSource>();
             audio_source.PlayOneShot(DestroySFX);
-            audio_source.volume = DestroySFXVolume;
+            audio_source.volume = DestroySFXVolume * PlayerPrefsController.GetSoundVolume();
             Destroy(gameObject);
             return;
         }
         else
         {
             Instantiate(ParticleEffects, particlePosition, new Quaternion());
-            GetComponent<AudioSource>().volume = stun ? 0.5f : 0.2f;
+            GetComponent<AudioSource>().volume = (stun ? 0.5f : 0.2f) * PlayerPrefsController.GetSoundVolume();
             GetComponent<AudioSource>().PlayOneShot(HitSFX);
         }
 

@@ -46,7 +46,7 @@ public class SlimeDashing : MonoBehaviour, IEnemy
             return;
 
         Instantiate(Particles, particlePosition, new Quaternion());
-        GetComponent<AudioSource>().volume = stun ? 0.5f : 0.2f;
+        GetComponent<AudioSource>().volume = (stun ? 0.5f : 0.2f) * PlayerPrefsController.GetSoundVolume();
         GetComponent<AudioSource>().PlayOneShot(HitSFX);
         
         Health -= damage;
