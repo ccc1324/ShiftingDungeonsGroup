@@ -63,6 +63,7 @@ public class PlayerCombat : MonoBehaviour
 
             else if (_equipment.PrimaryWeapon.Item != null)
             {
+
                 if (_attackNumber == 2)
                 {
                     _time_of_last_attack = -1; //ignores weapon cooldown when transitioning
@@ -73,10 +74,9 @@ public class PlayerCombat : MonoBehaviour
 
                 else
                 {
-                    _playerMovement.Stop();
+                    _playerMovement.InCombat = true;
                     _animator.SetBool("Attacking", true);
                     _animator.SetInteger("Weapon", _equipment.PrimaryWeapon.Item.GetWeaponAnimationKey());
-                    _playerMovement.enabled = false;
 
                     _weapon.WeaponDamage = _equipment.PrimaryWeapon.Item.WeaponDamage;
                     if (Weapon.GetComponent<PolygonCollider2D>() == null && _attackNumber != 0) //attack number check to fix a bug
@@ -101,6 +101,12 @@ public class PlayerCombat : MonoBehaviour
 
             else if (_equipment.SecondaryWeapon.Item != null)
             {
+                if (_playerMovement.Grounded)
+                {
+                    _playerMovement.Stop();
+                    _playerMovement.InCombat = true;
+                }
+
                 if (_attackNumber == 1)
                 {
                     _time_of_last_attack = -1; //ignores weapon cooldown when transitioning
@@ -111,10 +117,9 @@ public class PlayerCombat : MonoBehaviour
 
                 else
                 {
-                    _playerMovement.Stop();
+                    _playerMovement.InCombat = true;
                     _animator.SetBool("Attacking", true);
                     _animator.SetInteger("Weapon", _equipment.SecondaryWeapon.Item.GetWeaponAnimationKey());
-                    _playerMovement.enabled = false;
 
                     _weapon.WeaponDamage = _equipment.SecondaryWeapon.Item.WeaponDamage;
                     if (Weapon.GetComponent<PolygonCollider2D>() == null && _attackNumber != 0) //attack number check to fix a bug
@@ -134,7 +139,7 @@ public class PlayerCombat : MonoBehaviour
         {
             _animator.SetBool("Attacking", false);
             _animator.SetInteger("Weapon", 0);
-            _playerMovement.enabled = true;
+            _playerMovement.InCombat = false;
             _attackNumber = 0;
             //Destroy(_weaponHitbox);
         }

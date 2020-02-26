@@ -1,0 +1,43 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6d78cdfc585d08e44a9a6b5ea4dc4a0a, type: 3}
+  m_Name: SlimeSpawnData_Intro_Easy
+  m_EditorClassIdentifier: 
+  StageList:
+  - SpawnCooldown: 16
+    WaveList:
+    - WaveBuffer: 0
+      Wave: {fileID: 11400000, guid: 54d37bce8c6580b419bdcb4138b10149, type: 2}
+    - WaveBuffer: 0
+      Wave: {fileID: 11400000, guid: b6a7697e725e61b4ca15a9e023bf8741, type: 2}
+  - SpawnCooldown: 16
+    WaveList:
+    - WaveBuffer: 0
+      Wave: {fileID: 11400000, guid: 29532f3014224c541865bca1d52864bd, type: 2}
+    - WaveBuffer: 0
+      Wave: {fileID: 11400000, guid: b6a7697e725e61b4ca15a9e023bf8741, type: 2}
+  - SpawnCooldown: 16
+    WaveList:
+    - WaveBuffer: 0
+      Wave: {fileID: 11400000, guid: f1fbdb31950dc434b911934e80020db0, type: 2}
+    - WaveBuffer: 0
+      Wave: {fileID: 11400000, guid: d549a53a08f56fe4ca2363d7b094f3c1, type: 2}
+  - SpawnCooldown: 16
+    WaveList:
+    - WaveBuffer: 0
+      Wave: {fileID: 11400000, guid: 87b5fbdbbace6884d8a23bf452bfae5d, type: 2}
+    - WaveBuffer: 0
+      Wave: {fileID: 11400000, guid: f1fbdb31950dc434b911934e80020db0, type: 2}
+    - WaveBuffer: -6
+      Wave: {fileID: 11400000, guid: 87b5fbdbbace6884d8a23bf452bfae5d, type: 2}
+    - WaveBuffer: -6
+      Wave: {fileID: 11400000, guid: f1fbdb31950dc434b911934e80020db0, type: 2}

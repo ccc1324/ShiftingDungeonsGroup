@@ -1,0 +1,55 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 448caf47a2fc4174bad4769529f0f794, type: 3}
+  m_Name: TwoLevels_Hard
+  m_EditorClassIdentifier: 
+  MobsList:
+  - Prefab: {fileID: 4186563004602957431, guid: 206cc5e765f12cc409707b2ec8c5f216,
+      type: 3}
+    LeftmostPosition: -7
+    RightmostPosition: -6
+    EjectSpeed: 0
+  - Prefab: {fileID: 4186563004602957431, guid: 206cc5e765f12cc409707b2ec8c5f216,
+      type: 3}
+    LeftmostPosition: 6
+    RightmostPosition: 7
+    EjectSpeed: 0
+  - Prefab: {fileID: 4186563004602957431, guid: f0c210a796235fd45a872151d54cf4b3,
+      type: 3}
+    LeftmostPosition: 1.5
+    RightmostPosition: 4.5
+    EjectSpeed: 0
+  - Prefab: {fileID: 4186563004602957431, guid: f0c210a796235fd45a872151d54cf4b3,
+      type: 3}
+    LeftmostPosition: -1.5
+    RightmostPosition: -4.5
+    EjectSpeed: 0
+  - Prefab: {fileID: 6544853163543370353, guid: 2c1703b6295542f43b18cba3305a9bda,
+      type: 3}
+    LeftmostPosition: 1.5
+    RightmostPosition: 4.5
+    EjectSpeed: 0
+  - Prefab: {fileID: 6544853163543370353, guid: 2c1703b6295542f43b18cba3305a9bda,
+      type: 3}
+    LeftmostPosition: 1.5
+    RightmostPosition: 4.5
+    EjectSpeed: 0
+  - Prefab: {fileID: 6544853163543370353, guid: 2c1703b6295542f43b18cba3305a9bda,
+      type: 3}
+    LeftmostPosition: -1.5
+    RightmostPosition: -4.5
+    EjectSpeed: 0
+  - Prefab: {fileID: 6544853163543370353, guid: 2c1703b6295542f43b18cba3305a9bda,
+      type: 3}
+    LeftmostPosition: -1.5
+    RightmostPosition: -4.5
+    EjectSpeed: 0

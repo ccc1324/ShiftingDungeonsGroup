@@ -10,8 +10,8 @@ GameObject:
   m_Component:
   - component: {fileID: 3059298937260210405}
   - component: {fileID: 3059298937260210402}
-  - component: {fileID: 3059298937260210400}
   - component: {fileID: 3059298937260210401}
+  - component: {fileID: 5824642570086136309}
   m_Layer: 11
   m_Name: SpikesLeft_Wooden
   m_TagString: Untagged
@@ -83,32 +83,6 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
---- !u!61 &3059298937260210400
-BoxCollider2D:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 3059298937260210414}
-  m_Enabled: 1
-  m_Density: 1
-  m_Material: {fileID: 0}
-  m_IsTrigger: 1
-  m_UsedByEffector: 0
-  m_UsedByComposite: 0
-  m_Offset: {x: -0.39062762, y: 0.08983433}
-  m_SpriteTilingProperty:
-    border: {x: 0, y: 0, z: 0, w: 0}
-    pivot: {x: 0.5, y: 0.555}
-    oldSize: {x: 1, y: 0.9}
-    newSize: {x: 1.005, y: 0.9}
-    adaptiveTilingThreshold: 0.5
-    drawMode: 0
-    adaptiveTiling: 0
-  m_AutoTiling: 0
-  serializedVersion: 2
-  m_Size: {x: 0.14108896, y: 0.5401218}
-  m_EdgeRadius: 0
 --- !u!114 &3059298937260210401
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -124,4 +98,20 @@ MonoBehaviour:
   ParticleEffects: {fileID: 0}
   Damage: 1
   OneWay: 1
-  OneWayTrigger: {fileID: 3059298937260210400}
+  OneWayTrigger: {fileID: 5824642570086136309}
+--- !u!58 &5824642570086136309
+CircleCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3059298937260210414}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: -0.44590333, y: 0.3423816}
+  serializedVersion: 2
+  m_Radius: 0.0035414994

@@ -14,7 +14,11 @@ public class PlayerMovement : MonoBehaviour
     public float LandSFXVolume;
     public bool Grounded;
     public bool Stunned;
+    public bool InCombat;
+    public float JumpTime;
 
+    private bool _isJumping;
+    private float _jumpTimeCounter;
     private float _moveSpeed;
     private Rigidbody2D _rigidbody;
     private Animator _animator;
@@ -36,46 +40,77 @@ public class PlayerMovement : MonoBehaviour
 
         _animator.SetFloat("VerticalSpeed", _rigidbody.velocity.y);
 
-        #region Movement
-        if (Input.GetKey("a"))
+        if (InCombat && Grounded)
         {
-            _moveSpeed = _moveSpeed > 0 ? 0 : _moveSpeed - Acceleration;
-            _moveSpeed = _moveSpeed < -MaxSpeed ? -MaxSpeed : _moveSpeed;
-
-            _rigidbody.velocity = new Vector2(_moveSpeed * Time.fixedDeltaTime, _rigidbody.velocity.y);
-            transform.eulerAngles = new Vector3(0, 180, 0);
-            _animator.SetBool("Running", true);
-        }
-        else if (Input.GetKey("d"))
-        {
-            _moveSpeed = _moveSpeed < 0 ? 0 : _moveSpeed + Acceleration;
-            _moveSpeed = _moveSpeed > MaxSpeed ? MaxSpeed : _moveSpeed;
-
-            _rigidbody.velocity = new Vector2(_moveSpeed * Time.fixedDeltaTime, _rigidbody.velocity.y);
-            transform.eulerAngles = new Vector3(0, 0, 0);
-            _animator.SetBool("Running", true);
+            Stop();
+            if (Input.GetKey("a"))
+                transform.eulerAngles = new Vector3(0, 180, 0);
+            else if (Input.GetKey("d"))
+                transform.eulerAngles = new Vector3(0, 0, 0);
         }
         else
         {
-            _moveSpeed = 0;
-            _rigidbody.velocity = new Vector2(0, _rigidbody.velocity.y);
-            _animator.SetBool("Running", false);
+            #region Movement
+            if (Input.GetKey("a"))
+            {
+                _moveSpeed = _moveSpeed > 0 ? 0 : _moveSpeed - Acceleration;
+                _moveSpeed = _moveSpeed < -MaxSpeed ? -MaxSpeed : _moveSpeed;
+
+                _rigidbody.velocity = new Vector2(_moveSpeed * Time.fixedDeltaTime, _rigidbody.velocity.y);
+                transform.eulerAngles = new Vector3(0, 180, 0);
+                _animator.SetBool("Running", true);
+            }
+            else if (Input.GetKey("d"))
+            {
+                _moveSpeed = _moveSpeed < 0 ? 0 : _moveSpeed + Acceleration;
+                _moveSpeed = _moveSpeed > MaxSpeed ? MaxSpeed : _moveSpeed;
+
+                _rigidbody.velocity = new Vector2(_moveSpeed * Time.fixedDeltaTime, _rigidbody.velocity.y);
+                transform.eulerAngles = new Vector3(0, 0, 0);
+                _animator.SetBool("Running", true);
+            }
+            else
+            {
+                _moveSpeed = 0;
+                _rigidbody.velocity = new Vector2(0, _rigidbody.velocity.y);
+                _animator.SetBool("Running", false);
+            }
+            #endregion
         }
-        #endregion
+
 
         #region Jumping
-        if (Input.GetKeyDown(";"))
+        if (Input.GetKeyDown(";") && !InCombat)
         {
             if (Grounded == true)
             {
                 _rigidbody.velocity = new Vector2(_rigidbody.velocity.x, JumpForce);
                 Grounded = false;
+                _jumpTimeCounter = JumpTime;
+                _isJumping = true;
                 _animator.SetBool("Running", false);
                 _animator.SetBool("Grounded", false);
 
                 _audio_source.volume = JumpSFXVolume * PlayerPrefsController.GetSoundVolume();
                 _audio_source.PlayOneShot(JumpSFX);
             }
+        }
+        if (Input.GetKey(";") && !Grounded)
+        {
+            if (_jumpTimeCounter > 0 && _isJumping)
+            {
+                _rigidbody.velocity = new Vector2(_rigidbody.velocity.x, JumpForce);
+                _jumpTimeCounter -= Time.deltaTime;
+            }
+            else
+            {
+                _isJumping = false;
+            }
+        }
+
+        if (Input.GetKeyUp(";"))
+        {
+            _isJumping = false;
         }
         #endregion
     }
