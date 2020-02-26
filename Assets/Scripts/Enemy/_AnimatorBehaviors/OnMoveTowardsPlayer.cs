@@ -13,8 +13,10 @@ public class OnMoveTowardsPlayer : StateMachineBehaviour
     public float MoveSpeed;
     public bool Delayed;
     public float DelayTime;
+    public Vector2 RaycastOffset = new Vector2(.15f, -.5f);
 
     private string _state;
+    private bool _frozen = false;
     private float _time_of_last_direction_change;
     private GameObject _player;
     private GameObject _gameObject;
@@ -34,9 +36,13 @@ public class OnMoveTowardsPlayer : StateMachineBehaviour
 
     public override void OnStateUpdate(Animator animator, AnimatorStateInfo animatorStateInfo, int layerIndex)
     {
+        //Debug.Log(_frozen);
         if (_state == "left") //if currently moving left
         {
-            MoveLeft();
+            if (!_frozen)
+            {
+                MoveLeft();
+            }
             if (_player.transform.position.x > _gameObject.transform.position.x) //if player is to the right
             {
                 if (Delayed)
@@ -51,14 +57,23 @@ public class OnMoveTowardsPlayer : StateMachineBehaviour
 
         else if (_state == "transition_to_right")
         {
-            MoveLeft();
+            if (!_frozen)
+            {
+                MoveLeft();
+            }
             if (Time.time > _time_of_last_direction_change + DelayTime)
+            {
+                _frozen = false;
                 _state = "right";
+            }
         }
 
         else if (_state == "right")//if currently moving right
         {
-            MoveRight();
+            if (!_frozen)
+            {
+                MoveRight();
+            }
             if (_player.transform.position.x < _gameObject.transform.position.x)
             {
                 if (Delayed)
@@ -73,9 +88,15 @@ public class OnMoveTowardsPlayer : StateMachineBehaviour
 
         else if (_state == "transition_to_left")
         {
-            MoveRight();
-            if (Time.time > _time_of_last_direction_change + DelayTime)
+            if (!_frozen)
+            {
+                MoveRight();
+            }
+            if (Time.time > _time_of_last_direction_change + DelayTime) 
+            { 
                 _state = "left";
+                _frozen = false;
+            }
         }
     }
 
@@ -83,12 +104,39 @@ public class OnMoveTowardsPlayer : StateMachineBehaviour
     {
         _rigidbody.velocity = new Vector2(MoveSpeed * Time.fixedDeltaTime, _rigidbody.velocity.y);
         _gameObject.transform.eulerAngles = new Vector3(0, 0, 0);
+        CheckForLedge();
     }
 
     private void MoveLeft()
     {
         _rigidbody.velocity = new Vector2(-MoveSpeed * Time.fixedDeltaTime, _rigidbody.velocity.y);
         _gameObject.transform.eulerAngles = new Vector3(0, 180, 0);
+        CheckForLedge();
     }
 
+    private void CheckForLedge()
+    {
+        if(_gameObject.transform.eulerAngles.y == 180) //If moving left
+        {
+            RaycastHit2D _leftLedge = Physics2D.Raycast(new Vector2(_gameObject.transform.position.x - RaycastOffset.x, _gameObject.transform.position.y + RaycastOffset.y), Vector2.down, 3f);
+            Debug.DrawRay(new Vector2(_gameObject.transform.position.x - RaycastOffset.x, _gameObject.transform.position.y + RaycastOffset.y), Vector2.down, Color.blue);
+            //Debug.Log(_leftLedge.collider);
+            if (_leftLedge.collider == null) 
+            { 
+                _frozen = true; //If the enemy is at a ledge, _frozen is true. This causes MoveLeft and MoveRight to not be called until it is unfrozen, when it is time to move away from the ledge
+                _rigidbody.velocity = Vector2.zero;
+            }
+        }
+        else //If moving right
+        {
+            RaycastHit2D _rightLedge = Physics2D.Raycast(new Vector2(_gameObject.transform.position.x + RaycastOffset.x, _gameObject.transform.position.y + RaycastOffset.y), Vector2.down, 3f);
+            Debug.DrawRay(new Vector2(_gameObject.transform.position.x + RaycastOffset.x, _gameObject.transform.position.y + RaycastOffset.y), Vector2.down, Color.blue);
+            //Debug.Log(_rightLedge.collider);
+            if(_rightLedge.collider == null) 
+            { 
+                _frozen = true;
+                _rigidbody.velocity = Vector2.zero;
+            }
+        }
+    }
 }

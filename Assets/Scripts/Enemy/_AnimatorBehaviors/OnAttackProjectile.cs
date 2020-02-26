@@ -55,7 +55,7 @@ public class OnAttackProjectile : StateMachineBehaviour
         if (Time.time > _startTime + AttackStartBuffer && Time.time > _time_of_last_shot + ShotDelay && _attack_count > 0)
         {
             if (AttackSFX != null)
-                animator.GetComponent<AudioSource>().PlayOneShot(AttackSFX, AttackVolume);
+                animator.GetComponent<AudioSource>().PlayOneShot(AttackSFX, AttackVolume * PlayerPrefsController.GetSoundVolume());
 
             GameObject projectile;
             Rigidbody2D rb;

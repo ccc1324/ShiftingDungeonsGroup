@@ -50,7 +50,7 @@ public class UIItem : MonoBehaviour, IPointerClickHandler, IPointerEnterHandler,
         SelectedItem.Item = temp_item;
         if (Equipment && Item != null)
         {
-            _audio_source.volume = EquipSFXVolume;
+            _audio_source.volume = EquipSFXVolume * PlayerPrefsController.GetSoundVolume();
             _audio_source.PlayOneShot(EquipSFX);
             EquipmentStats.Item = Item;
             EquipmentStats.UpdateItem();
@@ -59,7 +59,7 @@ public class UIItem : MonoBehaviour, IPointerClickHandler, IPointerEnterHandler,
             EquipmentStats.ClearItem();
         if (DropItem && Item != null)
         {
-            _audio_source.volume = DropSFXVolume;
+            _audio_source.volume = DropSFXVolume * PlayerPrefsController.GetSoundVolume();
             _audio_source.PlayOneShot(DropSFX);
             GameObject clone = Instantiate(ItemPrefab, Player.position, Quaternion.Euler(new Vector3(0, 0, -45)));
             clone.GetComponent<Rigidbody2D>().velocity = new Vector2(0, 20);

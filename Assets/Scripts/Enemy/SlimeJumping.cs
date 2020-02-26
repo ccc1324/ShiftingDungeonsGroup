@@ -81,7 +81,7 @@ public class SlimeJumping : MonoBehaviour, IEnemy
         }
 
         Instantiate(Particles, particlePosition, new Quaternion());
-        _audio_source.volume = stun ? 0.5f : 0.2f;
+        _audio_source.volume = (stun ? 0.5f : 0.2f) * PlayerPrefsController.GetSoundVolume();
         _audio_source.PlayOneShot(HitSFX);
 
         Health -= damage;
@@ -101,7 +101,7 @@ public class SlimeJumping : MonoBehaviour, IEnemy
     IEnumerator Attack()
     {
         yield return new WaitForSeconds(1f);
-
+        
         _audio_source.PlayOneShot(JumpSFX);
 
         _rigidbody.velocity = new Vector2(0, JumpForce);

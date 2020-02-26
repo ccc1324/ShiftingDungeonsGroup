@@ -36,7 +36,7 @@ public class PlayerStun : MonoBehaviour
     {
         float startTime = Time.time;
         GetComponent<AudioSource>().PlayOneShot(StunSFX);
-        GetComponent<AudioSource>().volume = StunSFXVolume;
+        GetComponent<AudioSource>().volume = StunSFXVolume * PlayerPrefsController.GetSoundVolume();
         if (_stun_effect != null)
             _stun_effect.Stun(StunDuration);
         else
