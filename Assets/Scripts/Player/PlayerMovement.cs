@@ -15,10 +15,11 @@ public class PlayerMovement : MonoBehaviour
     public bool Grounded;
     public bool Stunned;
     public bool InCombat;
-    public float JumpTime;
+    public float MaxJumpCoefficient;
+    public float MinimumJumpCoefficient;
 
     private bool _isJumping;
-    private float _jumpTimeCounter;
+    private float _jumpTimeStart;
     private float _moveSpeed;
     private Rigidbody2D _rigidbody;
     private Animator _animator;
@@ -84,32 +85,26 @@ public class PlayerMovement : MonoBehaviour
         {
             if (Grounded == true)
             {
-                _rigidbody.velocity = new Vector2(_rigidbody.velocity.x, JumpForce);
                 Grounded = false;
-                _jumpTimeCounter = JumpTime;
                 _isJumping = true;
-                _animator.SetBool("Running", false);
-                _animator.SetBool("Grounded", false);
-
-                _audio_source.volume = JumpSFXVolume;
-                _audio_source.PlayOneShot(JumpSFX);
-            }
-        }
-        if (Input.GetKey(";") && !Grounded)
-        {
-            if (_jumpTimeCounter > 0 && _isJumping)
-            {
-                _rigidbody.velocity = new Vector2(_rigidbody.velocity.x, JumpForce);
-                _jumpTimeCounter -= Time.deltaTime;
-            }
-            else
-            {
-                _isJumping = false;
+                _jumpTimeStart = Time.time;
             }
         }
 
-        if (Input.GetKeyUp(";"))
+        if (_isJumping && (Input.GetKeyUp(";") || Time.time - _jumpTimeStart >= MaxJumpCoefficient))
         {
+            _animator.SetBool("Running", false);
+            _animator.SetBool("Grounded", false);
+            _audio_source.volume = JumpSFXVolume;
+            _audio_source.PlayOneShot(JumpSFX);
+
+            float JumpCoefficient = Time.time - _jumpTimeStart;
+            if (JumpCoefficient > MaxJumpCoefficient)
+                JumpCoefficient = MaxJumpCoefficient;
+            else if (JumpCoefficient < MinimumJumpCoefficient)
+                JumpCoefficient = MinimumJumpCoefficient;
+
+            _rigidbody.velocity = new Vector2(_rigidbody.velocity.x, JumpForce*JumpCoefficient);
             _isJumping = false;
         }
         #endregion
