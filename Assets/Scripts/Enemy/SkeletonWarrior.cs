@@ -88,13 +88,13 @@ public class SkeletonWarrior : MonoBehaviour, IEnemy
             _animator.SetBool("Block", true);
             _time_of_block_start = Time.time;
 
-            GetComponent<AudioSource>().volume = 0.2f * PlayerPrefsController.GetSoundVolume();
+            GetComponent<AudioSource>().volume = 0.2f * OptionsManager.GetSoundVolume();
             GetComponent<AudioSource>().PlayOneShot(BlockSFX);
             return;
         }
 
         Instantiate(Particles, particlePosition, new Quaternion());
-        GetComponent<AudioSource>().volume = (stun ? 0.5f : 0.2f) * PlayerPrefsController.GetSoundVolume();
+        GetComponent<AudioSource>().volume = (stun ? 0.5f : 0.2f) * OptionsManager.GetSoundVolume();
         GetComponent<AudioSource>().PlayOneShot(HitSFX);
 
         Health -= damage;

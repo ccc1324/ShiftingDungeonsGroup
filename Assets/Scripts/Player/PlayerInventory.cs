@@ -36,7 +36,7 @@ public class PlayerInventory : MonoBehaviour
         {
             if (ToAddItems.Count != 0)
             {
-                _audio_source.volume = PickupSFXVolume * PlayerPrefsController.GetSoundVolume();
+                _audio_source.volume = PickupSFXVolume * OptionsManager.GetSoundVolume();
                 _audio_source.PlayOneShot(PickupSFX);
                 GameObject item = Inventory.AddItem(ToAddItems[0]);
                 ToAddItems.Remove(item);
@@ -58,7 +58,7 @@ public class PlayerInventory : MonoBehaviour
             Equipment.PrimaryWeapon.EquipmentStats.UpdateItem();
             Equipment.SecondaryWeapon.EquipmentStats.UpdateItem();
 
-            _audio_source.volume = OpenCloseSFXVolume * PlayerPrefsController.GetSoundVolume();
+            _audio_source.volume = OpenCloseSFXVolume * OptionsManager.GetSoundVolume();
             if (canvasGroup.alpha == 1)
                 _audio_source.PlayOneShot(OpenSFX);
             else

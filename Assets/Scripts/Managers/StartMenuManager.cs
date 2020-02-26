@@ -12,8 +12,9 @@ using TMPro;
 public class StartMenuManager : MonoBehaviour
 {
     public GameObject Player;
-    public CanvasGroup StartMenu;
-    public CanvasGroup DifficultyMenu;
+    public Fadable StartMenu;
+    public Fadable DifficultyMenu;
+    public OptionsManager OptionsMenu;
     public LoadManager LoadManager;
     public GameObject TutorialObjects;
     public GameObject PostTutorialObjects;
@@ -73,7 +74,8 @@ public class StartMenuManager : MonoBehaviour
             Debug.Log("MonsterSpawner not found (StartMenuManager)");
 
         StartCoroutine(EnableTutorial(21f)); //21 = length of tutorial transition
-        StartCoroutine(FadeOutDifficultyMenu(2f));
+        DifficultyMenu.FadeOut(2);
+        _audio_source.volume = 0.6f * OptionsManager.GetSoundVolume();
         _audio_source.PlayOneShot(ClickSFX);
         StartCoroutine(DisableTutorial()); //Destroys tutorial objects once the game starts
         StartCoroutine(DisplayStory(2, 2)); //Displays story text
@@ -82,9 +84,10 @@ public class StartMenuManager : MonoBehaviour
 
     public void NewGame()
     {
+        _audio_source.volume = 0.6f * OptionsManager.GetSoundVolume();
         _audio_source.PlayOneShot(ClickSFX);
-        StartCoroutine(FadeOutStartMenu(2f));
-        StartCoroutine(FadeInDifficultyMenu(2f, 2f));
+        StartMenu.FadeOut(1);
+        DifficultyMenu.FadeIn(1, 1);
     }
 
     public void Continue()
@@ -98,7 +101,8 @@ public class StartMenuManager : MonoBehaviour
             return;
         }
         _player.ResetPlayer(2.5f);
-        StartCoroutine(FadeOutStartMenu(2f));
+        StartMenu.FadeOut(2);
+        _audio_source.volume = 0.6f * OptionsManager.GetSoundVolume();
         _audio_source.PlayOneShot(ClickSFX);
         PostTutorialObjects.SetActive(true);
         StartCoroutine(EnablePauseMenu(2f));
@@ -106,14 +110,16 @@ public class StartMenuManager : MonoBehaviour
 
     public void Credits()
     {
-        StartCoroutine(RollCredits(2));
+        _audio_source.volume = 0.6f * OptionsManager.GetSoundVolume();
+        _audio_source.PlayOneShot(ClickSFX);
+        StartCoroutine(RollCredits(1));
     }
 
     IEnumerator RollCredits(float time)
     {
         CanvasGroup canvas = CreditsCanvas.GetComponent<CanvasGroup>();
-        StartCoroutine(FadeOutStartMenu(2f));
-        yield return new WaitForSeconds(2f);
+        StartMenu.FadeOut(1);
+        yield return new WaitForSeconds(1f);
 
         float startTime = Time.time;
         while (Time.time < startTime + time)
@@ -136,60 +142,7 @@ public class StartMenuManager : MonoBehaviour
         }
         canvas.alpha = 0;
 
-        StartMenu.interactable = true;
-        StartMenu.blocksRaycasts = true;
-
-        startTime = Time.time;
-        while (Time.time < startTime + time)
-        {
-            StartMenu.alpha = Mathf.Lerp(0, 1, (Time.time - startTime) / time);
-            yield return null;
-        }
-        StartMenu.alpha = 1;
-    }
-
-    IEnumerator FadeOutStartMenu(float time)
-    {
-        StartMenu.interactable = false;
-        StartMenu.blocksRaycasts = false;
-
-        float startTime = Time.time;
-        while (Time.time < startTime + time)
-        {
-            StartMenu.alpha = Mathf.Lerp(1, 0, (Time.time - startTime) / time);
-            yield return null;
-        }
-        StartMenu.alpha = 0;
-    }
-
-    IEnumerator FadeInDifficultyMenu(float buffer, float time)
-    {
-        yield return new WaitForSeconds(buffer);
-
-        DifficultyMenu.interactable = true;
-        DifficultyMenu.blocksRaycasts = true;
-
-        float startTime = Time.time;
-        while (Time.time < startTime + time)
-        {
-            DifficultyMenu.alpha = Mathf.Lerp(0, 1, (Time.time - startTime) / time);
-            yield return null;
-        }
-        DifficultyMenu.alpha = 1;
-    }
-
-    IEnumerator FadeOutDifficultyMenu(float time)
-    {
-        DifficultyMenu.interactable = false;
-        DifficultyMenu.blocksRaycasts = false;
-
-        float startTime = Time.time;
-        while (Time.time < startTime + time)
-        {
-            DifficultyMenu.alpha = Mathf.Lerp(1, 0, (Time.time - startTime) / time);
-            yield return null;
-        }
-        DifficultyMenu.alpha = 0;
+        StartMenu.FadeIn(1);
     }
 
     IEnumerator EnableTutorial(float time)
@@ -251,5 +204,13 @@ public class StartMenuManager : MonoBehaviour
         yield return new WaitForSeconds(time);
         if (EnablePauseMenuEvent != null)
             EnablePauseMenuEvent.Invoke();
+    }
+
+    public void FadeInOptionsMenu()
+    {
+        _audio_source.volume = 0.6f * OptionsManager.GetSoundVolume();
+        _audio_source.PlayOneShot(ClickSFX);
+        StartMenu.FadeOut(1);
+        OptionsMenu.FadeInOptionsMenu(1, 1, StartMenu);
     }
 }

@@ -37,7 +37,7 @@ public class TrainingDummy : MonoBehaviour, IEnemy
         DamageText.text = Mathf.Round(_total_damage / 10 / time).ToString();
 
         Instantiate(ParticleEffects, particlePosition, new Quaternion());
-        GetComponent<AudioSource>().volume = (stun ? 0.5f : 0.2f) * PlayerPrefsController.GetSoundVolume(); 
+        GetComponent<AudioSource>().volume = (stun ? 0.5f : 0.2f) * OptionsManager.GetSoundVolume(); 
         GetComponent<AudioSource>().PlayOneShot(HitSFX);
     }
 }

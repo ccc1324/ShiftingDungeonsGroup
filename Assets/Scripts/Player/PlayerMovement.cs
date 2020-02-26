@@ -91,7 +91,7 @@ public class PlayerMovement : MonoBehaviour
                 _animator.SetBool("Running", false);
                 _animator.SetBool("Grounded", false);
 
-                _audio_source.volume = JumpSFXVolume * PlayerPrefsController.GetSoundVolume();
+                _audio_source.volume = JumpSFXVolume * OptionsManager.GetSoundVolume();
                 _audio_source.PlayOneShot(JumpSFX);
             }
         }
@@ -123,7 +123,7 @@ public class PlayerMovement : MonoBehaviour
                 return;
             Grounded = true;
             _animator.SetBool("Grounded", true);
-            _audio_source.volume = LandSFXVolume * PlayerPrefsController.GetSoundVolume();
+            _audio_source.volume = LandSFXVolume * OptionsManager.GetSoundVolume();
             _audio_source.PlayOneShot(LandSFX);
         }
     }
