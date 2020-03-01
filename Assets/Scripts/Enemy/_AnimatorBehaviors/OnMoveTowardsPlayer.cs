@@ -36,9 +36,9 @@ public class OnMoveTowardsPlayer : StateMachineBehaviour
 
     public override void OnStateUpdate(Animator animator, AnimatorStateInfo animatorStateInfo, int layerIndex)
     {
-        Debug.DrawRay(new Vector2(_gameObject.transform.position.x + RaycastOffset.x, _gameObject.transform.position.y + RaycastOffset.y), Vector2.down, Color.blue);
-         Debug.DrawRay(new Vector2(_gameObject.transform.position.x - RaycastOffset.x, _gameObject.transform.position.y + RaycastOffset.y), Vector2.down, Color.blue);
-        //Debug.Log(_frozen);
+        //Debug.DrawRay(new Vector2(_gameObject.transform.position.x + RaycastOffset.x, _gameObject.transform.position.y + RaycastOffset.y), Vector2.down, Color.blue);
+        //Debug.DrawRay(new Vector2(_gameObject.transform.position.x - RaycastOffset.x, _gameObject.transform.position.y + RaycastOffset.y), Vector2.down, Color.blue);
+
         if (_state == "left") //if currently moving left
         {
             if (!_frozen)
@@ -117,28 +117,35 @@ public class OnMoveTowardsPlayer : StateMachineBehaviour
     }
 
     private void CheckForLedge()
-    {
-        //Debug.Log(LayerMask.NameToLayer("EnemyPlatforms"));
-        if(_gameObject.transform.eulerAngles.y == 180) //If moving left
+    {   bool _onSurface = false; //Boolean to store whether either the left cast or right cast hit a platform or the ground
+        if (_gameObject.transform.eulerAngles.y == 180) //If moving left
         {
-            RaycastHit2D _leftLedgePlatform = Physics2D.Raycast(new Vector2(_gameObject.transform.position.x - RaycastOffset.x, _gameObject.transform.position.y + RaycastOffset.y), Vector2.down, 1f, LayerMask.NameToLayer("EnemyPlatforms"));
-            RaycastHit2D _leftLedgeGround = Physics2D.Raycast(new Vector2(_gameObject.transform.position.x - RaycastOffset.x, _gameObject.transform.position.y + RaycastOffset.y), Vector2.down, 1f, LayerMask.NameToLayer("Default"));
-            Debug.Log(_leftLedgeGround.collider);
-            Debug.Log(_leftLedgePlatform.collider);
-            if (_leftLedgePlatform.collider == null && _leftLedgeGround.collider == null) 
-            { 
-                _frozen = true; //If the enemy is at a ledge, _frozen is true. This causes MoveLeft and MoveRight to not be called until it is unfrozen, when it is time to move away from the ledge
+            RaycastHit2D[] _leftHitArray = Physics2D.RaycastAll(new Vector2(_gameObject.transform.position.x - RaycastOffset.x, _gameObject.transform.position.y + RaycastOffset.y), Vector2.down, 1f);//Create an array of raycasts hits cast slightly to the left and straight down
+            foreach (RaycastHit2D hit in _leftHitArray) //Check all hits
+            {
+                if (hit.collider.gameObject.layer == LayerMask.NameToLayer("EnemyPlatforms") || hit.collider.gameObject.layer == LayerMask.NameToLayer("Default")) //
+                {
+                    _onSurface = true; //If any hits are on the ground layer, or enemy platform layer, we confirm we are on a surface
+                }
+            }
+            if (!_onSurface) //If not on a surface, freeze the enemy
+            {
+                _frozen = true;
                 _rigidbody.velocity = Vector2.zero;
             }
         }
         else //If moving right
         {
-            RaycastHit2D _rightLedgePlatform = Physics2D.Raycast(new Vector2(_gameObject.transform.position.x + RaycastOffset.x, _gameObject.transform.position.y + RaycastOffset.y), Vector2.down, 1f, LayerMask.NameToLayer("EnemyPlatforms"));
-            RaycastHit2D _rightLedgeGround = Physics2D.Raycast(new Vector2(_gameObject.transform.position.x + RaycastOffset.x, _gameObject.transform.position.y + RaycastOffset.y), Vector2.down, 1f, LayerMask.NameToLayer("Default"));
-            Debug.Log(_rightLedgeGround.collider);
-            Debug.Log(_rightLedgePlatform.collider);
-            if(_rightLedgePlatform.collider == null && _rightLedgeGround.collider == null) 
-            { 
+            RaycastHit2D[] _rightHitArray = Physics2D.RaycastAll(new Vector2(_gameObject.transform.position.x + RaycastOffset.x, _gameObject.transform.position.y + RaycastOffset.y), Vector2.down, 1f); //Create an array of raycasts hits cast slightly to the right and straight down
+            foreach (RaycastHit2D hit in _rightHitArray)
+            {
+                if (hit.collider.gameObject.layer == LayerMask.NameToLayer("EnemyPlatforms") || hit.collider.gameObject.layer == LayerMask.NameToLayer("Default"))
+                {
+                    _onSurface = true; //If any hits are on the ground layer, or enemy platform layer, we confirm we are on a surface
+                }
+            }
+            if (!_onSurface) //If not on a surface, freeze the enemy
+            {
                 _frozen = true;
                 _rigidbody.velocity = Vector2.zero;
             }
