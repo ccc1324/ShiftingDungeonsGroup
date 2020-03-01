@@ -36,6 +36,8 @@ public class OnMoveTowardsPlayer : StateMachineBehaviour
 
     public override void OnStateUpdate(Animator animator, AnimatorStateInfo animatorStateInfo, int layerIndex)
     {
+        Debug.DrawRay(new Vector2(_gameObject.transform.position.x + RaycastOffset.x, _gameObject.transform.position.y + RaycastOffset.y), Vector2.down, Color.blue);
+         Debug.DrawRay(new Vector2(_gameObject.transform.position.x - RaycastOffset.x, _gameObject.transform.position.y + RaycastOffset.y), Vector2.down, Color.blue);
         //Debug.Log(_frozen);
         if (_state == "left") //if currently moving left
         {
@@ -116,12 +118,14 @@ public class OnMoveTowardsPlayer : StateMachineBehaviour
 
     private void CheckForLedge()
     {
+        //Debug.Log(LayerMask.NameToLayer("EnemyPlatforms"));
         if(_gameObject.transform.eulerAngles.y == 180) //If moving left
         {
-            RaycastHit2D _leftLedge = Physics2D.Raycast(new Vector2(_gameObject.transform.position.x - RaycastOffset.x, _gameObject.transform.position.y + RaycastOffset.y), Vector2.down, 3f);
-            Debug.DrawRay(new Vector2(_gameObject.transform.position.x - RaycastOffset.x, _gameObject.transform.position.y + RaycastOffset.y), Vector2.down, Color.blue);
-            //Debug.Log(_leftLedge.collider);
-            if (_leftLedge.collider == null) 
+            RaycastHit2D _leftLedgePlatform = Physics2D.Raycast(new Vector2(_gameObject.transform.position.x - RaycastOffset.x, _gameObject.transform.position.y + RaycastOffset.y), Vector2.down, 1f, LayerMask.NameToLayer("EnemyPlatforms"));
+            RaycastHit2D _leftLedgeGround = Physics2D.Raycast(new Vector2(_gameObject.transform.position.x - RaycastOffset.x, _gameObject.transform.position.y + RaycastOffset.y), Vector2.down, 1f, LayerMask.NameToLayer("Default"));
+            Debug.Log(_leftLedgeGround.collider);
+            Debug.Log(_leftLedgePlatform.collider);
+            if (_leftLedgePlatform.collider == null && _leftLedgeGround.collider == null) 
             { 
                 _frozen = true; //If the enemy is at a ledge, _frozen is true. This causes MoveLeft and MoveRight to not be called until it is unfrozen, when it is time to move away from the ledge
                 _rigidbody.velocity = Vector2.zero;
@@ -129,14 +133,16 @@ public class OnMoveTowardsPlayer : StateMachineBehaviour
         }
         else //If moving right
         {
-            RaycastHit2D _rightLedge = Physics2D.Raycast(new Vector2(_gameObject.transform.position.x + RaycastOffset.x, _gameObject.transform.position.y + RaycastOffset.y), Vector2.down, 3f);
-            Debug.DrawRay(new Vector2(_gameObject.transform.position.x + RaycastOffset.x, _gameObject.transform.position.y + RaycastOffset.y), Vector2.down, Color.blue);
-            //Debug.Log(_rightLedge.collider);
-            if(_rightLedge.collider == null) 
+            RaycastHit2D _rightLedgePlatform = Physics2D.Raycast(new Vector2(_gameObject.transform.position.x + RaycastOffset.x, _gameObject.transform.position.y + RaycastOffset.y), Vector2.down, 1f, LayerMask.NameToLayer("EnemyPlatforms"));
+            RaycastHit2D _rightLedgeGround = Physics2D.Raycast(new Vector2(_gameObject.transform.position.x + RaycastOffset.x, _gameObject.transform.position.y + RaycastOffset.y), Vector2.down, 1f, LayerMask.NameToLayer("Default"));
+            Debug.Log(_rightLedgeGround.collider);
+            Debug.Log(_rightLedgePlatform.collider);
+            if(_rightLedgePlatform.collider == null && _rightLedgeGround.collider == null) 
             { 
                 _frozen = true;
                 _rigidbody.velocity = Vector2.zero;
             }
         }
     }
+
 }
