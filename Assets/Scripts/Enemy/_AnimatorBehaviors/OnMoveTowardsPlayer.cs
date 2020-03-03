@@ -13,7 +13,7 @@ public class OnMoveTowardsPlayer : StateMachineBehaviour
     public float MoveSpeed;
     public bool Delayed;
     public float DelayTime;
-    public Vector2 RaycastOffset = new Vector2(.15f, -.5f);
+    public Vector2 RaycastOffset = new Vector2(.15f, 0f);
 
     private string _state;
     private bool _frozen = false;
@@ -139,6 +139,7 @@ public class OnMoveTowardsPlayer : StateMachineBehaviour
             RaycastHit2D[] _rightHitArray = Physics2D.RaycastAll(new Vector2(_gameObject.transform.position.x + RaycastOffset.x, _gameObject.transform.position.y + RaycastOffset.y), Vector2.down, 1f); //Create an array of raycasts hits cast slightly to the right and straight down
             foreach (RaycastHit2D hit in _rightHitArray)
             {
+                Debug.Log(hit.collider);
                 if (hit.collider.gameObject.layer == LayerMask.NameToLayer("EnemyPlatforms") || hit.collider.gameObject.layer == LayerMask.NameToLayer("Default"))
                 {
                     _onSurface = true; //If any hits are on the ground layer, or enemy platform layer, we confirm we are on a surface
