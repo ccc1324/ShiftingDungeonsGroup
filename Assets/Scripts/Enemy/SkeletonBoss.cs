@@ -35,6 +35,7 @@ public class SkeletonBoss : MonoBehaviour, IEnemy
         _player_location = FindObjectOfType<PlayerInventory>().transform;
         _dungeon_manager = FindObjectOfType<DungeonManager>();
         _audio_source = GetComponent<AudioSource>();
+
     }
 
     // Update is called once per frame
