@@ -7,9 +7,7 @@ public class SkeletonBoss : MonoBehaviour, IEnemy
     public float Health = 1f;
     public float AttackCooldown = 1f;
     public float ChargeCooldown = 1f;
-    public float ChargeDelay = 1f;
     public float StunDuration = 1f;
-    public float PlatformAttackRange = 1f;
     public float PlatformHeight = 1f;   //For now, since the room isn't ready, to determine if the player is on or
                                         //below the platforms, I will check if the player position is > or < the height of the platforms in LedgesRoom_Slime
 
@@ -17,10 +15,10 @@ public class SkeletonBoss : MonoBehaviour, IEnemy
     private bool _charging = false; //When the enemy is mid charge
 
     public ParticleSystem Particles;
+    public AudioClip HitSFX;
 
     private float _time_of_last_attack;
     private float _time_of_last_charge = 0f;
-    private float _direction;
     private Rigidbody2D _rigidbody;
     private Animator _animator;
     private Transform _player_location;
@@ -63,22 +61,16 @@ public class SkeletonBoss : MonoBehaviour, IEnemy
                 
             }//We walk by default so no reason have a trigger for it
         }
-
-        //_direction = Mathf.Sign(_player_location.position.x - transform.position.x);
-
     }
 
     public void OnHit(int damage, bool stun, Vector3 particlePosition)
     {
-        Debug.Log("Skeleton boss was hit");
         if (Health <= 0)
             return;
 
-        _direction = Mathf.Sign(_player_location.position.x - transform.position.x);
-
         Instantiate(Particles, particlePosition, new Quaternion());
         _audio_source.volume = (stun ? 0.5f : 0.2f) * OptionsManager.GetSoundVolume();
-        //_audio_source.PlayOneShot(HitSFX);
+        _audio_source.PlayOneShot(HitSFX);
 
         Health -= damage;
         if (Health <= 0)
@@ -86,11 +78,13 @@ public class SkeletonBoss : MonoBehaviour, IEnemy
             //_audio_source.PlayOneShot(DeathSFX);
 
             _animator.SetBool("Dead", true);
-            //_dungeon_manager.BossDefeated = true;
+            if (_dungeon_manager != null)
+                _dungeon_manager.BossDefeated = true;
             StopAllCoroutines();
-            Destroy(gameObject, 1f);
         }
     }
+
+    //detect if player is in attack range
     private void OnTriggerStay2D(Collider2D collision)
     {
         if (collision.isTrigger)
@@ -106,7 +100,6 @@ public class SkeletonBoss : MonoBehaviour, IEnemy
 
     private void OnCollisionEnter2D(Collision2D collision)
     {
-        Debug.Log(collision.collider.tag);
         if (_charging)
         {
             if (collision.collider.tag == "Player")
@@ -119,7 +112,6 @@ public class SkeletonBoss : MonoBehaviour, IEnemy
             else if (collision.collider.tag == "Wall")
             {
                 Stop();
-                Debug.Log("Henlo");
                 //Stop charge and stun
                 _charging = false;
                 _stunned = true;

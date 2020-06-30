@@ -13,6 +13,8 @@ public class OnMoveTowardsPlayer : StateMachineBehaviour
     public float MoveSpeed;
     public bool Delayed;
     public float DelayTime;
+    [Tooltip("Invert character's rotation")]
+    public bool Inverse;
     public Vector2 RaycastOffset = new Vector2(.15f, 0f);
 
     private string _state;
@@ -113,14 +115,20 @@ public class OnMoveTowardsPlayer : StateMachineBehaviour
     private void MoveRight()
     {
         _rigidbody.velocity = new Vector2(MoveSpeed * Time.fixedDeltaTime, _rigidbody.velocity.y);
-        _gameObject.transform.eulerAngles = new Vector3(0, 0, 0);
+        if (Inverse)
+            _gameObject.transform.eulerAngles = new Vector3(0, 180, 0);
+        else
+            _gameObject.transform.eulerAngles = new Vector3(0, 0, 0);
         CheckForLedge();
     }
 
     private void MoveLeft()
     {
         _rigidbody.velocity = new Vector2(-MoveSpeed * Time.fixedDeltaTime, _rigidbody.velocity.y);
-        _gameObject.transform.eulerAngles = new Vector3(0, 180, 0);
+        if (Inverse)
+            _gameObject.transform.eulerAngles = new Vector3(0, 0, 0);
+        else
+            _gameObject.transform.eulerAngles = new Vector3(0, 180, 0);
         CheckForLedge();
     }
 
