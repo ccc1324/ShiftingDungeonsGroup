@@ -132,7 +132,7 @@ public class SlimeBoss : MonoBehaviour, IEnemy
         _direction = Mathf.Sign(_player_location.position.x - transform.position.x);
 
         Instantiate(Particles, particlePosition, new Quaternion());
-        _audio_source.volume = (stun ? 0.5f : 0.2f) * PlayerPrefsController.GetSoundVolume();
+        _audio_source.volume = (stun ? 0.5f : 0.2f) * OptionsManager.GetSoundVolume();
         _audio_source.PlayOneShot(HitSFX);
 
         Health -= damage;

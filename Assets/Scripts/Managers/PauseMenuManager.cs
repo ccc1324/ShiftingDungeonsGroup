@@ -6,28 +6,21 @@ using UnityEngine.UI;
 
 public class PauseMenuManager : MonoBehaviour
 {
-    private CanvasGroup _canvasGroup;
+    public OptionsManager OptionsMenu;
 
-    [SerializeField] Slider _music_slider;
-    [SerializeField] Slider _sound_slider;
+    private CanvasGroup _canvasGroup;
+    private Fadable _fadable;
 
     public void Start()
     {
         _canvasGroup = GetComponent<CanvasGroup>();
-        if(_music_slider && _sound_slider)
-        {
-            _music_slider.value = PlayerPrefsController.GetMusicVolume();
-            _sound_slider.value = PlayerPrefsController.GetSoundVolume();
-        }
-        
+        _fadable = GetComponent<Fadable>();
     }
 
     public void Update()
     {
         if (Input.GetKeyDown(KeyCode.M))
             ShowHideMenu();
-
-        
     }
 
     public void ShowHideMenu()
@@ -44,25 +37,16 @@ public class PauseMenuManager : MonoBehaviour
         ShowHideMenu();
     }
 
+    public void FadeInOptionsMenu()
+    {
+        _fadable.FadeOut(1);
+        OptionsMenu.FadeInOptionsMenu(1, 1, _fadable);
+    }
+
     public void LoadScene(int n)
     {
         SceneManager.LoadScene(n); //0 is the index of main scene
         enabled = false;
         ShowHideMenu();
-    }
-
-    public void SaveMusicVolume()
-    {
-        PlayerPrefsController.SetMusicVolume(_music_slider.value);
-        var _musicManager = FindObjectOfType<MusicManager>();
-        if (_musicManager)
-        {
-            _musicManager.GetComponent<AudioSource>().volume = _music_slider.value;
-        }
-    }
-
-    public void SaveSoundVolume()
-    {
-        PlayerPrefsController.SetSoundVolume(_sound_slider.value);
     }
 }

@@ -251,6 +251,7 @@ MonoBehaviour:
   MoveSpeed: 65
   Delayed: 1
   DelayTime: 0.3
+  RaycastOffset: {x: 0.15, y: 0}
 --- !u!1102 &4508383389139931301
 AnimatorState:
   serializedVersion: 5
