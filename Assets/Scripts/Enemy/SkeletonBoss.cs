@@ -13,12 +13,13 @@ public class SkeletonBoss : MonoBehaviour, IEnemy
 
     private bool _stunned = false;
     private bool _charging = false; //When the enemy is mid charge
+    private bool _idle = true;
 
     public ParticleSystem Particles;
     public AudioClip HitSFX;
 
     private float _time_of_last_attack;
-    private float _time_of_last_charge = 0f;
+    private float _time_of_last_charge;
     private Rigidbody2D _rigidbody;
     private Animator _animator;
     private Transform _player_location;
@@ -33,7 +34,6 @@ public class SkeletonBoss : MonoBehaviour, IEnemy
         _player_location = FindObjectOfType<PlayerInventory>().transform;
         _dungeon_manager = FindObjectOfType<DungeonManager>();
         _audio_source = GetComponent<AudioSource>();
-
     }
 
     // Update is called once per frame
@@ -48,23 +48,29 @@ public class SkeletonBoss : MonoBehaviour, IEnemy
          */
 
         //Update Charge bool
-        if (!_stunned && !_charging)
+        if (!_stunned && !_charging && !_idle)
         {
             if (_player_location.position.y < PlatformHeight &&
-                Time.time > _time_of_last_charge + ChargeCooldown + StunDuration)
+                Time.time > _time_of_last_charge + ChargeCooldown)
             {
                 //Charge
                 _charging = true;
-                _time_of_last_charge = Time.time;
                 _animator.SetBool("Charging", true);
 
-                
             }//We walk by default so no reason have a trigger for it
         }
     }
 
     public void OnHit(int damage, bool stun, Vector3 particlePosition)
     {
+        if (_idle)
+        {
+            _idle = false;
+            _animator.SetTrigger("Spawn");
+            _time_of_last_charge = Time.time;
+            _time_of_last_attack = Time.time;
+        }
+
         if (Health <= 0)
             return;
 
@@ -89,7 +95,7 @@ public class SkeletonBoss : MonoBehaviour, IEnemy
     {
         if (collision.isTrigger)
             return;
-        if (collision.tag == "Player" && !_stunned && !_charging)
+        if (collision.tag == "Player" && !_stunned && !_charging && !_idle)
             if (_time_of_last_attack + AttackCooldown <= Time.time)
             {
                 _animator.SetTrigger("Attack");
@@ -132,6 +138,7 @@ public class SkeletonBoss : MonoBehaviour, IEnemy
         yield return new WaitForSeconds(StunDuration);
         _stunned = false;
         _animator.SetBool("Stunned", false);
+        _time_of_last_charge = Time.time;
     }
 
 }

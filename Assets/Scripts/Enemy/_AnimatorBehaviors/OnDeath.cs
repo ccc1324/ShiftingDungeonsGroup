@@ -56,6 +56,9 @@ public class OnDeath : StateMachineBehaviour
             if (_item_drop_manager == null)
                 return;
 
+            if (ItemDropSets.Common == null)
+                return;
+
             Item item = _item_drop_manager.GetDrop(ItemDropSets.Common, ItemDropSets.Uncommon, ItemDropSets.Epic);
             _item_drop_manager.SpawnItem(_item_drop_manager.GetDrop(ItemDropSets.Common, ItemDropSets.Uncommon, ItemDropSets.Epic),
                 _gameObject.transform.position, YOffset, ItemYSpeed);

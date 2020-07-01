@@ -446,6 +446,80 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!1 &931470910
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 931470911}
+  - component: {fileID: 931470913}
+  - component: {fileID: 931470912}
+  m_Layer: 11
+  m_Name: Ground Hit Trigger
+  m_TagString: Enemy
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &931470911
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 931470910}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0.732, y: 0.666, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 1049017466992871353}
+  m_RootOrder: 3
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &931470913
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 931470910}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 02413b0e2019fce44abc5d4c7cf7f0f8, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  ParticleEffects: {fileID: 0}
+  Damage: 1
+  OneWay: 0
+  OneWayTrigger: {fileID: 0}
+--- !u!61 &931470912
+BoxCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 931470910}
+  m_Enabled: 0
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: -1.1628184, y: -0.8920032}
+  m_SpriteTilingProperty:
+    border: {x: 0, y: 0, z: 0, w: 0}
+    pivot: {x: 0, y: 0}
+    oldSize: {x: 0, y: 0}
+    newSize: {x: 0, y: 0}
+    adaptiveTilingThreshold: 0
+    drawMode: 0
+    adaptiveTiling: 0
+  m_AutoTiling: 0
+  serializedVersion: 2
+  m_Size: {x: 0.97959983, y: 1.0983315}
+  m_EdgeRadius: 0
 --- !u!1 &1147181245
 GameObject:
   m_ObjectHideFlags: 0
@@ -1283,7 +1357,7 @@ GameObject:
   - component: {fileID: 1049017466881086827}
   - component: {fileID: 1049017466881086826}
   m_Layer: 11
-  m_Name: Platform Attack Trigger
+  m_Name: Attack Trigger
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1316,9 +1390,9 @@ CapsuleCollider2D:
   m_IsTrigger: 1
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: -0.8862895, y: -0.038940117}
-  m_Size: {x: 1.5448776, y: 1.0637745}
-  m_Direction: 1
+  m_Offset: {x: -0.8862895, y: -0.5238091}
+  m_Size: {x: 1.5448776, y: 2.0335124}
+  m_Direction: 0
 --- !u!1 &1049017466923271490
 GameObject:
   m_ObjectHideFlags: 0
@@ -1391,8 +1465,8 @@ CapsuleCollider2D:
   m_IsTrigger: 0
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: -0.08367491, y: -0.008646011}
-  m_Size: {x: 1.5615568, y: 4.1774416}
+  m_Offset: {x: -0.08367491, y: -0.023519278}
+  m_Size: {x: 1.5615568, y: 4.207188}
   m_Direction: 0
 --- !u!82 &1043928277
 AudioSource:
@@ -1521,14 +1595,14 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: afae58c1256391544bee923526bea07e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  Health: 3000
+  Health: 10000
   AttackCooldown: 2
-  ChargeCooldown: 5
+  ChargeCooldown: 6
   StunDuration: 6
-  PlatformAttackRange: 1
   PlatformHeight: -3
   Particles: {fileID: 3218626813253202539, guid: 346ffb73d1bd5144c8d22b82c1c88056,
     type: 3}
+  HitSFX: {fileID: 8300000, guid: 916bb71fe03c0b046a7b47bf175d7aa8, type: 3}
 --- !u!1 &1049017466992871354
 GameObject:
   m_ObjectHideFlags: 0
@@ -1559,6 +1633,7 @@ Transform:
   - {fileID: 1049017467200170808}
   - {fileID: 1049017468588882843}
   - {fileID: 1049017466881086827}
+  - {fileID: 931470911}
   m_Father: {fileID: 1049017466923271489}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -1625,7 +1700,7 @@ CapsuleCollider2D:
   m_UsedByComposite: 0
   m_Offset: {x: -0.8862895, y: -0.038940117}
   m_Size: {x: 1.5448776, y: 1.0637745}
-  m_Direction: 1
+  m_Direction: 0
 --- !u!1 &1049017468588882844
 GameObject:
   m_ObjectHideFlags: 0
@@ -1687,6 +1762,6 @@ CapsuleCollider2D:
   m_IsTrigger: 1
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: -1.7781196, y: -0.2079688}
-  m_Size: {x: 0.53403217, y: 1.1058685}
+  m_Offset: {x: -0.96868294, y: -0.16989014}
+  m_Size: {x: 1.4678196, y: 1.2327976}
   m_Direction: 0

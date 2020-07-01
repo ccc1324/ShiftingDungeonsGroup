@@ -10,17 +10,16 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: dd388cbfb52d63541bf6492742832e82, type: 3}
-  m_Name: UndeadLevel2
+  m_Name: UndeadBoss
   m_EditorClassIdentifier: 
   Spawn: {fileID: 7982638502240541356, guid: 05d09faaf58dac74883dd58b96185cb6, type: 3}
   Filler: {fileID: 2579569235598798443, guid: d7b292df23e6c3043a33185f8a6c9910, type: 3}
   Stages:
-  - {fileID: 4992999972151384172, guid: cf9f534a044db0144b14f9b34dd55850, type: 3}
-  - {fileID: 6908505977201909019, guid: d26ac271d1f89c64e97481aeb8a3f8e2, type: 3}
   - {fileID: 3109448219124973978, guid: 9f8c5190407ff6b4f8fcf3b2cd81c665, type: 3}
   ShiftingRoom: {fileID: 3109448219124973978, guid: 9f8c5190407ff6b4f8fcf3b2cd81c665,
     type: 3}
-  BossRoom: {fileID: 0}
+  BossRoom: {fileID: 7429490016336324786, guid: e93a3e514f763ca42b32085601c5797a,
+    type: 3}
   Walls:
     SpawnWallsLeft: {fileID: 8498974615535964153, guid: 7df33bf1a29e5ba488d3e0756cd7da72,
       type: 3}

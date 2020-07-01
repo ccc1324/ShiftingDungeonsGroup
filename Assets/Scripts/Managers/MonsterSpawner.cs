@@ -45,9 +45,16 @@ public class MonsterSpawner : MonoBehaviour
 
     void Update()
     {
+        if (_spawnMobs && _spawn_data == null)
+        {
+            _spawnMobs = false;
+            StartCoroutine(SpawnBoss());
+        }
+
         if (_spawnMobs)
         {
             SpawnData.WaveData current_wave = _spawn_data.StageList[_stageNumber].WaveList[_waveNumber]; //for readability
+
             if (Time.time - _last_spawn_time > _spawn_data.StageList[_stageNumber].SpawnCooldown + current_wave.WaveBuffer || _mobs.Count == 0)
             {
                 //Spawn each mob in current wave and add it to _mobs list

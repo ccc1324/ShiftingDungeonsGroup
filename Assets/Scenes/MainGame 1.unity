@@ -8421,23 +8421,21 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4621b3dab2398e3448ab7d53c7bda9bc, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  Difficulty: 1
+  Difficulty: 2
   SpawnDelay: 3
   SpawnDataInfo:
     Easy:
-    - {fileID: 11400000, guid: 1842fd25b6473e441b94ee8ad89626bd, type: 2}
-    - {fileID: 11400000, guid: 68dd67c22fa608f48b3c7b9314ea68a2, type: 2}
     - {fileID: 0}
+    - {fileID: 11400000, guid: 68dd67c22fa608f48b3c7b9314ea68a2, type: 2}
+    - {fileID: 11400000, guid: 14b9bb24e57f7154cb0f1ccad07e7afd, type: 2}
     - {fileID: 11400000, guid: 14b9bb24e57f7154cb0f1ccad07e7afd, type: 2}
     Normal:
     - {fileID: 11400000, guid: 3ca355af5ea9c054a91b46729d5703a0, type: 2}
     - {fileID: 11400000, guid: e7e761caea0f65d45b4f42fac5c8ae7c, type: 2}
-    - {fileID: 0}
     - {fileID: 11400000, guid: 14b9bb24e57f7154cb0f1ccad07e7afd, type: 2}
     Hard:
     - {fileID: 11400000, guid: 12061eb8df9d39d419bcfbd7f6adc098, type: 2}
     - {fileID: 11400000, guid: 6a2967b95f3253b45acc14de26fa1b94, type: 2}
-    - {fileID: 0}
     - {fileID: 11400000, guid: 18d431952e1457243b57ef6e8f2e0141, type: 2}
 --- !u!4 &702893149
 Transform:
@@ -15020,9 +15018,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   PostTutorialObjects: {fileID: 1084815165}
   Levels:
-  - {fileID: 11400000, guid: d233d7c066dd39e47b85dc634577949b, type: 2}
-  - {fileID: 11400000, guid: 4871ccba44e42344498880a72b2b0f93, type: 2}
   - {fileID: 11400000, guid: 3a7a46615edee4844afde3895b28fbac, type: 2}
+  - {fileID: 11400000, guid: 4871ccba44e42344498880a72b2b0f93, type: 2}
   - {fileID: 11400000, guid: 550c10ac6e636314c984cd40238970eb, type: 2}
   MaxLevel: 0
   Level: 0
