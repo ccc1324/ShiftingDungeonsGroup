@@ -25,6 +25,7 @@ public class SkeletonBoss : MonoBehaviour, IEnemy
     private Transform _player_location;
     private DungeonManager _dungeon_manager;
     private AudioSource _audio_source;
+    private SkeletonBossMinionManager _minion_manager;
 
     // Start is called before the first frame update
     void Start()
@@ -34,6 +35,7 @@ public class SkeletonBoss : MonoBehaviour, IEnemy
         _player_location = FindObjectOfType<PlayerInventory>().transform;
         _dungeon_manager = FindObjectOfType<DungeonManager>();
         _audio_source = GetComponent<AudioSource>();
+        _minion_manager = GetComponent<SkeletonBossMinionManager>();
     }
 
     // Update is called once per frame
@@ -124,6 +126,8 @@ public class SkeletonBoss : MonoBehaviour, IEnemy
                 _animator.SetBool("Charging", false);
                 _animator.SetBool("Stunned", true);
                 StartCoroutine(ResetStun());
+
+                _minion_manager.SpawnMinions();
             }
         }
     }

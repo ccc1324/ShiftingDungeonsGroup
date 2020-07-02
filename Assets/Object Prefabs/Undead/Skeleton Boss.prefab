@@ -1407,6 +1407,7 @@ GameObject:
   - component: {fileID: 1043928277}
   - component: {fileID: 1043928278}
   - component: {fileID: 1043928276}
+  - component: {fileID: 2177697965952515545}
   m_Layer: 9
   m_Name: Skeleton Boss
   m_TagString: Enemy
@@ -1596,13 +1597,26 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Health: 10000
-  AttackCooldown: 2
-  ChargeCooldown: 6
+  AttackCooldown: 3
+  ChargeCooldown: 8
   StunDuration: 6
   PlatformHeight: -3
   Particles: {fileID: 3218626813253202539, guid: 346ffb73d1bd5144c8d22b82c1c88056,
     type: 3}
   HitSFX: {fileID: 8300000, guid: 916bb71fe03c0b046a7b47bf175d7aa8, type: 3}
+--- !u!114 &2177697965952515545
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1049017466923271490}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f55f2bd956b00624aa1c8aec67794a5f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Mobs: {fileID: 11400000, guid: 148fd9205d1c33e43814b20a300ee910, type: 2}
 --- !u!1 &1049017466992871354
 GameObject:
   m_ObjectHideFlags: 0

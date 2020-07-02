@@ -474,6 +474,7 @@ public class DungeonManager : MonoBehaviour
                 //Transition to boss fight
                 if (Player.transform.position.x > _room_boss.transform.position.x - _dungeon_size / 4)
                 {
+                    RoomStage = _room_boss;
                     Destroy(_room_current);
 
                     Destroy(_wall);
@@ -498,6 +499,7 @@ public class DungeonManager : MonoBehaviour
             case "BossFight":
                 if (BossDefeated)
                 {
+                    RoomStage = null;
                     _room_spawn = MyInstantiate(
                         Levels[Level].Spawn,
                         _room_boss.transform.position.x + _dungeon_size / 2 + _spawn_size / 2,
